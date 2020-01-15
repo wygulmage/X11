@@ -1,4 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Graphics.X11.Types
@@ -833,36 +835,56 @@ module Graphics.X11.Types
         xRR_Reflect_Y,
         xRR_Connected,
         xRR_Disconnected,
-        xRR_UnknownConnection
+        xRR_UnknownConnection,
+
+        -- Basic newtypes
+        XID (..),
+        Mask (..),
+        Atom (..),
+        VisualID (..),
+        Window (..),
+        Drawable (..),
+        Font (..),
+        Pixmap (..),
+        Cursor (..),
+        Colormap (..),
+        GContext (..),
+        KeyCode (..),
+        KeySym (..)
         ) where
 
 -- import Data.Int
+import Data.Bits (Bits)
 import Data.Word
 import Foreign.Marshal.Error
 import Foreign.C.Types
+import Foreign.Storable (Storable)
 
 #include "HsXlib.h"
 
 -- ToDo: use newtype
-type XID      = #{type XID}
-type Mask     = #{type Mask}
-type Atom     = #{type Atom}
-type VisualID = #{type VisualID}
-type Time     = #{type Time}
+newtype XID      = XID #{type XID}   deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Show, Storable)
+newtype Mask     = Mask #{type Mask} deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Storable)
+newtype Atom     = Atom #{type Atom} deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Storable)
+newtype VisualID = VisualID #{type VisualID}  deriving (Eq, Ord, Num, Show, Storable)
+
+type Time        = #{type Time}
 
 -- end platform dependency
 
-type Window   = XID
-type Drawable = XID
-type Font     = XID
-type Pixmap   = XID
-type Cursor   = XID
-type Colormap = XID
-type GContext = XID
+-- newtype Window   = Window XID   deriving (Eq, Ord, Show, Storable)
+type Window = Drawable
+newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Storable)
+newtype Font     = Font XID     deriving (Eq, Ord, Storable)
+-- newtype Pixmap   = Pixmap XID   deriving (Eq, Ord, Storable)
+type Pixmap = Drawable
+newtype Cursor   = Cursor XID   deriving (Eq, Ord, Storable)
+newtype Colormap = Colormap XID deriving (Eq, Ord, Storable)
+newtype GContext = GContext XID deriving (Eq, Ord, Storable)
 
-type KeyCode  = #{type KeyCode}
+newtype KeyCode  = KeyCode #{type KeyCode} deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Show, Storable)
 
-type KeySym   = XID
+newtype KeySym   = KeySym XID deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Show, Storable)
 
 #{enum KeySym,
  , xK_VoidSymbol        = XK_VoidSymbol
