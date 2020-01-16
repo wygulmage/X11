@@ -440,10 +440,7 @@ getEvent p = do
           -- MapNotifyEvent
           -------------------
           | type_ == mapNotify -> do
-            event             <- #{peek XMapEvent, event}  p
-            window            <- #{peek XMapEvent, window} p
-            override_redirect <- #{peek XMapEvent, override_redirect} p
-            return $ MapNotifyEvent
+            return (\ event window override_redirect -> MapNotifyEvent
                         { ev_event_type        = type_
                         , ev_serial            = serial
                         , ev_send_event        = send_event
@@ -451,7 +448,10 @@ getEvent p = do
                         , ev_event             = event
                         , ev_window            = window
                         , ev_override_redirect = override_redirect
-                        }
+                        })
+                `ap` #{peek XMapEvent, event}  p
+                `ap` #{peek XMapEvent, window} p
+                `ap` #{peek XMapEvent, override_redirect} p
 
           -------------------
           -- MappingNotifyEvent
