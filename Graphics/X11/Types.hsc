@@ -854,7 +854,8 @@ module Graphics.X11.Types
         ) where
 
 -- import Data.Int
-import Data.Bits (Bits)
+import Data.Bits (Bits, FiniteBits, (.|.))
+import Data.Semigroup
 import Data.Word
 import Foreign.Marshal.Error
 import Foreign.C.Types
@@ -863,28 +864,44 @@ import Foreign.Storable (Storable)
 #include "HsXlib.h"
 
 -- ToDo: use newtype
-newtype XID      = XID #{type XID}   deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Show, Storable)
-newtype Mask     = Mask #{type Mask} deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Storable)
-newtype Atom     = Atom #{type Atom} deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Storable)
-newtype VisualID = VisualID #{type VisualID}  deriving (Eq, Ord, Num, Show, Storable)
+newtype XID = XID #{type XID}
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+
+newtype Mask = Mask #{type Mask}
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+
+instance Semigroup Mask where
+    (<>) = (.|.)
+
+instance Monoid Mask where
+    mempty = 0
+
+newtype Atom = Atom #{type Atom}
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+
+newtype VisualID = VisualID #{type VisualID}
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 type Time        = #{type Time}
 
 -- end platform dependency
 
+-- newtype Pixmap   = Pixmap XID   deriving (Eq, Ord, Storable)
 -- newtype Window   = Window XID   deriving (Eq, Ord, Show, Storable)
 type Window = Drawable
+type Pixmap = Drawable
+
 newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Storable)
 newtype Font     = Font XID     deriving (Eq, Ord, Storable)
--- newtype Pixmap   = Pixmap XID   deriving (Eq, Ord, Storable)
-type Pixmap = Drawable
 newtype Cursor   = Cursor XID   deriving (Eq, Ord, Storable)
 newtype Colormap = Colormap XID deriving (Eq, Ord, Storable)
 newtype GContext = GContext XID deriving (Eq, Ord, Storable)
 
-newtype KeyCode  = KeyCode #{type KeyCode} deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Show, Storable)
+newtype KeyCode  = KeyCode #{type KeyCode}
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
-newtype KeySym   = KeySym XID deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, Show, Storable)
+newtype KeySym   = KeySym XID
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 #{enum KeySym,
  , xK_VoidSymbol        = XK_VoidSymbol
