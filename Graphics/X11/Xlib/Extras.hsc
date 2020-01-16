@@ -415,16 +415,26 @@ getEvent p = do
           -- MapRequestEvent:
           -------------------
           | type_ == mapRequest -> do
-            parent <- #{peek XMapRequestEvent, parent} p
-            window <- #{peek XMapRequestEvent, window} p
-            return $ MapRequestEvent
-                        { ev_event_type    = type_
-                        , ev_serial        = serial
-                        , ev_send_event    = send_event
+            -- parent <- #{peek XMapRequestEvent, parent} p
+            -- window <- #{peek XMapRequestEvent, window} p
+            -- return $ MapRequestEvent
+            --             { ev_event_type    = type_
+            --             , ev_serial        = serial
+            --             , ev_send_event    = send_event
+            --             , ev_event_display = display
+            --             , ev_parent        = parent
+            --             , ev_window        = window
+            --             }
+            return (\ parent window -> MapRequestEvent
+                        { ev_event_type = type_
+                        , ev_serial = serial
+                        , ev_send_event = send_event
                         , ev_event_display = display
-                        , ev_parent        = parent
-                        , ev_window        = window
-                        }
+                        , ev_parent = parent
+                        , ev_window = window
+                        })
+                `ap` #{peek XMapRequestEvent, parent} p
+                `ap` #{peek XMapRequestEvent, window} p
 
           -------------------
           -- MapNotifyEvent
