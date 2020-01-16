@@ -891,11 +891,11 @@ type Time        = #{type Time}
 type Window = Drawable
 type Pixmap = Drawable
 
-newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Storable)
-newtype Font     = Font XID     deriving (Eq, Ord, Storable)
-newtype Cursor   = Cursor XID   deriving (Eq, Ord, Storable)
-newtype Colormap = Colormap XID deriving (Eq, Ord, Storable)
-newtype GContext = GContext XID deriving (Eq, Ord, Storable)
+newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Read, Storable)
+newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
+newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable)
+newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
+newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
 
 newtype KeyCode  = KeyCode #{type KeyCode}
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
