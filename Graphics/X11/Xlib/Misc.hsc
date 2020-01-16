@@ -254,6 +254,7 @@ foreign import ccall unsafe "HsXlib.h XSetInputFocus"
 foreign import ccall unsafe "HsXlib.h XGrabButton"
         grabButton     :: Display -> Button -> ButtonMask -> Window -> Bool -> EventMask -> GrabMode -> GrabMode -> Window -> Cursor -> IO ()
 
+
 -- | interface to the X11 library function @XUngrabButton()@.
 foreign import ccall unsafe "HsXlib.h XUngrabButton"
         ungrabButton   :: Display -> Button -> ButtonMask -> Window -> IO ()

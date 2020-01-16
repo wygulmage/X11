@@ -911,6 +911,12 @@ instance Storable WindowChanges where
 none :: XID
 none = #{const None}
 
+noWindow :: Window
+noWindow = Drawable none
+
+noCursor :: Cursor
+noCursor = Cursor none
+
 anyButton :: Button
 anyButton = #{const AnyButton}
 

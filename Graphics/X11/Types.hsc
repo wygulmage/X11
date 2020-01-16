@@ -45,7 +45,7 @@ module Graphics.X11.Types
         -- typesafety was obtained.
 
         -- ** Key symbols
-        KeySym,
+        KeySym (..),
 
         xK_VoidSymbol,
         xK_BackSpace,
@@ -406,7 +406,7 @@ module Graphics.X11.Types
         xK_ydiaeresis,
 
         -- ** Event masks
-        EventMask,
+        EventMask (..),
         noEventMask,
         keyPressMask,
         keyReleaseMask,
@@ -441,7 +441,7 @@ module Graphics.X11.Types
         screenSaverNotifyMask,
 
         -- ** Event types
-        EventType,
+        EventType (..),
         keyPress,
         keyRelease,
         buttonPress,
@@ -496,7 +496,7 @@ module Graphics.X11.Types
         anyModifier,
 
         -- ** Key masks
-        KeyMask,
+        KeyMask (..),
         noModMask,
         shiftMask,
         lockMask,
@@ -508,7 +508,7 @@ module Graphics.X11.Types
         mod5Mask,
 
         -- ** Button masks
-        ButtonMask,
+        ButtonMask (..),
         button1Mask,
         button2Mask,
         button3Mask,
@@ -516,7 +516,7 @@ module Graphics.X11.Types
         button5Mask,
 
         -- ** Buttons
-        Button,
+        Button (..),
         button1,
         button2,
         button3,
@@ -524,7 +524,7 @@ module Graphics.X11.Types
         button5,
 
         -- ** Notify modes
-        NotifyMode,
+        NotifyMode (..),
         notifyNormal,
         notifyGrab,
         notifyUngrab,
@@ -532,7 +532,7 @@ module Graphics.X11.Types
         notifyHint,
 
         -- ** Notify details
-        NotifyDetail,
+        NotifyDetail (..),
         notifyAncestor,
         notifyVirtual,
         notifyInferior,
@@ -543,18 +543,18 @@ module Graphics.X11.Types
         notifyDetailNone,
 
         -- ** Visibility
-        Visibility,
+        Visibility (..),
         visibilityUnobscured,
         visibilityPartiallyObscured,
         visibilityFullyObscured,
 
         -- ** Place of window
-        Place,
+        Place (..),
         placeOnTop,
         placeOnBottom,
 
         -- ** Protocols
-        Protocol,
+        Protocol (..),
         familyInternet,
         familyDECnet,
         familyChaos,
