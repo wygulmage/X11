@@ -908,14 +908,18 @@ instance Storable WindowChanges where
 -- Some extra constants
 --
 
-none :: XID
-none = #{const None}
+class HasNone a where
+    none :: a
 
-noWindow :: Window
-noWindow = Drawable none
+instance HasNone XID where
+  none = #{const None}
 
-noCursor :: Cursor
-noCursor = Cursor none
+instance HasNone Drawable where
+    none = Drawable none
+
+instance HasNone Cursor where
+    none = Cursor none
+
 
 anyButton :: Button
 anyButton = #{const AnyButton}
