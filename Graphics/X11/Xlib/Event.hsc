@@ -133,19 +133,18 @@ type XKeyEvent =
         )
 
 peekXKeyEvent :: Ptr XKeyEvent -> IO XKeyEvent
-peekXKeyEvent p = do
-        root            <- #{peek XKeyEvent,root} p
-        subwindow       <- #{peek XKeyEvent,subwindow} p
-        time            <- #{peek XKeyEvent,time} p
-        x               <- #{peek XKeyEvent,x} p
-        y               <- #{peek XKeyEvent,y} p
-        x_root          <- #{peek XKeyEvent,x_root} p
-        y_root          <- #{peek XKeyEvent,y_root} p
-        state           <- (#{peek XKeyEvent,state} p) :: IO CUInt
-        keycode         <- (#{peek XKeyEvent,keycode} p) :: IO CUInt
-        same_screen     <- #{peek XKeyEvent,same_screen} p
-        return (root, subwindow, time, x, y, x_root, y_root,
-                fromIntegral state, fromIntegral keycode, same_screen)
+peekXKeyEvent p = (,,,,,,,,,)
+        <$> #{peek XKeyEvent,root} p
+        <*> #{peek XKeyEvent,subwindow} p
+        <*> #{peek XKeyEvent,time} p
+        <*> #{peek XKeyEvent,x} p
+        <*> #{peek XKeyEvent,y} p
+        <*> #{peek XKeyEvent,x_root} p
+        <*> #{peek XKeyEvent,y_root} p
+        <*> #{peek XKeyEvent,state} p
+        <*> #{peek XKeyEvent,keycode} p
+        <*> #{peek XKeyEvent,same_screen} p
+
 
 get_KeyEvent :: XEventPtr -> IO XKeyEvent
 get_KeyEvent p = peekXKeyEvent (castPtr p)
@@ -159,29 +158,26 @@ type XButtonEvent =
         ( Window    --  root window that the event occured on
         , Window    --  child window
         , Time      --  milliseconds
-        , CInt       -- pointer x, y coordinates in event window
-        , CInt
-        , CInt       -- coordinates relative to root
-        , CInt
+        , CInt, CInt       -- pointer x, y coordinates in event window
+        , CInt, CInt       -- coordinates relative to root
         , Modifier  --  key or button mask
         , Button    --  detail
         , Bool      --  same screen flag
         )
 
 peekXButtonEvent :: Ptr XButtonEvent -> IO XButtonEvent
-peekXButtonEvent p = do
-        root            <- #{peek XButtonEvent,root} p
-        subwindow       <- #{peek XButtonEvent,subwindow} p
-        time            <- #{peek XButtonEvent,time} p
-        x               <- #{peek XButtonEvent,x} p
-        y               <- #{peek XButtonEvent,y} p
-        x_root          <- #{peek XButtonEvent,x_root} p
-        y_root          <- #{peek XButtonEvent,y_root} p
-        state           <- #{peek XButtonEvent,state} p
-        button          <- #{peek XButtonEvent,button} p
-        same_screen     <- #{peek XButtonEvent,same_screen} p
-        return (root, subwindow, time, x, y, x_root, y_root,
-                state, button, same_screen)
+peekXButtonEvent p = (,,,,,,,,,)
+        <$> #{peek XButtonEvent,root} p
+        <*> #{peek XButtonEvent,subwindow} p
+        <*> #{peek XButtonEvent,time} p
+        <*> #{peek XButtonEvent,x} p
+        <*> #{peek XButtonEvent,y} p
+        <*> #{peek XButtonEvent,x_root} p
+        <*> #{peek XButtonEvent,y_root} p
+        <*> #{peek XButtonEvent,state} p
+        <*> #{peek XButtonEvent,button} p
+        <*> #{peek XButtonEvent,same_screen} p
+
 
 get_ButtonEvent :: XEventPtr -> IO XButtonEvent
 get_ButtonEvent p = peekXButtonEvent (castPtr p)
@@ -200,19 +196,17 @@ type XMotionEvent =
         )
 
 peekXMotionEvent :: Ptr XMotionEvent -> IO XMotionEvent
-peekXMotionEvent p = do
-        root            <- #{peek XMotionEvent,root} p
-        subwindow       <- #{peek XMotionEvent,subwindow} p
-        time            <- #{peek XMotionEvent,time} p
-        x               <- #{peek XMotionEvent,x} p
-        y               <- #{peek XMotionEvent,y} p
-        x_root          <- #{peek XMotionEvent,x_root} p
-        y_root          <- #{peek XMotionEvent,y_root} p
-        state           <- #{peek XMotionEvent,state} p
-        is_hint         <- #{peek XMotionEvent,is_hint} p
-        same_screen     <- #{peek XMotionEvent,same_screen} p
-        return (root, subwindow, time, x, y, x_root, y_root,
-                state, is_hint, same_screen)
+peekXMotionEvent p = (,,,,,,,,,)
+        <$> #{peek XMotionEvent,root} p
+        <*> #{peek XMotionEvent,subwindow} p
+        <*> #{peek XMotionEvent,time} p
+        <*> #{peek XMotionEvent,x} p
+        <*> #{peek XMotionEvent,y} p
+        <*> #{peek XMotionEvent,x_root} p
+        <*> #{peek XMotionEvent,y_root} p
+        <*> #{peek XMotionEvent,state} p
+        <*> #{peek XMotionEvent,is_hint} p
+        <*> #{peek XMotionEvent,same_screen} p
 
 get_MotionEvent :: XEventPtr -> IO XMotionEvent
 get_MotionEvent p = peekXMotionEvent (castPtr p)
@@ -251,13 +245,12 @@ type XExposeEvent =
         )
 
 peekXExposeEvent :: Ptr XExposeEvent -> IO XExposeEvent
-peekXExposeEvent p = do
-        x       <- #{peek XExposeEvent,x} p
-        y       <- #{peek XExposeEvent,y} p
-        width   <- #{peek XExposeEvent,width} p
-        height  <- #{peek XExposeEvent,height} p
-        count   <- #{peek XExposeEvent,count} p
-        return (x, y, width, height, count)
+peekXExposeEvent p = (,,,,)
+        <$> #{peek XExposeEvent,x} p
+        <*> #{peek XExposeEvent,y} p
+        <*> #{peek XExposeEvent,width} p
+        <*> #{peek XExposeEvent,height} p
+        <*> #{peek XExposeEvent,count} p
 
 get_ExposeEvent :: XEventPtr -> IO XExposeEvent
 get_ExposeEvent p = peekXExposeEvent (castPtr p)
@@ -331,12 +324,11 @@ type XConfigureEvent =
         )
 
 peekXConfigureEvent :: Ptr XConfigureEvent -> IO XConfigureEvent
-peekXConfigureEvent p = do
-        x       <- #{peek XConfigureEvent,x} p
-        y       <- #{peek XConfigureEvent,y} p
-        width   <- #{peek XConfigureEvent,width} p
-        height  <- #{peek XConfigureEvent,height} p
-        return (x, y, width, height)
+peekXConfigureEvent p = (,,,)
+        <$> #{peek XConfigureEvent,x} p
+        <*> #{peek XConfigureEvent,y} p
+        <*> #{peek XConfigureEvent,width} p
+        <*> #{peek XConfigureEvent,height} p
 
 get_ConfigureEvent :: XEventPtr -> IO XConfigureEvent
 get_ConfigureEvent p = peekXConfigureEvent (castPtr p)

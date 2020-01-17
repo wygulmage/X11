@@ -58,6 +58,7 @@ foreign import ccall unsafe "HsXlib.h XLookupColor"
                 Ptr Color -> Ptr Color -> IO Status
 
 -- TODO don't throw an exception.
+-- Should this return Nothing for a BadColor error and Just (exact_def, screen_def) for a good one?
 -- | interface to the X11 library function @XAllocNamedColor()@.
 allocNamedColor :: Display -> Colormap -> String -> IO (Color, Color)
 allocNamedColor display colormap color_name =
