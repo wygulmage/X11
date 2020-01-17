@@ -46,27 +46,29 @@ data AnyEvent = AnyEvent'{
     }
 
 data EventLocation = EventLocation{ ev_x'' :: !CInt, ev_y'' :: !CInt }
+  deriving (Show, Typeable)
 
-data EventDimensions = EventDimensions{ ev_width'' :: !CInt, ev_height'' :: !CInt }
+data EventDimensions = EventDimensions{
+    ev_width'' :: !CInt
+    ,
+    ev_height'' :: !CInt
+    }
+  deriving (Show, Typeable)
 -- Should they be CUInt?
 
 data EventSpecialization
     = ConfigureRequestEvent'
         { ev_parent'               :: !Window
-        , ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
-        , ev_width'                :: !CInt
-        , ev_height'               :: !CInt
+        , ev_location              :: !EventLocation
+        , ev_dimensions            :: !EventDimensions
         , ev_border_width'         :: !CInt
         , ev_above'                :: !Window
         , ev_detail'               :: !NotifyDetail
         , ev_value_mask'           :: !CULong
         }
     | ConfigureEvent'
-        { ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
-        , ev_width'                :: !CInt
-        , ev_height'               :: !CInt
+        { ev_location              :: !EventLocation
+        , ev_dimensions            :: !EventDimensions
         , ev_border_width'         :: !CInt
         , ev_above'                :: !Window
         , ev_override_redirect'    :: !Bool
@@ -78,10 +80,8 @@ data EventSpecialization
         { ev_root'                 :: !Window
         , ev_subwindow'            :: !Window
         , ev_time'                 :: !Time
-        , ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
-        , ev_x_root'               :: !CInt
-        , ev_y_root'               :: !CInt
+        , ev_location              :: !EventLocation
+        , ev_root_location         :: !EventLocation
         , ev_state'                :: !KeyMask
         , ev_keycode'              :: !KeyCode
         , ev_same_screen'          :: !Bool
@@ -90,17 +90,14 @@ data EventSpecialization
         { ev_root'                 :: !Window
         , ev_subwindow'            :: !Window
         , ev_time'                 :: !Time
-        , ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
-        , ev_x_root'               :: !CInt
-        , ev_y_root'               :: !CInt
+        , ev_location              :: !EventLocation
+        , ev_root_location         :: !EventLocation
         , ev_state'                :: !KeyMask
         , ev_button'               :: !Button
         , ev_same_screen'          :: !Bool
         }
     | MotionEvent'
-        { ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
+        { ev_location              :: !EventLocation
         }
     | DestroyWindowEvent'
         { ev_event'                :: !Window
@@ -122,10 +119,8 @@ data EventSpecialization
         { ev_root'                 :: !Window
         , ev_subwindow'            :: !Window
         , ev_time'                 :: !Time
-        , ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
-        , ev_x_root'               :: !CInt
-        , ev_y_root'               :: !CInt
+        , ev_location              :: !EventLocation
+        , ev_root_location         :: !EventLocation
         , ev_mode'                 :: !NotifyMode
         , ev_detail'               :: !NotifyDetail
         , ev_same_screen'          :: !Bool
@@ -149,10 +144,8 @@ data EventSpecialization
         , ev_propstate'            :: !CInt
         }
     | ExposeEvent'
-        { ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
-        , ev_width'                :: !CInt
-        , ev_height'               :: !CInt
+        { ev_location              :: !EventLocation
+        , ev_dimensions            :: !EventDimensions
         , ev_count'                :: !CInt
         }
     | ClientMessageEvent'
@@ -166,10 +159,8 @@ data EventSpecialization
         , ev_size_index'           :: !SizeID
         , ev_subpixel_order'       :: !SubpixelOrder
         , ev_rotation'             :: !Rotation
-        , ev_width'                :: !CInt
-        , ev_height'               :: !CInt
-        , ev_mwidth'               :: !CInt
-        , ev_mheight'              :: !CInt
+        , ev_dimensions            :: !EventDimensions
+        , ev_mdimensions           :: !EventDimensions
         }
     | RRNotifyEvent'
         { ev_subtype'              :: !CInt
@@ -179,10 +170,8 @@ data EventSpecialization
         , ev_crtc'                 :: !RRCrtc
         , ev_rr_mode'              :: !RRMode
         , ev_rotation'             :: !Rotation
-        , ev_x'                    :: !CInt
-        , ev_y'                    :: !CInt
-        , ev_rr_width'             :: !CUInt
-        , ev_rr_height'            :: !CUInt
+        , ev_location              :: !EventLocation
+        , ev_rr_dimensions         :: !EventDimensions
         }
     | RROutputChangeNotifyEvent'
         { ev_subtype'              :: !CInt
