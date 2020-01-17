@@ -1345,9 +1345,9 @@ type EventMask                  = Mask
  }
 
 -- type EventType          = Word32
-newtype EventType = EventType Word32
-  deriving (Eq, Ord, Num, Real, Integral, Show, Read, Storable)
--- TODO: Remove Real, Integral, and possibly Num instances from EventType.
+newtype EventType = EventType CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+-- TODO: Consider removing Num instance from EventType. (Use toEnum instead?)
 #{enum EventType,
  , keyPress             = KeyPress
  , keyRelease           = KeyRelease
@@ -1393,7 +1393,7 @@ newtype EventType = EventType Word32
 
 instance Enum EventType where
     toEnum x
-        | x < 2 || x > 36 = error ("toEnum: " <> show x <> "is not an event type.")
+        | x < 2 || x > 36 = error ("toEnum: " <> show x <> "is not an EventType.")
         | otherwise = EventType (fromIntegral x)
 
     fromEnum (EventType x) = fromIntegral x

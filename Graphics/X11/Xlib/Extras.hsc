@@ -350,7 +350,8 @@ eventTable =
 
 eventName :: Event -> String
 eventName e = maybe ("unknown " ++ show x) id $ lookup x eventTable
- where x = fromIntegral $ ev_event_type e
+ -- where x = fromIntegral $ ev_event_type e
+  where x = ev_event_type e
 
 getEvent :: XEventPtr -> IO Event
 getEvent p = do
@@ -778,7 +779,8 @@ getEvent p = do
             type_ == rrEventBase + rrNotify -> do
             window   <- #{peek XRRNotifyEvent, window  } p
             subtype  <- #{peek XRRNotifyEvent, subtype } p
-            let subtype_ = fromIntegral subtype_
+            -- let subtype_ = fromIntegral subtype_
+            let subtype_ = EventType subtype
             case () of
                 _ | subtype_ == rrNotifyCrtcChange -> do
                     crtc           <- #{peek XRRCrtcChangeNotifyEvent, crtc     } p
