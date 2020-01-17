@@ -574,12 +574,12 @@ module Graphics.X11.Types
         colormapInstalled,
 
         -- ** Grab modes
-        GrabMode,
+        GrabMode (..),
         grabModeSync,
         grabModeAsync,
 
         -- ** Grab status
-        GrabStatus,
+        GrabStatus (..),
         grabSuccess,
         alreadyGrabbed,
         grabInvalidTime,
@@ -1442,7 +1442,9 @@ type ButtonMask         = Modifier
  , button5Mask          = Button5Mask
  }
 
-type Button             = Word32
+-- type Button             = Word32
+newtype Button = Button CUInt
+  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum Button,
  , button1              = Button1
  , button2              = Button2
@@ -1473,7 +1475,9 @@ type NotifyDetail       = CInt
  , notifyDetailNone     = NotifyDetailNone
  }
 
-type Visibility = CInt
+-- type Visibility = CInt
+newtype Visibility = Visibility CInt
+  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum Visibility,
  , visibilityUnobscured         = VisibilityUnobscured
  , visibilityPartiallyObscured  = VisibilityPartiallyObscured
@@ -1482,13 +1486,17 @@ type Visibility = CInt
 
 -- | Place of window relative to siblings
 -- (used in Circulation requests or events)
-type Place = CInt
+-- type Place = CInt
+newtype Place = Place CInt
+  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum Place,
  , placeOnTop           = PlaceOnTop
  , placeOnBottom        = PlaceOnBottom
  }
 
-type Protocol           = CInt
+-- type Protocol           = CInt
+newtype Protocol = Protocol CInt
+  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum Protocol,
  , familyInternet       = FamilyInternet
  , familyDECnet         = FamilyDECnet
@@ -1508,7 +1516,9 @@ type ColormapNotification = CInt
  }
 
 -- Grab{Pointer,Button,Keyboard,Key} Modes
-type GrabMode           = CInt
+-- type GrabMode           = CInt
+newtype GrabMode = GrabMode CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum GrabMode,
  , grabModeSync         = GrabModeSync
  , grabModeAsync        = GrabModeAsync
@@ -1516,7 +1526,9 @@ type GrabMode           = CInt
 
 -- Grab{Pointer,Keyboard} reply status
 
-type GrabStatus         = CInt
+-- type GrabStatus         = CInt
+newtype GrabStatus = GrabStatus CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum GrabStatus,
  , grabSuccess          = GrabSuccess
  , alreadyGrabbed       = AlreadyGrabbed
