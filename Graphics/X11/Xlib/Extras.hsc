@@ -41,8 +41,8 @@ data AnyEvent = AnyEvent'{
     ev_send_event' :: !Bool
     ,
     ev_event_display' :: Display
-    -- ,
-    -- ev_window' :: !Window
+    ,
+    ev_window' :: !Window
     }
 
 data EventLocation = EventLocation{ ev_x'' :: !CInt, ev_y'' :: !CInt }
@@ -53,7 +53,6 @@ data EventDimensions = EventDimensions{ ev_width'' :: !CInt, ev_height'' :: !CIn
 data EventSpecialization
     = ConfigureRequestEvent'
         { ev_parent'               :: !Window
-        , ev_window'               :: !Window
         , ev_x'                    :: !CInt
         , ev_y'                    :: !CInt
         , ev_width'                :: !CInt
@@ -64,8 +63,7 @@ data EventSpecialization
         , ev_value_mask'           :: !CULong
         }
     | ConfigureEvent'
-        { ev_window'               :: !Window
-        , ev_x'                    :: !CInt
+        { ev_x'                    :: !CInt
         , ev_y'                    :: !CInt
         , ev_width'                :: !CInt
         , ev_height'               :: !CInt
@@ -75,11 +73,9 @@ data EventSpecialization
         }
     | MapRequestEvent'
         { ev_parent'               :: !Window
-        , ev_window'               :: !Window
         }
     | KeyEvent'
-        { ev_window'               :: !Window
-        , ev_root'                 :: !Window
+        { ev_root'                 :: !Window
         , ev_subwindow'            :: !Window
         , ev_time'                 :: !Time
         , ev_x'                    :: !CInt
@@ -91,8 +87,7 @@ data EventSpecialization
         , ev_same_screen'          :: !Bool
         }
     | ButtonEvent'
-        { ev_window'               :: !Window
-        , ev_root'                 :: !Window
+        { ev_root'                 :: !Window
         , ev_subwindow'            :: !Window
         , ev_time'                 :: !Time
         , ev_x'                    :: !CInt
@@ -106,31 +101,25 @@ data EventSpecialization
     | MotionEvent'
         { ev_x'                    :: !CInt
         , ev_y'                    :: !CInt
-        , ev_window'               :: !Window
         }
     | DestroyWindowEvent'
         { ev_event'                :: !Window
-        , ev_window'               :: !Window
         }
     | UnmapEvent'
         { ev_event'                :: !Window
-        , ev_window'               :: !Window
         , ev_from_configure'       :: !Bool
         }
     | MapNotifyEvent'
         { ev_event'                :: !Window
-        , ev_window'               :: !Window
         , ev_override_redirect'    :: !Bool
         }
     | MappingNotifyEvent'
-        { ev_window'               :: !Window
-        , ev_request'              :: !MappingRequest
+        { ev_request'              :: !MappingRequest
         , ev_first_keycode'        :: !KeyCode
         , ev_count'                :: !CInt
         }
     | CrossingEvent'
-        { ev_window'               :: !Window
-        , ev_root'                 :: !Window
+        { ev_root'                 :: !Window
         , ev_subwindow'            :: !Window
         , ev_time'                 :: !Time
         , ev_x'                    :: !CInt
@@ -144,40 +133,34 @@ data EventSpecialization
         , ev_state'                :: !Modifier
         }
     | SelectionRequest'
-        { ev_owner'                :: !Window
-        , ev_requestor'            :: !Window
+        { ev_requestor'            :: !Window -- 'ev_window'' is the owner.
         , ev_selection'            :: !Atom
         , ev_target'               :: !Atom
         , ev_property'             :: !Atom
         , ev_time'                 :: !Time
         }
     | SelectionClear'
-        { ev_window'               :: !Window
-        , ev_selection'            :: !Atom
+        { ev_selection'            :: !Atom
         , ev_time'                 :: !Time
         }
     | PropertyEvent'
-        { ev_window'               :: !Window
-        , ev_atom'                 :: !Atom
+        { ev_atom'                 :: !Atom
         , ev_time'                 :: !Time
         , ev_propstate'            :: !CInt
         }
     | ExposeEvent'
-        { ev_window'               :: !Window
-        , ev_x'                    :: !CInt
+        { ev_x'                    :: !CInt
         , ev_y'                    :: !CInt
         , ev_width'                :: !CInt
         , ev_height'               :: !CInt
         , ev_count'                :: !CInt
         }
     | ClientMessageEvent'
-        { ev_window'               :: !Window
-        , ev_message_type'         :: !Atom
+        { ev_message_type'         :: !Atom
         , ev_data'                 :: ![CInt]
         }
     | RRScreenChangeNotifyEvent'
-        { ev_window'               :: !Window
-        , ev_root'                 :: !Window
+        { ev_root'                 :: !Window
         , ev_timestamp'            :: !Time
         , ev_config_timestamp'     :: !Time
         , ev_size_index'           :: !SizeID
@@ -189,12 +172,10 @@ data EventSpecialization
         , ev_mheight'              :: !CInt
         }
     | RRNotifyEvent'
-        { ev_window'               :: !Window
-        , ev_subtype'              :: !CInt
+        { ev_subtype'              :: !CInt
         }
     | RRCrtcChangeNotifyEvent'
-        { ev_window'               :: !Window
-        , ev_subtype'              :: !CInt
+        { ev_subtype'              :: !CInt
         , ev_crtc'                 :: !RRCrtc
         , ev_rr_mode'              :: !RRMode
         , ev_rotation'             :: !Rotation
@@ -204,8 +185,7 @@ data EventSpecialization
         , ev_rr_height'            :: !CUInt
         }
     | RROutputChangeNotifyEvent'
-        { ev_window'               :: !Window
-        , ev_subtype'              :: !CInt
+        { ev_subtype'              :: !CInt
         , ev_output'               :: !RROutput
         , ev_crtc'                 :: !RRCrtc
         , ev_rr_mode'              :: !RRMode
@@ -214,16 +194,14 @@ data EventSpecialization
         , ev_subpixel_order'       :: !SubpixelOrder
         }
     | RROutputPropertyNotifyEvent'
-        { ev_window'               :: !Window
-        , ev_subtype'              :: !CInt
+        { ev_subtype'              :: !CInt
         , ev_output'               :: !RROutput
         , ev_property'             :: !Atom
         , ev_timestamp'            :: !Time
         , ev_rr_state'             :: !CInt
         }
     | ScreenSaverNotifyEvent'
-        { ev_window'               :: !Window
-        , ev_root'                 :: !Window
+        { ev_root'                 :: !Window
         , ev_ss_state'             :: !XScreenSaverState
         , ev_ss_kind'              :: !XScreenSaverKind
         , ev_forced'               :: !Bool
