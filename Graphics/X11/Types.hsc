@@ -891,25 +891,26 @@ type Time        = #{type Time}
 
 -- end platform dependency
 
-newtype Pixmap   = Pixmap XID   deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
-newtype Window   = Window XID   deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
--- type Window = Drawable
--- type Pixmap = Drawable
+newtype Pixmap   = Pixmap XID
+    deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
+newtype Window   = Window XID
+    deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
 
 class (IsXID a)=> IsDrawable a
 
 
--- newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Read, Storable)
 newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
 newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
 newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
 newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
 
 newtype KeyCode  = KeyCode #{type KeyCode}
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+  deriving
+    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 newtype KeySym   = KeySym XID
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+  deriving
+    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 #{enum KeySym,
  , xK_VoidSymbol        = XK_VoidSymbol
@@ -917,7 +918,7 @@ newtype KeySym   = KeySym XID
 
 -- TTY Functions, cleverly chosen to map to ascii, for convenience of
 -- programming, but could have been arbitrary (at the cost of lookup
--- tables in client code.
+-- tables in client code).
 
 #{enum KeySym,
  , xK_BackSpace         = XK_BackSpace
@@ -1343,7 +1344,10 @@ type EventMask                  = Mask
  , screenSaverNotifyMask        = ScreenSaverNotifyMask
  }
 
-type EventType          = Word32
+-- type EventType          = Word32
+newtype EventType = EventType Word32
+  deriving (Eq, Ord, Num, Real, Integral, Show, Read, Storable)
+-- TODO: Remove Real, Integral, and possibly Num instances from EventType.
 #{enum EventType,
  , keyPress             = KeyPress
  , keyRelease           = KeyRelease
@@ -1386,6 +1390,14 @@ type EventType          = Word32
  , lASTEvent            = LASTEvent
  , screenSaverNotify    = ScreenSaverNotify
  }
+
+instance Enum EventType where
+    toEnum x
+        | x < 2 || x > 36 = error ("toEnum: " <> show x <> "is not an event type.")
+        | otherwise = EventType (fromIntegral x)
+
+    fromEnum (EventType x) = fromIntegral x
+
 
 type Modifier           = CUInt
 #{enum Modifier,
