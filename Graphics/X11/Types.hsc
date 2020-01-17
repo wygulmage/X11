@@ -901,7 +901,7 @@ class (IsXID a)=> IsDrawable a
 
 -- newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Read, Storable)
 newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
-newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable)
+newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
 newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
 newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
 
