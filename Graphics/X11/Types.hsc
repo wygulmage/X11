@@ -859,13 +859,18 @@ newtype XID = XID #{type XID}
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 class (Coercible XID a)=> IsXID a where
+    none :: a
+    none = fromXID none
+
     toXID :: a -> XID
     toXID = coerce
 
     fromXID :: XID -> a
     fromXID = coerce
 
-instance IsXID XID
+
+instance IsXID XID where
+    none = #{const None}
 
 newtype Mask = Mask #{type Mask}
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
