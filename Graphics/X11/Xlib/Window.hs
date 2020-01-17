@@ -73,9 +73,20 @@ foreign import ccall unsafe "HsXlib.h XCreateSimpleWindow"
 
 -- | interface to the X11 library function @XCreateWindow()@.
 foreign import ccall unsafe "HsXlib.h XCreateWindow"
-        createWindow :: Display -> Window -> Position -> Position ->
-                Dimension -> Dimension -> CInt -> CInt -> WindowClass ->
-                Visual -> AttributeMask -> Ptr SetWindowAttributes -> IO Window
+        createWindow ::
+            Display ->
+            Window ->    -- parent
+            Position ->  -- x
+            Position ->  -- y
+            Dimension -> -- width
+            Dimension -> -- heigth
+            CInt ->      -- border width -- FIXME: Should change to CUInt to match spec?
+            CInt ->      -- depth
+            WindowClass ->  -- class
+            Visual ->    -- visual
+            AttributeMask -> -- valuemask
+            Ptr SetWindowAttributes -> -- attributes
+            IO Window
 
 ----------------------------------------------------------------
 
