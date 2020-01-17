@@ -91,35 +91,21 @@ foreign import ccall unsafe "HsXlib.h XCreateWindow"
 
 ----------------------------------------------------------------
 
---ToDo: find an effective way to use Maybes
-
 -- | interface to the X11 library function @XTranslateCoordinates()@.
--- translateCoordinates :: Display -> Window -> Window -> Position -> Position ->
---         IO (Bool,Position,Position,Window)
--- translateCoordinates display src_w dest_w src_x src_y =
---         alloca $ \ dest_x_return ->
---         alloca $ \ dest_y_return ->
---         alloca $ \ child_return -> do
---         res <- xTranslateCoordinates display src_w dest_w src_x src_y
---                         dest_x_return dest_y_return child_return
---         dest_x <- peek dest_x_return
---         dest_y <- peek dest_y_return
---         child  <- peek child_return
---         return (res, dest_x, dest_y, child)
-translateCoordinates = maybeTranslateCoordinates
-
-maybeTranslateCoordinates
+translateCoordinates
     :: Display -> Window -> Window -> Position -> Position ->
         IO (Maybe (Position,Position,Window))
-maybeTranslateCoordinates display window window' x y =
-    alloca $ \ x'_return ->
-    alloca $ \ y'_return ->
+translateCoordinates display src_w dest_w src_x src_y =
+    alloca $ \ dest_x_return ->
+    alloca $ \ dest_y_return ->
     alloca $ \ child_return -> do
     res <- xTranslateCoordinates
-        display window window' x y x'_return y'_return child_return
+        display src_w dest_w src_x src_y dest_x_return dest_y_return child_return
     if res
-      then (\ x' y' child -> Just (x', y', child)) <$>
-           peek x'_return <*> peek y'_return <*> peek child_return
+      then (\ dest_x dest_y child -> Just (dest_x, dest_y, child))
+           <$> peek dest_x_return
+           <*> peek dest_y_return
+           <*> peek child_return
       else return Nothing
 
 foreign import ccall unsafe "HsXlib.h XTranslateCoordinates"
