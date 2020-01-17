@@ -631,7 +631,7 @@ module Graphics.X11.Types
         throwIfZero,
 
         -- ** WindowClass
-        WindowClass,
+        WindowClass (..),
         copyFromParent,
         inputOutput,
         inputOnly,
@@ -1590,7 +1590,9 @@ type Status             = CInt
 throwIfZero :: String -> IO Status -> IO ()
 throwIfZero fn_name = throwIf_ (== 0) (const ("Error in function " ++ fn_name))
 
-type WindowClass        = CInt
+-- type WindowClass        = CInt
+newtype WindowClass = WindowClass CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum WindowClass,
  , copyFromParent       = CopyFromParent
  , inputOutput          = InputOutput
