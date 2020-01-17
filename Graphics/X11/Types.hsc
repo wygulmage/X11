@@ -488,7 +488,7 @@ module Graphics.X11.Types
         screenSaverNotify,
 
         -- ** Modifiers
-        Modifier,
+        Modifier (..),
         shiftMapIndex,
         lockMapIndex,
         controlMapIndex,
@@ -1399,7 +1399,9 @@ instance Enum EventType where
     fromEnum (EventType x) = fromIntegral x
 
 
-type Modifier           = CUInt
+-- type Modifier           = CUInt
+newtype Modifier = Modifier CUInt
+  deriving (Eq, Ord, Enum, Num, Show, Read, Storable)
 #{enum Modifier,
  , shiftMapIndex        = ShiftMapIndex
  , lockMapIndex         = LockMapIndex
