@@ -1401,7 +1401,13 @@ instance Enum EventType where
 
 -- type Modifier           = CUInt
 newtype Modifier = Modifier CUInt
-  deriving (Eq, Ord, Enum, Num, Show, Read, Storable)
+  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
+instance Semigroup Modifier where
+    (<>) = (.|.)
+
+instance Monoid Modifier where
+    mempty = Modifier 0
+
 #{enum Modifier,
  , shiftMapIndex        = ShiftMapIndex
  , lockMapIndex         = LockMapIndex
