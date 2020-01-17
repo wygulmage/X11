@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleContexts #-}
 
 -----------------------------------------------------------------------------
 -- |
@@ -17,20 +18,23 @@
 
 module Graphics.X11.Types
         (
+        IsXID (..),
+        IsDrawable,
 
-        XID,
-        Mask,
-        Atom,
-        VisualID,
+        XID (..),
+        Mask (..),
+        Atom (..),
+        VisualID (..),
+        Window (..),
+        -- Drawable (..),
+        Font (..),
+        Pixmap (..),
+        Cursor (..),
+        Colormap (..),
+        GContext (..),
+        KeyCode (..),
+        KeySym (..),
         Time,
-        Window,
-        Drawable,
-        Font,
-        Pixmap,
-        Cursor,
-        Colormap,
-        GContext,
-        KeyCode,
         SizeID,
         SubpixelOrder,
         Connection,
@@ -837,35 +841,31 @@ module Graphics.X11.Types
         xRR_Disconnected,
         xRR_UnknownConnection,
 
-        -- Basic newtypes
-        XID (..),
-        Mask (..),
-        Atom (..),
-        VisualID (..),
-        Window (..),
-        Drawable (..),
-        Font (..),
-        Pixmap (..),
-        Cursor (..),
-        Colormap (..),
-        GContext (..),
-        KeyCode (..),
-        KeySym (..)
         ) where
 
 -- import Data.Int
 import Data.Bits (Bits, FiniteBits, (.|.))
 import Data.Semigroup
 import Data.Word
+import Data.Coerce (Coercible, coerce)
+
 import Foreign.Marshal.Error
 import Foreign.C.Types
 import Foreign.Storable (Storable)
 
 #include "HsXlib.h"
 
--- ToDo: use newtype
 newtype XID = XID #{type XID}
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+
+class (Coercible XID a)=> IsXID a where
+    toXID :: a -> XID
+    toXID = coerce
+
+    fromXID :: XID -> a
+    fromXID = coerce
+
+instance IsXID XID
 
 newtype Mask = Mask #{type Mask}
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
@@ -886,12 +886,15 @@ type Time        = #{type Time}
 
 -- end platform dependency
 
--- newtype Pixmap   = Pixmap XID   deriving (Eq, Ord, Storable)
--- newtype Window   = Window XID   deriving (Eq, Ord, Show, Storable)
-type Window = Drawable
-type Pixmap = Drawable
+newtype Pixmap   = Pixmap XID   deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
+newtype Window   = Window XID   deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
+-- type Window = Drawable
+-- type Pixmap = Drawable
 
-newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Read, Storable)
+class (IsXID a)=> IsDrawable a
+
+
+-- newtype Drawable = Drawable XID deriving (Eq, Ord, Num, Show, Read, Storable)
 newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
 newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable)
 newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)

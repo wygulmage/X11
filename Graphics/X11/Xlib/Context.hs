@@ -136,10 +136,10 @@ foreign import ccall unsafe "HsXlib.h XSetTile"
 
 -- ToDo: create a real interface to this
 -- | partial interface to the X11 library function @XCreateGC()@.
-createGC :: Display -> Drawable -> IO GC
-createGC display d = xCreateGC display d 0 nullPtr
+createGC :: IsDrawable drawable => Display -> drawable -> IO GC
+createGC display d = xCreateGC display (toXID d) 0 nullPtr
 foreign import ccall unsafe "HsXlib.h XCreateGC"
-        xCreateGC  :: Display -> Drawable -> ValueMask -> Ptr GCValues -> IO GC
+        xCreateGC :: Display -> XID -> ValueMask -> Ptr GCValues -> IO GC
 
 type ValueMask = Word32
 

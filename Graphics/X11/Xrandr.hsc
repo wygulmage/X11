@@ -366,29 +366,32 @@ xrrQueryVersion dpy = wrapPtr2 (cXRRQueryVersion dpy) go
 foreign import ccall "XRRQueryVersion"
   cXRRQueryVersion :: Display -> Ptr CInt -> Ptr CInt -> IO Bool
 
-xrrGetScreenInfo :: Display -> Drawable -> IO (Maybe XRRScreenConfiguration)
+xrrGetScreenInfo :: IsDrawable a => Display -> a -> IO (Maybe XRRScreenConfiguration)
 xrrGetScreenInfo dpy draw = do
-  p <- cXRRGetScreenInfo dpy draw
+  p <- cXRRGetScreenInfo dpy (toXID draw)
   if p == nullPtr
      then return Nothing
      else return (Just (XRRScreenConfiguration p))
 foreign import ccall "XRRGetScreenInfo"
-  cXRRGetScreenInfo :: Display -> Drawable -> IO (Ptr XRRScreenConfiguration)
+  cXRRGetScreenInfo :: Display -> XID -> IO (Ptr XRRScreenConfiguration)
 
 xrrFreeScreenConfigInfo :: XRRScreenConfiguration -> IO ()
 xrrFreeScreenConfigInfo = cXRRFreeScreenConfigInfo
 foreign import ccall "XRRFreeScreenConfigInfo"
   cXRRFreeScreenConfigInfo :: XRRScreenConfiguration -> IO ()
 
-xrrSetScreenConfig :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> Time -> IO Status
-xrrSetScreenConfig = cXRRSetScreenConfig
+xrrSetScreenConfig :: IsDrawable a => Display -> XRRScreenConfiguration -> a -> CInt -> Rotation -> Time -> IO Status
+xrrSetScreenConfig display config drawable =
+    cXRRSetScreenConfig display config (toXID drawable)
 foreign import ccall "XRRSetScreenConfig"
-  cXRRSetScreenConfig :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> Time -> IO Status
+  cXRRSetScreenConfig :: Display -> XRRScreenConfiguration -> XID -> CInt -> Rotation -> Time -> IO Status
 
-xrrSetScreenConfigAndRate :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> CShort -> Time -> IO Status
-xrrSetScreenConfigAndRate = cXRRSetScreenConfigAndRate
+xrrSetScreenConfigAndRate ::
+    IsDrawable drawable =>
+    Display -> XRRScreenConfiguration -> drawable -> CInt -> Rotation -> CShort -> Time -> IO Status
+xrrSetScreenConfigAndRate display config drawable = cXRRSetScreenConfigAndRate display config (toXID drawable)
 foreign import ccall "XRRSetScreenConfigAndRate"
-  cXRRSetScreenConfigAndRate :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> CShort -> Time -> IO Status
+  cXRRSetScreenConfigAndRate :: Display -> XRRScreenConfiguration -> XID -> CInt -> Rotation -> CShort -> Time -> IO Status
 
 xrrConfigRotations :: XRRScreenConfiguration -> IO (Rotation, Rotation)
 xrrConfigRotations config =

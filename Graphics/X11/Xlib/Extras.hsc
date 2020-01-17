@@ -918,19 +918,6 @@ instance Storable WindowChanges where
 -- Some extra constants
 --
 
-class HasNone a where
-    none :: a
-
-instance HasNone XID where
-  none = #{const None}
-
-instance HasNone Drawable where
-    none = Drawable none
-
-instance HasNone Cursor where
-    none = Cursor none
-
-
 anyButton :: Button
 anyButton = #{const AnyButton}
 
@@ -1121,20 +1108,24 @@ wcTextExtents fs text = unsafePerformIO $
         (,) `fmap` peek inkp `ap` peek logicalp
 
 foreign import ccall unsafe "XlibExtras.h XwcDrawString"
-    xwcDrawString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
+    xwcDrawString :: Display -> XID -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
 
-wcDrawString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
+wcDrawString ::
+    IsDrawable drawable =>
+    Display -> drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
 wcDrawString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
-        xwcDrawString d w fs gc x y s (fromIntegral len)
+        xwcDrawString d (toXID w) fs gc x y s (fromIntegral len)
 
 foreign import ccall unsafe "XlibExtras.h XwcDrawImageString"
-    xwcDrawImageString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
+    xwcDrawImageString :: Display -> XID -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
 
-wcDrawImageString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
+wcDrawImageString ::
+    IsDrawable drawable =>
+    Display -> drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
 wcDrawImageString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
-        xwcDrawImageString d w fs gc x y s (fromIntegral len)
+        xwcDrawImageString d (toXID w) fs gc x y s (fromIntegral len)
 
 foreign import ccall unsafe "XlibExtras.h XwcTextEscapement"
     xwcTextEscapement :: FontSet -> CWString -> CInt -> IO Int32

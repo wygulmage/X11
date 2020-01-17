@@ -235,7 +235,7 @@ xScreenSaverQueryInfo :: Display -> IO (Maybe XScreenSaverInfo)
 xScreenSaverQueryInfo dpy = do
     p <- cXScreenSaverAllocInfo
     if p == nullPtr then return Nothing else do
-    s <- cXScreenSaverQueryInfo dpy (defaultRootWindow dpy) p
+    s <- cXScreenSaverQueryInfo dpy (toXID (defaultRootWindow dpy)) p
     if s == 0 then return Nothing else do
     xssi <- peek p
     _ <- xFree p
@@ -248,7 +248,7 @@ xScreenSaverSelectInput :: Display -> EventMask -> IO ()
 xScreenSaverSelectInput dpy xssem = do
     p <- cXScreenSaverAllocInfo
     if p == nullPtr then return () else do
-    cXScreenSaverSelectInput dpy (defaultRootWindow dpy) xssem
+    cXScreenSaverSelectInput dpy (toXID (defaultRootWindow dpy)) xssem
 
 -- | XScreenSaverSetAttributes sets the attributes to be used the next  time
 -- the  external  screen  saver is activated.  If another client currently
@@ -315,7 +315,7 @@ xScreenSaverSetAttributes :: Display
                           -> Ptr SetWindowAttributes
                           -> IO ()
 xScreenSaverSetAttributes dpy x y w h bw d wc v am pswa = do
-    cXScreenSaverSetAttributes dpy (defaultRootWindow dpy)
+    cXScreenSaverSetAttributes dpy (toXID (defaultRootWindow dpy))
                                     x y w h bw d wc v am pswa
 
 -- | XScreenSaverUnsetAttributes  instructs the server to discard any previ‐
@@ -323,7 +323,7 @@ xScreenSaverSetAttributes dpy x y w h bw d wc v am pswa = do
 
 xScreenSaverUnsetAttributes :: Display -> IO ()
 xScreenSaverUnsetAttributes dpy =
-    cXScreenSaverUnsetAttributes dpy (defaultRootWindow dpy)
+    cXScreenSaverUnsetAttributes dpy (toXID (defaultRootWindow dpy))
 
 -- | XScreenSaverRegister stores the given XID in the _SCREEN_SAVER_ID prop‐
 -- erty  (of  the  given type) on the root window of the specified screen.
@@ -390,15 +390,17 @@ foreign import ccall "XScreenSaverQueryVersion"
 foreign import ccall "XScreenSaverAllocInfo"
     cXScreenSaverAllocInfo :: IO (Ptr XScreenSaverInfo)
 
+-- The XID is a drawable (window or pixmap)
 foreign import ccall "XScreenSaverQueryInfo"
-    cXScreenSaverQueryInfo :: Display -> Drawable -> Ptr XScreenSaverInfo
+    cXScreenSaverQueryInfo :: Display -> XID -> Ptr XScreenSaverInfo
                            -> IO Status
 
 foreign import ccall "XScreenSaverSelectInput"
-    cXScreenSaverSelectInput :: Display -> Drawable -> EventMask -> IO ()
+    cXScreenSaverSelectInput :: Display -> XID -> EventMask -> IO ()
+-- The XID is a drawable (window or pixmap).
 
 foreign import ccall "XScreenSaverSetAttributes"
-    cXScreenSaverSetAttributes :: Display -> Drawable -> Position -> Position
+    cXScreenSaverSetAttributes :: Display -> XID -> Position -> Position
                                -> Dimension -> Dimension -> Dimension
                                -> CInt
                                -> WindowClass
@@ -406,9 +408,11 @@ foreign import ccall "XScreenSaverSetAttributes"
                                -> AttributeMask
                                -> Ptr SetWindowAttributes
                                -> IO ()
+-- The XID is a window or pixmap.
 
 foreign import ccall "XScreenSaverUnsetAttributes"
-    cXScreenSaverUnsetAttributes :: Display -> Drawable -> IO ()
+    cXScreenSaverUnsetAttributes :: Display -> XID -> IO ()
+-- The XID is a window or pixmap.
 
 foreign import ccall "XScreenSaverRegister"
     cXScreenSaverSaverRegister :: Display -> ScreenNumber -> XID -> Atom
