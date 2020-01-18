@@ -277,12 +277,12 @@ instance Storable Rectangle where
 
 -- | counterpart of an X11 @XArc@ structure
 data Arc = Arc {
-        arc_x :: Position,
-        arc_y :: Position,
-        arc_width :: Dimension,
-        arc_height :: Dimension,
-        arc_angle1 :: Angle,
-        arc_angle2 :: Angle
+        arc_x :: !Position,
+        arc_y :: !Position,
+        arc_width :: !Dimension,
+        arc_height :: !Dimension,
+        arc_angle1 :: !Angle,
+        arc_angle2 :: !Angle
         }
 #if __GLASGOW_HASKELL__
         deriving (Eq, Show, Typeable)
@@ -315,10 +315,10 @@ instance Storable Arc where
 
 -- | counterpart of an X11 @XSegment@ structure
 data Segment = Segment {
-        seg_x1 :: Position,
-        seg_y1 :: Position,
-        seg_x2 :: Position,
-        seg_y2 :: Position
+        seg_x1 :: !Position,
+        seg_y1 :: !Position,
+        seg_x2 :: !Position,
+        seg_y2 :: !Position
         }
 #if __GLASGOW_HASKELL__
         deriving (Eq, Show, Typeable, Data)
