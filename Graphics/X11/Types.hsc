@@ -45,7 +45,7 @@ module Graphics.X11.Types
 
         -- * Enumeration types
         -- | These types were introduced to make function types clearer.
-        -- Note that the types are synonyms for 'Int', so no extra
+        -- Note that the types are newtypes on 'CInt', so extra
         -- typesafety was obtained.
 
         -- ** Key symbols
@@ -889,6 +889,10 @@ newtype VisualID = VisualID #{type VisualID}
 
 type Time        = #{type Time}
 
+newtype KeyCode  = KeyCode #{type KeyCode}
+  deriving
+    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+
 -- end platform dependency
 
 newtype Pixmap   = Pixmap XID
@@ -904,9 +908,6 @@ newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
 newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
 newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
 
-newtype KeyCode  = KeyCode #{type KeyCode}
-  deriving
-    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 newtype KeySym   = KeySym XID
   deriving
