@@ -766,30 +766,32 @@ module Graphics.X11.Types
         gCLastBit,
 
         -- ** Circulation direction
-        CirculationDirection,
+        CirculationDirection (..),
         raiseLowest,
         lowerHighest,
 
         -- ** Byte order
-        ByteOrder,
+        ByteOrder (..),
         lSBFirst,
         mSBFirst,
 
         -- ** ColormapAlloc
-        ColormapAlloc,
+        ColormapAlloc (..),
         allocNone,
         allocAll,
 
         -- ** Mapping requests
-        MappingRequest,
+        MappingRequest (..),
         mappingModifier,
         mappingKeyboard,
         mappingPointer,
 
         -- ** ChangeSaveSetMode
-        ChangeSaveSetMode,
+        ChangeSaveSetMode (..),
         setModeInsert,
         setModeDelete,
+
+        BitOrWindowGravity (..),
 
         -- ** Bit gravity
         BitGravity,
@@ -1703,8 +1705,6 @@ newtype ArcMode          = ArcMode CInt
 
 -- GC components: masks used in CreateGC, CopyGC, ChangeGC, OR'ed into
 -- GC.stateChanges
-
--- type   GCMask           = CInt
 newtype GCMask = GCMask Mask
   deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum GCMask,
@@ -1734,40 +1734,46 @@ newtype GCMask = GCMask Mask
  , gCLastBit            = GCLastBit
  }
 
-type   CirculationDirection = CInt
+newtype CirculationDirection = CirculationDirection CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum CirculationDirection,
  , raiseLowest          = RaiseLowest
  , lowerHighest         = LowerHighest
  }
 
 -- used in imageByteOrder and bitmapBitOrder
-type   ByteOrder        = CInt
+newtype ByteOrder        = ByteOrder CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum ByteOrder,
  , lSBFirst             = LSBFirst
  , mSBFirst             = MSBFirst
  }
 
-type   ColormapAlloc    = CInt
+newtype ColormapAlloc    = ColomapAlloc CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum ColormapAlloc,
  , allocNone            = AllocNone
  , allocAll             = AllocAll
  }
 
-type   MappingRequest   = CInt
+newtype MappingRequest   = MappingRequest CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum MappingRequest,
  , mappingModifier      = MappingModifier
  , mappingKeyboard      = MappingKeyboard
  , mappingPointer       = MappingPointer
  }
 
-type   ChangeSaveSetMode = CInt
+newtype ChangeSaveSetMode = ChangeSaveSetMode CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum ChangeSaveSetMode,
  , setModeInsert        = SetModeInsert
  , setModeDelete        = SetModeDelete
  }
 
-type   BitGravity       = CInt
-#{enum BitGravity,
+newtype BitOrWindowGravity       = BitOrWindowGravity CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+#{enum BitOrWindowGravity,
  , forgetGravity        = ForgetGravity
  , northWestGravity     = NorthWestGravity
  , northGravity         = NorthGravity
@@ -1781,8 +1787,10 @@ type   BitGravity       = CInt
  , staticGravity        = StaticGravity
  }
 
--- All the BitGravity's plus ...
-type   WindowGravity   = CInt
+type BitGravity = BitOrWindowGravity
+
+-- WindowGravity calls 'forgetGravity' 'unmapGravity'.
+type   WindowGravity   = BitOrWindowGravity
 #{enum WindowGravity,
  , unmapGravity         = UnmapGravity
  }
