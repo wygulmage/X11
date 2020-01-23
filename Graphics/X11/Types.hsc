@@ -668,7 +668,7 @@ module Graphics.X11.Types
         stippleShape,
 
         -- ** Graphics functions
-        GXFunction,
+        GXFunction (..),
         gXclear,
         gXand,
         gXandReverse,
@@ -687,43 +687,43 @@ module Graphics.X11.Types
         gXset,
 
         -- ** Line styles
-        LineStyle,
+        LineStyle (..),
         lineSolid,
         lineOnOffDash,
         lineDoubleDash,
 
         -- ** Cap styles
-        CapStyle,
+        CapStyle (..),
         capNotLast,
         capButt,
         capRound,
         capProjecting,
 
         -- ** Join styles
-        JoinStyle,
+        JoinStyle (..),
         joinMiter,
         joinRound,
         joinBevel,
 
         -- ** Fill styles
-        FillStyle,
+        FillStyle (..),
         fillSolid,
         fillTiled,
         fillStippled,
         fillOpaqueStippled,
 
         -- ** Fill rules
-        FillRule,
+        FillRule (..),
         evenOddRule,
         windingRule,
 
         -- ** Subwindow modes
-        SubWindowMode,
+        SubWindowMode (..),
         clipByChildren,
         includeInferiors,
 
         -- ** Coordinate modes
-        CoordinateMode,
+        CoordinateMode (..),
         coordModeOrigin,
         coordModePrevious,
 
@@ -1599,7 +1599,8 @@ newtype QueryBestSizeClass = QueryBestSizeClass CInt
 
 -- graphics functions, as in GC.alu
 
-type   GXFunction       = CInt
+newtype GXFunction       = GXFunction CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum GXFunction,
  , gXclear              = GXclear
  , gXand                = GXand
@@ -1619,14 +1620,16 @@ type   GXFunction       = CInt
  , gXset                = GXset
  }
 
-type   LineStyle        = CInt
+newtype   LineStyle        = LineStyle CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum LineStyle,
  , lineSolid            = LineSolid
  , lineOnOffDash        = LineOnOffDash
  , lineDoubleDash       = LineDoubleDash
  }
 
-type   CapStyle         = CInt
+newtype   CapStyle         = CapStyle CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum CapStyle,
  , capNotLast           = CapNotLast
  , capButt              = CapButt
@@ -1634,14 +1637,16 @@ type   CapStyle         = CInt
  , capProjecting        = CapProjecting
  }
 
-type   JoinStyle        = CInt
+newtype   JoinStyle        = JoinStyle CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum JoinStyle,
  , joinMiter            = JoinMiter
  , joinRound            = JoinRound
  , joinBevel            = JoinBevel
  }
 
-type   FillStyle        = CInt
+newtype   FillStyle        = FillStyle CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum FillStyle,
  , fillSolid            = FillSolid
  , fillTiled            = FillTiled
@@ -1649,13 +1654,15 @@ type   FillStyle        = CInt
  , fillOpaqueStippled   = FillOpaqueStippled
  }
 
-type   FillRule         = CInt
+newtype   FillRule         = FillRule CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum FillRule,
  , evenOddRule          = EvenOddRule
  , windingRule          = WindingRule
  }
 
-type   SubWindowMode    = CInt
+newtype   SubWindowMode    = SubWindowMode CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum SubWindowMode,
  , clipByChildren       = ClipByChildren
  , includeInferiors     = IncludeInferiors
@@ -1671,7 +1678,8 @@ type   SubWindowMode    = CInt
 -- }
 
 -- CoordinateMode for drawing routines
-type   CoordinateMode   = CInt
+newtype   CoordinateMode   = CoordinateMode CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum CoordinateMode,
  , coordModeOrigin      = CoordModeOrigin
  , coordModePrevious    = CoordModePrevious
