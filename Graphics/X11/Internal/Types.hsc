@@ -97,9 +97,9 @@ newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
 newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable, IsXID)
 newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
 
-newtype KeySym   = KeySym XID
+newtype KeySym = KeySym XID
   deriving
-    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable, IsXID)
+    (Eq, Ord, Num, Read, Show, Storable, IsXID)
 
 class (IsXID a)=> IsDrawable a -- Class for the 'Drawable' type.
 
