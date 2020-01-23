@@ -1393,7 +1393,7 @@ type ButtonMask         = KeyOrButtonMask
 
 -- type Button             = Word32
 newtype Button = Button CUInt
-  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum Button,
  , anyButton            = AnyButton
  , button1              = Button1
@@ -1427,7 +1427,7 @@ type NotifyDetail       = CInt
 
 -- type Visibility = CInt
 newtype Visibility = Visibility CInt
-  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum Visibility,
  , visibilityUnobscured         = VisibilityUnobscured
  , visibilityPartiallyObscured  = VisibilityPartiallyObscured
@@ -1438,7 +1438,7 @@ newtype Visibility = Visibility CInt
 -- (used in Circulation requests or events)
 -- type Place = CInt
 newtype Place = Place CInt
-  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum Place,
  , placeOnTop           = PlaceOnTop
  , placeOnBottom        = PlaceOnBottom
@@ -1446,7 +1446,7 @@ newtype Place = Place CInt
 
 -- type Protocol           = CInt
 newtype Protocol = Protocol CInt
-  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum Protocol,
  , familyInternet       = FamilyInternet
  , familyDECnet         = FamilyDECnet
