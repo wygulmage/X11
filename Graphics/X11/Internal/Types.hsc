@@ -88,10 +88,10 @@ newtype KeySym   = KeySym XID
 
 class (IsXID a)=> IsDrawable a
 
-newtype Pixmap   = Pixmap XID
-    deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
+newtype Pixmap = Pixmap XID
+    deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
 
-newtype Window   = Window XID
+newtype Window = Window XID
     deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
 
 {-

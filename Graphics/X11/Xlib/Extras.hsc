@@ -1762,7 +1762,7 @@ getWMHints :: Display -> Window -> IO WMHints
 getWMHints dpy w = do
     p <- xGetWMHints dpy w
     if p == nullPtr
-        then return $ WMHints 0 False 0 0 none 0 0 0 0
+        then return $ WMHints 0 False 0 none none 0 0 none 0
         else do x <- peek p; _ <- xFree p; return x
 
 foreign import ccall unsafe "XlibExtras.h XAllocWMHints"
