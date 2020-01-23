@@ -656,13 +656,13 @@ module Graphics.X11.Types
         cWCursor,
 
         -- ** Close down modes
-        CloseDownMode,
+        CloseDownMode (..),
         destroyAll,
         retainPermanent,
         retainTemporary,
 
         -- ** QueryBestSize classes
-        QueryBestSizeClass,
+        QueryBestSizeClass (..),
         cursorShape,
         tileShape,
         stippleShape,
@@ -1573,7 +1573,8 @@ newtype AttributeMask      = AttributeMask Mask
  }
 
 -- Used in ChangeCloseDownMode
-type CloseDownMode      = CInt
+newtype CloseDownMode      = CloseDownMode CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum CloseDownMode,
  , destroyAll           = DestroyAll
  , retainPermanent      = RetainPermanent
@@ -1584,7 +1585,8 @@ type CloseDownMode      = CInt
 -- CURSOR STUFF
 ----------------------------------------------------------------
 
-type QueryBestSizeClass = CInt
+newtype QueryBestSizeClass = QueryBestSizeClass CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum QueryBestSizeClass,
  , cursorShape          = CursorShape
  , tileShape            = TileShape
