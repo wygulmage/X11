@@ -728,13 +728,13 @@ module Graphics.X11.Types
         coordModePrevious,
 
         -- ** Polygon shapes
-        PolygonShape,
+        PolygonShape (..),
         complex,
         nonconvex,
         convex,
 
         -- ** Arc modes
-        ArcMode,
+        ArcMode (..),
         arcChord,
         arcPieSlice,
 
@@ -1661,7 +1661,7 @@ newtype   FillRule         = FillRule CInt
  , windingRule          = WindingRule
  }
 
-newtype   SubWindowMode    = SubWindowMode CInt
+newtype SubWindowMode    = SubWindowMode CInt
   deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum SubWindowMode,
  , clipByChildren       = ClipByChildren
@@ -1678,14 +1678,15 @@ newtype   SubWindowMode    = SubWindowMode CInt
 -- }
 
 -- CoordinateMode for drawing routines
-newtype   CoordinateMode   = CoordinateMode CInt
+newtype CoordinateMode   = CoordinateMode CInt
   deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum CoordinateMode,
  , coordModeOrigin      = CoordModeOrigin
  , coordModePrevious    = CoordModePrevious
  }
 
-type   PolygonShape     = CInt
+newtype PolygonShape     = PolygonShape CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum PolygonShape,
  , complex              = Complex
  , nonconvex            = Nonconvex
@@ -1693,7 +1694,8 @@ type   PolygonShape     = CInt
  }
 
 -- Arc modes for PolyFillArc
-type   ArcMode          = CInt
+newtype ArcMode          = ArcMode CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum ArcMode,
  , arcChord             = ArcChord
  , arcPieSlice          = ArcPieSlice
