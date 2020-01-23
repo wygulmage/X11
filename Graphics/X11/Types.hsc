@@ -588,7 +588,7 @@ module Graphics.X11.Types
         grabFrozen,
 
         -- ** Allow events
-        AllowEvents,
+        AllowEvents (..),
         asyncPointer,
         syncPointer,
         replayPointer,
@@ -1488,7 +1488,8 @@ newtype GrabStatus = GrabStatus CInt
  }
 
 -- AllowEvents modes
-type AllowEvents        = CInt
+newtype AllowEvents        = AllowEvents CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum AllowEvents,
  , asyncPointer         = AsyncPointer
  , syncPointer          = SyncPointer
