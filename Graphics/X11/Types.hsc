@@ -34,13 +34,13 @@ module Graphics.X11.Types
         KeyCode (..),
         KeySym (..),
         Time (..),
-        SizeID,
-        SubpixelOrder,
-        Connection,
-        RROutput,
-        RRCrtc,
-        RRMode,
-        XRRModeFlags,
+        SizeID (..),
+        SubpixelOrder (..),
+        Connection (..),
+        RROutput (..),
+        RRCrtc (..),
+        RRMode (..),
+        XRRModeFlags (..),
 
         -- * Enumeration types
         -- | These types were introduced to make function types clearer.
@@ -812,7 +812,7 @@ module Graphics.X11.Types
         unmapGravity,
 
         -- ** Backing store
-        BackingStore,
+        BackingStore (..),
         notUseful,
         whenMapped,
         always,
@@ -821,17 +821,18 @@ module Graphics.X11.Types
         doBlue,
 
         -- ** Font direction
-        FontDirection,
+        FontDirection (..),
         fontLeftToRight,
         fontRightToLeft,
 
         -- ** Image format
-        ImageFormat,
+        ImageFormat (..),
         xyBitmap,
         xyPixmap,
         zPixmap,
 
         -- ** Reflection and Rotation
+        RandrTransformation (..),
         Rotation,
         Reflection,
         xRR_Rotate_0,
@@ -1789,33 +1790,37 @@ newtype BitOrWindowGravity       = BitOrWindowGravity CInt
 
 type BitGravity = BitOrWindowGravity
 
--- WindowGravity calls 'forgetGravity' 'unmapGravity'.
 type   WindowGravity   = BitOrWindowGravity
+-- WindowGravity calls 'forgetGravity' 'unmapGravity'.
 #{enum WindowGravity,
  , unmapGravity         = UnmapGravity
  }
 
 -- Used in CreateWindow for backing-store hint
-type   BackingStore     = CInt
+newtype BackingStore     = BackingStore CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum BackingStore,
  , notUseful            = NotUseful
  , whenMapped           = WhenMapped
  , always               = Always
  }
 
+-- Ehhh?????? FIXME: Give this a proper type.
 #{enum Word8,
  , doRed                = DoRed
  , doGreen              = DoGreen
  , doBlue               = DoBlue
  }
 
-type   FontDirection    = CInt
+newtype FontDirection    = FontDirection CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum FontDirection,
  , fontLeftToRight      = FontLeftToRight
  , fontRightToLeft      = FontRightToLeft
  }
 
-type   ImageFormat    = CInt
+newtype ImageFormat    = ImageFormat CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum ImageFormat,
  , xyBitmap     = XYBitmap
  , xyPixmap     = XYPixmap
@@ -1823,15 +1828,28 @@ type   ImageFormat    = CInt
  }
 
 -- Xrandr types
-type Rotation      = #{type Rotation}
-type Reflection    = #{type Rotation}
-type SizeID        = #{type SizeID}
-type SubpixelOrder = #{type SubpixelOrder}
-type Connection    = #{type Connection}
-type RROutput      = #{type RROutput}
-type RRCrtc        = #{type RRCrtc}
-type RRMode        = #{type RRMode}
-type XRRModeFlags  = #{type XRRModeFlags}
+-- Should these be in this module? Is this platform-dependent?
+-- XRANDR gives both reflections and rotation type Rotation.
+-- This is super confusing so here I'm calling it 'RandrTransformation'.
+newtype RandrTransformation = RandrTransformation #{type Rotation}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+type Rotation   = RandrTransformation
+type Reflection = RandrTransformation
+
+newtype SizeID        = SizeID        #{type SizeID}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+newtype SubpixelOrder = SubpixelOrder #{type SubpixelOrder}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+newtype Connection    = Connection    #{type Connection}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+newtype RROutput      = RROutput      #{type RROutput}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+newtype RRCrtc        = RRCrtc        #{type RRCrtc}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+newtype RRMode        = RRMode        #{type RRMode}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
+newtype XRRModeFlags  = XRRModeFlags  #{type XRRModeFlags}
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 
 #{enum Rotation,
   , xRR_Rotate_0   = RR_Rotate_0
