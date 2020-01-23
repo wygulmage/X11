@@ -1352,6 +1352,7 @@ instance Enum EventType where
 
 newtype KeyOrButtonMask = KeyOrButtonMask Mask
   deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
+#{enum KeyOrButtonMask, , anyModifier          = AnyModifier }
 
 -- | Modifier 'names'
 newtype Modifier = Modifier CUInt
@@ -1366,7 +1367,6 @@ newtype Modifier = Modifier CUInt
  , mod3MapIndex         = Mod3MapIndex
  , mod4MapIndex         = Mod4MapIndex
  , mod5MapIndex         = Mod5MapIndex
- , anyModifier          = AnyModifier
  }
 
 type KeyMask            = KeyOrButtonMask
