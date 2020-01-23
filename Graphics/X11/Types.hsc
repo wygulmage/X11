@@ -867,7 +867,7 @@ data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | S
 --   deriving
 --     (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_VoidSymbol        = XK_VoidSymbol
  }
 
@@ -875,7 +875,7 @@ data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | S
 -- programming, but could have been arbitrary (at the cost of lookup
 -- tables in client code).
 
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_BackSpace         = XK_BackSpace
  , xK_Tab               = XK_Tab
  , xK_Linefeed          = XK_Linefeed
@@ -889,7 +889,7 @@ data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | S
  }
 
 -- International & multi-key character composition
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_Multi_key         = XK_Multi_key
  }
 
@@ -912,7 +912,7 @@ xK_PreviousCandidate = #const XK_PreviousCandidate
 #endif
 
 -- Cursor control & motion
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_Home              = XK_Home
  , xK_Left              = XK_Left
  , xK_Up                = XK_Up
@@ -942,7 +942,7 @@ xK_PreviousCandidate = #const XK_PreviousCandidate
  }
 
 -- Keypad Functions, keypad numbers cleverly chosen to map to ascii
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_KP_Space          = XK_KP_Space
  , xK_KP_Tab            = XK_KP_Tab
  , xK_KP_Enter          = XK_KP_Enter
@@ -1044,7 +1044,7 @@ xK_PreviousCandidate = #const XK_PreviousCandidate
  , xK_R15               = XK_R15
  }
 
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_Shift_L           = XK_Shift_L
  , xK_Shift_R           = XK_Shift_R
  , xK_Control_L         = XK_Control_L
@@ -1062,7 +1062,7 @@ xK_PreviousCandidate = #const XK_PreviousCandidate
  , xK_Hyper_R           = XK_Hyper_R
  }
 
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_space             = XK_space
  , xK_exclam            = XK_exclam
  , xK_quotedbl          = XK_quotedbl
@@ -1162,7 +1162,7 @@ xK_PreviousCandidate = #const XK_PreviousCandidate
  , xK_asciitilde        = XK_asciitilde
  }
 
-#{enum KeySym,
+#{enum KeySym, KeySym
  , xK_nobreakspace      = XK_nobreakspace
  , xK_exclamdown        = XK_exclamdown
  , xK_cent              = XK_cent
@@ -1303,7 +1303,8 @@ type EventMask                  = Mask
 newtype EventType = EventType CInt
   deriving (Eq, Ord, Num, Show, Read, Storable)
 -- TODO: Consider removing Num instance from EventType. (Use toEnum instead?)
-#{enum EventType,
+-- Event types are added so...
+#{enum EventType, EventType
  , keyPress             = KeyPress
  , keyRelease           = KeyRelease
  , buttonPress          = ButtonPress
@@ -1354,14 +1355,14 @@ instance Enum EventType where
     fromEnum (EventType x) = fromIntegral x
 
 newtype KeyOrButtonMask = KeyOrButtonMask Mask
-  deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
-#{enum KeyOrButtonMask, , anyModifier          = AnyModifier }
+  deriving (Semigroup, Monoid, Eq, Ord, Num, Bits, FiniteBits, Show, Read, Storable)
+-- FIXME: fromIntegral is currently used with KeyMask.
+#{enum KeyOrButtonMask, KeyOrButtonMask, anyModifier = AnyModifier }
 
 -- | Modifier 'names'
 newtype Modifier = Modifier CUInt
-  deriving (Eq, Ord, Enum, Num, Show, Read, Storable)
-
-#{enum Modifier,
+  deriving (Eq, Ord, Enum, Show, Read, Storable)
+#{enum Modifier, Modifier
  , shiftMapIndex        = ShiftMapIndex
  , lockMapIndex         = LockMapIndex
  , controlMapIndex      = ControlMapIndex
@@ -1373,7 +1374,7 @@ newtype Modifier = Modifier CUInt
  }
 
 type KeyMask            = KeyOrButtonMask
-#{enum KeyMask,
+#{enum KeyMask, KeyOrButtonMask
  , noModMask            = 0
  , shiftMask            = ShiftMask
  , lockMask             = LockMask
@@ -1386,7 +1387,7 @@ type KeyMask            = KeyOrButtonMask
  }
 
 type ButtonMask         = KeyOrButtonMask
-#{enum ButtonMask,
+#{enum ButtonMask, KeyOrButtonMask
  , button1Mask          = Button1Mask
  , button2Mask          = Button2Mask
  , button3Mask          = Button3Mask
@@ -1394,10 +1395,9 @@ type ButtonMask         = KeyOrButtonMask
  , button5Mask          = Button5Mask
  }
 
--- type Button             = Word32
 newtype Button = Button CUInt
   deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum Button,
+#{enum Button, Button
  , anyButton            = AnyButton
  , button1              = Button1
  , button2              = Button2
@@ -1406,9 +1406,12 @@ newtype Button = Button CUInt
  , button5              = Button5
  }
 
-type NotifyMode         = CInt
+newtype NotifyModeOrDetail = NotifyModeOrDetail CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+
+type NotifyMode         = NotifyModeOrDetail
 -- NotifyNormal and NotifyHint are used as detail in XMotionEvents
-#{enum NotifyMode,
+#{enum NotifyMode, NotifyModeOrDetail
  , notifyNormal         = NotifyNormal
  , notifyGrab           = NotifyGrab
  , notifyUngrab         = NotifyUngrab
@@ -1416,8 +1419,8 @@ type NotifyMode         = CInt
  , notifyHint           = NotifyHint
  }
 
-type NotifyDetail       = CInt
-#{enum NotifyDetail,
+type NotifyDetail       = NotifyModeOrDetail
+#{enum NotifyDetail, NotifyModeOrDetail
  , notifyAncestor       = NotifyAncestor
  , notifyVirtual        = NotifyVirtual
  , notifyInferior       = NotifyInferior
@@ -1430,8 +1433,8 @@ type NotifyDetail       = CInt
 
 -- type Visibility = CInt
 newtype Visibility = Visibility CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum Visibility,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum Visibility, Visibility
  , visibilityUnobscured         = VisibilityUnobscured
  , visibilityPartiallyObscured  = VisibilityPartiallyObscured
  , visibilityFullyObscured      = VisibilityFullyObscured
@@ -1441,38 +1444,41 @@ newtype Visibility = Visibility CInt
 -- (used in Circulation requests or events)
 -- type Place = CInt
 newtype Place = Place CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum Place,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum Place, Place
  , placeOnTop           = PlaceOnTop
  , placeOnBottom        = PlaceOnBottom
  }
 
 -- type Protocol           = CInt
 newtype Protocol = Protocol CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum Protocol,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum Protocol, Protocol
  , familyInternet       = FamilyInternet
  , familyDECnet         = FamilyDECnet
  , familyChaos          = FamilyChaos
  }
 
-type PropertyNotification = CInt
-#{enum PropertyNotification,
+-- type PropertyNotification = CInt
+newtype PropertyNotification = PropertyNotification CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum PropertyNotification, PropertyNotification
  , propertyNewValue     = PropertyNewValue
  , propertyDelete       = PropertyDelete
  }
 
-type ColormapNotification = CInt
-#{enum ColormapNotification,
+-- type ColormapNotification = CInt
+newtype ColormapNotification = ColormapNotification CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum ColormapNotification, ColormapNotification
  , colormapUninstalled  = ColormapUninstalled
  , colormapInstalled    = ColormapInstalled
  }
 
 -- Grab{Pointer,Button,Keyboard,Key} Modes
--- type GrabMode           = CInt
 newtype GrabMode = GrabMode CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum GrabMode,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum GrabMode, GrabMode
  , grabModeSync         = GrabModeSync
  , grabModeAsync        = GrabModeAsync
  }
@@ -1481,8 +1487,8 @@ newtype GrabMode = GrabMode CInt
 
 -- type GrabStatus         = CInt
 newtype GrabStatus = GrabStatus CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum GrabStatus,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum GrabStatus, GrabStatus
  , grabSuccess          = GrabSuccess
  , alreadyGrabbed       = AlreadyGrabbed
  , grabInvalidTime      = GrabInvalidTime
@@ -1492,8 +1498,8 @@ newtype GrabStatus = GrabStatus CInt
 
 -- AllowEvents modes
 newtype AllowEvents        = AllowEvents CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum AllowEvents,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum AllowEvents, AllowEvents
  , asyncPointer         = AsyncPointer
  , syncPointer          = SyncPointer
  , replayPointer        = ReplayPointer
@@ -1506,8 +1512,8 @@ newtype AllowEvents        = AllowEvents CInt
 
 -- {Set,Get}InputFocus Modes
 newtype FocusMode          = FocusMode CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum FocusMode,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum FocusMode, FocusMode
  , revertToNone         = RevertToNone
  , revertToPointerRoot  = RevertToPointerRoot
  , revertToParent       = RevertToParent
@@ -1547,17 +1553,17 @@ throwIfZero fn_name = throwIf_ (== 0) (const ("Error in function " ++ fn_name))
 
 -- type WindowClass        = CInt
 newtype WindowClass = WindowClass CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum WindowClass,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum WindowClass, WindowClass
  , copyFromParent       = CopyFromParent
  , inputOutput          = InputOutput
  , inputOnly            = InputOnly
  }
 
 -- Window attributes mask
-newtype AttributeMask      = AttributeMask Mask
-  deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
-#{enum AttributeMask,
+newtype AttributeMask   = AttributeMask Mask
+  deriving (Semigroup, Monoid, Eq, Ord, Bits, FiniteBits, Show, Read, Storable)
+#{enum AttributeMask, AttributeMask
  , cWBackPixmap         = CWBackPixmap
  , cWBackPixel          = CWBackPixel
  , cWBorderPixmap       = CWBorderPixmap
@@ -1576,9 +1582,9 @@ newtype AttributeMask      = AttributeMask Mask
  }
 
 -- Used in ChangeCloseDownMode
-newtype CloseDownMode      = CloseDownMode CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum CloseDownMode,
+newtype CloseDownMode   = CloseDownMode CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum CloseDownMode, CloseDownMode
  , destroyAll           = DestroyAll
  , retainPermanent      = RetainPermanent
  , retainTemporary      = RetainTemporary
@@ -1589,8 +1595,8 @@ newtype CloseDownMode      = CloseDownMode CInt
 ----------------------------------------------------------------
 
 newtype QueryBestSizeClass = QueryBestSizeClass CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum QueryBestSizeClass,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum QueryBestSizeClass, QueryBestSizeClass
  , cursorShape          = CursorShape
  , tileShape            = TileShape
  , stippleShape         = StippleShape
@@ -1603,8 +1609,8 @@ newtype QueryBestSizeClass = QueryBestSizeClass CInt
 -- graphics functions, as in GC.alu
 
 newtype GXFunction       = GXFunction CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum GXFunction,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum GXFunction, GXFunction
  , gXclear              = GXclear
  , gXand                = GXand
  , gXandReverse         = GXandReverse
@@ -1623,50 +1629,50 @@ newtype GXFunction       = GXFunction CInt
  , gXset                = GXset
  }
 
-newtype   LineStyle        = LineStyle CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum LineStyle,
+newtype LineStyle        = LineStyle CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum LineStyle, LineStyle
  , lineSolid            = LineSolid
  , lineOnOffDash        = LineOnOffDash
  , lineDoubleDash       = LineDoubleDash
  }
 
-newtype   CapStyle         = CapStyle CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum CapStyle,
+newtype CapStyle         = CapStyle CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum CapStyle, CapStyle
  , capNotLast           = CapNotLast
  , capButt              = CapButt
  , capRound             = CapRound
  , capProjecting        = CapProjecting
  }
 
-newtype   JoinStyle        = JoinStyle CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum JoinStyle,
+newtype JoinStyle        = JoinStyle CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum JoinStyle, JoinStyle
  , joinMiter            = JoinMiter
  , joinRound            = JoinRound
  , joinBevel            = JoinBevel
  }
 
-newtype   FillStyle        = FillStyle CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum FillStyle,
+newtype FillStyle        = FillStyle CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum FillStyle, FillStyle
  , fillSolid            = FillSolid
  , fillTiled            = FillTiled
  , fillStippled         = FillStippled
  , fillOpaqueStippled   = FillOpaqueStippled
  }
 
-newtype   FillRule         = FillRule CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum FillRule,
+newtype FillRule      = FillRule CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum FillRule, FillRule
  , evenOddRule          = EvenOddRule
  , windingRule          = WindingRule
  }
 
 newtype SubWindowMode    = SubWindowMode CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum SubWindowMode,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum SubWindowMode, SubWindowMode
  , clipByChildren       = ClipByChildren
  , includeInferiors     = IncludeInferiors
  }
@@ -1682,24 +1688,24 @@ newtype SubWindowMode    = SubWindowMode CInt
 
 -- CoordinateMode for drawing routines
 newtype CoordinateMode   = CoordinateMode CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum CoordinateMode,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum CoordinateMode, CoordinateMode
  , coordModeOrigin      = CoordModeOrigin
  , coordModePrevious    = CoordModePrevious
  }
 
 newtype PolygonShape     = PolygonShape CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum PolygonShape,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum PolygonShape, PolygonShape
  , complex              = Complex
  , nonconvex            = Nonconvex
  , convex               = Convex
  }
 
 -- Arc modes for PolyFillArc
-newtype ArcMode          = ArcMode CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum ArcMode,
+newtype ArcMode         = ArcMode CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum ArcMode, ArcMode
  , arcChord             = ArcChord
  , arcPieSlice          = ArcPieSlice
  }
@@ -1707,8 +1713,8 @@ newtype ArcMode          = ArcMode CInt
 -- GC components: masks used in CreateGC, CopyGC, ChangeGC, OR'ed into
 -- GC.stateChanges
 newtype GCMask = GCMask Mask
-  deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
-#{enum GCMask,
+  deriving (Semigroup, Monoid, Eq, Ord, Bits, FiniteBits, Show, Read, Storable)
+#{enum GCMask, GCMask
  , gCFunction           = GCFunction
  , gCPlaneMask          = GCPlaneMask
  , gCForeground         = GCForeground
@@ -1736,45 +1742,45 @@ newtype GCMask = GCMask Mask
  }
 
 newtype CirculationDirection = CirculationDirection CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum CirculationDirection,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum CirculationDirection, CirculationDirection
  , raiseLowest          = RaiseLowest
  , lowerHighest         = LowerHighest
  }
 
 -- used in imageByteOrder and bitmapBitOrder
-newtype ByteOrder        = ByteOrder CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum ByteOrder,
+newtype ByteOrder       = ByteOrder CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum ByteOrder, ByteOrder
  , lSBFirst             = LSBFirst
  , mSBFirst             = MSBFirst
  }
 
-newtype ColormapAlloc    = ColomapAlloc CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum ColormapAlloc,
+newtype ColormapAlloc   = ColormapAlloc CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum ColormapAlloc, ColormapAlloc
  , allocNone            = AllocNone
  , allocAll             = AllocAll
  }
 
-newtype MappingRequest   = MappingRequest CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum MappingRequest,
+newtype MappingRequest  = MappingRequest CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum MappingRequest, MappingRequest
  , mappingModifier      = MappingModifier
  , mappingKeyboard      = MappingKeyboard
  , mappingPointer       = MappingPointer
  }
 
 newtype ChangeSaveSetMode = ChangeSaveSetMode CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum ChangeSaveSetMode,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum ChangeSaveSetMode, ChangeSaveSetMode
  , setModeInsert        = SetModeInsert
  , setModeDelete        = SetModeDelete
  }
 
-newtype BitOrWindowGravity       = BitOrWindowGravity CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum BitOrWindowGravity,
+newtype BitOrWindowGravity = BitOrWindowGravity CInt
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum BitOrWindowGravity, BitOrWindowGravity
  , forgetGravity        = ForgetGravity
  , northWestGravity     = NorthWestGravity
  , northGravity         = NorthGravity
@@ -1792,14 +1798,14 @@ type BitGravity = BitOrWindowGravity
 
 type   WindowGravity   = BitOrWindowGravity
 -- WindowGravity calls 'forgetGravity' 'unmapGravity'.
-#{enum WindowGravity,
+#{enum WindowGravity, BitOrWindowGravity
  , unmapGravity         = UnmapGravity
  }
 
 -- Used in CreateWindow for backing-store hint
 newtype BackingStore     = BackingStore CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum BackingStore,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum BackingStore, BackingStore
  , notUseful            = NotUseful
  , whenMapped           = WhenMapped
  , always               = Always
@@ -1813,15 +1819,15 @@ newtype BackingStore     = BackingStore CInt
  }
 
 newtype FontDirection    = FontDirection CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum FontDirection,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum FontDirection, FontDirection
  , fontLeftToRight      = FontLeftToRight
  , fontRightToLeft      = FontRightToLeft
  }
 
 newtype ImageFormat    = ImageFormat CInt
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-#{enum ImageFormat,
+  deriving (Eq, Ord, Show, Read, Storable)
+#{enum ImageFormat, ImageFormat
  , xyBitmap     = XYBitmap
  , xyPixmap     = XYPixmap
  , zPixmap      = ZPixmap
@@ -1832,15 +1838,16 @@ newtype ImageFormat    = ImageFormat CInt
 -- XRANDR gives both reflections and rotation type Rotation.
 -- This is super confusing so here I'm calling it 'RandrTransformation'.
 newtype RandrTransformation = RandrTransformation #{type Rotation}
-  deriving (Eq, Ord, Num, Show, Read, Storable)
+  deriving (Eq, Ord, Show, Read, Storable)
 type Rotation   = RandrTransformation
 type Reflection = RandrTransformation
+
+newtype Connection    = Connection    #{type Connection}
+  deriving (Eq, Ord, Show, Read, Storable)
 
 newtype SizeID        = SizeID        #{type SizeID}
   deriving (Eq, Ord, Num, Show, Read, Storable)
 newtype SubpixelOrder = SubpixelOrder #{type SubpixelOrder}
-  deriving (Eq, Ord, Num, Show, Read, Storable)
-newtype Connection    = Connection    #{type Connection}
   deriving (Eq, Ord, Num, Show, Read, Storable)
 newtype RROutput      = RROutput      #{type RROutput}
   deriving (Eq, Ord, Num, Show, Read, Storable)
@@ -1851,19 +1858,19 @@ newtype RRMode        = RRMode        #{type RRMode}
 newtype XRRModeFlags  = XRRModeFlags  #{type XRRModeFlags}
   deriving (Eq, Ord, Num, Show, Read, Storable)
 
-#{enum Rotation,
+#{enum Rotation, RandrTransformation
   , xRR_Rotate_0   = RR_Rotate_0
   , xRR_Rotate_90  = RR_Rotate_90
   , xRR_Rotate_180 = RR_Rotate_180
   , xRR_Rotate_270 = RR_Rotate_270
   }
 
-#{enum Reflection,
+#{enum Reflection, RandrTransformation
   , xRR_Reflect_X = RR_Reflect_X
   , xRR_Reflect_Y = RR_Reflect_Y
   }
 
-#{enum Connection,
+#{enum Connection, Connection
  , xRR_Connected         = RR_Connected
  , xRR_Disconnected      = RR_Disconnected
  , xRR_UnknownConnection = RR_UnknownConnection
