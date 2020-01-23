@@ -638,7 +638,7 @@ module Graphics.X11.Types
         inputOnly,
 
         -- ** Attribute masks
-        AttributeMask,
+        AttributeMask (..),
         cWBackPixmap,
         cWBackPixel,
         cWBorderPixmap,
@@ -1502,7 +1502,6 @@ newtype AllowEvents        = AllowEvents CInt
  }
 
 -- {Set,Get}InputFocus Modes
--- type FocusMode          = CInt
 newtype FocusMode          = FocusMode CInt
   deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum FocusMode,
@@ -1553,7 +1552,8 @@ newtype WindowClass = WindowClass CInt
  }
 
 -- Window attributes mask
-type AttributeMask      = Mask
+newtype AttributeMask      = AttributeMask Mask
+  deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum AttributeMask,
  , cWBackPixmap         = CWBackPixmap
  , cWBackPixel          = CWBackPixel
