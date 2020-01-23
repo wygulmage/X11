@@ -1395,6 +1395,7 @@ type ButtonMask         = KeyOrButtonMask
 newtype Button = Button CUInt
   deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum Button,
+ , anyButton            = AnyButton
  , button1              = Button1
  , button2              = Button2
  , button3              = Button3
