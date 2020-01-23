@@ -1406,12 +1406,14 @@ newtype Button = Button CUInt
  , button5              = Button5
  }
 
-newtype NotifyModeOrDetail = NotifyModeOrDetail CInt
-  deriving (Eq, Ord, Show, Read, Storable)
+-- newtype NotifyModeOrDetail = NotifyModeOrDetail CInt
+  -- deriving (Eq, Ord, Show, Read, Storable)
+type NotifyModeOrDetail = CInt
 
 type NotifyMode         = NotifyModeOrDetail
 -- NotifyNormal and NotifyHint are used as detail in XMotionEvents
-#{enum NotifyMode, NotifyModeOrDetail
+-- #{enum NotifyMode, NotifyModeOrDetail
+#{enum NotifyMode,
  , notifyNormal         = NotifyNormal
  , notifyGrab           = NotifyGrab
  , notifyUngrab         = NotifyUngrab
@@ -1420,7 +1422,8 @@ type NotifyMode         = NotifyModeOrDetail
  }
 
 type NotifyDetail       = NotifyModeOrDetail
-#{enum NotifyDetail, NotifyModeOrDetail
+-- #{enum NotifyDetail, NotifyModeOrDetail
+#{enum NotifyDetail,
  , notifyAncestor       = NotifyAncestor
  , notifyVirtual        = NotifyVirtual
  , notifyInferior       = NotifyInferior
