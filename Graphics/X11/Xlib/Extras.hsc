@@ -1408,7 +1408,7 @@ setClientMessageEvent p window message_type format l_0_ l_1_ = do
     #{poke XClientMessageEvent, message_type}   p message_type
     #{poke XClientMessageEvent, format}         p format
     let datap = #{ptr XClientMessageEvent, data} p :: Ptr CLong
-    poke        datap   (fromIntegral l_0_) -- does this work?
+    poke        datap   (fromIntegral l_0_ ) -- Does this work? What is it doing? -- FIXME
     pokeElemOff datap 1 (fromIntegral l_1_)
 
     return ()

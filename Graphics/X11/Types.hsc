@@ -846,7 +846,6 @@ module Graphics.X11.Types
 import Data.Bits (Bits, FiniteBits, (.|.))
 import Data.Semigroup
 import Data.Word
-import Data.Coerce (Coercible, coerce)
 
 import Foreign.Marshal.Error
 import Foreign.C.Types

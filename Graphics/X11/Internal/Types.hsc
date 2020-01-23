@@ -38,7 +38,12 @@ import Foreign.Storable (Storable)
 type XResource = #{type XID}
 
 newtype Mask = Mask #{type Mask}
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+    deriving
+      ( Eq, Ord, Enum
+      , Num, Real, Integral
+      , Bits, FiniteBits
+      , Read, Show, Storable
+      )
 
 instance Semigroup Mask where
     (<>) = (.|.) -- Combine masks.
@@ -47,16 +52,26 @@ instance Monoid Mask where
     mempty = 0
 
 newtype Time = Time #{type Time}
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+    deriving
+      ( Eq, Ord, Enum
+      , Num, Real, Integral
+      , Bits, FiniteBits
+      , Read, Show, Storable
+      )
 
 newtype KeyCode = KeyCode #{type KeyCode}
   deriving
-    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+      ( Eq, Ord, Enum
+      , Num, Real, Integral
+      , Bits, FiniteBits
+      , Read, Show, Storable
+      )
 
 --- End platform-dependent definitions ---
 
 newtype Atom = Atom XResource
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Read, Show, Storable)
+    -- 'fromIntegral' is used in one hacky function on an Atom. Once that's fixed, the Enum, Num, Real, and Integral instances should be removed.
 
 newtype VisualID = VisualID XResource
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
@@ -77,16 +92,16 @@ class (Coercible XID a)=> IsXID a where
 instance IsXID XID where
     none = #{const None}
 
-newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
+newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
 newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
-newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
-newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
+newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable, IsXID)
+newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
 
 newtype KeySym   = KeySym XID
   deriving
-    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable, IsXID)
 
-class (IsXID a)=> IsDrawable a
+class (IsXID a)=> IsDrawable a -- Class for the 'Drawable' type.
 
 newtype Pixmap = Pixmap XID
     deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
