@@ -1,6 +1,5 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE FlexibleContexts #-}
 
 -----------------------------------------------------------------------------
 -- |
@@ -34,7 +33,7 @@ module Graphics.X11.Types
         GContext (..),
         KeyCode (..),
         KeySym (..),
-        Time,
+        Time (..),
         SizeID,
         SubpixelOrder,
         Connection,
@@ -853,65 +852,49 @@ import Foreign.Marshal.Error
 import Foreign.C.Types
 import Foreign.Storable (Storable)
 
+import Graphics.X11.Internal.Types
+
 #include "HsXlib.h"
 
-newtype XID = XID #{type XID}
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+-- -- According to spec, Pixmap, Window, Cursor, Font, VisualID, KeySym, and Atom are all 32 bit values with the most significant 3 bits 0.
+-- newtype XID = XID #{type XID}
+--     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
-class (Coercible XID a)=> IsXID a where
-    none :: a
-    none = fromXID none
+-- newtype Mask = Mask #{type Mask}
+--     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
-    toXID :: a -> XID
-    toXID = coerce
+-- newtype Atom = Atom #{type Atom}
+--     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
-    fromXID :: XID -> a
-    fromXID = coerce
+-- newtype VisualID = VisualID #{type VisualID}
+--     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
+-- -- According to spec, Time is an unsigned 32 bit integer.
+-- type Time        = #{type Time}
 
-instance IsXID XID where
-    none = #{const None}
+-- newtype KeyCode  = KeyCode #{type KeyCode} -- Should be CUInt8
+--   deriving
+--     (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
-newtype Mask = Mask #{type Mask}
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+-- -- end platform dependency
 
-instance Semigroup Mask where
-    (<>) = (.|.)
-
-instance Monoid Mask where
-    mempty = 0
-
-newtype Atom = Atom #{type Atom}
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
-newtype VisualID = VisualID #{type VisualID}
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
-type Time        = #{type Time}
-
-newtype KeyCode  = KeyCode #{type KeyCode}
-  deriving
-    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
--- end platform dependency
-
-newtype Pixmap   = Pixmap XID
-    deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
-newtype Window   = Window XID
-    deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
-
-class (IsXID a)=> IsDrawable a
+-- newtype Pixmap   = Pixmap XID
+--     deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
+-- newtype Window   = Window XID
+--     deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
 
 
-newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
-newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
-newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
-newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
 
+-- newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
+-- newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
+-- newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
+-- newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
 
-newtype KeySym   = KeySym XID
-  deriving
-    (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+-- data Gravity = Forget | Static | NorthWest | North | NorthEast | West | Center | East | SouthWest | South | SouthEast
+
+-- newtype KeySym   = KeySym XID
+--   deriving
+--     (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 #{enum KeySym,
  , xK_VoidSymbol        = XK_VoidSymbol
