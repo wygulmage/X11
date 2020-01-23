@@ -125,7 +125,7 @@ data EventSpecialization
         , ev_detail'               :: !NotifyDetail
         , ev_same_screen'          :: !Bool
         , ev_focus'                :: !Bool
-        , ev_state'                :: !Modifier
+        , ev_state'                :: !KeyOrButtonMask
         }
     | SelectionRequest'
         { ev_requestor'            :: !Window -- 'ev_window'' is the owner.
@@ -343,7 +343,7 @@ data Event
         , ev_detail                :: !NotifyDetail
         , ev_same_screen           :: !Bool
         , ev_focus                 :: !Bool
-        , ev_state                 :: !Modifier
+        , ev_state                 :: !KeyOrButtonMask
         }
     | SelectionRequest
         { ev_event_type            :: !EventType

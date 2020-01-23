@@ -498,6 +498,8 @@ module Graphics.X11.Types
         mod5MapIndex,
         anyModifier,
 
+        KeyOrButtonMask (..),
+
         -- ** Key masks
         KeyMask (..),
         noModMask,
@@ -855,41 +857,8 @@ import Graphics.X11.Internal.Types
 
 #include "HsXlib.h"
 
--- -- According to spec, Pixmap, Window, Cursor, Font, VisualID, KeySym, and Atom are all 32 bit values with the most significant 3 bits 0.
--- newtype XID = XID #{type XID}
---     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
--- newtype Mask = Mask #{type Mask}
---     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
--- newtype Atom = Atom #{type Atom}
---     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
--- newtype VisualID = VisualID #{type VisualID}
---     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
--- -- According to spec, Time is an unsigned 32 bit integer.
--- type Time        = #{type Time}
-
--- newtype KeyCode  = KeyCode #{type KeyCode} -- Should be CUInt8
---   deriving
---     (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
-
--- -- end platform dependency
-
--- newtype Pixmap   = Pixmap XID
---     deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
--- newtype Window   = Window XID
---     deriving (Eq, Ord, Num, Show, Read, Storable, IsXID, IsDrawable)
-
-
-
--- newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable)
--- newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
--- newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable)
--- newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable)
-
--- data Gravity = Forget | Static | NorthWest | North | NorthEast | West | Center | East | SouthWest | South | SouthEast
+data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | SouthWest | South | SouthEast | Static
+  deriving (Eq, Ord, Enum, Show, Read)
 
 -- newtype KeySym   = KeySym XID
 --   deriving
@@ -1381,15 +1350,12 @@ instance Enum EventType where
 
     fromEnum (EventType x) = fromIntegral x
 
+newtype KeyOrButtonMask = KeyOrButtonMask Mask
+  deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 
--- type Modifier           = CUInt
+-- | Modifier 'names'
 newtype Modifier = Modifier CUInt
-  deriving (Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
-instance Semigroup Modifier where
-    (<>) = (.|.)
-
-instance Monoid Modifier where
-    mempty = Modifier 0
+  deriving (Eq, Ord, Enum, Num, Show, Read, Storable)
 
 #{enum Modifier,
  , shiftMapIndex        = ShiftMapIndex
@@ -1403,7 +1369,7 @@ instance Monoid Modifier where
  , anyModifier          = AnyModifier
  }
 
-type KeyMask            = Modifier
+type KeyMask            = KeyOrButtonMask
 #{enum KeyMask,
  , noModMask            = 0
  , shiftMask            = ShiftMask
@@ -1416,7 +1382,7 @@ type KeyMask            = Modifier
  , mod5Mask             = Mod5Mask
  }
 
-type ButtonMask         = Modifier
+type ButtonMask         = KeyOrButtonMask
 #{enum ButtonMask,
  , button1Mask          = Button1Mask
  , button2Mask          = Button2Mask
