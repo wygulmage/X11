@@ -99,7 +99,7 @@ newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
 
 newtype KeySym = KeySym XID
   deriving
-    (Eq, Ord, Num, Read, Show, Storable, IsXID)
+    (Eq, Ord, Enum, Num, Read, Show, Storable, IsXID)
 
 class (IsXID a)=> IsDrawable a -- Class for the 'Drawable' type.
 
