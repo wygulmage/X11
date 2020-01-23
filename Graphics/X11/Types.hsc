@@ -599,7 +599,7 @@ module Graphics.X11.Types
         syncBoth,
 
         -- ** Focus modes
-        FocusMode,
+        FocusMode (..),
         revertToNone,
         revertToPointerRoot,
         revertToParent,
@@ -1502,7 +1502,9 @@ newtype AllowEvents        = AllowEvents CInt
  }
 
 -- {Set,Get}InputFocus Modes
-type FocusMode          = CInt
+-- type FocusMode          = CInt
+newtype FocusMode          = FocusMode CInt
+  deriving (Eq, Ord, Num, Show, Read, Storable)
 #{enum FocusMode,
  , revertToNone         = RevertToNone
  , revertToPointerRoot  = RevertToPointerRoot
