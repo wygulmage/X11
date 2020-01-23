@@ -739,7 +739,7 @@ module Graphics.X11.Types
         arcPieSlice,
 
         -- ** GC masks
-        GCMask,
+        GCMask (..),
         gCFunction,
         gCPlaneMask,
         gCForeground,
@@ -1704,7 +1704,9 @@ newtype ArcMode          = ArcMode CInt
 -- GC components: masks used in CreateGC, CopyGC, ChangeGC, OR'ed into
 -- GC.stateChanges
 
-type   GCMask           = CInt
+-- type   GCMask           = CInt
+newtype GCMask = GCMask Mask
+  deriving (Semigroup, Monoid, Eq, Ord, Enum, Num, Bits, FiniteBits, Show, Read, Storable)
 #{enum GCMask,
  , gCFunction           = GCFunction
  , gCPlaneMask          = GCPlaneMask
