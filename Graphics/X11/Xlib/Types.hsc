@@ -1,4 +1,5 @@
 {-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 -----------------------------------------------------------------------------
 -- |
 -- Module      :  Graphics.X11.Xlib.Types
@@ -18,7 +19,7 @@ module Graphics.X11.Xlib.Types(
         Display(..), Screen(..), Visual(..), GC(..), GCValues, SetWindowAttributes,
         VisualInfo(..),
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
-        Pixel, Position, Dimension, Angle, ScreenNumber, Buffer
+        Pixel (..), Position, Dimension, Angle, ScreenNumber, Buffer
         ) where
 
 import Graphics.X11.Types
@@ -94,15 +95,15 @@ newtype SetWindowAttributes = SetWindowAttributes (Ptr SetWindowAttributes)
 -- | counterpart of an X11 @XVisualInfo@ structure
 data VisualInfo = VisualInfo {
         visualInfo_visual :: Visual,
-        visualInfo_visualID :: VisualID,
-        visualInfo_screen :: ScreenNumber,
-        visualInfo_depth :: CInt,
-        visualInfo_class :: CInt,
-        visualInfo_redMask :: CULong,
-        visualInfo_greenMask :: CULong,
-        visualInfo_blueMask :: CULong,
-        visualInfo_colormapSize :: CInt,
-        visualInfo_bitsPerRGB :: CInt
+        visualInfo_visualID :: !VisualID,
+        visualInfo_screen :: !ScreenNumber,
+        visualInfo_depth :: !CInt,
+        visualInfo_class :: !CInt,
+        visualInfo_redMask :: !CULong,
+        visualInfo_greenMask :: !CULong,
+        visualInfo_blueMask :: !CULong,
+        visualInfo_colormapSize :: !CInt,
+        visualInfo_bitsPerRGB :: !CInt
         }
 #if __GLASGOW_HASKELL__
         deriving (Eq, Show, Typeable)
@@ -127,29 +128,18 @@ instance Default VisualInfo where
 instance Storable VisualInfo where
         sizeOf _ = #size XVisualInfo
         alignment _ = alignment (undefined::CInt)
-        peek p = do
-                visual <- Visual `fmap` #{peek XVisualInfo, visual} p
-                visualID <- #{peek XVisualInfo, visualid} p
-                screen <- #{peek XVisualInfo, screen} p
-                depth <- #{peek XVisualInfo, depth} p
-                class_ <- #{peek XVisualInfo, class} p
-                redMask <- #{peek XVisualInfo, red_mask} p
-                greenMask <- #{peek XVisualInfo, green_mask} p
-                blueMask <- #{peek XVisualInfo, blue_mask} p
-                colormapSize <- #{peek XVisualInfo, colormap_size} p
-                bitsPerRGB <- #{peek XVisualInfo, bits_per_rgb} p
-                return $ VisualInfo {
-                        visualInfo_visual = visual,
-                        visualInfo_visualID = visualID,
-                        visualInfo_screen = screen,
-                        visualInfo_depth = depth,
-                        visualInfo_class = class_,
-                        visualInfo_redMask = redMask,
-                        visualInfo_greenMask = greenMask,
-                        visualInfo_blueMask = blueMask,
-                        visualInfo_colormapSize = colormapSize,
-                        visualInfo_bitsPerRGB = bitsPerRGB
-                        }
+        peek p = VisualInfo
+                <$> (Visual <$> #{peek XVisualInfo, visual} p)
+                <*> #{peek XVisualInfo, visualid} p
+                <*> #{peek XVisualInfo, screen} p
+                <*> #{peek XVisualInfo, depth} p
+                <*> #{peek XVisualInfo, class} p
+                <*> #{peek XVisualInfo, red_mask} p
+                <*> #{peek XVisualInfo, green_mask} p
+                <*> #{peek XVisualInfo, blue_mask} p
+                <*> #{peek XVisualInfo, colormap_size} p
+                <*> #{peek XVisualInfo, bits_per_rgb} p
+
         poke p info = do
                 #{poke XVisualInfo, visual} p visualPtr
                 #{poke XVisualInfo, visualid} p $ visualInfo_visualID info
@@ -174,12 +164,18 @@ newtype Image    = Image    (Ptr Image)
         deriving (Eq, Ord, Show)
 #endif
 
-type Pixel         = #{type unsigned long}
+newtype Pixel         = Pixel #{type unsigned long}
+#if __GLASGOW_HASKELL__
+        deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable, Typeable, Data)
+#else
+        deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable)
+#endif
 type Position      = #{type int}
 type Dimension     = #{type unsigned int}
 type Angle         = CInt
 type ScreenNumber  = Word32
-type Buffer        = CInt
+newtype Buffer        = Buffer CInt
+        deriving (Eq, Ord, Show, Read, Storable)
 
 ----------------------------------------------------------------
 -- Short forms used in structs
@@ -231,10 +227,9 @@ data Point = Point { pt_x :: !Position, pt_y :: !Position }
 instance Storable Point where
         sizeOf _ = #{size XPoint}
         alignment _ = alignment (undefined::CInt)
-        peek p = do
-                x <- peekPositionField p #{offset XPoint,x}
-                y <- peekPositionField p #{offset XPoint,y}
-                return (Point x y)
+        peek p = Point
+                 <$> peekPositionField p #{offset XPoint,x}
+                 <*> peekPositionField p #{offset XPoint,y}
         poke p (Point x y) = do
                 pokePositionField p #{offset XPoint,x} x
                 pokePositionField p #{offset XPoint,y} y
@@ -259,12 +254,11 @@ data Rectangle = Rectangle {
 instance Storable Rectangle where
         sizeOf _ = #{size XRectangle}
         alignment _ = alignment (undefined::CInt)
-        peek p = do
-                x       <- peekPositionField p #{offset XRectangle,x}
-                y       <- peekPositionField p #{offset XRectangle,y}
-                width   <- peekDimensionField p #{offset XRectangle,width}
-                height  <- peekDimensionField p #{offset XRectangle,height}
-                return (Rectangle x y width height)
+        peek p = Rectangle
+                <$> peekPositionField p #{offset XRectangle,x}
+                <*> peekPositionField p #{offset XRectangle,y}
+                <*> peekDimensionField p #{offset XRectangle,width}
+                <*> peekDimensionField p #{offset XRectangle,height}
         poke p (Rectangle x y width height) = do
                 pokePositionField p #{offset XRectangle,x} x
                 pokePositionField p #{offset XRectangle,y} y
@@ -293,14 +287,13 @@ data Arc = Arc {
 instance Storable Arc where
         sizeOf _ = #{size XArc}
         alignment _ = alignment (undefined::CInt)
-        peek p = do
-                x       <- peekPositionField p #{offset XArc,x}
-                y       <- peekPositionField p #{offset XArc,y}
-                width   <- peekDimensionField p #{offset XArc,width}
-                height  <- peekDimensionField p #{offset XArc,height}
-                angle1  <- peekAngleField p #{offset XArc,angle1}
-                angle2  <- peekAngleField p #{offset XArc,angle2}
-                return (Arc x y width height angle1 angle2)
+        peek p = Arc
+                <$> peekPositionField p #{offset XArc,x}
+                <*> peekPositionField p #{offset XArc,y}
+                <*> peekDimensionField p #{offset XArc,width}
+                <*> peekDimensionField p #{offset XArc,height}
+                <*> peekAngleField p #{offset XArc,angle1}
+                <*> peekAngleField p #{offset XArc,angle2}
         poke p (Arc x y width height angle1 angle2) = do
                 pokePositionField p #{offset XArc,x} x
                 pokePositionField p #{offset XArc,y} y
@@ -329,12 +322,11 @@ data Segment = Segment {
 instance Storable Segment where
         sizeOf _ = #{size XSegment}
         alignment _ = alignment (undefined::CInt)
-        peek p = do
-                x1 <- peekPositionField p #{offset XSegment,x1}
-                y1 <- peekPositionField p #{offset XSegment,y1}
-                x2 <- peekPositionField p #{offset XSegment,x2}
-                y2 <- peekPositionField p #{offset XSegment,y2}
-                return (Segment x1 y1 x2 y2)
+        peek p = Segment
+                <$> peekPositionField p #{offset XSegment,x1}
+                <*> peekPositionField p #{offset XSegment,y1}
+                <*> peekPositionField p #{offset XSegment,x2}
+                <*> peekPositionField p #{offset XSegment,y2}
         poke p (Segment x1 y1 x2 y2) = do
                 pokePositionField p #{offset XSegment,x1} x1
                 pokePositionField p #{offset XSegment,y1} y1
@@ -362,13 +354,12 @@ data Color = Color {
 instance Storable Color where
         sizeOf _ = #{size XColor}
         alignment _ = alignment (undefined::CInt)
-        peek p = do
-                pixel   <- #{peek XColor,pixel} p
-                red     <- #{peek XColor,red}   p
-                green   <- #{peek XColor,green} p
-                blue    <- #{peek XColor,blue}  p
-                flags   <- #{peek XColor,flags} p
-                return (Color pixel red green blue flags)
+        peek p = Color
+                <$> #{peek XColor,pixel} p
+                <*> #{peek XColor,red}   p
+                <*> #{peek XColor,green} p
+                <*> #{peek XColor,blue}  p
+                <*> #{peek XColor,flags} p
         poke p (Color pixel red green blue flags) = do
                 #{poke XColor,pixel}    p pixel
                 #{poke XColor,red}      p red

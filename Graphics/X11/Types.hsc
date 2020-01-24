@@ -863,9 +863,6 @@ import Graphics.X11.Internal.Types
 data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | SouthWest | South | SouthEast | Static
   deriving (Eq, Ord, Enum, Show, Read)
 
--- newtype KeySym   = KeySym XID
---   deriving
---     (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
 #{enum KeySym, KeySym
  , xK_VoidSymbol        = XK_VoidSymbol
