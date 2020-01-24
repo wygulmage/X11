@@ -174,16 +174,16 @@ type Position      = #{type int}
 type Dimension     = #{type unsigned int}
 type Angle         = CInt
 type ScreenNumber  = Word32
-newtype Buffer        = Buffer CInt
+newtype Buffer     = Buffer CInt
         deriving (Eq, Ord, Show, Read, Storable)
 
 ----------------------------------------------------------------
 -- Short forms used in structs
 ----------------------------------------------------------------
 
-type ShortPosition = CShort
+type ShortPosition  = CShort
 type ShortDimension = CUShort
-type ShortAngle    = CShort
+type ShortAngle     = CShort
 
 peekPositionField :: Ptr a -> CInt -> IO Position
 peekPositionField ptr off = do
@@ -273,7 +273,7 @@ instance Storable Rectangle where
 data Arc = Arc {
         arc_x :: !Position,
         arc_y :: !Position,
-        arc_width :: !Dimension,
+        arc_width  :: !Dimension,
         arc_height :: !Dimension,
         arc_angle1 :: !Angle,
         arc_angle2 :: !Angle
@@ -339,11 +339,11 @@ instance Storable Segment where
 
 -- | counterpart of an X11 @XColor@ structure
 data Color = Color {
-        color_pixel :: Pixel,
-        color_red :: Word16,
-        color_green :: Word16,
-        color_blue :: Word16,
-        color_flags :: Word8
+        color_pixel :: !Pixel,
+        color_red   :: !Word16,
+        color_green :: !Word16,
+        color_blue  :: !Word16,
+        color_flags :: !Word8
         }
 #if __GLASGOW_HASKELL__
         deriving (Eq, Show, Typeable, Data)
