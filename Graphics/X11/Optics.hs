@@ -37,7 +37,7 @@ class HasPoint a where
     _Point :: Mono Lens a Point
     _Point f s =
       (\ (Point x y) -> (_x.~ x) . (_y.~ y) $ s)
-      <$> f (Point (s^._x) (s^._y))
+      <$> f (Point <$> (^._x) <*> (^._y) $ s)
 
     _x :: Mono Lens a Position
     _x = _Point._x
@@ -68,7 +68,7 @@ class HasPoint a => HasSegment a where
     _Segment f s =
         (\ (Segment x1 y1 x2 y2) ->
            (_x.~ x1) . (_y.~ y1) . (_x2.~ x2) . (_y2 .~ y2) $ s)
-        <$> f (Segment (s^._x) (s^._y) (s^._x2) (s^._y2))
+        <$> f (Segment <$> (^._x) <*> (^._y) <*> (^._x2) <*> (^._y2) $ s)
 
     _Point2 :: Mono Lens a Point
     _Point2 = _Segment . _Point2
@@ -94,7 +94,7 @@ class HasDimensions a where
     _Dimensions :: Mono Lens a Dimensions
     _Dimensions f s =
         (\ (Dimensions w h) -> (_width .~ w) . (_height .~ h) $ s)
-        <$> f (Dimensions (s^._width) (s^._height))
+        <$> f (Dimensions <$> (^._width) <*> (^._height) $ s)
 
     _width :: Mono Lens a Dimension
     _width = _Dimensions . _width
