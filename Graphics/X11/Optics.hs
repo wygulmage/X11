@@ -25,14 +25,144 @@ view :: ((a -> Const a a) -> ta -> Const a ta) -> ta -> a
 view o s = getConst (o Const s)
 
 set :: ((a -> Identity b) -> ta -> Identity tb) -> b -> ta -> tb
-set o a = runIdentity . o (Identity . const a)
+-- set o b = runIdentity . o (const (Identity b))
+set o b = coerce (o (const (Identity b)))
 infixr 4 `set`
+
+data Dimensions = Dimensions !Dimension !Dimension
 
 -- Has- classes --
 
   -- HasRectangle could be a superclass of HasSegment, with the Rectangle as the bounding rectangle of the segment. But this could lead to confusion when, eg., the 'height' of an arc is height of the bounding rectangle of the endpoints of the arc rather than that of the arc.
-  -- Reflecting the diagonal of a rectangle by changing x2 or y2 also changes x1 or y2.
+  -- The Point x y of the bounding box of a segment is not the Point x1 y1 of the segment.
+  -- Reflecting the diagonal of a rectangle by changing x2 or y2 also changes x1 or y2, so Rectangle can't be an instance of HasSegment (The points of the segment will change when it is transformed back into a rectangle).
+  -- So maybe it makes more sense to have a 'HasBoundingRectangle' class that does not have 'HasPoint' as a superclass. You can still do, e.g., view (_Rectangle . _Point) foo.
+  -- If you extend this to HasSegment, you can make Rectangle an instance of HasSegment. But I'm not sure where the balance sits between utility, brevity, and clarity.
 
+  -- _Rectangle._x need not equal _x.
+
+  -- Should I include a 'ViewsSegment' class?
+
+-- Here's the 'independent'/'bounding' version:
+--{-
+
+
+-- Point
+
+class HasPoint a where
+    -- Laws:
+    -- _x = _Point . _x
+    -- _y = _Point . _y
+    _Point :: Mono Lens a Point
+    _Point f s =
+      (\ (Point x y) -> set _x x . set _y y $ s)
+      <$> f (Point <$> view _x <*> view _y $ s)
+
+    _x :: Mono Lens a Position
+    _x = _Point . _x
+
+    _y :: Mono Lens a Position
+    _y = _Point . _y
+
+instance HasPoint Point where
+    _Point = id
+    _x f (Point x y) = (`Point` y) <$> f x
+    _y f (Point x y) = Point x <$> f y
+
+instance HasPoint Rectangle where
+   -- ^ This is the upper-left corner of the rectangle.
+   _x f s = (\ x -> s{ rect_x = x }) <$> f (rect_x s)
+   _y f s = (\ y -> s{ rect_y = y }) <$> f (rect_y s)
+
+instance HasPoint Segment where
+    -- This is x1 and y1.
+    _x f s = (\ x1 -> s{ seg_x1 = x1 }) <$> f (seg_x1 s)
+    _y f s = (\ y1 -> s{ seg_y1 = y1 }) <$> f (seg_y1 s)
+
+
+-- Dimesions
+
+class HasDimensions a where
+    -- Laws:
+    -- _width = _Dimensions . _width
+    -- _height = _Dimensions . _height
+
+    _Dimensions :: Mono Lens a Dimensions
+    _Dimensions f s =
+        (\ (Dimensions w h) -> set _width w . set _height h $ s)
+        <$> f (Dimensions <$> view _width <*> view _height $ s)
+
+    _width :: Mono Lens a Dimension
+    _width = _Dimensions . _width
+
+    _height :: Mono Lens a Dimension
+    _height = _Dimensions . _height
+
+instance HasDimensions Dimensions where
+    _Dimensions = id
+    _width f (Dimensions w h) = (`Dimensions` h) <$> f w
+    _height f (Dimensions w h) = Dimensions w <$> f h
+
+instance HasDimensions Rectangle where
+    _width f s = (\ w -> s{ rect_width = w }) <$> f (rect_width s)
+    _height f s = (\ h -> s{ rect_height = h }) <$> f (rect_height s)
+
+instance HasDimensions Segment where
+    -- Changes are relative to the 'origin' (upper left corner).
+    -- Not sure where it's better to do the test.
+    _width f (Segment x1 y1 x2 y2)
+        | x1 <= x2 =
+            (\ w -> Segment x1 y1 (x1 + fromIntegral w) y2)
+            <$> f (fromIntegral (x2 - x1))
+        | otherwise =
+            (\ w -> Segment (x2 + fromIntegral w) y1 x2 y2)
+            <$> f (fromIntegral (x1 - x2))
+
+    _height f s = stretchHeight s <$> f (getHeight s)
+       where
+         stretchHeight (Segment x1 y1 x2 y2) h
+            | y1 <= y2 = Segment x1 y1 x2 (y1 + fromIntegral h)
+            | otherwise = Segment x1 (y2 + fromIntegral h) x2 y2
+         getHeight (Segment _ y1 _ y2) = fromIntegral (abs (y2 - y1))
+
+
+-- Segment
+
+class HasPoint a => HasSegment a where
+    -- Laws
+    -- _Point2 = _Segment . _Point2
+    -- _x2 = _Segment . _x2
+    -- _y2 = _Segment . _y2
+    -- _x = _Segment . _x
+    -- _y = _Segment . _y
+
+    _Segment :: Mono Lens a Segment
+    _Segment f s =
+        (\ (Segment x1' y1' x2' y2') -> set _x x1' . set _y y1' . set _x2 x2' . set _y2 y2' $ s)
+        <$> f (Segment <$> view _x <*> view _y <*> view _x2 <*> view _y2 $ s)
+
+    _Point2 :: Mono Lens a Point
+    _Point2 = _Segment . _Point2
+
+    _x2 :: Mono Lens a Position
+    _x2 = _Point2 . _x
+
+    _y2 :: Mono Lens a Position
+    _y2 = _Point2 . _y
+
+
+instance HasSegment Segment where
+    _Segment = id
+    _Point2 f (Segment x1 y1 x2 y2) =
+        (\ (Point x2' y2') -> Segment x1 y1 x2' y2') <$> f (Point x2 y2)
+    _x2 f (Segment x1 y1 x2 y2) = (\ x2' -> Segment x1 y1 x2' y2) <$> f x2
+    _y2 f (Segment x1 y1 x2 y2) = (\ y2' -> Segment x1 y1 x2 y2') <$> f y2
+
+
+--}
+
+-- Here's the 'hierarchical' version:
+{-
 -- | HasPoint: Has a point in the (x,y) coordinate plane.
 
 class HasPoint a where
@@ -49,8 +179,8 @@ class HasPoint a where
 
 instance HasPoint Point where
     _Point = id
-    _x f s = (\ x -> s{ pt_x = x }) <$> f (pt_x s)
-    _y f s = (\ y -> s{ pt_y = y }) <$> f (pt_y s)
+    _x f (Point x y) = (`Point` y) <$> f x
+    _y f (Point x y) = Point x <$> f y
 
 instance HasPoint Segment where
     _x f s = (\ x1 -> s{ seg_x1 = x1 }) <$> f (seg_x1 s)
@@ -106,7 +236,6 @@ class HasDimensions a where
     _height :: Mono Lens a Dimension
     _height = _Dimensions . _height
 
-data Dimensions = Dimensions !Dimension !Dimension
 
 instance HasDimensions Dimensions where
     _Dimensions = id
@@ -120,14 +249,7 @@ instance HasDimensions Rectangle where
 instance HasDimensions Arc where
     _width f s = (\ w -> s{ arc_width = w }) <$> f (arc_width s)
     _height f s = (\ h -> s{ arc_height = h }) <$> f (arc_height s)
-
- -- instance HasDimensions Segment where
-    -- Need to figure out which part(s) of the segment to anchor.
- --    _width f (Segment x1 y1 x2 y2) = denormalize <$> f w
- --      where
- --        (x, w) = toDisplacement x1 x2
- --        denormalize w'
- --          | x1 <= x2 = Segment x1 y1 (fromIntegral w' - x1)
+--}
 
 rectangleToDiagonal :: Rectangle -> Segment
 rectangleToDiagonal (Rectangle x y w h) =
