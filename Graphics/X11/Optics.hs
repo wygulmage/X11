@@ -22,14 +22,18 @@ type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb
 -- set o v' . set o v = set o v'
 
 view :: ((a -> Const a a) -> ta -> Const a ta) -> ta -> a
-view o s = getConst (o Const s)
+-- view o s = getConst (o Const s)
+view o = coerce (o Const)
 
 set :: ((a -> Identity b) -> ta -> Identity tb) -> b -> ta -> tb
 -- set o b = runIdentity . o (const (Identity b))
 set o b = coerce (o (const (Identity b)))
 infixr 4 `set`
 
-data Dimensions = Dimensions !Dimension !Dimension
+data Dimensions = Dimensions
+    !Dimension -- width
+    !Dimension -- height
+
 
 -- Has- classes --
 
@@ -64,18 +68,19 @@ class HasPoint a where
     _y :: Mono Lens a Position
     _y = _Point . _y
 
+
 instance HasPoint Point where
     _Point = id
     _x f (Point x y) = (`Point` y) <$> f x
     _y f (Point x y) = Point x <$> f y
 
 instance HasPoint Rectangle where
-   -- ^ This is the upper-left corner of the rectangle.
+   -- ^ The upper-left corner of the rectangle.
    _x f s = (\ x -> s{ rect_x = x }) <$> f (rect_x s)
    _y f s = (\ y -> s{ rect_y = y }) <$> f (rect_y s)
 
 instance HasPoint Segment where
-    -- This is x1 and y1.
+    -- x1 and y1.
     _x f s = (\ x1 -> s{ seg_x1 = x1 }) <$> f (seg_x1 s)
     _y f s = (\ y1 -> s{ seg_y1 = y1 }) <$> f (seg_y1 s)
 
@@ -97,6 +102,7 @@ class HasDimensions a where
 
     _height :: Mono Lens a Dimension
     _height = _Dimensions . _height
+
 
 instance HasDimensions Dimensions where
     _Dimensions = id
@@ -156,7 +162,7 @@ instance HasSegment Segment where
     _Point2 f (Segment x1 y1 x2 y2) =
         (\ (Point x2' y2') -> Segment x1 y1 x2' y2') <$> f (Point x2 y2)
     _x2 f (Segment x1 y1 x2 y2) = (\ x2' -> Segment x1 y1 x2' y2) <$> f x2
-    _y2 f (Segment x1 y1 x2 y2) = (\ y2' -> Segment x1 y1 x2 y2') <$> f y2
+    _y2 f (Segment x1 y1 x2 y2) = Segment x1 y1 x2 <$> f y2
 
 
 --}
