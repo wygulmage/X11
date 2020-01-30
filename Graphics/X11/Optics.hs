@@ -12,9 +12,9 @@ import Data.Coerce (coerce)
 
 import Graphics.X11.Xlib.Types
 
--- Lens types and operators are not exported --
+-- Lens types and operators are not exported. --
 
-type Mono t a b = t a a b b
+type Mono p a b = p a a b b
 type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb
 -- Lens laws:
 -- view o (set o v s) = v
@@ -24,11 +24,16 @@ type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb
 view :: ((a -> Const a a) -> ta -> Const a ta) -> ta -> a
 -- view o s = getConst (o Const s)
 view o = coerce (o Const)
+{-# INLINE view #-}
 
 set :: ((a -> Identity b) -> ta -> Identity tb) -> b -> ta -> tb
 -- set o b = runIdentity . o (const (Identity b))
 set o b = coerce (o (const (Identity b)))
 infixr 4 `set`
+{-# INLINE set #-}
+
+
+-- Exported --
 
 data Dimensions = Dimensions
     !Dimension -- width
@@ -159,11 +164,22 @@ class HasPoint a => HasSegment a where
 
 instance HasSegment Segment where
     _Segment = id
+
     _Point2 f (Segment x1 y1 x2 y2) =
         (\ (Point x2' y2') -> Segment x1 y1 x2' y2') <$> f (Point x2 y2)
+
     _x2 f (Segment x1 y1 x2 y2) = (\ x2' -> Segment x1 y1 x2' y2) <$> f x2
+
     _y2 f (Segment x1 y1 x2 y2) = Segment x1 y1 x2 <$> f y2
 
+
+-- Rectangle
+
+class HasRectangle a where
+    _Rectangle :: Mono Lens a Rectangle
+
+instance HasRectangle Rectangle where
+    _Rectangle = id
 
 --}
 
