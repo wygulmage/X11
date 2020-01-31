@@ -101,12 +101,15 @@ class HasDimensions a where
     _Dimensions f s =
         (\ (Dimensions w h) -> set _width w . set _height h $ s)
         <$> f (Dimensions <$> view _width <*> view _height $ s)
+    {-# INLINE _Dimensions #-}
 
     _width :: Mono Lens a Dimension
     _width = _Dimensions . _width
+    {-# INLINE _width #-}
 
     _height :: Mono Lens a Dimension
     _height = _Dimensions . _height
+    {-# INLINE _height #-}
 
 
 instance HasDimensions Dimensions where
@@ -123,18 +126,25 @@ instance HasDimensions Segment where
     -- Not sure where it's better to do the test.
     _width f (Segment x1 y1 x2 y2)
         | x1 <= x2 =
-            (\ w -> Segment x1 y1 (x1 + fromIntegral w) y2)
+            (\ w -> Segment x1 y1 (displace x1 w) y2)
             <$> f (fromIntegral (x2 - x1))
         | otherwise =
-            (\ w -> Segment (x2 + fromIntegral w) y1 x2 y2)
+            (\ w -> Segment (displace x2 w) y1 x2 y2)
             <$> f (fromIntegral (x1 - x2))
 
-    _height f s = stretchHeight s <$> f (getHeight s)
+    _height f (Segment x1 y1 x2 y2) = stretch <$> f height
        where
-         stretchHeight (Segment x1 y1 x2 y2) h
-            | y1 <= y2 = Segment x1 y1 x2 (y1 + fromIntegral h)
-            | otherwise = Segment x1 (y2 + fromIntegral h) x2 y2
-         getHeight (Segment _ y1 _ y2) = fromIntegral (abs (y2 - y1))
+         stretch h
+            | y1 <= y2 = Segment x1 y1 x2 (displace y1 h)
+            | otherwise = Segment x1 (displace y2 h) x2 y2
+         height = distance y1 y2
+
+    -- _height f s = stretchHeight s <$> f (getHeight s)
+    --    where
+    --      stretchHeight (Segment x1 y1 x2 y2) h
+    --         | y1 <= y2 = Segment x1 y1 x2 (displace y1 h)
+    --         | otherwise = Segment x1 (displace y2 h) x2 y2
+    --      getHeight (Segment _ y1 _ y2) = distance y1 y2
 
 
 -- Segment
@@ -180,6 +190,37 @@ class HasRectangle a where
 
 instance HasRectangle Rectangle where
     _Rectangle = id
+
+instance HasRectangle Segment where
+  -- Manipulate the displacement, height, and width of a segment, relative to the origin.
+  -- Zoom to the bounding rectangle of the segment.
+  -- _Rectangle . _x is the minimum of x1 and x2. Modifying it will horizontally translate the Segment.
+  -- _Rectangle . _y is the minimum of y1 and y2. Modifying it will horizontally translate the Segment.
+  -- Modifying _Rectangle . _width will affect the maximum of x1 and x2, horizontally stretching the rectangle.
+  -- Modifying _Rectangle . _height will affect the maximum of y1 and y2, vertically stretching the rectangle.
+   _Rectangle f s@(Segment x1 y1 x2 y2) =
+       fromRectangle <$> f (diagonalToRectangle s)
+     where
+       fromRectangle (Rectangle x y w h) = Segment x1' y1' x2' y2'
+         where
+           (x1', x2') = newCoords x1 x2 x w
+           (y1', y2') = newCoords y1 y2 y h
+           newCoords v1 v2 v d
+               | v1 <= v2 = (v, displace v d)
+               | otherwise = (displace v d, v)
+
+   -- Basically, we have to change one of
+   -- (x1, y1)    (x2, y2)      (x1, y1)   (x2, y2)
+   --     \           \            /          /
+   --      \           \          /          /
+   --    (x2, y2)    (x1, y1) (x2, y2)   (x1, y1)
+   -- Into
+   -- (min x1 x2, min y1 y2)
+   --            \
+   --             \
+   --    (max x1 x2, max y1 y2)
+   -- Modify the new segment, and then change it back the original orientation.
+
 
 --}
 
@@ -275,9 +316,10 @@ instance HasDimensions Arc where
 
 rectangleToDiagonal :: Rectangle -> Segment
 rectangleToDiagonal (Rectangle x y w h) =
-  Segment x y (x + fromIntegral w) (y + fromIntegral h)
+  Segment x y (displace x w) (displace y h)
 
 diagonalToRectangle :: Segment -> Rectangle
+-- Get the bounding rectangle of any line segment, or, equivalently, convert either diagonal into its rectangle.
 diagonalToRectangle (Segment x1 y1 x2 y2) =
     Rectangle x y w h
       where
@@ -285,10 +327,13 @@ diagonalToRectangle (Segment x1 y1 x2 y2) =
         (y, h) = toDisplacement y1 y2
 
 fromDisplacement :: Position -> Dimension -> (Position, Position)
--- ^ This should be safe for X, because the Haskell numbers have a larger range than the X version, but in general the displacement form has a larger range.
-fromDisplacement x w = (x, x + fromIntegral w)
+fromDisplacement x d = (x, displace x d)
 
 toDisplacement :: Position -> Position -> (Position, Dimension)
-toDisplacement x1 x2
-  | x1 < x2 = (x1, fromIntegral (x2 - x1))
-  | otherwise = (x2, fromIntegral (x1 - x2))
+toDisplacement x1 x2 = (min x1 x2, distance x1 x2)
+
+displace :: Position -> Dimension -> Position
+displace x d = x + fromIntegral d
+
+distance :: Position -> Position -> Dimension
+distance x1 x2 = fromIntegral (abs (x1 - x2))
