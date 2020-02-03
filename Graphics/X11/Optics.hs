@@ -22,12 +22,14 @@ type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb
 -- set o v' . set o v = set o v'
 
 view :: ((a -> Const a a) -> ta -> Const a ta) -> ta -> a
+-- ^ Extract one or more 'a's from 'ta'.
 -- view o s = getConst (o Const s)
 view o = coerce (o Const)
 {-# INLINE view #-}
 
 set :: ((a -> Identity b) -> ta -> Identity tb) -> b -> ta -> tb
--- set o b = runIdentity . o (const (Identity b))
+-- ^ Set one or more 'a's of the 'ta' to a 'b', producing a 'tb'.
+-- set o b s = runIdentity (o (const (Identity b)) s)
 set o b = coerce (o (const (Identity b)))
 infixr 4 `set`
 {-# INLINE set #-}
