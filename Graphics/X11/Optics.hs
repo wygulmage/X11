@@ -12,33 +12,51 @@ import Data.Coerce (coerce)
 
 import Graphics.X11.Xlib.Types
 
+
+-- It might make sense to use a Const or Tagged newtype for position:
+-- newtype Position (xy :: Axis) = Position CInt
+-- data Axis = X | Y
+-- Not sure whether the safety would be worth the annoyance, but it would give more informative types.
+-- Could do the same thing for dimension:
+-- newtype Dimension (xy :: Axis) = Dimension CUInt
+-- type Width = Dimension X
+-- type Height = Dimension Y
+-- Then
+-- data Point = Point !(Position X) !(Position Y)
+-- data Dimensions = Dimenisons !(Dimension X) !(Dimension Y)
+-- 'displace :: Dimension xy -> Position xy -> Position xy
+-- 'toDisplacement' :: Position xy -> Position xy -> (Dimension xy, Position xy)
+
 -- Lens types and operators are not exported. --
 
 type Mono p a b = p a a b b
 type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb
 -- Lens laws:
--- view o (set o v s) = v
--- set o (view o s) s = s
--- set o v' . set o v = set o v'
+-- view o (set o v s) ≡ v
+-- set o (view o s) s ≡ s
+-- set o v' . set o v ≡ set o v'
 
 view :: ((a -> Const a a) -> ta -> Const a ta) -> ta -> a
--- view o s = getConst (o Const s)
+-- view o = getConst . o Const
 view o = coerce (o Const)
 {-# INLINE view #-}
 
 set :: ((a -> Identity b) -> ta -> Identity tb) -> b -> ta -> tb
+-- set o b = over o (const b)
 -- set o b = runIdentity . o (const (Identity b))
 set o b = coerce (o (const (Identity b)))
 infixr 4 `set`
 {-# INLINE set #-}
 
+over :: ((a -> Identity b) -> ta -> Identity tb) -> (a -> b) -> ta -> tb
+-- over o f = runIdentity . o (Identity . f)
+over o f = coerce (o (coerce f))
 
 -- Exported --
 
 data Dimensions = Dimensions
     !Dimension -- width
     !Dimension -- height
-
 
 -- Has- classes --
 
@@ -90,7 +108,7 @@ instance HasPoint Segment where
     _y f s = (\ y1 -> s{ seg_y1 = y1 }) <$> f (seg_y1 s)
 
 
--- Dimesions
+-- Dimensions
 
 class HasDimensions a where
     -- Laws:
@@ -123,20 +141,25 @@ instance HasDimensions Rectangle where
 instance HasDimensions Segment where
     -- Changes are relative to the 'origin' (upper left corner).
     -- Not sure where it's better to do the test.
-    _width f (Segment x1 y1 x2 y2)
+    -- _width f s@(Segment x1 y1 x2 y2)
+    _width f s@(Segment x1 _ x2 _)
         | x1 <= x2 =
-            (\ w -> Segment x1 y1 (displace x1 w) y2)
+            -- (\ w -> Segment x1 y1 (displace w x1) y2)
+            (\ w -> set _x2 (displace w x1) s)
             <$> f (fromIntegral (x2 - x1))
         | otherwise =
-            (\ w -> Segment (displace x2 w) y1 x2 y2)
+            -- (\ w -> Segment (displace w x2) y1 x2 y2)
+            (\ w -> set _x (displace w x2) s)
             <$> f (fromIntegral (x1 - x2))
 
-    _height f (Segment x1 y1 x2 y2) = stretch <$> f height
+    -- _height f s@(Segment x1 y1 x2 y2) = stretch <$> f (distance y1 y2)
+    _height f s@(Segment _ y1 _ y2) = stretch <$> f (distance y1 y2)
        where
          stretch h
-            | y1 <= y2 = Segment x1 y1 x2 (displace y1 h)
-            | otherwise = Segment x1 (displace y2 h) x2 y2
-         height = distance y1 y2
+            | y1 <= y2 = set _y2 (displace h y1) s
+            | otherwise = set _y (displace h y2) s
+            -- | y1 <= y2 = Segment x1 y1 x2 (displace h y1)
+            -- | otherwise = Segment x1 (displace h y2) x2 y2
 
 
 -- Segment
@@ -184,7 +207,7 @@ instance HasRectangle Rectangle where
     _Rectangle = id
 
 instance HasRectangle Segment where
-  -- Manipulate the displacement, height, and width of a segment, relative to the origin.
+  -- ^ Manipulate the displacement, height, and width of a segment, relative to (-∞, -∞).
   -- Zoom to the bounding rectangle of the segment.
   -- _Rectangle . _x is the minimum of x1 and x2. Modifying it will horizontally translate the Segment.
   -- _Rectangle . _y is the minimum of y1 and y2. Modifying it will horizontally translate the Segment.
@@ -193,13 +216,18 @@ instance HasRectangle Segment where
    _Rectangle f s@(Segment x1 y1 x2 y2) =
        fromRectangle <$> f (diagonalToRectangle s)
      where
+       fromRectangle :: Rectangle -> Segment
        fromRectangle (Rectangle x y w h) = Segment x1' y1' x2' y2'
          where
-           (x1', x2') = newCoords x1 x2 x w
-           (y1', y2') = newCoords y1 y2 y h
-           newCoords v1 v2 v d
-               | v1 <= v2 = (v, displace v d)
-               | otherwise = (displace v d, v)
+           (x1', x2') = newCoords x1 x2 w x
+           (y1', y2') = newCoords y1 y2 h y
+
+           newCoords ::
+               Position -> Position -> Dimension -> Position ->
+               (Position, Position)
+           newCoords v1 v2 d v
+               | v1 <= v2 = (v, displace d v)
+               | otherwise = (displace d v, v)
 
    -- Basically, we have to change one of
    -- (x1, y1)    (x2, y2)      (x1, y1)   (x2, y2)
@@ -218,25 +246,28 @@ instance HasRectangle Segment where
 
 
 rectangleToDiagonal :: Rectangle -> Segment
+-- A rectangle's upper-left to lower-right diagonal.
 rectangleToDiagonal (Rectangle x y w h) =
-  Segment x y (displace x w) (displace y h)
+  Segment x y (displace w x) (displace h y)
 
 diagonalToRectangle :: Segment -> Rectangle
 -- Get the bounding rectangle of any line segment, or, equivalently, convert either diagonal into its rectangle.
 diagonalToRectangle (Segment x1 y1 x2 y2) =
     Rectangle x y w h
       where
-        (x, w) = toDisplacement x1 x2
-        (y, h) = toDisplacement y1 y2
-
-fromDisplacement :: Position -> Dimension -> (Position, Position)
-fromDisplacement x d = (x, displace x d)
-
-toDisplacement :: Position -> Position -> (Position, Dimension)
-toDisplacement x1 x2 = (min x1 x2, distance x1 x2)
-
-displace :: Position -> Dimension -> Position
-displace x d = x + fromIntegral d
+        (w, x) = toDisplacement x1 x2
+        (h, y) = toDisplacement y1 y2
 
 distance :: Position -> Position -> Dimension
 distance x1 x2 = fromIntegral (abs (x1 - x2))
+-- distance = curry (fromIntegral . abs . uncurry (-))
+
+fromDisplacement :: Dimension -> Position -> (Position, Position)
+fromDisplacement d = (,) <*> displace d
+
+toDisplacement :: Position -> Position -> (Dimension, Position)
+toDisplacement x1 x2 = (distance x1 x2, min x1 x2)
+-- toDisplacement = curry ((,) <$> uncurry distance <*> uncurry min)
+
+displace :: Dimension -> Position -> Position
+displace = (+) . fromIntegral
