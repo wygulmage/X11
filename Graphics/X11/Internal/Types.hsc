@@ -76,6 +76,11 @@ newtype Atom = Atom XResource
 newtype VisualID = VisualID XResource
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
+
+-- There are a couple of ways to handle XID polymorphism.
+
+-- You can create classes that coerce between them:
+--{-
 newtype XID = XID XResource
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
@@ -108,6 +113,72 @@ newtype Pixmap = Pixmap XID
 
 newtype Window = Window XID
     deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
+--}
+
+-- You can use tagged newtypes when convenient:
+{-
+newtype XID = XID XResource
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+
+class (Coercible XID a)=> IsXID a where
+    none :: a
+    none = fromXID none
+
+    toXID :: a -> XID
+    toXID = coerce
+
+    fromXID :: XID -> a
+    fromXID = coerce
+
+instance IsXID XID where
+    none = #{const None}
+
+newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
+newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
+newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable, IsXID)
+newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
+
+newtype KeySym = KeySym XID
+  deriving
+    (Eq, Ord, Enum, Num, Read, Show, Storable, IsXID)
+
+newtype Drawable a = Drawable XID
+    deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
+
+newtype WindowDrawable = WindowDrawable WindowDrawable -- empty type to tag windows
+newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
+
+type Window = Drawable WindowDrawable
+type Pixmap = Drawable PixmapDrawable
+
+--}
+
+-- You can tag newtypes with tagged newtypes:
+{-
+newtype XID a = XID XResource
+    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+
+newtype ColormapXID = ColomapXID ColormapXID -- empty type to tag colormaps
+newtype CursorXID = CursorXID CursorXID -- empty type to tag cursors
+newtype FontXID = FontXID FontXID -- empty type to tag fonts
+newtype GContextXID = GContextXID GContextXID -- empty type to tag grahpics contexts
+newtype DrawableXID a = Drawable Drawable -- empty polymorphic type to tag drawables
+newtype WindowXID = WindowDrawable WindowDrawable -- empty polymorphic type to tag windows
+newtype PixmapDrawable = PixmapDrawable -- empty polymorphic type to tag pixmaps
+
+-- Now try to make it look nice:
+type Colormap = XID ColormapXID
+type Cursor = XID CursorXID
+type Font = XID FontXID
+type GContext = XID GContextXID
+type Drawable a = XID (DrawableXID a)
+type Window = Drawable Window
+type Pixmap = Drawable Pixmap
+
+-- The disadvantage here is that you can't do overlapping instances. In general, however, you probably don't need to.
+
+--}
+
 
 {-
 Xlib event types
