@@ -106,19 +106,19 @@ foreign import ccall unsafe "HsXlib.h XRootWindowOfScreen"
 
 -- | interface to the X11 library function @XWidthOfScreen()@.
 foreign import ccall unsafe "HsXlib.h XWidthOfScreen"
-        widthOfScreen           :: Screen -> Dimension
+        widthOfScreen           :: Screen -> Width
 
 -- | interface to the X11 library function @XWidthMMOfScreen()@.
 foreign import ccall unsafe "HsXlib.h XWidthMMOfScreen"
-        widthMMOfScreen         :: Screen -> Dimension
+        widthMMOfScreen         :: Screen -> Width
 
 -- | interface to the X11 library function @XHeightOfScreen()@.
 foreign import ccall unsafe "HsXlib.h XHeightOfScreen"
-        heightOfScreen          :: Screen -> Dimension
+        heightOfScreen          :: Screen -> Height
 
 -- | interface to the X11 library function @XHeightMMOfScreen()@.
 foreign import ccall unsafe "HsXlib.h XHeightMMOfScreen"
-        heightMMOfScreen        :: Screen -> Dimension
+        heightMMOfScreen        :: Screen -> Height
 
 -- | interface to the X11 library function @XPlanesOfScreen()@.
 foreign import ccall unsafe "HsXlib.h XPlanesOfScreen"

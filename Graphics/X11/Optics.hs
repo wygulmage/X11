@@ -13,20 +13,6 @@ import Data.Coerce (coerce)
 import Graphics.X11.Xlib.Types
 
 
--- It might make sense to use a Const or Tagged newtype for position:
--- newtype Position (xy :: Axis) = Position CInt
--- data Axis = X | Y
--- Not sure whether the safety would be worth the annoyance, but it would give more informative types.
--- Could do the same thing for dimension:
--- newtype Dimension (xy :: Axis) = Dimension CUInt
--- type Width = Dimension X
--- type Height = Dimension Y
--- Then
--- data Point = Point !(Position X) !(Position Y)
--- data Dimensions = Dimenisons !(Dimension X) !(Dimension Y)
--- 'displace :: Dimension xy -> Position xy -> Position xy
--- 'toDisplacement' :: Position xy -> Position xy -> (Dimension xy, Position xy)
-
 -- Lens types and operators are not exported. --
 
 type Mono p a b = p a a b b
@@ -54,9 +40,7 @@ over o f = coerce (o (coerce f))
 
 -- Exported --
 
-data Dimensions = Dimensions
-    !Dimension -- width
-    !Dimension -- height
+data Dimensions = Dimensions !Width !Height
 
 -- Has- classes --
 
@@ -85,10 +69,10 @@ class HasPoint a where
       (\ (Point x y) -> set _x x . set _y y $ s)
       <$> f (Point <$> view _x <*> view _y $ s)
 
-    _x :: Mono Lens a Position
+    _x :: Mono Lens a XPosition
     _x = _Point . _x
 
-    _y :: Mono Lens a Position
+    _y :: Mono Lens a YPosition
     _y = _Point . _y
 
 
@@ -120,11 +104,11 @@ class HasDimensions a where
         <$> f (Dimensions <$> view _width <*> view _height $ s)
     {-# INLINE _Dimensions #-}
 
-    _width :: Mono Lens a Dimension
+    _width :: Mono Lens a Width
     _width = _Dimensions . _width
     {-# INLINE _width #-}
 
-    _height :: Mono Lens a Dimension
+    _height :: Mono Lens a Height
     _height = _Dimensions . _height
     {-# INLINE _height #-}
 
@@ -180,10 +164,10 @@ class HasPoint a => HasSegment a where
     _Point2 :: Mono Lens a Point
     _Point2 = _Segment . _Point2
 
-    _x2 :: Mono Lens a Position
+    _x2 :: Mono Lens a XPosition
     _x2 = _Point2 . _x
 
-    _y2 :: Mono Lens a Position
+    _y2 :: Mono Lens a YPosition
     _y2 = _Point2 . _y
 
 
@@ -223,8 +207,8 @@ instance HasRectangle Segment where
            (y1', y2') = newCoords y1 y2 h y
 
            newCoords ::
-               Position -> Position -> Dimension -> Position ->
-               (Position, Position)
+               Position xy -> Position xy -> Dimension xy -> Position xy ->
+               (Position xy, Position xy)
            newCoords v1 v2 d v
                | v1 <= v2 = (v, displace d v)
                | otherwise = (displace d v, v)
@@ -258,16 +242,16 @@ diagonalToRectangle (Segment x1 y1 x2 y2) =
         (w, x) = toDisplacement x1 x2
         (h, y) = toDisplacement y1 y2
 
-distance :: Position -> Position -> Dimension
+distance :: Position xy -> Position xy -> Dimension xy
 distance x1 x2 = fromIntegral (abs (x1 - x2))
 -- distance = curry (fromIntegral . abs . uncurry (-))
 
-fromDisplacement :: Dimension -> Position -> (Position, Position)
+fromDisplacement :: Dimension xy -> Position xy -> (Position xy, Position xy)
 fromDisplacement d = (,) <*> displace d
 
-toDisplacement :: Position -> Position -> (Dimension, Position)
+toDisplacement :: Position xy -> Position xy -> (Dimension xy, Position xy)
 toDisplacement x1 x2 = (distance x1 x2, min x1 x2)
 -- toDisplacement = curry ((,) <$> uncurry distance <*> uncurry min)
 
-displace :: Dimension -> Position -> Position
+displace :: Dimension xy -> Position xy -> Position xy
 displace = (+) . fromIntegral

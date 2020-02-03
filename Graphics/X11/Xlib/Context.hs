@@ -79,7 +79,7 @@ foreign import ccall unsafe "HsXlib.h XSetClipMask"
 
 -- | interface to the X11 library function @XSetClipOrigin()@.
 foreign import ccall unsafe "HsXlib.h XSetClipOrigin"
-        setClipOrigin        :: Display -> GC -> Position -> Position  -> IO ()
+        setClipOrigin        :: Display -> GC -> XPosition -> YPosition  -> IO ()
 
 -- XSetClipRectangles omitted because it's not clear when it's safe to delete the
 -- array of rectangles
@@ -128,7 +128,7 @@ foreign import ccall unsafe "HsXlib.h XSetSubwindowMode"
 
 -- | interface to the X11 library function @XSetTSOrigin()@.
 foreign import ccall unsafe "HsXlib.h XSetTSOrigin"
-        setTSOrigin          :: Display -> GC -> Position -> Position  -> IO ()
+        setTSOrigin          :: Display -> GC -> XPosition -> YPosition  -> IO ()
 
 -- | interface to the X11 library function @XSetTile()@.
 foreign import ccall unsafe "HsXlib.h XSetTile"

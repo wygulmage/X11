@@ -69,18 +69,18 @@ foreign import ccall unsafe "HsXlib.h XStoreName"
 
 -- | interface to the X11 library function @XCreateSimpleWindow()@.
 foreign import ccall unsafe "HsXlib.h XCreateSimpleWindow"
-        createSimpleWindow :: Display -> Window -> Position -> Position ->
-                Dimension -> Dimension -> CInt -> Pixel -> Pixel -> IO Window
+        createSimpleWindow :: Display -> Window -> XPosition -> YPosition ->
+                Width -> Height -> CInt -> Pixel -> Pixel -> IO Window
 
 -- | interface to the X11 library function @XCreateWindow()@.
 foreign import ccall unsafe "HsXlib.h XCreateWindow"
         createWindow ::
             Display ->
             Window ->    -- parent
-            Position ->  -- x
-            Position ->  -- y
-            Dimension -> -- width
-            Dimension -> -- heigth
+            XPosition ->  -- x
+            YPosition ->  -- y
+            Width -> -- width
+            Height -> -- heigth
             CInt ->      -- border width -- FIXME: Should change to CUInt to match spec?
             CInt ->      -- depth
             WindowClass ->  -- class
@@ -93,8 +93,8 @@ foreign import ccall unsafe "HsXlib.h XCreateWindow"
 
 -- | interface to the X11 library function @XTranslateCoordinates()@.
 translateCoordinates
-    :: Display -> Window -> Window -> Position -> Position ->
-        IO (Maybe (Position,Position,Window))
+    :: Display -> Window -> Window -> XPosition -> YPosition ->
+        IO (Maybe (XPosition,YPosition,Window))
 translateCoordinates display src_w dest_w src_x src_y =
     alloca $ \ dest_x_return ->
     alloca $ \ dest_y_return ->
@@ -110,24 +110,24 @@ translateCoordinates display src_w dest_w src_x src_y =
 
 foreign import ccall unsafe "HsXlib.h XTranslateCoordinates"
         xTranslateCoordinates :: Display -> Window -> Window ->
-                Position -> Position ->
-                Ptr Position -> Ptr Position -> Ptr Window -> IO Bool
+                XPosition -> YPosition ->
+                Ptr XPosition -> Ptr YPosition -> Ptr Window -> IO Bool
 
 -- | interface to the X11 library function @XMoveResizeWindow()@.
 foreign import ccall unsafe "HsXlib.h XMoveResizeWindow"
-        moveResizeWindow             :: Display -> Window -> Position  -> Position  -> Dimension -> Dimension -> IO ()
+        moveResizeWindow             :: Display -> Window -> XPosition  -> YPosition  -> Width -> Height -> IO ()
 
 -- | interface to the X11 library function @XResizeWindow()@.
 foreign import ccall unsafe "HsXlib.h XResizeWindow"
-        resizeWindow                 :: Display -> Window -> Dimension -> Dimension -> IO ()
+        resizeWindow                 :: Display -> Window -> Width -> Height -> IO ()
 
 -- | interface to the X11 library function @XMoveWindow()@.
 foreign import ccall unsafe "HsXlib.h XMoveWindow"
-        moveWindow                   :: Display -> Window -> Position  -> Position  -> IO ()
+        moveWindow                   :: Display -> Window -> XPosition  -> YPosition  -> IO ()
 
 -- | interface to the X11 library function @XReparentWindow()@.
 foreign import ccall unsafe "HsXlib.h XReparentWindow"
-        reparentWindow               :: Display -> Window -> Window -> Position -> Position  -> IO ()
+        reparentWindow               :: Display -> Window -> Window -> XPosition -> YPosition  -> IO ()
 
 -- | interface to the X11 library function @XMapSubwindows()@.
 foreign import ccall unsafe "HsXlib.h XMapSubwindows"
@@ -197,7 +197,7 @@ foreign import ccall unsafe "HsXlib.h XSetWindowBorderPixmap"
 
 -- | interface to the X11 library function @XSetWindowBorderWidth()@.
 foreign import ccall unsafe "HsXlib.h XSetWindowBorderWidth"
-        setWindowBorderWidth         :: Display -> Window -> Dimension -> IO ()
+        setWindowBorderWidth         :: Display -> Window -> Dimension xy -> IO ()
 
 -- | interface to the X11 library function @XSetWindowBackground()@.
 foreign import ccall unsafe "HsXlib.h XSetWindowBackground"
@@ -230,7 +230,7 @@ foreign import ccall unsafe "HsXlib.h XClearWindow"
 -- | interface to the X11 library function @XClearArea()@.
 foreign import ccall unsafe "HsXlib.h XClearArea"
         clearArea                    :: Display -> Window ->
-                Position -> Position -> Dimension -> Dimension -> Bool -> IO ()
+                XPosition -> YPosition -> Width -> Height -> Bool -> IO ()
 
 -- This is almost good enough - but doesn't call XFree
 -- -- %errfun BadStatus XQueryTree :: Display -> Window -> IO (Window, Window, ListWindow) using err = XQueryTree(arg1,arg2,&res1,&res2,&res3,&res3_size)

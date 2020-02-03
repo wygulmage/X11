@@ -303,11 +303,11 @@ xScreenSaverSelectInput dpy xssem = do
 -- screen saver window mapped (typically to avoid generating exposures).
 
 xScreenSaverSetAttributes :: Display
-                          -> Position       -- ^ x
-                          -> Position       -- ^ y
-                          -> Dimension      -- ^ width
-                          -> Dimension      -- ^ height
-                          -> Dimension      -- ^ border width
+                          -> XPosition       -- ^ x
+                          -> YPosition       -- ^ y
+                          -> Width      -- ^ width
+                          -> Height      -- ^ height
+                          -> Dimension xy      -- ^ border width
                           -> CInt           -- ^ depth ('defaultDepthOfScreen')
                           -> WindowClass    -- ^ class
                           -> Visual         -- ^ visual ('defaultVisualOfScreen')
@@ -400,8 +400,8 @@ foreign import ccall "XScreenSaverSelectInput"
 -- The XID is a drawable (window or pixmap).
 
 foreign import ccall "XScreenSaverSetAttributes"
-    cXScreenSaverSetAttributes :: Display -> XID -> Position -> Position
-                               -> Dimension -> Dimension -> Dimension
+    cXScreenSaverSetAttributes :: Display -> XID -> XPosition -> YPosition
+                               -> Width -> Height -> Dimension xy
                                -> CInt
                                -> WindowClass
                                -> Visual

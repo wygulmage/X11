@@ -19,7 +19,9 @@ module Graphics.X11.Xlib.Types(
         Display(..), Screen(..), Visual(..), GC(..), GCValues, SetWindowAttributes,
         VisualInfo(..),
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
-        Pixel (..), Position, Dimension, Angle, ScreenNumber, Buffer
+        Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
+        Height, Width,
+        XPosition, YPosition
         ) where
 
 import Graphics.X11.Types
@@ -170,8 +172,33 @@ newtype Pixel         = Pixel #{type unsigned long}
 #else
         deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable)
 #endif
-type Position      = #{type int}
-type Dimension     = #{type unsigned int}
+
+newtype X = X X -- tag for X-axis; avoid empty-data-decls
+  deriving Data
+newtype Y = Y Y -- tag for Y-axis
+  deriving Data
+
+-- type Position      = #{type int}
+newtype Position xy   = Position #{type int} -- Position tagged with axis
+#if __GLASGOW_HASKELL__
+        deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable, Typeable, Data)
+#else
+        deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable)
+#endif
+
+type XPosition = Position X
+type YPosition = Position Y
+-- type Dimension     = #{type unsigned int}
+newtype Dimension xy  = Dimension #{type unsigned int} -- Dimension tagged with axis
+#if __GLASGOW_HASKELL__
+        deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable, Typeable, Data)
+#else
+        deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable)
+#endif
+
+type Width = Dimension X
+type Height = Dimension Y
+
 type Angle         = CInt
 type ScreenNumber  = Word32
 newtype Buffer     = Buffer CInt
@@ -185,12 +212,12 @@ type ShortPosition  = CShort
 type ShortDimension = CUShort
 type ShortAngle     = CShort
 
-peekPositionField :: Ptr a -> CInt -> IO Position
+peekPositionField :: Ptr a -> CInt -> IO (Position any)
 peekPositionField ptr off = do
         v <- peekByteOff ptr (fromIntegral off)
         return (fromIntegral (v::ShortPosition))
 
-peekDimensionField :: Ptr a -> CInt -> IO Dimension
+peekDimensionField :: Ptr a -> CInt -> IO (Dimension any)
 peekDimensionField ptr off = do
         v <- peekByteOff ptr (fromIntegral off)
         return (fromIntegral (v::ShortDimension))
@@ -200,11 +227,11 @@ peekAngleField ptr off = do
         v <- peekByteOff ptr (fromIntegral off)
         return (fromIntegral (v::ShortAngle))
 
-pokePositionField :: Ptr a -> CInt -> Position -> IO ()
+pokePositionField :: Ptr a -> CInt -> Position any -> IO ()
 pokePositionField ptr off v =
         pokeByteOff ptr (fromIntegral off) (fromIntegral v::ShortPosition)
 
-pokeDimensionField :: Ptr a -> CInt -> Dimension -> IO ()
+pokeDimensionField :: Ptr a -> CInt -> Dimension any -> IO ()
 pokeDimensionField ptr off v =
         pokeByteOff ptr (fromIntegral off) (fromIntegral v::ShortDimension)
 
@@ -217,7 +244,7 @@ pokeAngleField ptr off v =
 ----------------------------------------------------------------
 
 -- | counterpart of an X11 @XPoint@ structure
-data Point = Point { pt_x :: !Position, pt_y :: !Position }
+data Point = Point { pt_x :: !XPosition, pt_y :: !YPosition }
 #if __GLASGOW_HASKELL__
         deriving (Eq, Show, Typeable, Data)
 #else
@@ -240,10 +267,10 @@ instance Storable Point where
 
 -- | counterpart of an X11 @XRectangle@ structure
 data Rectangle = Rectangle {
-        rect_x      :: !Position,
-        rect_y      :: !Position,
-        rect_width  :: !Dimension,
-        rect_height :: !Dimension
+        rect_x      :: !XPosition,
+        rect_y      :: !YPosition,
+        rect_width  :: !Width,
+        rect_height :: !Height
         }
 #if __GLASGOW_HASKELL__
         deriving (Eq, Read, Show, Typeable, Data)
@@ -271,10 +298,10 @@ instance Storable Rectangle where
 
 -- | counterpart of an X11 @XArc@ structure
 data Arc = Arc {
-        arc_x :: !Position,
-        arc_y :: !Position,
-        arc_width  :: !Dimension,
-        arc_height :: !Dimension,
+        arc_x :: !XPosition,
+        arc_y :: !YPosition,
+        arc_width  :: !Width,
+        arc_height :: !Height,
         arc_angle1 :: !Angle,
         arc_angle2 :: !Angle
         }
@@ -308,10 +335,10 @@ instance Storable Arc where
 
 -- | counterpart of an X11 @XSegment@ structure
 data Segment = Segment {
-        seg_x1 :: !Position,
-        seg_y1 :: !Position,
-        seg_x2 :: !Position,
-        seg_y2 :: !Position
+        seg_x1 :: !XPosition,
+        seg_y1 :: !YPosition,
+        seg_x2 :: !XPosition,
+        seg_y2 :: !YPosition
         }
 #if __GLASGOW_HASKELL__
         deriving (Eq, Show, Typeable, Data)

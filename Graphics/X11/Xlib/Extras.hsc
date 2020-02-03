@@ -1278,21 +1278,21 @@ wcTextExtents fs text = unsafePerformIO $
         (,) `fmap` peek inkp `ap` peek logicalp
 
 foreign import ccall unsafe "XlibExtras.h XwcDrawString"
-    xwcDrawString :: Display -> XID -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
+    xwcDrawString :: Display -> XID -> FontSet -> GC -> XPosition -> YPosition -> CWString -> CInt -> IO ()
 
 wcDrawString ::
     IsDrawable drawable =>
-    Display -> drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
+    Display -> drawable -> FontSet -> GC -> XPosition -> YPosition -> String -> IO ()
 wcDrawString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
         xwcDrawString d (toXID w) fs gc x y s (fromIntegral len)
 
 foreign import ccall unsafe "XlibExtras.h XwcDrawImageString"
-    xwcDrawImageString :: Display -> XID -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
+    xwcDrawImageString :: Display -> XID -> FontSet -> GC -> XPosition -> YPosition -> CWString -> CInt -> IO ()
 
 wcDrawImageString ::
     IsDrawable drawable =>
-    Display -> drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
+    Display -> drawable -> FontSet -> GC -> XPosition -> YPosition -> String -> IO ()
 wcDrawImageString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
         xwcDrawImageString d (toXID w) fs gc x y s (fromIntegral len)
@@ -1582,11 +1582,11 @@ unmapWindow d w = xUnmapWindow d w >> return ()
 -- Size hints
 
 data SizeHints = SizeHints
-                   { sh_min_size     :: Maybe (Dimension, Dimension)
-                   , sh_max_size     :: Maybe (Dimension, Dimension)
-                   , sh_resize_inc   :: Maybe (Dimension, Dimension)
-                   , sh_aspect       :: Maybe ((Dimension, Dimension), (Dimension, Dimension))
-                   , sh_base_size    :: Maybe (Dimension, Dimension)
+                   { sh_min_size     :: Maybe (Width, Height)
+                   , sh_max_size     :: Maybe (Width, Height)
+                   , sh_resize_inc   :: Maybe (Width, Height)
+                   , sh_aspect       :: Maybe ((Width, Height), (Width, Height))
+                   , sh_base_size    :: Maybe (Width, Height)
                    , sh_win_gravity  :: Maybe (BitGravity)
                    }
 

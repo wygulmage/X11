@@ -35,23 +35,23 @@ import System.IO.Unsafe (unsafePerformIO)
 ----------------------------------------------------------------
 
 -- | interface to the X11 library function @XCreateImage()@.
-createImage :: Display -> Visual -> CInt -> ImageFormat -> CInt -> Ptr CChar -> Dimension -> Dimension -> CInt -> CInt -> IO Image
+createImage :: Display -> Visual -> CInt -> ImageFormat -> CInt -> Ptr CChar -> Width -> Height -> CInt -> CInt -> IO Image
 createImage display vis depth format offset dat width height bitmap_pad bytes_per_line = do
     image <- throwIfNull "createImage" (xCreateImage display vis depth format offset dat width height bitmap_pad bytes_per_line)
     return (Image image)
 foreign import ccall unsafe "HsXlib.h XCreateImage"
     xCreateImage :: Display -> Visual -> CInt -> ImageFormat -> CInt ->
-        Ptr CChar -> Dimension -> Dimension -> CInt -> CInt -> IO (Ptr Image)
+        Ptr CChar -> Width -> Height -> CInt -> CInt -> IO (Ptr Image)
 
 -- | interface to the X11 library function @XPutImage()@.
 putImage ::
     IsDrawable drawable =>
-    Display -> drawable -> GC -> Image -> Position -> Position -> Position -> Position  -> Dimension -> Dimension -> IO ()
+    Display -> drawable -> GC -> Image -> XPosition -> YPosition -> XPosition -> YPosition  -> Width -> Height -> IO ()
 putImage display drawable = xPutImage display (toXID drawable)
 
 foreign import ccall unsafe "HsXlib.h XPutImage"
     xPutImage ::
-        Display -> XID -> GC -> Image -> Position -> Position -> Position -> Position  -> Dimension -> Dimension -> IO ()
+        Display -> XID -> GC -> Image -> XPosition -> YPosition -> XPosition -> YPosition  -> Width -> Height -> IO ()
 
 -- | interface to the X11 library function @XDestroyImage()@.
 foreign import ccall unsafe "HsXlib.h XDestroyImage"

@@ -202,7 +202,7 @@ pointInRegion r (Point x y) =
         withRegion r $ \ rp ->
         xPointInRegion rp x y
 foreign import ccall unsafe "HsXlib.h XPointInRegion"
-        xPointInRegion :: Ptr Region -> Position -> Position -> IO Bool
+        xPointInRegion :: Ptr Region -> XPosition -> YPosition -> IO Bool
 
 -- | interface to the X11 library function @XRectInRegion()@.
 rectInRegion :: Region -> Rectangle -> IO RectInRegionResult
@@ -210,8 +210,8 @@ rectInRegion r (Rectangle x y w h) =
         withRegion r $ \ rp ->
         xRectInRegion rp x y w h
 foreign import ccall unsafe "HsXlib.h XRectInRegion"
-        xRectInRegion :: Ptr Region -> Position -> Position ->
-                Dimension -> Dimension -> IO RectInRegionResult
+        xRectInRegion :: Ptr Region -> XPosition -> YPosition ->
+                Width -> Height -> IO RectInRegionResult
 
 -- I have no idea what the int is for
 
@@ -240,7 +240,7 @@ offsetRegion r (Point x y) =
         withRegion r $ \ rp ->
         xOffsetRegion rp x y
 foreign import ccall unsafe "HsXlib.h XOffsetRegion"
-        xOffsetRegion :: Ptr Region -> Position -> Position -> IO CInt
+        xOffsetRegion :: Ptr Region -> XPosition -> YPosition -> IO CInt
 
 -- increase size of region by +ve or -ve number of pixels
 -- while preserving the centre of the region (ie half the pixels
@@ -252,7 +252,7 @@ shrinkRegion r (Point x y) =
         withRegion r $ \ rp ->
         xShrinkRegion rp x y
 foreign import ccall unsafe "HsXlib.h XShrinkRegion"
-        xShrinkRegion :: Ptr Region -> Position -> Position -> IO CInt
+        xShrinkRegion :: Ptr Region -> XPosition -> YPosition -> IO CInt
 
 ----------------------------------------------------------------
 -- Graphics Context

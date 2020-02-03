@@ -237,10 +237,10 @@ get_MotionEvent p = peekXMotionEvent (castPtr p)
 -- -- RESULT:
 
 type XExposeEvent =
-        ( Position      -- x
-        , Position      -- y
-        , Dimension     -- width
-        , Dimension     -- height
+        ( XPosition      -- x
+        , YPosition      -- y
+        , Width     -- width
+        , Height     -- height
         , CInt          -- count
         )
 
@@ -317,11 +317,11 @@ pokeXMappingEvent p (request, first_keycode, count) = do
         #{poke XMappingEvent,count}             p count
 
 type XConfigureEvent =
-        ( Position
-        , Position
-        , Dimension
-        , Dimension
-        )
+        ( XPosition
+        , YPosition
+        , Width
+        , Height
+        ) -- Why not use Rectangle???
 
 peekXConfigureEvent :: Ptr XConfigureEvent -> IO XConfigureEvent
 peekXConfigureEvent p = (,,,)
