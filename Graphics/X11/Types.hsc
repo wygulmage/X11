@@ -893,19 +893,19 @@ data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | S
 -- Not defined for SunOS
 #ifdef XK_Codeinput
 xK_Codeinput         :: KeySym
-xK_Codeinput         = #const XK_Codeinput
+xK_Codeinput         = KeySym #{const XK_Codeinput}
 #endif
 #ifdef XK_SingleCandidate
 xK_SingleCandidate   :: KeySym
-xK_SingleCandidate   = #const XK_SingleCandidate
+xK_SingleCandidate   = KeySym #{const XK_SingleCandidate}
 #endif
 #ifdef XK_MultipleCandidate
 xK_MultipleCandidate :: KeySym
-xK_MultipleCandidate = #const XK_MultipleCandidate
+xK_MultipleCandidate = KeySym #{const XK_MultipleCandidate}
 #endif
 #ifdef XK_PreviousCandidate
 xK_PreviousCandidate :: KeySym
-xK_PreviousCandidate = #const XK_PreviousCandidate
+xK_PreviousCandidate = KeySym #{const XK_PreviousCandidate}
 #endif
 
 -- Cursor control & motion

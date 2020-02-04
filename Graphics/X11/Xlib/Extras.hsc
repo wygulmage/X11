@@ -20,6 +20,7 @@ import Data.Maybe
 import Data.Typeable ( Typeable )
 import Graphics.X11.Xrandr
 import Graphics.X11.XScreenSaver
+import Graphics.X11.Internal.Types
 import Graphics.X11.Xlib
 import Graphics.X11.Xlib.Internal
 import Graphics.X11.Xlib.Types

@@ -30,6 +30,7 @@ module Graphics.X11.Xlib.Color(
 
         ) where
 
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
 

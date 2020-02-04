@@ -80,7 +80,7 @@ newtype VisualID = VisualID XResource
 -- There are a couple of ways to handle XID polymorphism.
 
 -- You can create classes that coerce between them:
---{-
+{-
 newtype XID = XID XResource
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
@@ -116,7 +116,7 @@ newtype Window = Window XID
 --}
 
 -- You can use tagged newtypes when convenient:
-{-
+--{-
 newtype XID = XID XResource
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
@@ -145,31 +145,38 @@ newtype KeySym = KeySym XID
 newtype Drawable a = Drawable XID
     deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
 
+class (IsXID a)=> IsDrawable a -- ^ Class for the 'Drawable' type. It's only instance is 'Drawable'.
+
 newtype WindowDrawable = WindowDrawable WindowDrawable -- empty type to tag windows
 newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
 
 type Window = Drawable WindowDrawable
+mkWindow :: XID -> Window
+mkWindow = Drawable
+
 type Pixmap = Drawable PixmapDrawable
+mkPixmap :: XID -> Pixmap
+mkPixmap = Drawable
 
 --}
 
 -- You can tag newtypes with tagged newtypes:
 {-
 newtype XID a = XID XResource
-    deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
+    deriving (Eq, Ord, Read, Show, Storable)
 
-newtype ColormapXID = ColomapXID ColormapXID -- empty type to tag colormaps
-newtype CursorXID = CursorXID CursorXID -- empty type to tag cursors
-newtype FontXID = FontXID FontXID -- empty type to tag fonts
+newtype ColormapXID = ColomapXID ColormapXID  -- empty type to tag colormaps
+newtype CursorXID   = CursorXID CursorXID     -- empty type to tag cursors
+newtype FontXID     = FontXID FontXID         -- empty type to tag fonts
 newtype GContextXID = GContextXID GContextXID -- empty type to tag grahpics contexts
 newtype DrawableXID a = Drawable Drawable -- empty polymorphic type to tag drawables
-newtype WindowXID = WindowDrawable WindowDrawable -- empty polymorphic type to tag windows
-newtype PixmapDrawable = PixmapDrawable -- empty polymorphic type to tag pixmaps
+newtype WindowDrawable = WindowDrawable WindowDrawable -- empty type to tag windows
+newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
 
 -- Now try to make it look nice:
 type Colormap = XID ColormapXID
-type Cursor = XID CursorXID
-type Font = XID FontXID
+type Cursor   = XID CursorXID
+type Font     = XID FontXID
 type GContext = XID GContextXID
 type Drawable a = XID (DrawableXID a)
 type Window = Drawable Window

@@ -70,6 +70,7 @@ import Control.Monad
 import Graphics.X11.Xlib.Event
 import Graphics.X11.Xlib.Internal
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 
 #if __GLASGOW_HASKELL__
