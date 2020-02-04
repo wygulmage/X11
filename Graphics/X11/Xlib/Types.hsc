@@ -20,7 +20,7 @@ module Graphics.X11.Xlib.Types(
         VisualInfo(..),
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
         Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
-        Height, Width, Thickness, Area, changeDimension, area, side,
+        Height, Width, Thickness,
         XPosition, YPosition, changeAxis
         ) where
 
@@ -193,29 +193,17 @@ type YPosition = Position Y
 changeAxis :: Position a -> Position b
 changeAxis = coerce
 
-newtype Dimension xy  = Dimension #{type unsigned int} -- Dimension tagged with axis
+newtype Dimension = Dimension #{type unsigned int} -- Dimension tagged with axis
 #if __GLASGOW_HASKELL__
         deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable, Typeable, Data)
 #else
         deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable)
 #endif
 
-type Width = Dimension X
-type Height = Dimension Y
-type Thickness = Dimension ()
-type Area = Dimension (X, Y)
+type Width = Dimension
+type Height = Dimension
+type Thickness = Dimension
 
-changeDimension :: Dimension a -> Dimension b
-changeDimension = fromIntegral
-
-area :: Width -> Height -> Area
-area w h = fromIntegral w * fromIntegral h
-
-side :: Dimension (X, Y) -> Dimension a -> Dimension b
--- ^ Divide an area by one side to get the other side.
--- Not type safe: Dividing by a Width should give a Height, and dividing by a Height should give a width, but short of using language extensions like DataKinds and TypeFamilies, we can't guarantee that.
--- FIXME: Should we try to use when possible, with CPP?
-side a d = fromIntegral a `div` fromIntegral d
 
 type Angle         = CInt
 type ScreenNumber  = Word32
@@ -235,7 +223,7 @@ peekPositionField ptr off = do
         v <- peekByteOff ptr (fromIntegral off)
         return (fromIntegral (v::ShortPosition))
 
-peekDimensionField :: Ptr a -> CInt -> IO (Dimension any)
+peekDimensionField :: Ptr a -> CInt -> IO (Dimension)
 peekDimensionField ptr off = do
         v <- peekByteOff ptr (fromIntegral off)
         return (fromIntegral (v::ShortDimension))
@@ -249,7 +237,7 @@ pokePositionField :: Ptr a -> CInt -> Position any -> IO ()
 pokePositionField ptr off v =
         pokeByteOff ptr (fromIntegral off) (fromIntegral v::ShortPosition)
 
-pokeDimensionField :: Ptr a -> CInt -> Dimension any -> IO ()
+pokeDimensionField :: Ptr a -> CInt -> Dimension -> IO ()
 pokeDimensionField ptr off v =
         pokeByteOff ptr (fromIntegral off) (fromIntegral v::ShortDimension)
 

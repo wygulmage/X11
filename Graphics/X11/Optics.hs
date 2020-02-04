@@ -207,7 +207,7 @@ instance HasRectangle Segment where
            (y1', y2') = newCoords y1 y2 h y
 
            newCoords ::
-               Position xy -> Position xy -> Dimension xy -> Position xy ->
+               Position xy -> Position xy -> Dimension -> Position xy ->
                (Position xy, Position xy)
            newCoords v1 v2 d v
                | v1 <= v2 = (v, displace d v)
@@ -242,16 +242,16 @@ diagonalToRectangle (Segment x1 y1 x2 y2) =
         (w, x) = toDisplacement x1 x2
         (h, y) = toDisplacement y1 y2
 
-distance :: Position xy -> Position xy -> Dimension xy
+distance :: Position xy -> Position xy -> Dimension
 distance x1 x2 = fromIntegral (abs (x1 - x2))
 -- distance = curry (fromIntegral . abs . uncurry (-))
 
-fromDisplacement :: Dimension xy -> Position xy -> (Position xy, Position xy)
+fromDisplacement :: Dimension -> Position xy -> (Position xy, Position xy)
 fromDisplacement d = (,) <*> displace d
 
-toDisplacement :: Position xy -> Position xy -> (Dimension xy, Position xy)
+toDisplacement :: Position xy -> Position xy -> (Dimension, Position xy)
 toDisplacement x1 x2 = (distance x1 x2, min x1 x2)
 -- toDisplacement = curry ((,) <$> uncurry distance <*> uncurry min)
 
-displace :: Dimension xy -> Position xy -> Position xy
+displace :: Dimension -> Position xy -> Position xy
 displace = (+) . fromIntegral

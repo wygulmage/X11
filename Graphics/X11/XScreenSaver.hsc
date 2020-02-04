@@ -308,7 +308,7 @@ xScreenSaverSetAttributes :: Display
                           -> YPosition       -- ^ y
                           -> Width      -- ^ width
                           -> Height      -- ^ height
-                          -> Dimension xy      -- ^ border width
+                          -> Dimension      -- ^ border width
                           -> CInt           -- ^ depth ('defaultDepthOfScreen')
                           -> WindowClass    -- ^ class
                           -> Visual         -- ^ visual ('defaultVisualOfScreen')
@@ -402,7 +402,7 @@ foreign import ccall "XScreenSaverSelectInput"
 
 foreign import ccall "XScreenSaverSetAttributes"
     cXScreenSaverSetAttributes :: Display -> XID -> XPosition -> YPosition
-                               -> Width -> Height -> Dimension xy
+                               -> Width -> Height -> Dimension
                                -> CInt
                                -> WindowClass
                                -> Visual

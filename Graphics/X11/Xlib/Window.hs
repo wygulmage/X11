@@ -198,7 +198,7 @@ foreign import ccall unsafe "HsXlib.h XSetWindowBorderPixmap"
 
 -- | interface to the X11 library function @XSetWindowBorderWidth()@.
 foreign import ccall unsafe "HsXlib.h XSetWindowBorderWidth"
-        setWindowBorderWidth         :: Display -> Window -> Dimension xy -> IO ()
+        setWindowBorderWidth         :: Display -> Window -> Dimension -> IO ()
 
 -- | interface to the X11 library function @XSetWindowBackground()@.
 foreign import ccall unsafe "HsXlib.h XSetWindowBackground"

@@ -571,7 +571,7 @@ foreign import ccall unsafe "HsXlib.h XSetErrorHandler"
 
 -- | interface to the X11 library function @XGeometry()@.
 geometry :: Display -> CInt -> String -> String ->
-                Width -> Height -> Dimension xy -> CInt -> CInt ->
+                Width -> Height -> Dimension -> CInt -> CInt ->
                 IO (CInt, XPosition, YPosition, Width, Height)
 geometry display screen position default_position
                 bwidth fwidth fheight xadder yadder =
@@ -592,7 +592,7 @@ geometry display screen position default_position
         (,,,,) res <$> peek x_return <*> peek y_return <*> peek width_return <*> peek height_return
 foreign import ccall unsafe "HsXlib.h XGeometry"
         xGeometry :: Display -> CInt -> CString -> CString ->
-                Width -> Height -> Dimension xy -> CInt -> CInt ->
+                Width -> Height -> Dimension -> CInt -> CInt ->
                 Ptr XPosition -> Ptr YPosition ->
                 Ptr Width -> Ptr Height -> IO CInt
 
@@ -600,19 +600,19 @@ foreign import ccall unsafe "HsXlib.h XGeometry"
 getGeometry ::
         IsDrawable drawable =>
         Display -> drawable ->
-        IO (Window, XPosition, YPosition, Width, Height, Dimension xy, CInt)
+        IO (Window, XPosition, YPosition, Width, Height, Dimension, CInt)
 getGeometry display d =
         outParameters7 (throwIfZero "getGeometry") $
                 xGetGeometry display (toXID d)
 foreign import ccall unsafe "HsXlib.h XGetGeometry"
         xGetGeometry :: Display -> XID ->
                 Ptr Window -> Ptr XPosition -> Ptr YPosition -> Ptr Width ->
-                Ptr Height -> Ptr (Dimension xy) -> Ptr CInt -> IO Status
+                Ptr Height -> Ptr (Dimension) -> Ptr CInt -> IO Status
 
 getGeomentryRect ::
         IsDrawable drawable =>
         Display -> drawable ->
-        IO (Window, Rectangle, Dimension xy, CInt)
+        IO (Window, Rectangle, Dimension, CInt)
 getGeomentryRect display drawable = do
   (window, x, y, w, h, borderWidth, status) <- getGeometry display drawable
   return (window, Rectangle x y w h, borderWidth, status)
