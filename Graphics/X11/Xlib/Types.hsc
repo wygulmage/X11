@@ -20,7 +20,7 @@ module Graphics.X11.Xlib.Types(
         VisualInfo(..),
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
         Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
-        Height, Width, Thickness, changeDimension
+        Height, Width, Thickness, changeDimension,
         XPosition, YPositio, changeAxis
         ) where
 
