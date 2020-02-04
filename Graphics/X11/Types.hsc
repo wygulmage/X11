@@ -17,7 +17,7 @@
 
 module Graphics.X11.Types
         (
-        IsXID (..),
+        IsXID (..), none
         IsDrawable,
 
         XID (..),
