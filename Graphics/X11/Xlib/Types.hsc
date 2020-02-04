@@ -21,7 +21,7 @@ module Graphics.X11.Xlib.Types(
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
         Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
         Height, Width, Thickness, changeDimension,
-        XPosition, YPositio, changeAxis
+        XPosition, YPosition, changeAxis
         ) where
 
 import Graphics.X11.Types
