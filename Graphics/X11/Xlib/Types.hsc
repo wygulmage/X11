@@ -20,7 +20,7 @@ module Graphics.X11.Xlib.Types(
         VisualInfo(..),
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
         Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
-        Height, Width, Thickness, changeDimension,
+        Height, Width, Thickness, Area, changeDimension, area, side,
         XPosition, YPosition, changeAxis
         ) where
 
@@ -203,9 +203,19 @@ newtype Dimension xy  = Dimension #{type unsigned int} -- Dimension tagged with 
 type Width = Dimension X
 type Height = Dimension Y
 type Thickness = Dimension ()
+type Area = Dimension (X, Y)
 
 changeDimension :: Dimension a -> Dimension b
-changeDimension = coerce
+changeDimension = fromIntegral
+
+area :: Width -> Height -> Area
+area w h = fromIntegral w * fromIntegral h
+
+side :: Dimension (X, Y) -> Dimension a -> Dimension b
+-- ^ Divide an area by one side to get the other side.
+-- Not type safe: Dividing by a Width should give a Height, and dividing by a Height should give a width, but short of using language extensions like DataKinds and TypeFamilies, we can't guarantee that.
+-- FIXME: Should we try to use when possible, with CPP?
+side a d = fromIntegral a `div` fromIntegral d
 
 type Angle         = CInt
 type ScreenNumber  = Word32
