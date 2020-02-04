@@ -20,7 +20,7 @@ module Graphics.X11.Xlib.Types(
         VisualInfo(..),
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
         Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
-        Height, Width,
+        Height, Width, Thickness,
         XPosition, YPosition
         ) where
 
@@ -198,6 +198,7 @@ newtype Dimension xy  = Dimension #{type unsigned int} -- Dimension tagged with 
 
 type Width = Dimension X
 type Height = Dimension Y
+type Thickness = Dimension ()
 
 type Angle         = CInt
 type ScreenNumber  = Word32

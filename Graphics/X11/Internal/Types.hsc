@@ -216,7 +216,7 @@ none :: SomeXID a
 none = XID 0
 
 class (Coercible XID a)=> IsXID a where
-    -- ^ for compatibility only
+    -- ^ Unnecessary; for compatibility only
     toXID :: a -> XID
     toXID = coerce
 
