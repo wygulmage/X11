@@ -134,26 +134,41 @@ instance IsXID XID where
     none = #{const None}
 
 newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
+mkColormap :: XID -> Colormap
+mkColormap = Colormap
+
 newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
+mkCursor :: XID -> Cursor
+mkCursor = Cursor
+
 newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable, IsXID)
+mkFont :: XID -> Font
+mkFont = Font
+
 newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
+mkGContext :: XID -> GContext
+mkGContext = GContext
 
 newtype KeySym = KeySym XID
   deriving
     (Eq, Ord, Enum, Num, Read, Show, Storable, IsXID)
+mkKeySym :: XID -> KeySym
+mkKeySym = KeySym
 
 newtype Drawable a = Drawable XID
     deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
+-- Can't construct generic Drawables.
 
 class (IsXID a)=> IsDrawable a -- ^ Class for the 'Drawable' type. It's only instance is 'Drawable'.
+instance IsDrawable (Drawable a) -- ^ only instance
 
 newtype WindowDrawable = WindowDrawable WindowDrawable -- empty type to tag windows
-newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
-
 type Window = Drawable WindowDrawable
 mkWindow :: XID -> Window
 mkWindow = Drawable
 
+
+newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
 type Pixmap = Drawable PixmapDrawable
 mkPixmap :: XID -> Pixmap
 mkPixmap = Drawable
@@ -185,6 +200,7 @@ type Pixmap = Drawable PixmapDrawable
 -- The disadvantage here is that you can't do overlapping instances. In general, however, you probably don't need to.
 
 class (Coercible XID a)=> IsXID a where
+    -- ^ for compatibility only
     none :: a
     none = fromXID none
 
@@ -195,10 +211,11 @@ class (Coercible XID a)=> IsXID a where
     fromXID = coerce
 
 instance IsXID XID where
+    -- ^ only instance
     none = #{const None}
 
-class (IsXID a) => IsDrawable a
-instance IsDrawable (Drawable a) -- ^ Class for the 'Drawable' type. It's only instance is 'Drawable'.
+class (IsXID a) => IsDrawable a -- ^ for compatibility only
+instance IsDrawable (Drawable a) -- ^ only instance
 
 --}
 
