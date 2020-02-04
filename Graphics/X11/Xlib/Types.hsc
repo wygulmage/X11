@@ -20,8 +20,8 @@ module Graphics.X11.Xlib.Types(
         VisualInfo(..),
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
         Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
-        Height, Width, Thickness,
-        XPosition, YPosition
+        Height, Width, Thickness, changeDimension
+        XPosition, YPositio, changeAxis
         ) where
 
 import Graphics.X11.Types
@@ -178,7 +178,6 @@ newtype X = X X -- tag for X-axis; avoid empty-data-decls
 newtype Y = Y Y -- tag for Y-axis
   deriving Data
 
--- type Position      = #{type int}
 newtype Position xy   = Position #{type int} -- Position tagged with axis
 #if __GLASGOW_HASKELL__
         deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable, Typeable, Data)
@@ -188,7 +187,10 @@ newtype Position xy   = Position #{type int} -- Position tagged with axis
 
 type XPosition = Position X
 type YPosition = Position Y
--- type Dimension     = #{type unsigned int}
+
+changeAxis :: Position a -> Position b
+changeAxis = coerce
+
 newtype Dimension xy  = Dimension #{type unsigned int} -- Dimension tagged with axis
 #if __GLASGOW_HASKELL__
         deriving (Eq, Ord, Num, Enum, Real, Integral, Show, Read, Storable, Typeable, Data)
@@ -199,6 +201,9 @@ newtype Dimension xy  = Dimension #{type unsigned int} -- Dimension tagged with 
 type Width = Dimension X
 type Height = Dimension Y
 type Thickness = Dimension ()
+
+changeDimension :: Dimension a -> Dimension b
+changeDimension = coerce
 
 type Angle         = CInt
 type ScreenNumber  = Word32
