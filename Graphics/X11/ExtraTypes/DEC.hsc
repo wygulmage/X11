@@ -106,39 +106,40 @@ module Graphics.X11.ExtraTypes.DEC
 #endif
         ) where
 
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 
 #include "HsAllKeysyms.h"
 
 #ifdef DXK_ring_accent
 dXK_ring_accent          :: KeySym
-dXK_ring_accent          = #const DXK_ring_accent
+dXK_ring_accent          = mkKeySym #{const DXK_ring_accent}
 #endif
 #ifdef DXK_circumflex_accent
 dXK_circumflex_accent    :: KeySym
-dXK_circumflex_accent    = #const DXK_circumflex_accent
+dXK_circumflex_accent    = mkKeySym #{const DXK_circumflex_accent}
 #endif
 #ifdef DXK_cedilla_accent
 dXK_cedilla_accent       :: KeySym
-dXK_cedilla_accent       = #const DXK_cedilla_accent
+dXK_cedilla_accent       = mkKeySym #{const DXK_cedilla_accent}
 #endif
 #ifdef DXK_acute_accent
 dXK_acute_accent         :: KeySym
-dXK_acute_accent         = #const DXK_acute_accent
+dXK_acute_accent         = mkKeySym #{const DXK_acute_accent}
 #endif
 #ifdef DXK_grave_accent
 dXK_grave_accent         :: KeySym
-dXK_grave_accent         = #const DXK_grave_accent
+dXK_grave_accent         = mkKeySym #{const DXK_grave_accent}
 #endif
 #ifdef DXK_tilde
 dXK_tilde                :: KeySym
-dXK_tilde                = #const DXK_tilde
+dXK_tilde                = mkKeySym #{const DXK_tilde}
 #endif
 #ifdef DXK_diaeresis
 dXK_diaeresis            :: KeySym
-dXK_diaeresis            = #const DXK_diaeresis
+dXK_diaeresis            = mkKeySym #{const DXK_diaeresis}
 #endif
 #ifdef DXK_Remove
 dXK_Remove               :: KeySym
-dXK_Remove               = #const DXK_Remove
+dXK_Remove               = mkKeySym #{const DXK_Remove}
 #endif

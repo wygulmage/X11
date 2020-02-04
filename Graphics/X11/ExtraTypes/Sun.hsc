@@ -231,135 +231,136 @@ module Graphics.X11.ExtraTypes.Sun
 #endif
         ) where
 
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 
 #include "HsAllKeysyms.h"
 
 #ifdef SunXK_FA_Grave
 sunXK_FA_Grave                :: KeySym
-sunXK_FA_Grave                = #const SunXK_FA_Grave
+sunXK_FA_Grave                = mkKeySym #{const SunXK_FA_Grave}
 #endif
 #ifdef SunXK_FA_Circum
 sunXK_FA_Circum               :: KeySym
-sunXK_FA_Circum               = #const SunXK_FA_Circum
+sunXK_FA_Circum               = mkKeySym #{const SunXK_FA_Circum}
 #endif
 #ifdef SunXK_FA_Tilde
 sunXK_FA_Tilde                :: KeySym
-sunXK_FA_Tilde                = #const SunXK_FA_Tilde
+sunXK_FA_Tilde                = mkKeySym #{const SunXK_FA_Tilde}
 #endif
 #ifdef SunXK_FA_Acute
 sunXK_FA_Acute                :: KeySym
-sunXK_FA_Acute                = #const SunXK_FA_Acute
+sunXK_FA_Acute                = mkKeySym #{const SunXK_FA_Acute}
 #endif
 #ifdef SunXK_FA_Diaeresis
 sunXK_FA_Diaeresis            :: KeySym
-sunXK_FA_Diaeresis            = #const SunXK_FA_Diaeresis
+sunXK_FA_Diaeresis            = mkKeySym #{const SunXK_FA_Diaeresis}
 #endif
 #ifdef SunXK_FA_Cedilla
 sunXK_FA_Cedilla              :: KeySym
-sunXK_FA_Cedilla              = #const SunXK_FA_Cedilla
+sunXK_FA_Cedilla              = mkKeySym #{const SunXK_FA_Cedilla}
 #endif
 #ifdef SunXK_F36
 sunXK_F36                     :: KeySym
-sunXK_F36                     = #const SunXK_F36
+sunXK_F36                     = mkKeySym #{const SunXK_F36}
 #endif
 #ifdef SunXK_F37
 sunXK_F37                     :: KeySym
-sunXK_F37                     = #const SunXK_F37
+sunXK_F37                     = mkKeySym #{const SunXK_F37}
 #endif
 #ifdef SunXK_Sys_Req
 sunXK_Sys_Req                 :: KeySym
-sunXK_Sys_Req                 = #const SunXK_Sys_Req
+sunXK_Sys_Req                 = mkKeySym #{const SunXK_Sys_Req}
 #endif
 #ifdef SunXK_Print_Screen
 sunXK_Print_Screen            :: KeySym
-sunXK_Print_Screen            = #const SunXK_Print_Screen
+sunXK_Print_Screen            = mkKeySym #{const SunXK_Print_Screen}
 #endif
 #ifdef SunXK_Compose
 sunXK_Compose                 :: KeySym
-sunXK_Compose                 = #const SunXK_Compose
+sunXK_Compose                 = mkKeySym #{const SunXK_Compose}
 #endif
 #ifdef SunXK_AltGraph
 sunXK_AltGraph                :: KeySym
-sunXK_AltGraph                = #const SunXK_AltGraph
+sunXK_AltGraph                = mkKeySym #{const SunXK_AltGraph}
 #endif
 #ifdef SunXK_PageUp
 sunXK_PageUp                  :: KeySym
-sunXK_PageUp                  = #const SunXK_PageUp
+sunXK_PageUp                  = mkKeySym #{const SunXK_PageUp}
 #endif
 #ifdef SunXK_PageDown
 sunXK_PageDown                :: KeySym
-sunXK_PageDown                = #const SunXK_PageDown
+sunXK_PageDown                = mkKeySym #{const SunXK_PageDown}
 #endif
 #ifdef SunXK_Undo
 sunXK_Undo                    :: KeySym
-sunXK_Undo                    = #const SunXK_Undo
+sunXK_Undo                    = mkKeySym #{const SunXK_Undo}
 #endif
 #ifdef SunXK_Again
 sunXK_Again                   :: KeySym
-sunXK_Again                   = #const SunXK_Again
+sunXK_Again                   = mkKeySym #{const SunXK_Again}
 #endif
 #ifdef SunXK_Find
 sunXK_Find                    :: KeySym
-sunXK_Find                    = #const SunXK_Find
+sunXK_Find                    = mkKeySym #{const SunXK_Find}
 #endif
 #ifdef SunXK_Stop
 sunXK_Stop                    :: KeySym
-sunXK_Stop                    = #const SunXK_Stop
+sunXK_Stop                    = mkKeySym #{const SunXK_Stop}
 #endif
 #ifdef SunXK_Props
 sunXK_Props                   :: KeySym
-sunXK_Props                   = #const SunXK_Props
+sunXK_Props                   = mkKeySym #{const SunXK_Props}
 #endif
 #ifdef SunXK_Front
 sunXK_Front                   :: KeySym
-sunXK_Front                   = #const SunXK_Front
+sunXK_Front                   = mkKeySym #{const SunXK_Front}
 #endif
 #ifdef SunXK_Copy
 sunXK_Copy                    :: KeySym
-sunXK_Copy                    = #const SunXK_Copy
+sunXK_Copy                    = mkKeySym #{const SunXK_Copy}
 #endif
 #ifdef SunXK_Open
 sunXK_Open                    :: KeySym
-sunXK_Open                    = #const SunXK_Open
+sunXK_Open                    = mkKeySym #{const SunXK_Open}
 #endif
 #ifdef SunXK_Paste
 sunXK_Paste                   :: KeySym
-sunXK_Paste                   = #const SunXK_Paste
+sunXK_Paste                   = mkKeySym #{const SunXK_Paste}
 #endif
 #ifdef SunXK_Cut
 sunXK_Cut                     :: KeySym
-sunXK_Cut                     = #const SunXK_Cut
+sunXK_Cut                     = mkKeySym #{const SunXK_Cut}
 #endif
 #ifdef SunXK_PowerSwitch
 sunXK_PowerSwitch             :: KeySym
-sunXK_PowerSwitch             = #const SunXK_PowerSwitch
+sunXK_PowerSwitch             = mkKeySym #{const SunXK_PowerSwitch}
 #endif
 #ifdef SunXK_AudioLowerVolume
 sunXK_AudioLowerVolume        :: KeySym
-sunXK_AudioLowerVolume        = #const SunXK_AudioLowerVolume
+sunXK_AudioLowerVolume        = mkKeySym #{const SunXK_AudioLowerVolume}
 #endif
 #ifdef SunXK_AudioMute
 sunXK_AudioMute               :: KeySym
-sunXK_AudioMute               = #const SunXK_AudioMute
+sunXK_AudioMute               = mkKeySym #{const SunXK_AudioMute}
 #endif
 #ifdef SunXK_AudioRaiseVolume
 sunXK_AudioRaiseVolume        :: KeySym
-sunXK_AudioRaiseVolume        = #const SunXK_AudioRaiseVolume
+sunXK_AudioRaiseVolume        = mkKeySym #{const SunXK_AudioRaiseVolume}
 #endif
 #ifdef SunXK_VideoDegauss
 sunXK_VideoDegauss            :: KeySym
-sunXK_VideoDegauss            = #const SunXK_VideoDegauss
+sunXK_VideoDegauss            = mkKeySym #{const SunXK_VideoDegauss}
 #endif
 #ifdef SunXK_VideoLowerBrightness
 sunXK_VideoLowerBrightness    :: KeySym
-sunXK_VideoLowerBrightness    = #const SunXK_VideoLowerBrightness
+sunXK_VideoLowerBrightness    = mkKeySym #{const SunXK_VideoLowerBrightness}
 #endif
 #ifdef SunXK_VideoRaiseBrightness
 sunXK_VideoRaiseBrightness    :: KeySym
-sunXK_VideoRaiseBrightness    = #const SunXK_VideoRaiseBrightness
+sunXK_VideoRaiseBrightness    = mkKeySym #{const SunXK_VideoRaiseBrightness}
 #endif
 #ifdef SunXK_PowerSwitchShift
 sunXK_PowerSwitchShift        :: KeySym
-sunXK_PowerSwitchShift        = #const SunXK_PowerSwitchShift
+sunXK_PowerSwitchShift        = mkKeySym #{const SunXK_PowerSwitchShift}
 #endif

@@ -1,5 +1,7 @@
+{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Graphics.X11.Internal.Types where
@@ -69,6 +71,26 @@ newtype KeyCode = KeyCode #{type KeyCode}
 
 --- End platform-dependent definitions ---
 
+--- Coercive Constructors:
+-- These should be valid regardless of the actual newtype and type alias definition used internally, so they're the exported constructors. For use in e.g. @#{enum KeySym, mkKeySym ...}@.
+mkXID      :: XResource -> XID
+mkXID       = coerce
+mkColormap :: XResource -> Colormap
+mkColormap  = coerce
+mkCursor   :: XResource -> Cursor
+mkCursor    = coerce
+mkFont     :: XResource -> Font
+mkFont      = coerce
+mkGContext :: XResource -> GContext
+mkGContext  = coerce
+mkKeySym   :: XResource -> KeySym
+mkKeySym    = coerce
+mkPixmap   :: XResource -> Pixmap
+mkPixmap    = coerce
+mkWindow   :: XResource -> Window
+mkWindow    = coerce
+
+
 newtype Atom = Atom XResource
     deriving (Eq, Ord, Num, Enum, Real, Integral, Read, Show, Storable)
     -- 'fromIntegral' is used in one hacky function on an Atom. Once that's fixed, the Enum, Num, Real, and Integral instances should be removed.
@@ -116,7 +138,7 @@ newtype Window = Window XID
 --}
 
 -- You can use tagged newtypes when convenient:
---{-
+{-
 newtype XID = XID XResource
     deriving (Eq, Ord, Num, Enum, Real, Integral, Bits, FiniteBits, Read, Show, Storable)
 
@@ -134,29 +156,19 @@ instance IsXID XID where
     none = #{const None}
 
 newtype Colormap = Colormap XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
-mkColormap :: XID -> Colormap
-mkColormap = Colormap
 
 newtype Cursor   = Cursor XID   deriving (Eq, Ord, Show, Read, Storable, IsXID)
-mkCursor :: XID -> Cursor
-mkCursor = Cursor
 
 newtype Font     = Font XID     deriving (Eq, Ord, Show, Read, Storable, IsXID)
-mkFont :: XID -> Font
-mkFont = Font
 
 newtype GContext = GContext XID deriving (Eq, Ord, Show, Read, Storable, IsXID)
-mkGContext :: XID -> GContext
-mkGContext = GContext
 
 newtype KeySym = KeySym XID
   deriving
     (Eq, Ord, Enum, Num, Read, Show, Storable, IsXID)
-mkKeySym :: XID -> KeySym
-mkKeySym = KeySym
 
 newtype Drawable a = Drawable XID
-    deriving (Eq, Ord, Show, Read, Storable, IsXID, IsDrawable)
+    deriving (Eq, Ord, Show, Read, Storable, IsXID)
 -- Can't construct generic Drawables.
 
 class (IsXID a)=> IsDrawable a -- ^ Class for the 'Drawable' type. It's only instance is 'Drawable'.
@@ -164,58 +176,57 @@ instance IsDrawable (Drawable a) -- ^ only instance
 
 newtype WindowDrawable = WindowDrawable WindowDrawable -- empty type to tag windows
 type Window = Drawable WindowDrawable
-mkWindow :: XID -> Window
-mkWindow = Drawable
-
 
 newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
 type Pixmap = Drawable PixmapDrawable
-mkPixmap :: XID -> Pixmap
-mkPixmap = Drawable
 
 --}
 
 -- You can tag newtypes with tagged newtypes:
-{-
-newtype XID a = XID XResource
+--{-
+newtype SomeXID a = XID XResource
     deriving (Eq, Ord, Read, Show, Storable)
 
-newtype ColormapXID = ColomapXID ColormapXID  -- empty type to tag colormaps
-newtype CursorXID   = CursorXID CursorXID     -- empty type to tag cursors
-newtype FontXID     = FontXID FontXID         -- empty type to tag fonts
-newtype GContextXID = GContextXID GContextXID -- empty type to tag grahpics contexts
-newtype DrawableXID a = DrawableXID (DrawableXID ()) -- empty polymorphic type to tag drawables
-newtype WindowDrawable = WindowDrawable WindowDrawable -- empty type to tag windows
-newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
+-- non-exported non-constructive newtypes
+newtype Void = Void Void -- empty type
+newtype ColormapXID = ColomapXID  Void -- tag for colormaps
+newtype CursorXID   = CursorXID   Void -- tag for cursors
+newtype FontXID     = FontXID     Void -- tag for fonts
+newtype GContextXID = GContextXID Void -- tag for grahpics contexts
+newtype KeySymXID   = KeySymXID   Void -- tag for keysyms
+newtype DrawableXID a = DrawableXID Void -- polymorphic tag for drawables
+newtype PixmapDrawable = PixmapDrawable Void -- tag for pixmaps
+newtype WindowDrawable = WindowDrawable Void -- tag for windows
 
 -- Now try to make it look nice:
-type Colormap = XID ColormapXID
-type Cursor   = XID CursorXID
-type Font     = XID FontXID
-type GContext = XID GContextXID
-type Drawable a = XID (DrawableXID a)
-type Window = Drawable WindowDrawable
+-- exported type aliases:
+type XID      = SomeXID Void
+type Colormap = SomeXID ColormapXID
+type Cursor   = SomeXID CursorXID
+type Font     = SomeXID FontXID
+type GContext = SomeXID GContextXID
+type KeySym   = SomeXID KeySymXID
+type Drawable a = SomeXID (DrawableXID a)
 type Pixmap = Drawable PixmapDrawable
+type Window = Drawable WindowDrawable
 
 -- The disadvantage here is that you can't do overlapping instances. In general, however, you probably don't need to.
 
+none :: SomeXID a
+none = XID 0
+
 class (Coercible XID a)=> IsXID a where
     -- ^ for compatibility only
-    none :: a
-    none = fromXID none
-
     toXID :: a -> XID
     toXID = coerce
 
     fromXID :: XID -> a
     fromXID = coerce
 
-instance IsXID XID where
-    -- ^ only instance
-    none = #{const None}
+instance IsXID (SomeXID a) -- ^ only instance
 
 class (IsXID a) => IsDrawable a -- ^ for compatibility only
-instance IsDrawable (Drawable a) -- ^ only instance
+instance IsDrawable (SomeXID (DrawableXID a)) -- ^ only instance
 
 --}
 

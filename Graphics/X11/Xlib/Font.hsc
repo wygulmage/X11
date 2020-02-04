@@ -32,6 +32,7 @@ module Graphics.X11.Xlib.Font(
 
 #include "HsXlib.h"
 
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
 

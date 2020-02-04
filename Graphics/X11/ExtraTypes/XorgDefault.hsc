@@ -10043,13 +10043,14 @@ module Graphics.X11.ExtraTypes.XorgDefault
         ) where
 
 import Graphics.X11.Types
+import Graphics.X11.Internal.Types
 
 #include "HsAllKeysyms.h"
 
 #if 0
 #  ifdef XK_VoidSymbol
 xK_VoidSymbol                     :: KeySym
-xK_VoidSymbol                     = #const XK_VoidSymbol
+xK_VoidSymbol                     = mkKeySym #{const XK_VoidSymbol}
 #  endif
 #endif
 
@@ -10057,7980 +10058,7980 @@ xK_VoidSymbol                     = #const XK_VoidSymbol
 #if 0
 #  ifdef XK_BackSpace
 xK_BackSpace                      :: KeySym
-xK_BackSpace                      = #const XK_BackSpace
+xK_BackSpace                      = mkKeySym #{const XK_BackSpace}
 #  endif
 #  ifdef XK_Tab
 xK_Tab                            :: KeySym
-xK_Tab                            = #const XK_Tab
+xK_Tab                            = mkKeySym #{const XK_Tab}
 #  endif
 #  ifdef XK_Linefeed
 xK_Linefeed                       :: KeySym
-xK_Linefeed                       = #const XK_Linefeed
+xK_Linefeed                       = mkKeySym #{const XK_Linefeed}
 #  endif
 #  ifdef XK_Clear
 xK_Clear                          :: KeySym
-xK_Clear                          = #const XK_Clear
+xK_Clear                          = mkKeySym #{const XK_Clear}
 #  endif
 #  ifdef XK_Return
 xK_Return                         :: KeySym
-xK_Return                         = #const XK_Return
+xK_Return                         = mkKeySym #{const XK_Return}
 #  endif
 #  ifdef XK_Pause
 xK_Pause                          :: KeySym
-xK_Pause                          = #const XK_Pause
+xK_Pause                          = mkKeySym #{const XK_Pause}
 #  endif
 #  ifdef XK_Scroll_Lock
 xK_Scroll_Lock                    :: KeySym
-xK_Scroll_Lock                    = #const XK_Scroll_Lock
+xK_Scroll_Lock                    = mkKeySym #{const XK_Scroll_Lock}
 #  endif
 #  ifdef XK_Sys_Req
 xK_Sys_Req                        :: KeySym
-xK_Sys_Req                        = #const XK_Sys_Req
+xK_Sys_Req                        = mkKeySym #{const XK_Sys_Req}
 #  endif
 #  ifdef XK_Escape
 xK_Escape                         :: KeySym
-xK_Escape                         = #const XK_Escape
+xK_Escape                         = mkKeySym #{const XK_Escape}
 #  endif
 #  ifdef XK_Delete
 xK_Delete                         :: KeySym
-xK_Delete                         = #const XK_Delete
+xK_Delete                         = mkKeySym #{const XK_Delete}
 #  endif
 #  ifdef XK_Multi_key
 xK_Multi_key                      :: KeySym
-xK_Multi_key                      = #const XK_Multi_key
+xK_Multi_key                      = mkKeySym #{const XK_Multi_key}
 #  endif
 #  ifdef XK_Codeinput
 xK_Codeinput                      :: KeySym
-xK_Codeinput                      = #const XK_Codeinput
+xK_Codeinput                      = mkKeySym #{const XK_Codeinput}
 #  endif
 #  ifdef XK_SingleCandidate
 xK_SingleCandidate                :: KeySym
-xK_SingleCandidate                = #const XK_SingleCandidate
+xK_SingleCandidate                = mkKeySym #{const XK_SingleCandidate}
 #  endif
 #  ifdef XK_MultipleCandidate
 xK_MultipleCandidate              :: KeySym
-xK_MultipleCandidate              = #const XK_MultipleCandidate
+xK_MultipleCandidate              = mkKeySym #{const XK_MultipleCandidate}
 #  endif
 #  ifdef XK_PreviousCandidate
 xK_PreviousCandidate              :: KeySym
-xK_PreviousCandidate              = #const XK_PreviousCandidate
+xK_PreviousCandidate              = mkKeySym #{const XK_PreviousCandidate}
 #  endif
 #  ifdef XK_Kanji
 xK_Kanji                          :: KeySym
-xK_Kanji                          = #const XK_Kanji
+xK_Kanji                          = mkKeySym #{const XK_Kanji}
 #  endif
 #  ifdef XK_Muhenkan
 xK_Muhenkan                       :: KeySym
-xK_Muhenkan                       = #const XK_Muhenkan
+xK_Muhenkan                       = mkKeySym #{const XK_Muhenkan}
 #  endif
 #  ifdef XK_Henkan_Mode
 xK_Henkan_Mode                    :: KeySym
-xK_Henkan_Mode                    = #const XK_Henkan_Mode
+xK_Henkan_Mode                    = mkKeySym #{const XK_Henkan_Mode}
 #  endif
 #  ifdef XK_Henkan
 xK_Henkan                         :: KeySym
-xK_Henkan                         = #const XK_Henkan
+xK_Henkan                         = mkKeySym #{const XK_Henkan}
 #  endif
 #  ifdef XK_Romaji
 xK_Romaji                         :: KeySym
-xK_Romaji                         = #const XK_Romaji
+xK_Romaji                         = mkKeySym #{const XK_Romaji}
 #  endif
 #  ifdef XK_Hiragana
 xK_Hiragana                       :: KeySym
-xK_Hiragana                       = #const XK_Hiragana
+xK_Hiragana                       = mkKeySym #{const XK_Hiragana}
 #  endif
 #  ifdef XK_Katakana
 xK_Katakana                       :: KeySym
-xK_Katakana                       = #const XK_Katakana
+xK_Katakana                       = mkKeySym #{const XK_Katakana}
 #  endif
 #  ifdef XK_Hiragana_Katakana
 xK_Hiragana_Katakana              :: KeySym
-xK_Hiragana_Katakana              = #const XK_Hiragana_Katakana
+xK_Hiragana_Katakana              = mkKeySym #{const XK_Hiragana_Katakana}
 #  endif
 #  ifdef XK_Zenkaku
 xK_Zenkaku                        :: KeySym
-xK_Zenkaku                        = #const XK_Zenkaku
+xK_Zenkaku                        = mkKeySym #{const XK_Zenkaku}
 #  endif
 #  ifdef XK_Hankaku
 xK_Hankaku                        :: KeySym
-xK_Hankaku                        = #const XK_Hankaku
+xK_Hankaku                        = mkKeySym #{const XK_Hankaku}
 #  endif
 #  ifdef XK_Zenkaku_Hankaku
 xK_Zenkaku_Hankaku                :: KeySym
-xK_Zenkaku_Hankaku                = #const XK_Zenkaku_Hankaku
+xK_Zenkaku_Hankaku                = mkKeySym #{const XK_Zenkaku_Hankaku}
 #  endif
 #  ifdef XK_Touroku
 xK_Touroku                        :: KeySym
-xK_Touroku                        = #const XK_Touroku
+xK_Touroku                        = mkKeySym #{const XK_Touroku}
 #  endif
 #  ifdef XK_Massyo
 xK_Massyo                         :: KeySym
-xK_Massyo                         = #const XK_Massyo
+xK_Massyo                         = mkKeySym #{const XK_Massyo}
 #  endif
 #  ifdef XK_Kana_Lock
 xK_Kana_Lock                      :: KeySym
-xK_Kana_Lock                      = #const XK_Kana_Lock
+xK_Kana_Lock                      = mkKeySym #{const XK_Kana_Lock}
 #  endif
 #  ifdef XK_Kana_Shift
 xK_Kana_Shift                     :: KeySym
-xK_Kana_Shift                     = #const XK_Kana_Shift
+xK_Kana_Shift                     = mkKeySym #{const XK_Kana_Shift}
 #  endif
 #  ifdef XK_Eisu_Shift
 xK_Eisu_Shift                     :: KeySym
-xK_Eisu_Shift                     = #const XK_Eisu_Shift
+xK_Eisu_Shift                     = mkKeySym #{const XK_Eisu_Shift}
 #  endif
 #  ifdef XK_Eisu_toggle
 xK_Eisu_toggle                    :: KeySym
-xK_Eisu_toggle                    = #const XK_Eisu_toggle
+xK_Eisu_toggle                    = mkKeySym #{const XK_Eisu_toggle}
 #  endif
 #  ifdef XK_Kanji_Bangou
 xK_Kanji_Bangou                   :: KeySym
-xK_Kanji_Bangou                   = #const XK_Kanji_Bangou
+xK_Kanji_Bangou                   = mkKeySym #{const XK_Kanji_Bangou}
 #  endif
 #  ifdef XK_Zen_Koho
 xK_Zen_Koho                       :: KeySym
-xK_Zen_Koho                       = #const XK_Zen_Koho
+xK_Zen_Koho                       = mkKeySym #{const XK_Zen_Koho}
 #  endif
 #  ifdef XK_Mae_Koho
 xK_Mae_Koho                       :: KeySym
-xK_Mae_Koho                       = #const XK_Mae_Koho
+xK_Mae_Koho                       = mkKeySym #{const XK_Mae_Koho}
 #  endif
 #  ifdef XK_Home
 xK_Home                           :: KeySym
-xK_Home                           = #const XK_Home
+xK_Home                           = mkKeySym #{const XK_Home}
 #  endif
 #  ifdef XK_Left
 xK_Left                           :: KeySym
-xK_Left                           = #const XK_Left
+xK_Left                           = mkKeySym #{const XK_Left}
 #  endif
 #  ifdef XK_Up
 xK_Up                             :: KeySym
-xK_Up                             = #const XK_Up
+xK_Up                             = mkKeySym #{const XK_Up}
 #  endif
 #  ifdef XK_Right
 xK_Right                          :: KeySym
-xK_Right                          = #const XK_Right
+xK_Right                          = mkKeySym #{const XK_Right}
 #  endif
 #  ifdef XK_Down
 xK_Down                           :: KeySym
-xK_Down                           = #const XK_Down
+xK_Down                           = mkKeySym #{const XK_Down}
 #  endif
 #  ifdef XK_Prior
 xK_Prior                          :: KeySym
-xK_Prior                          = #const XK_Prior
+xK_Prior                          = mkKeySym #{const XK_Prior}
 #  endif
 #  ifdef XK_Page_Up
 xK_Page_Up                        :: KeySym
-xK_Page_Up                        = #const XK_Page_Up
+xK_Page_Up                        = mkKeySym #{const XK_Page_Up}
 #  endif
 #  ifdef XK_Next
 xK_Next                           :: KeySym
-xK_Next                           = #const XK_Next
+xK_Next                           = mkKeySym #{const XK_Next}
 #  endif
 #  ifdef XK_Page_Down
 xK_Page_Down                      :: KeySym
-xK_Page_Down                      = #const XK_Page_Down
+xK_Page_Down                      = mkKeySym #{const XK_Page_Down}
 #  endif
 #  ifdef XK_End
 xK_End                            :: KeySym
-xK_End                            = #const XK_End
+xK_End                            = mkKeySym #{const XK_End}
 #  endif
 #  ifdef XK_Begin
 xK_Begin                          :: KeySym
-xK_Begin                          = #const XK_Begin
+xK_Begin                          = mkKeySym #{const XK_Begin}
 #  endif
 #  ifdef XK_Select
 xK_Select                         :: KeySym
-xK_Select                         = #const XK_Select
+xK_Select                         = mkKeySym #{const XK_Select}
 #  endif
 #  ifdef XK_Print
 xK_Print                          :: KeySym
-xK_Print                          = #const XK_Print
+xK_Print                          = mkKeySym #{const XK_Print}
 #  endif
 #  ifdef XK_Execute
 xK_Execute                        :: KeySym
-xK_Execute                        = #const XK_Execute
+xK_Execute                        = mkKeySym #{const XK_Execute}
 #  endif
 #  ifdef XK_Insert
 xK_Insert                         :: KeySym
-xK_Insert                         = #const XK_Insert
+xK_Insert                         = mkKeySym #{const XK_Insert}
 #  endif
 #  ifdef XK_Undo
 xK_Undo                           :: KeySym
-xK_Undo                           = #const XK_Undo
+xK_Undo                           = mkKeySym #{const XK_Undo}
 #  endif
 #  ifdef XK_Redo
 xK_Redo                           :: KeySym
-xK_Redo                           = #const XK_Redo
+xK_Redo                           = mkKeySym #{const XK_Redo}
 #  endif
 #  ifdef XK_Menu
 xK_Menu                           :: KeySym
-xK_Menu                           = #const XK_Menu
+xK_Menu                           = mkKeySym #{const XK_Menu}
 #  endif
 #  ifdef XK_Find
 xK_Find                           :: KeySym
-xK_Find                           = #const XK_Find
+xK_Find                           = mkKeySym #{const XK_Find}
 #  endif
 #  ifdef XK_Cancel
 xK_Cancel                         :: KeySym
-xK_Cancel                         = #const XK_Cancel
+xK_Cancel                         = mkKeySym #{const XK_Cancel}
 #  endif
 #  ifdef XK_Help
 xK_Help                           :: KeySym
-xK_Help                           = #const XK_Help
+xK_Help                           = mkKeySym #{const XK_Help}
 #  endif
 #  ifdef XK_Break
 xK_Break                          :: KeySym
-xK_Break                          = #const XK_Break
+xK_Break                          = mkKeySym #{const XK_Break}
 #  endif
 #  ifdef XK_Mode_switch
 xK_Mode_switch                    :: KeySym
-xK_Mode_switch                    = #const XK_Mode_switch
+xK_Mode_switch                    = mkKeySym #{const XK_Mode_switch}
 #  endif
 #  ifdef XK_script_switch
 xK_script_switch                  :: KeySym
-xK_script_switch                  = #const XK_script_switch
+xK_script_switch                  = mkKeySym #{const XK_script_switch}
 #  endif
 #  ifdef XK_Num_Lock
 xK_Num_Lock                       :: KeySym
-xK_Num_Lock                       = #const XK_Num_Lock
+xK_Num_Lock                       = mkKeySym #{const XK_Num_Lock}
 #  endif
 #  ifdef XK_KP_Space
 xK_KP_Space                       :: KeySym
-xK_KP_Space                       = #const XK_KP_Space
+xK_KP_Space                       = mkKeySym #{const XK_KP_Space}
 #  endif
 #  ifdef XK_KP_Tab
 xK_KP_Tab                         :: KeySym
-xK_KP_Tab                         = #const XK_KP_Tab
+xK_KP_Tab                         = mkKeySym #{const XK_KP_Tab}
 #  endif
 #  ifdef XK_KP_Enter
 xK_KP_Enter                       :: KeySym
-xK_KP_Enter                       = #const XK_KP_Enter
+xK_KP_Enter                       = mkKeySym #{const XK_KP_Enter}
 #  endif
 #  ifdef XK_KP_F1
 xK_KP_F1                          :: KeySym
-xK_KP_F1                          = #const XK_KP_F1
+xK_KP_F1                          = mkKeySym #{const XK_KP_F1}
 #  endif
 #  ifdef XK_KP_F2
 xK_KP_F2                          :: KeySym
-xK_KP_F2                          = #const XK_KP_F2
+xK_KP_F2                          = mkKeySym #{const XK_KP_F2}
 #  endif
 #  ifdef XK_KP_F3
 xK_KP_F3                          :: KeySym
-xK_KP_F3                          = #const XK_KP_F3
+xK_KP_F3                          = mkKeySym #{const XK_KP_F3}
 #  endif
 #  ifdef XK_KP_F4
 xK_KP_F4                          :: KeySym
-xK_KP_F4                          = #const XK_KP_F4
+xK_KP_F4                          = mkKeySym #{const XK_KP_F4}
 #  endif
 #  ifdef XK_KP_Home
 xK_KP_Home                        :: KeySym
-xK_KP_Home                        = #const XK_KP_Home
+xK_KP_Home                        = mkKeySym #{const XK_KP_Home}
 #  endif
 #  ifdef XK_KP_Left
 xK_KP_Left                        :: KeySym
-xK_KP_Left                        = #const XK_KP_Left
+xK_KP_Left                        = mkKeySym #{const XK_KP_Left}
 #  endif
 #  ifdef XK_KP_Up
 xK_KP_Up                          :: KeySym
-xK_KP_Up                          = #const XK_KP_Up
+xK_KP_Up                          = mkKeySym #{const XK_KP_Up}
 #  endif
 #  ifdef XK_KP_Right
 xK_KP_Right                       :: KeySym
-xK_KP_Right                       = #const XK_KP_Right
+xK_KP_Right                       = mkKeySym #{const XK_KP_Right}
 #  endif
 #  ifdef XK_KP_Down
 xK_KP_Down                        :: KeySym
-xK_KP_Down                        = #const XK_KP_Down
+xK_KP_Down                        = mkKeySym #{const XK_KP_Down}
 #  endif
 #  ifdef XK_KP_Prior
 xK_KP_Prior                       :: KeySym
-xK_KP_Prior                       = #const XK_KP_Prior
+xK_KP_Prior                       = mkKeySym #{const XK_KP_Prior}
 #  endif
 #  ifdef XK_KP_Page_Up
 xK_KP_Page_Up                     :: KeySym
-xK_KP_Page_Up                     = #const XK_KP_Page_Up
+xK_KP_Page_Up                     = mkKeySym #{const XK_KP_Page_Up}
 #  endif
 #  ifdef XK_KP_Next
 xK_KP_Next                        :: KeySym
-xK_KP_Next                        = #const XK_KP_Next
+xK_KP_Next                        = mkKeySym #{const XK_KP_Next}
 #  endif
 #  ifdef XK_KP_Page_Down
 xK_KP_Page_Down                   :: KeySym
-xK_KP_Page_Down                   = #const XK_KP_Page_Down
+xK_KP_Page_Down                   = mkKeySym #{const XK_KP_Page_Down}
 #  endif
 #  ifdef XK_KP_End
 xK_KP_End                         :: KeySym
-xK_KP_End                         = #const XK_KP_End
+xK_KP_End                         = mkKeySym #{const XK_KP_End}
 #  endif
 #  ifdef XK_KP_Begin
 xK_KP_Begin                       :: KeySym
-xK_KP_Begin                       = #const XK_KP_Begin
+xK_KP_Begin                       = mkKeySym #{const XK_KP_Begin}
 #  endif
 #  ifdef XK_KP_Insert
 xK_KP_Insert                      :: KeySym
-xK_KP_Insert                      = #const XK_KP_Insert
+xK_KP_Insert                      = mkKeySym #{const XK_KP_Insert}
 #  endif
 #  ifdef XK_KP_Delete
 xK_KP_Delete                      :: KeySym
-xK_KP_Delete                      = #const XK_KP_Delete
+xK_KP_Delete                      = mkKeySym #{const XK_KP_Delete}
 #  endif
 #  ifdef XK_KP_Equal
 xK_KP_Equal                       :: KeySym
-xK_KP_Equal                       = #const XK_KP_Equal
+xK_KP_Equal                       = mkKeySym #{const XK_KP_Equal}
 #  endif
 #  ifdef XK_KP_Multiply
 xK_KP_Multiply                    :: KeySym
-xK_KP_Multiply                    = #const XK_KP_Multiply
+xK_KP_Multiply                    = mkKeySym #{const XK_KP_Multiply}
 #  endif
 #  ifdef XK_KP_Add
 xK_KP_Add                         :: KeySym
-xK_KP_Add                         = #const XK_KP_Add
+xK_KP_Add                         = mkKeySym #{const XK_KP_Add}
 #  endif
 #  ifdef XK_KP_Separator
 xK_KP_Separator                   :: KeySym
-xK_KP_Separator                   = #const XK_KP_Separator
+xK_KP_Separator                   = mkKeySym #{const XK_KP_Separator}
 #  endif
 #  ifdef XK_KP_Subtract
 xK_KP_Subtract                    :: KeySym
-xK_KP_Subtract                    = #const XK_KP_Subtract
+xK_KP_Subtract                    = mkKeySym #{const XK_KP_Subtract}
 #  endif
 #  ifdef XK_KP_Decimal
 xK_KP_Decimal                     :: KeySym
-xK_KP_Decimal                     = #const XK_KP_Decimal
+xK_KP_Decimal                     = mkKeySym #{const XK_KP_Decimal}
 #  endif
 #  ifdef XK_KP_Divide
 xK_KP_Divide                      :: KeySym
-xK_KP_Divide                      = #const XK_KP_Divide
+xK_KP_Divide                      = mkKeySym #{const XK_KP_Divide}
 #  endif
 #  ifdef XK_KP_0
 xK_KP_0                           :: KeySym
-xK_KP_0                           = #const XK_KP_0
+xK_KP_0                           = mkKeySym #{const XK_KP_0}
 #  endif
 #  ifdef XK_KP_1
 xK_KP_1                           :: KeySym
-xK_KP_1                           = #const XK_KP_1
+xK_KP_1                           = mkKeySym #{const XK_KP_1}
 #  endif
 #  ifdef XK_KP_2
 xK_KP_2                           :: KeySym
-xK_KP_2                           = #const XK_KP_2
+xK_KP_2                           = mkKeySym #{const XK_KP_2}
 #  endif
 #  ifdef XK_KP_3
 xK_KP_3                           :: KeySym
-xK_KP_3                           = #const XK_KP_3
+xK_KP_3                           = mkKeySym #{const XK_KP_3}
 #  endif
 #  ifdef XK_KP_4
 xK_KP_4                           :: KeySym
-xK_KP_4                           = #const XK_KP_4
+xK_KP_4                           = mkKeySym #{const XK_KP_4}
 #  endif
 #  ifdef XK_KP_5
 xK_KP_5                           :: KeySym
-xK_KP_5                           = #const XK_KP_5
+xK_KP_5                           = mkKeySym #{const XK_KP_5}
 #  endif
 #  ifdef XK_KP_6
 xK_KP_6                           :: KeySym
-xK_KP_6                           = #const XK_KP_6
+xK_KP_6                           = mkKeySym #{const XK_KP_6}
 #  endif
 #  ifdef XK_KP_7
 xK_KP_7                           :: KeySym
-xK_KP_7                           = #const XK_KP_7
+xK_KP_7                           = mkKeySym #{const XK_KP_7}
 #  endif
 #  ifdef XK_KP_8
 xK_KP_8                           :: KeySym
-xK_KP_8                           = #const XK_KP_8
+xK_KP_8                           = mkKeySym #{const XK_KP_8}
 #  endif
 #  ifdef XK_KP_9
 xK_KP_9                           :: KeySym
-xK_KP_9                           = #const XK_KP_9
+xK_KP_9                           = mkKeySym #{const XK_KP_9}
 #  endif
 #  ifdef XK_F1
 xK_F1                             :: KeySym
-xK_F1                             = #const XK_F1
+xK_F1                             = mkKeySym #{const XK_F1}
 #  endif
 #  ifdef XK_F2
 xK_F2                             :: KeySym
-xK_F2                             = #const XK_F2
+xK_F2                             = mkKeySym #{const XK_F2}
 #  endif
 #  ifdef XK_F3
 xK_F3                             :: KeySym
-xK_F3                             = #const XK_F3
+xK_F3                             = mkKeySym #{const XK_F3}
 #  endif
 #  ifdef XK_F4
 xK_F4                             :: KeySym
-xK_F4                             = #const XK_F4
+xK_F4                             = mkKeySym #{const XK_F4}
 #  endif
 #  ifdef XK_F5
 xK_F5                             :: KeySym
-xK_F5                             = #const XK_F5
+xK_F5                             = mkKeySym #{const XK_F5}
 #  endif
 #  ifdef XK_F6
 xK_F6                             :: KeySym
-xK_F6                             = #const XK_F6
+xK_F6                             = mkKeySym #{const XK_F6}
 #  endif
 #  ifdef XK_F7
 xK_F7                             :: KeySym
-xK_F7                             = #const XK_F7
+xK_F7                             = mkKeySym #{const XK_F7}
 #  endif
 #  ifdef XK_F8
 xK_F8                             :: KeySym
-xK_F8                             = #const XK_F8
+xK_F8                             = mkKeySym #{const XK_F8}
 #  endif
 #  ifdef XK_F9
 xK_F9                             :: KeySym
-xK_F9                             = #const XK_F9
+xK_F9                             = mkKeySym #{const XK_F9}
 #  endif
 #  ifdef XK_F10
 xK_F10                            :: KeySym
-xK_F10                            = #const XK_F10
+xK_F10                            = mkKeySym #{const XK_F10}
 #  endif
 #  ifdef XK_F11
 xK_F11                            :: KeySym
-xK_F11                            = #const XK_F11
+xK_F11                            = mkKeySym #{const XK_F11}
 #  endif
 #  ifdef XK_L1
 xK_L1                             :: KeySym
-xK_L1                             = #const XK_L1
+xK_L1                             = mkKeySym #{const XK_L1}
 #  endif
 #  ifdef XK_F12
 xK_F12                            :: KeySym
-xK_F12                            = #const XK_F12
+xK_F12                            = mkKeySym #{const XK_F12}
 #  endif
 #  ifdef XK_L2
 xK_L2                             :: KeySym
-xK_L2                             = #const XK_L2
+xK_L2                             = mkKeySym #{const XK_L2}
 #  endif
 #  ifdef XK_F13
 xK_F13                            :: KeySym
-xK_F13                            = #const XK_F13
+xK_F13                            = mkKeySym #{const XK_F13}
 #  endif
 #  ifdef XK_L3
 xK_L3                             :: KeySym
-xK_L3                             = #const XK_L3
+xK_L3                             = mkKeySym #{const XK_L3}
 #  endif
 #  ifdef XK_F14
 xK_F14                            :: KeySym
-xK_F14                            = #const XK_F14
+xK_F14                            = mkKeySym #{const XK_F14}
 #  endif
 #  ifdef XK_L4
 xK_L4                             :: KeySym
-xK_L4                             = #const XK_L4
+xK_L4                             = mkKeySym #{const XK_L4}
 #  endif
 #  ifdef XK_F15
 xK_F15                            :: KeySym
-xK_F15                            = #const XK_F15
+xK_F15                            = mkKeySym #{const XK_F15}
 #  endif
 #  ifdef XK_L5
 xK_L5                             :: KeySym
-xK_L5                             = #const XK_L5
+xK_L5                             = mkKeySym #{const XK_L5}
 #  endif
 #  ifdef XK_F16
 xK_F16                            :: KeySym
-xK_F16                            = #const XK_F16
+xK_F16                            = mkKeySym #{const XK_F16}
 #  endif
 #  ifdef XK_L6
 xK_L6                             :: KeySym
-xK_L6                             = #const XK_L6
+xK_L6                             = mkKeySym #{const XK_L6}
 #  endif
 #  ifdef XK_F17
 xK_F17                            :: KeySym
-xK_F17                            = #const XK_F17
+xK_F17                            = mkKeySym #{const XK_F17}
 #  endif
 #  ifdef XK_L7
 xK_L7                             :: KeySym
-xK_L7                             = #const XK_L7
+xK_L7                             = mkKeySym #{const XK_L7}
 #  endif
 #  ifdef XK_F18
 xK_F18                            :: KeySym
-xK_F18                            = #const XK_F18
+xK_F18                            = mkKeySym #{const XK_F18}
 #  endif
 #  ifdef XK_L8
 xK_L8                             :: KeySym
-xK_L8                             = #const XK_L8
+xK_L8                             = mkKeySym #{const XK_L8}
 #  endif
 #  ifdef XK_F19
 xK_F19                            :: KeySym
-xK_F19                            = #const XK_F19
+xK_F19                            = mkKeySym #{const XK_F19}
 #  endif
 #  ifdef XK_L9
 xK_L9                             :: KeySym
-xK_L9                             = #const XK_L9
+xK_L9                             = mkKeySym #{const XK_L9}
 #  endif
 #  ifdef XK_F20
 xK_F20                            :: KeySym
-xK_F20                            = #const XK_F20
+xK_F20                            = mkKeySym #{const XK_F20}
 #  endif
 #  ifdef XK_L10
 xK_L10                            :: KeySym
-xK_L10                            = #const XK_L10
+xK_L10                            = mkKeySym #{const XK_L10}
 #  endif
 #  ifdef XK_F21
 xK_F21                            :: KeySym
-xK_F21                            = #const XK_F21
+xK_F21                            = mkKeySym #{const XK_F21}
 #  endif
 #  ifdef XK_R1
 xK_R1                             :: KeySym
-xK_R1                             = #const XK_R1
+xK_R1                             = mkKeySym #{const XK_R1}
 #  endif
 #  ifdef XK_F22
 xK_F22                            :: KeySym
-xK_F22                            = #const XK_F22
+xK_F22                            = mkKeySym #{const XK_F22}
 #  endif
 #  ifdef XK_R2
 xK_R2                             :: KeySym
-xK_R2                             = #const XK_R2
+xK_R2                             = mkKeySym #{const XK_R2}
 #  endif
 #  ifdef XK_F23
 xK_F23                            :: KeySym
-xK_F23                            = #const XK_F23
+xK_F23                            = mkKeySym #{const XK_F23}
 #  endif
 #  ifdef XK_R3
 xK_R3                             :: KeySym
-xK_R3                             = #const XK_R3
+xK_R3                             = mkKeySym #{const XK_R3}
 #  endif
 #  ifdef XK_F24
 xK_F24                            :: KeySym
-xK_F24                            = #const XK_F24
+xK_F24                            = mkKeySym #{const XK_F24}
 #  endif
 #  ifdef XK_R4
 xK_R4                             :: KeySym
-xK_R4                             = #const XK_R4
+xK_R4                             = mkKeySym #{const XK_R4}
 #  endif
 #  ifdef XK_F25
 xK_F25                            :: KeySym
-xK_F25                            = #const XK_F25
+xK_F25                            = mkKeySym #{const XK_F25}
 #  endif
 #  ifdef XK_R5
 xK_R5                             :: KeySym
-xK_R5                             = #const XK_R5
+xK_R5                             = mkKeySym #{const XK_R5}
 #  endif
 #  ifdef XK_F26
 xK_F26                            :: KeySym
-xK_F26                            = #const XK_F26
+xK_F26                            = mkKeySym #{const XK_F26}
 #  endif
 #  ifdef XK_R6
 xK_R6                             :: KeySym
-xK_R6                             = #const XK_R6
+xK_R6                             = mkKeySym #{const XK_R6}
 #  endif
 #  ifdef XK_F27
 xK_F27                            :: KeySym
-xK_F27                            = #const XK_F27
+xK_F27                            = mkKeySym #{const XK_F27}
 #  endif
 #  ifdef XK_R7
 xK_R7                             :: KeySym
-xK_R7                             = #const XK_R7
+xK_R7                             = mkKeySym #{const XK_R7}
 #  endif
 #  ifdef XK_F28
 xK_F28                            :: KeySym
-xK_F28                            = #const XK_F28
+xK_F28                            = mkKeySym #{const XK_F28}
 #  endif
 #  ifdef XK_R8
 xK_R8                             :: KeySym
-xK_R8                             = #const XK_R8
+xK_R8                             = mkKeySym #{const XK_R8}
 #  endif
 #  ifdef XK_F29
 xK_F29                            :: KeySym
-xK_F29                            = #const XK_F29
+xK_F29                            = mkKeySym #{const XK_F29}
 #  endif
 #  ifdef XK_R9
 xK_R9                             :: KeySym
-xK_R9                             = #const XK_R9
+xK_R9                             = mkKeySym #{const XK_R9}
 #  endif
 #  ifdef XK_F30
 xK_F30                            :: KeySym
-xK_F30                            = #const XK_F30
+xK_F30                            = mkKeySym #{const XK_F30}
 #  endif
 #  ifdef XK_R10
 xK_R10                            :: KeySym
-xK_R10                            = #const XK_R10
+xK_R10                            = mkKeySym #{const XK_R10}
 #  endif
 #  ifdef XK_F31
 xK_F31                            :: KeySym
-xK_F31                            = #const XK_F31
+xK_F31                            = mkKeySym #{const XK_F31}
 #  endif
 #  ifdef XK_R11
 xK_R11                            :: KeySym
-xK_R11                            = #const XK_R11
+xK_R11                            = mkKeySym #{const XK_R11}
 #  endif
 #  ifdef XK_F32
 xK_F32                            :: KeySym
-xK_F32                            = #const XK_F32
+xK_F32                            = mkKeySym #{const XK_F32}
 #  endif
 #  ifdef XK_R12
 xK_R12                            :: KeySym
-xK_R12                            = #const XK_R12
+xK_R12                            = mkKeySym #{const XK_R12}
 #  endif
 #  ifdef XK_F33
 xK_F33                            :: KeySym
-xK_F33                            = #const XK_F33
+xK_F33                            = mkKeySym #{const XK_F33}
 #  endif
 #  ifdef XK_R13
 xK_R13                            :: KeySym
-xK_R13                            = #const XK_R13
+xK_R13                            = mkKeySym #{const XK_R13}
 #  endif
 #  ifdef XK_F34
 xK_F34                            :: KeySym
-xK_F34                            = #const XK_F34
+xK_F34                            = mkKeySym #{const XK_F34}
 #  endif
 #  ifdef XK_R14
 xK_R14                            :: KeySym
-xK_R14                            = #const XK_R14
+xK_R14                            = mkKeySym #{const XK_R14}
 #  endif
 #  ifdef XK_F35
 xK_F35                            :: KeySym
-xK_F35                            = #const XK_F35
+xK_F35                            = mkKeySym #{const XK_F35}
 #  endif
 #  ifdef XK_R15
 xK_R15                            :: KeySym
-xK_R15                            = #const XK_R15
+xK_R15                            = mkKeySym #{const XK_R15}
 #  endif
 #  ifdef XK_Shift_L
 xK_Shift_L                        :: KeySym
-xK_Shift_L                        = #const XK_Shift_L
+xK_Shift_L                        = mkKeySym #{const XK_Shift_L}
 #  endif
 #  ifdef XK_Shift_R
 xK_Shift_R                        :: KeySym
-xK_Shift_R                        = #const XK_Shift_R
+xK_Shift_R                        = mkKeySym #{const XK_Shift_R}
 #  endif
 #  ifdef XK_Control_L
 xK_Control_L                      :: KeySym
-xK_Control_L                      = #const XK_Control_L
+xK_Control_L                      = mkKeySym #{const XK_Control_L}
 #  endif
 #  ifdef XK_Control_R
 xK_Control_R                      :: KeySym
-xK_Control_R                      = #const XK_Control_R
+xK_Control_R                      = mkKeySym #{const XK_Control_R}
 #  endif
 #  ifdef XK_Caps_Lock
 xK_Caps_Lock                      :: KeySym
-xK_Caps_Lock                      = #const XK_Caps_Lock
+xK_Caps_Lock                      = mkKeySym #{const XK_Caps_Lock}
 #  endif
 #  ifdef XK_Shift_Lock
 xK_Shift_Lock                     :: KeySym
-xK_Shift_Lock                     = #const XK_Shift_Lock
+xK_Shift_Lock                     = mkKeySym #{const XK_Shift_Lock}
 #  endif
 #  ifdef XK_Meta_L
 xK_Meta_L                         :: KeySym
-xK_Meta_L                         = #const XK_Meta_L
+xK_Meta_L                         = mkKeySym #{const XK_Meta_L}
 #  endif
 #  ifdef XK_Meta_R
 xK_Meta_R                         :: KeySym
-xK_Meta_R                         = #const XK_Meta_R
+xK_Meta_R                         = mkKeySym #{const XK_Meta_R}
 #  endif
 #  ifdef XK_Alt_L
 xK_Alt_L                          :: KeySym
-xK_Alt_L                          = #const XK_Alt_L
+xK_Alt_L                          = mkKeySym #{const XK_Alt_L}
 #  endif
 #  ifdef XK_Alt_R
 xK_Alt_R                          :: KeySym
-xK_Alt_R                          = #const XK_Alt_R
+xK_Alt_R                          = mkKeySym #{const XK_Alt_R}
 #  endif
 #  ifdef XK_Super_L
 xK_Super_L                        :: KeySym
-xK_Super_L                        = #const XK_Super_L
+xK_Super_L                        = mkKeySym #{const XK_Super_L}
 #  endif
 #  ifdef XK_Super_R
 xK_Super_R                        :: KeySym
-xK_Super_R                        = #const XK_Super_R
+xK_Super_R                        = mkKeySym #{const XK_Super_R}
 #  endif
 #  ifdef XK_Hyper_L
 xK_Hyper_L                        :: KeySym
-xK_Hyper_L                        = #const XK_Hyper_L
+xK_Hyper_L                        = mkKeySym #{const XK_Hyper_L}
 #  endif
 #  ifdef XK_Hyper_R
 xK_Hyper_R                        :: KeySym
-xK_Hyper_R                        = #const XK_Hyper_R
+xK_Hyper_R                        = mkKeySym #{const XK_Hyper_R}
 #  endif
 #endif
 
 -- XK_XKB_KEYS
 #ifdef XK_ISO_Lock
 xK_ISO_Lock                       :: KeySym
-xK_ISO_Lock                       = #const XK_ISO_Lock
+xK_ISO_Lock                       = mkKeySym #{const XK_ISO_Lock}
 #endif
 #ifdef XK_ISO_Level2_Latch
 xK_ISO_Level2_Latch               :: KeySym
-xK_ISO_Level2_Latch               = #const XK_ISO_Level2_Latch
+xK_ISO_Level2_Latch               = mkKeySym #{const XK_ISO_Level2_Latch}
 #endif
 #ifdef XK_ISO_Level3_Shift
 xK_ISO_Level3_Shift               :: KeySym
-xK_ISO_Level3_Shift               = #const XK_ISO_Level3_Shift
+xK_ISO_Level3_Shift               = mkKeySym #{const XK_ISO_Level3_Shift}
 #endif
 #ifdef XK_ISO_Level3_Latch
 xK_ISO_Level3_Latch               :: KeySym
-xK_ISO_Level3_Latch               = #const XK_ISO_Level3_Latch
+xK_ISO_Level3_Latch               = mkKeySym #{const XK_ISO_Level3_Latch}
 #endif
 #ifdef XK_ISO_Level3_Lock
 xK_ISO_Level3_Lock                :: KeySym
-xK_ISO_Level3_Lock                = #const XK_ISO_Level3_Lock
+xK_ISO_Level3_Lock                = mkKeySym #{const XK_ISO_Level3_Lock}
 #endif
 #ifdef XK_ISO_Level5_Shift
 xK_ISO_Level5_Shift               :: KeySym
-xK_ISO_Level5_Shift               = #const XK_ISO_Level5_Shift
+xK_ISO_Level5_Shift               = mkKeySym #{const XK_ISO_Level5_Shift}
 #endif
 #ifdef XK_ISO_Level5_Latch
 xK_ISO_Level5_Latch               :: KeySym
-xK_ISO_Level5_Latch               = #const XK_ISO_Level5_Latch
+xK_ISO_Level5_Latch               = mkKeySym #{const XK_ISO_Level5_Latch}
 #endif
 #ifdef XK_ISO_Level5_Lock
 xK_ISO_Level5_Lock                :: KeySym
-xK_ISO_Level5_Lock                = #const XK_ISO_Level5_Lock
+xK_ISO_Level5_Lock                = mkKeySym #{const XK_ISO_Level5_Lock}
 #endif
 #ifdef XK_ISO_Group_Shift
 xK_ISO_Group_Shift                :: KeySym
-xK_ISO_Group_Shift                = #const XK_ISO_Group_Shift
+xK_ISO_Group_Shift                = mkKeySym #{const XK_ISO_Group_Shift}
 #endif
 #ifdef XK_ISO_Group_Latch
 xK_ISO_Group_Latch                :: KeySym
-xK_ISO_Group_Latch                = #const XK_ISO_Group_Latch
+xK_ISO_Group_Latch                = mkKeySym #{const XK_ISO_Group_Latch}
 #endif
 #ifdef XK_ISO_Group_Lock
 xK_ISO_Group_Lock                 :: KeySym
-xK_ISO_Group_Lock                 = #const XK_ISO_Group_Lock
+xK_ISO_Group_Lock                 = mkKeySym #{const XK_ISO_Group_Lock}
 #endif
 #ifdef XK_ISO_Next_Group
 xK_ISO_Next_Group                 :: KeySym
-xK_ISO_Next_Group                 = #const XK_ISO_Next_Group
+xK_ISO_Next_Group                 = mkKeySym #{const XK_ISO_Next_Group}
 #endif
 #ifdef XK_ISO_Next_Group_Lock
 xK_ISO_Next_Group_Lock            :: KeySym
-xK_ISO_Next_Group_Lock            = #const XK_ISO_Next_Group_Lock
+xK_ISO_Next_Group_Lock            = mkKeySym #{const XK_ISO_Next_Group_Lock}
 #endif
 #ifdef XK_ISO_Prev_Group
 xK_ISO_Prev_Group                 :: KeySym
-xK_ISO_Prev_Group                 = #const XK_ISO_Prev_Group
+xK_ISO_Prev_Group                 = mkKeySym #{const XK_ISO_Prev_Group}
 #endif
 #ifdef XK_ISO_Prev_Group_Lock
 xK_ISO_Prev_Group_Lock            :: KeySym
-xK_ISO_Prev_Group_Lock            = #const XK_ISO_Prev_Group_Lock
+xK_ISO_Prev_Group_Lock            = mkKeySym #{const XK_ISO_Prev_Group_Lock}
 #endif
 #ifdef XK_ISO_First_Group
 xK_ISO_First_Group                :: KeySym
-xK_ISO_First_Group                = #const XK_ISO_First_Group
+xK_ISO_First_Group                = mkKeySym #{const XK_ISO_First_Group}
 #endif
 #ifdef XK_ISO_First_Group_Lock
 xK_ISO_First_Group_Lock           :: KeySym
-xK_ISO_First_Group_Lock           = #const XK_ISO_First_Group_Lock
+xK_ISO_First_Group_Lock           = mkKeySym #{const XK_ISO_First_Group_Lock}
 #endif
 #ifdef XK_ISO_Last_Group
 xK_ISO_Last_Group                 :: KeySym
-xK_ISO_Last_Group                 = #const XK_ISO_Last_Group
+xK_ISO_Last_Group                 = mkKeySym #{const XK_ISO_Last_Group}
 #endif
 #ifdef XK_ISO_Last_Group_Lock
 xK_ISO_Last_Group_Lock            :: KeySym
-xK_ISO_Last_Group_Lock            = #const XK_ISO_Last_Group_Lock
+xK_ISO_Last_Group_Lock            = mkKeySym #{const XK_ISO_Last_Group_Lock}
 #endif
 #ifdef XK_ISO_Left_Tab
 xK_ISO_Left_Tab                   :: KeySym
-xK_ISO_Left_Tab                   = #const XK_ISO_Left_Tab
+xK_ISO_Left_Tab                   = mkKeySym #{const XK_ISO_Left_Tab}
 #endif
 #ifdef XK_ISO_Move_Line_Up
 xK_ISO_Move_Line_Up               :: KeySym
-xK_ISO_Move_Line_Up               = #const XK_ISO_Move_Line_Up
+xK_ISO_Move_Line_Up               = mkKeySym #{const XK_ISO_Move_Line_Up}
 #endif
 #ifdef XK_ISO_Move_Line_Down
 xK_ISO_Move_Line_Down             :: KeySym
-xK_ISO_Move_Line_Down             = #const XK_ISO_Move_Line_Down
+xK_ISO_Move_Line_Down             = mkKeySym #{const XK_ISO_Move_Line_Down}
 #endif
 #ifdef XK_ISO_Partial_Line_Up
 xK_ISO_Partial_Line_Up            :: KeySym
-xK_ISO_Partial_Line_Up            = #const XK_ISO_Partial_Line_Up
+xK_ISO_Partial_Line_Up            = mkKeySym #{const XK_ISO_Partial_Line_Up}
 #endif
 #ifdef XK_ISO_Partial_Line_Down
 xK_ISO_Partial_Line_Down          :: KeySym
-xK_ISO_Partial_Line_Down          = #const XK_ISO_Partial_Line_Down
+xK_ISO_Partial_Line_Down          = mkKeySym #{const XK_ISO_Partial_Line_Down}
 #endif
 #ifdef XK_ISO_Partial_Space_Left
 xK_ISO_Partial_Space_Left         :: KeySym
-xK_ISO_Partial_Space_Left         = #const XK_ISO_Partial_Space_Left
+xK_ISO_Partial_Space_Left         = mkKeySym #{const XK_ISO_Partial_Space_Left}
 #endif
 #ifdef XK_ISO_Partial_Space_Right
 xK_ISO_Partial_Space_Right        :: KeySym
-xK_ISO_Partial_Space_Right        = #const XK_ISO_Partial_Space_Right
+xK_ISO_Partial_Space_Right        = mkKeySym #{const XK_ISO_Partial_Space_Right}
 #endif
 #ifdef XK_ISO_Set_Margin_Left
 xK_ISO_Set_Margin_Left            :: KeySym
-xK_ISO_Set_Margin_Left            = #const XK_ISO_Set_Margin_Left
+xK_ISO_Set_Margin_Left            = mkKeySym #{const XK_ISO_Set_Margin_Left}
 #endif
 #ifdef XK_ISO_Set_Margin_Right
 xK_ISO_Set_Margin_Right           :: KeySym
-xK_ISO_Set_Margin_Right           = #const XK_ISO_Set_Margin_Right
+xK_ISO_Set_Margin_Right           = mkKeySym #{const XK_ISO_Set_Margin_Right}
 #endif
 #ifdef XK_ISO_Release_Margin_Left
 xK_ISO_Release_Margin_Left        :: KeySym
-xK_ISO_Release_Margin_Left        = #const XK_ISO_Release_Margin_Left
+xK_ISO_Release_Margin_Left        = mkKeySym #{const XK_ISO_Release_Margin_Left}
 #endif
 #ifdef XK_ISO_Release_Margin_Right
 xK_ISO_Release_Margin_Right       :: KeySym
-xK_ISO_Release_Margin_Right       = #const XK_ISO_Release_Margin_Right
+xK_ISO_Release_Margin_Right       = mkKeySym #{const XK_ISO_Release_Margin_Right}
 #endif
 #ifdef XK_ISO_Release_Both_Margins
 xK_ISO_Release_Both_Margins       :: KeySym
-xK_ISO_Release_Both_Margins       = #const XK_ISO_Release_Both_Margins
+xK_ISO_Release_Both_Margins       = mkKeySym #{const XK_ISO_Release_Both_Margins}
 #endif
 #ifdef XK_ISO_Fast_Cursor_Left
 xK_ISO_Fast_Cursor_Left           :: KeySym
-xK_ISO_Fast_Cursor_Left           = #const XK_ISO_Fast_Cursor_Left
+xK_ISO_Fast_Cursor_Left           = mkKeySym #{const XK_ISO_Fast_Cursor_Left}
 #endif
 #ifdef XK_ISO_Fast_Cursor_Right
 xK_ISO_Fast_Cursor_Right          :: KeySym
-xK_ISO_Fast_Cursor_Right          = #const XK_ISO_Fast_Cursor_Right
+xK_ISO_Fast_Cursor_Right          = mkKeySym #{const XK_ISO_Fast_Cursor_Right}
 #endif
 #ifdef XK_ISO_Fast_Cursor_Up
 xK_ISO_Fast_Cursor_Up             :: KeySym
-xK_ISO_Fast_Cursor_Up             = #const XK_ISO_Fast_Cursor_Up
+xK_ISO_Fast_Cursor_Up             = mkKeySym #{const XK_ISO_Fast_Cursor_Up}
 #endif
 #ifdef XK_ISO_Fast_Cursor_Down
 xK_ISO_Fast_Cursor_Down           :: KeySym
-xK_ISO_Fast_Cursor_Down           = #const XK_ISO_Fast_Cursor_Down
+xK_ISO_Fast_Cursor_Down           = mkKeySym #{const XK_ISO_Fast_Cursor_Down}
 #endif
 #ifdef XK_ISO_Continuous_Underline
 xK_ISO_Continuous_Underline       :: KeySym
-xK_ISO_Continuous_Underline       = #const XK_ISO_Continuous_Underline
+xK_ISO_Continuous_Underline       = mkKeySym #{const XK_ISO_Continuous_Underline}
 #endif
 #ifdef XK_ISO_Discontinuous_Underline
 xK_ISO_Discontinuous_Underline    :: KeySym
-xK_ISO_Discontinuous_Underline    = #const XK_ISO_Discontinuous_Underline
+xK_ISO_Discontinuous_Underline    = mkKeySym #{const XK_ISO_Discontinuous_Underline}
 #endif
 #ifdef XK_ISO_Emphasize
 xK_ISO_Emphasize                  :: KeySym
-xK_ISO_Emphasize                  = #const XK_ISO_Emphasize
+xK_ISO_Emphasize                  = mkKeySym #{const XK_ISO_Emphasize}
 #endif
 #ifdef XK_ISO_Center_Object
 xK_ISO_Center_Object              :: KeySym
-xK_ISO_Center_Object              = #const XK_ISO_Center_Object
+xK_ISO_Center_Object              = mkKeySym #{const XK_ISO_Center_Object}
 #endif
 #ifdef XK_ISO_Enter
 xK_ISO_Enter                      :: KeySym
-xK_ISO_Enter                      = #const XK_ISO_Enter
+xK_ISO_Enter                      = mkKeySym #{const XK_ISO_Enter}
 #endif
 #ifdef XK_dead_grave
 xK_dead_grave                     :: KeySym
-xK_dead_grave                     = #const XK_dead_grave
+xK_dead_grave                     = mkKeySym #{const XK_dead_grave}
 #endif
 #ifdef XK_dead_acute
 xK_dead_acute                     :: KeySym
-xK_dead_acute                     = #const XK_dead_acute
+xK_dead_acute                     = mkKeySym #{const XK_dead_acute}
 #endif
 #ifdef XK_dead_circumflex
 xK_dead_circumflex                :: KeySym
-xK_dead_circumflex                = #const XK_dead_circumflex
+xK_dead_circumflex                = mkKeySym #{const XK_dead_circumflex}
 #endif
 #ifdef XK_dead_tilde
 xK_dead_tilde                     :: KeySym
-xK_dead_tilde                     = #const XK_dead_tilde
+xK_dead_tilde                     = mkKeySym #{const XK_dead_tilde}
 #endif
 #ifdef XK_dead_macron
 xK_dead_macron                    :: KeySym
-xK_dead_macron                    = #const XK_dead_macron
+xK_dead_macron                    = mkKeySym #{const XK_dead_macron}
 #endif
 #ifdef XK_dead_breve
 xK_dead_breve                     :: KeySym
-xK_dead_breve                     = #const XK_dead_breve
+xK_dead_breve                     = mkKeySym #{const XK_dead_breve}
 #endif
 #ifdef XK_dead_abovedot
 xK_dead_abovedot                  :: KeySym
-xK_dead_abovedot                  = #const XK_dead_abovedot
+xK_dead_abovedot                  = mkKeySym #{const XK_dead_abovedot}
 #endif
 #ifdef XK_dead_diaeresis
 xK_dead_diaeresis                 :: KeySym
-xK_dead_diaeresis                 = #const XK_dead_diaeresis
+xK_dead_diaeresis                 = mkKeySym #{const XK_dead_diaeresis}
 #endif
 #ifdef XK_dead_abovering
 xK_dead_abovering                 :: KeySym
-xK_dead_abovering                 = #const XK_dead_abovering
+xK_dead_abovering                 = mkKeySym #{const XK_dead_abovering}
 #endif
 #ifdef XK_dead_doubleacute
 xK_dead_doubleacute               :: KeySym
-xK_dead_doubleacute               = #const XK_dead_doubleacute
+xK_dead_doubleacute               = mkKeySym #{const XK_dead_doubleacute}
 #endif
 #ifdef XK_dead_caron
 xK_dead_caron                     :: KeySym
-xK_dead_caron                     = #const XK_dead_caron
+xK_dead_caron                     = mkKeySym #{const XK_dead_caron}
 #endif
 #ifdef XK_dead_cedilla
 xK_dead_cedilla                   :: KeySym
-xK_dead_cedilla                   = #const XK_dead_cedilla
+xK_dead_cedilla                   = mkKeySym #{const XK_dead_cedilla}
 #endif
 #ifdef XK_dead_ogonek
 xK_dead_ogonek                    :: KeySym
-xK_dead_ogonek                    = #const XK_dead_ogonek
+xK_dead_ogonek                    = mkKeySym #{const XK_dead_ogonek}
 #endif
 #ifdef XK_dead_iota
 xK_dead_iota                      :: KeySym
-xK_dead_iota                      = #const XK_dead_iota
+xK_dead_iota                      = mkKeySym #{const XK_dead_iota}
 #endif
 #ifdef XK_dead_voiced_sound
 xK_dead_voiced_sound              :: KeySym
-xK_dead_voiced_sound              = #const XK_dead_voiced_sound
+xK_dead_voiced_sound              = mkKeySym #{const XK_dead_voiced_sound}
 #endif
 #ifdef XK_dead_semivoiced_sound
 xK_dead_semivoiced_sound          :: KeySym
-xK_dead_semivoiced_sound          = #const XK_dead_semivoiced_sound
+xK_dead_semivoiced_sound          = mkKeySym #{const XK_dead_semivoiced_sound}
 #endif
 #ifdef XK_dead_belowdot
 xK_dead_belowdot                  :: KeySym
-xK_dead_belowdot                  = #const XK_dead_belowdot
+xK_dead_belowdot                  = mkKeySym #{const XK_dead_belowdot}
 #endif
 #ifdef XK_dead_hook
 xK_dead_hook                      :: KeySym
-xK_dead_hook                      = #const XK_dead_hook
+xK_dead_hook                      = mkKeySym #{const XK_dead_hook}
 #endif
 #ifdef XK_dead_horn
 xK_dead_horn                      :: KeySym
-xK_dead_horn                      = #const XK_dead_horn
+xK_dead_horn                      = mkKeySym #{const XK_dead_horn}
 #endif
 #ifdef XK_dead_stroke
 xK_dead_stroke                    :: KeySym
-xK_dead_stroke                    = #const XK_dead_stroke
+xK_dead_stroke                    = mkKeySym #{const XK_dead_stroke}
 #endif
 #ifdef XK_dead_abovecomma
 xK_dead_abovecomma                :: KeySym
-xK_dead_abovecomma                = #const XK_dead_abovecomma
+xK_dead_abovecomma                = mkKeySym #{const XK_dead_abovecomma}
 #endif
 #ifdef XK_dead_psili
 xK_dead_psili                     :: KeySym
-xK_dead_psili                     = #const XK_dead_psili
+xK_dead_psili                     = mkKeySym #{const XK_dead_psili}
 #endif
 #ifdef XK_dead_abovereversedcomma
 xK_dead_abovereversedcomma        :: KeySym
-xK_dead_abovereversedcomma        = #const XK_dead_abovereversedcomma
+xK_dead_abovereversedcomma        = mkKeySym #{const XK_dead_abovereversedcomma}
 #endif
 #ifdef XK_dead_dasia
 xK_dead_dasia                     :: KeySym
-xK_dead_dasia                     = #const XK_dead_dasia
+xK_dead_dasia                     = mkKeySym #{const XK_dead_dasia}
 #endif
 #ifdef XK_First_Virtual_Screen
 xK_First_Virtual_Screen           :: KeySym
-xK_First_Virtual_Screen           = #const XK_First_Virtual_Screen
+xK_First_Virtual_Screen           = mkKeySym #{const XK_First_Virtual_Screen}
 #endif
 #ifdef XK_Prev_Virtual_Screen
 xK_Prev_Virtual_Screen            :: KeySym
-xK_Prev_Virtual_Screen            = #const XK_Prev_Virtual_Screen
+xK_Prev_Virtual_Screen            = mkKeySym #{const XK_Prev_Virtual_Screen}
 #endif
 #ifdef XK_Next_Virtual_Screen
 xK_Next_Virtual_Screen            :: KeySym
-xK_Next_Virtual_Screen            = #const XK_Next_Virtual_Screen
+xK_Next_Virtual_Screen            = mkKeySym #{const XK_Next_Virtual_Screen}
 #endif
 #ifdef XK_Last_Virtual_Screen
 xK_Last_Virtual_Screen            :: KeySym
-xK_Last_Virtual_Screen            = #const XK_Last_Virtual_Screen
+xK_Last_Virtual_Screen            = mkKeySym #{const XK_Last_Virtual_Screen}
 #endif
 #ifdef XK_Terminate_Server
 xK_Terminate_Server               :: KeySym
-xK_Terminate_Server               = #const XK_Terminate_Server
+xK_Terminate_Server               = mkKeySym #{const XK_Terminate_Server}
 #endif
 #ifdef XK_AccessX_Enable
 xK_AccessX_Enable                 :: KeySym
-xK_AccessX_Enable                 = #const XK_AccessX_Enable
+xK_AccessX_Enable                 = mkKeySym #{const XK_AccessX_Enable}
 #endif
 #ifdef XK_AccessX_Feedback_Enable
 xK_AccessX_Feedback_Enable        :: KeySym
-xK_AccessX_Feedback_Enable        = #const XK_AccessX_Feedback_Enable
+xK_AccessX_Feedback_Enable        = mkKeySym #{const XK_AccessX_Feedback_Enable}
 #endif
 #ifdef XK_RepeatKeys_Enable
 xK_RepeatKeys_Enable              :: KeySym
-xK_RepeatKeys_Enable              = #const XK_RepeatKeys_Enable
+xK_RepeatKeys_Enable              = mkKeySym #{const XK_RepeatKeys_Enable}
 #endif
 #ifdef XK_SlowKeys_Enable
 xK_SlowKeys_Enable                :: KeySym
-xK_SlowKeys_Enable                = #const XK_SlowKeys_Enable
+xK_SlowKeys_Enable                = mkKeySym #{const XK_SlowKeys_Enable}
 #endif
 #ifdef XK_BounceKeys_Enable
 xK_BounceKeys_Enable              :: KeySym
-xK_BounceKeys_Enable              = #const XK_BounceKeys_Enable
+xK_BounceKeys_Enable              = mkKeySym #{const XK_BounceKeys_Enable}
 #endif
 #ifdef XK_StickyKeys_Enable
 xK_StickyKeys_Enable              :: KeySym
-xK_StickyKeys_Enable              = #const XK_StickyKeys_Enable
+xK_StickyKeys_Enable              = mkKeySym #{const XK_StickyKeys_Enable}
 #endif
 #ifdef XK_MouseKeys_Enable
 xK_MouseKeys_Enable               :: KeySym
-xK_MouseKeys_Enable               = #const XK_MouseKeys_Enable
+xK_MouseKeys_Enable               = mkKeySym #{const XK_MouseKeys_Enable}
 #endif
 #ifdef XK_MouseKeys_Accel_Enable
 xK_MouseKeys_Accel_Enable         :: KeySym
-xK_MouseKeys_Accel_Enable         = #const XK_MouseKeys_Accel_Enable
+xK_MouseKeys_Accel_Enable         = mkKeySym #{const XK_MouseKeys_Accel_Enable}
 #endif
 #ifdef XK_Overlay1_Enable
 xK_Overlay1_Enable                :: KeySym
-xK_Overlay1_Enable                = #const XK_Overlay1_Enable
+xK_Overlay1_Enable                = mkKeySym #{const XK_Overlay1_Enable}
 #endif
 #ifdef XK_Overlay2_Enable
 xK_Overlay2_Enable                :: KeySym
-xK_Overlay2_Enable                = #const XK_Overlay2_Enable
+xK_Overlay2_Enable                = mkKeySym #{const XK_Overlay2_Enable}
 #endif
 #ifdef XK_AudibleBell_Enable
 xK_AudibleBell_Enable             :: KeySym
-xK_AudibleBell_Enable             = #const XK_AudibleBell_Enable
+xK_AudibleBell_Enable             = mkKeySym #{const XK_AudibleBell_Enable}
 #endif
 #ifdef XK_Pointer_Left
 xK_Pointer_Left                   :: KeySym
-xK_Pointer_Left                   = #const XK_Pointer_Left
+xK_Pointer_Left                   = mkKeySym #{const XK_Pointer_Left}
 #endif
 #ifdef XK_Pointer_Right
 xK_Pointer_Right                  :: KeySym
-xK_Pointer_Right                  = #const XK_Pointer_Right
+xK_Pointer_Right                  = mkKeySym #{const XK_Pointer_Right}
 #endif
 #ifdef XK_Pointer_Up
 xK_Pointer_Up                     :: KeySym
-xK_Pointer_Up                     = #const XK_Pointer_Up
+xK_Pointer_Up                     = mkKeySym #{const XK_Pointer_Up}
 #endif
 #ifdef XK_Pointer_Down
 xK_Pointer_Down                   :: KeySym
-xK_Pointer_Down                   = #const XK_Pointer_Down
+xK_Pointer_Down                   = mkKeySym #{const XK_Pointer_Down}
 #endif
 #ifdef XK_Pointer_UpLeft
 xK_Pointer_UpLeft                 :: KeySym
-xK_Pointer_UpLeft                 = #const XK_Pointer_UpLeft
+xK_Pointer_UpLeft                 = mkKeySym #{const XK_Pointer_UpLeft}
 #endif
 #ifdef XK_Pointer_UpRight
 xK_Pointer_UpRight                :: KeySym
-xK_Pointer_UpRight                = #const XK_Pointer_UpRight
+xK_Pointer_UpRight                = mkKeySym #{const XK_Pointer_UpRight}
 #endif
 #ifdef XK_Pointer_DownLeft
 xK_Pointer_DownLeft               :: KeySym
-xK_Pointer_DownLeft               = #const XK_Pointer_DownLeft
+xK_Pointer_DownLeft               = mkKeySym #{const XK_Pointer_DownLeft}
 #endif
 #ifdef XK_Pointer_DownRight
 xK_Pointer_DownRight              :: KeySym
-xK_Pointer_DownRight              = #const XK_Pointer_DownRight
+xK_Pointer_DownRight              = mkKeySym #{const XK_Pointer_DownRight}
 #endif
 #ifdef XK_Pointer_Button_Dflt
 xK_Pointer_Button_Dflt            :: KeySym
-xK_Pointer_Button_Dflt            = #const XK_Pointer_Button_Dflt
+xK_Pointer_Button_Dflt            = mkKeySym #{const XK_Pointer_Button_Dflt}
 #endif
 #ifdef XK_Pointer_Button1
 xK_Pointer_Button1                :: KeySym
-xK_Pointer_Button1                = #const XK_Pointer_Button1
+xK_Pointer_Button1                = mkKeySym #{const XK_Pointer_Button1}
 #endif
 #ifdef XK_Pointer_Button2
 xK_Pointer_Button2                :: KeySym
-xK_Pointer_Button2                = #const XK_Pointer_Button2
+xK_Pointer_Button2                = mkKeySym #{const XK_Pointer_Button2}
 #endif
 #ifdef XK_Pointer_Button3
 xK_Pointer_Button3                :: KeySym
-xK_Pointer_Button3                = #const XK_Pointer_Button3
+xK_Pointer_Button3                = mkKeySym #{const XK_Pointer_Button3}
 #endif
 #ifdef XK_Pointer_Button4
 xK_Pointer_Button4                :: KeySym
-xK_Pointer_Button4                = #const XK_Pointer_Button4
+xK_Pointer_Button4                = mkKeySym #{const XK_Pointer_Button4}
 #endif
 #ifdef XK_Pointer_Button5
 xK_Pointer_Button5                :: KeySym
-xK_Pointer_Button5                = #const XK_Pointer_Button5
+xK_Pointer_Button5                = mkKeySym #{const XK_Pointer_Button5}
 #endif
 #ifdef XK_Pointer_DblClick_Dflt
 xK_Pointer_DblClick_Dflt          :: KeySym
-xK_Pointer_DblClick_Dflt          = #const XK_Pointer_DblClick_Dflt
+xK_Pointer_DblClick_Dflt          = mkKeySym #{const XK_Pointer_DblClick_Dflt}
 #endif
 #ifdef XK_Pointer_DblClick1
 xK_Pointer_DblClick1              :: KeySym
-xK_Pointer_DblClick1              = #const XK_Pointer_DblClick1
+xK_Pointer_DblClick1              = mkKeySym #{const XK_Pointer_DblClick1}
 #endif
 #ifdef XK_Pointer_DblClick2
 xK_Pointer_DblClick2              :: KeySym
-xK_Pointer_DblClick2              = #const XK_Pointer_DblClick2
+xK_Pointer_DblClick2              = mkKeySym #{const XK_Pointer_DblClick2}
 #endif
 #ifdef XK_Pointer_DblClick3
 xK_Pointer_DblClick3              :: KeySym
-xK_Pointer_DblClick3              = #const XK_Pointer_DblClick3
+xK_Pointer_DblClick3              = mkKeySym #{const XK_Pointer_DblClick3}
 #endif
 #ifdef XK_Pointer_DblClick4
 xK_Pointer_DblClick4              :: KeySym
-xK_Pointer_DblClick4              = #const XK_Pointer_DblClick4
+xK_Pointer_DblClick4              = mkKeySym #{const XK_Pointer_DblClick4}
 #endif
 #ifdef XK_Pointer_DblClick5
 xK_Pointer_DblClick5              :: KeySym
-xK_Pointer_DblClick5              = #const XK_Pointer_DblClick5
+xK_Pointer_DblClick5              = mkKeySym #{const XK_Pointer_DblClick5}
 #endif
 #ifdef XK_Pointer_Drag_Dflt
 xK_Pointer_Drag_Dflt              :: KeySym
-xK_Pointer_Drag_Dflt              = #const XK_Pointer_Drag_Dflt
+xK_Pointer_Drag_Dflt              = mkKeySym #{const XK_Pointer_Drag_Dflt}
 #endif
 #ifdef XK_Pointer_Drag1
 xK_Pointer_Drag1                  :: KeySym
-xK_Pointer_Drag1                  = #const XK_Pointer_Drag1
+xK_Pointer_Drag1                  = mkKeySym #{const XK_Pointer_Drag1}
 #endif
 #ifdef XK_Pointer_Drag2
 xK_Pointer_Drag2                  :: KeySym
-xK_Pointer_Drag2                  = #const XK_Pointer_Drag2
+xK_Pointer_Drag2                  = mkKeySym #{const XK_Pointer_Drag2}
 #endif
 #ifdef XK_Pointer_Drag3
 xK_Pointer_Drag3                  :: KeySym
-xK_Pointer_Drag3                  = #const XK_Pointer_Drag3
+xK_Pointer_Drag3                  = mkKeySym #{const XK_Pointer_Drag3}
 #endif
 #ifdef XK_Pointer_Drag4
 xK_Pointer_Drag4                  :: KeySym
-xK_Pointer_Drag4                  = #const XK_Pointer_Drag4
+xK_Pointer_Drag4                  = mkKeySym #{const XK_Pointer_Drag4}
 #endif
 #ifdef XK_Pointer_Drag5
 xK_Pointer_Drag5                  :: KeySym
-xK_Pointer_Drag5                  = #const XK_Pointer_Drag5
+xK_Pointer_Drag5                  = mkKeySym #{const XK_Pointer_Drag5}
 #endif
 #ifdef XK_Pointer_EnableKeys
 xK_Pointer_EnableKeys             :: KeySym
-xK_Pointer_EnableKeys             = #const XK_Pointer_EnableKeys
+xK_Pointer_EnableKeys             = mkKeySym #{const XK_Pointer_EnableKeys}
 #endif
 #ifdef XK_Pointer_Accelerate
 xK_Pointer_Accelerate             :: KeySym
-xK_Pointer_Accelerate             = #const XK_Pointer_Accelerate
+xK_Pointer_Accelerate             = mkKeySym #{const XK_Pointer_Accelerate}
 #endif
 #ifdef XK_Pointer_DfltBtnNext
 xK_Pointer_DfltBtnNext            :: KeySym
-xK_Pointer_DfltBtnNext            = #const XK_Pointer_DfltBtnNext
+xK_Pointer_DfltBtnNext            = mkKeySym #{const XK_Pointer_DfltBtnNext}
 #endif
 #ifdef XK_Pointer_DfltBtnPrev
 xK_Pointer_DfltBtnPrev            :: KeySym
-xK_Pointer_DfltBtnPrev            = #const XK_Pointer_DfltBtnPrev
+xK_Pointer_DfltBtnPrev            = mkKeySym #{const XK_Pointer_DfltBtnPrev}
 #endif
 
 -- XK_3270
 #ifdef XK_3270_Duplicate
 xK_3270_Duplicate                 :: KeySym
-xK_3270_Duplicate                 = #const XK_3270_Duplicate
+xK_3270_Duplicate                 = mkKeySym #{const XK_3270_Duplicate}
 #endif
 #ifdef XK_3270_FieldMark
 xK_3270_FieldMark                 :: KeySym
-xK_3270_FieldMark                 = #const XK_3270_FieldMark
+xK_3270_FieldMark                 = mkKeySym #{const XK_3270_FieldMark}
 #endif
 #ifdef XK_3270_Right2
 xK_3270_Right2                    :: KeySym
-xK_3270_Right2                    = #const XK_3270_Right2
+xK_3270_Right2                    = mkKeySym #{const XK_3270_Right2}
 #endif
 #ifdef XK_3270_Left2
 xK_3270_Left2                     :: KeySym
-xK_3270_Left2                     = #const XK_3270_Left2
+xK_3270_Left2                     = mkKeySym #{const XK_3270_Left2}
 #endif
 #ifdef XK_3270_BackTab
 xK_3270_BackTab                   :: KeySym
-xK_3270_BackTab                   = #const XK_3270_BackTab
+xK_3270_BackTab                   = mkKeySym #{const XK_3270_BackTab}
 #endif
 #ifdef XK_3270_EraseEOF
 xK_3270_EraseEOF                  :: KeySym
-xK_3270_EraseEOF                  = #const XK_3270_EraseEOF
+xK_3270_EraseEOF                  = mkKeySym #{const XK_3270_EraseEOF}
 #endif
 #ifdef XK_3270_EraseInput
 xK_3270_EraseInput                :: KeySym
-xK_3270_EraseInput                = #const XK_3270_EraseInput
+xK_3270_EraseInput                = mkKeySym #{const XK_3270_EraseInput}
 #endif
 #ifdef XK_3270_Reset
 xK_3270_Reset                     :: KeySym
-xK_3270_Reset                     = #const XK_3270_Reset
+xK_3270_Reset                     = mkKeySym #{const XK_3270_Reset}
 #endif
 #ifdef XK_3270_Quit
 xK_3270_Quit                      :: KeySym
-xK_3270_Quit                      = #const XK_3270_Quit
+xK_3270_Quit                      = mkKeySym #{const XK_3270_Quit}
 #endif
 #ifdef XK_3270_PA1
 xK_3270_PA1                       :: KeySym
-xK_3270_PA1                       = #const XK_3270_PA1
+xK_3270_PA1                       = mkKeySym #{const XK_3270_PA1}
 #endif
 #ifdef XK_3270_PA2
 xK_3270_PA2                       :: KeySym
-xK_3270_PA2                       = #const XK_3270_PA2
+xK_3270_PA2                       = mkKeySym #{const XK_3270_PA2}
 #endif
 #ifdef XK_3270_PA3
 xK_3270_PA3                       :: KeySym
-xK_3270_PA3                       = #const XK_3270_PA3
+xK_3270_PA3                       = mkKeySym #{const XK_3270_PA3}
 #endif
 #ifdef XK_3270_Test
 xK_3270_Test                      :: KeySym
-xK_3270_Test                      = #const XK_3270_Test
+xK_3270_Test                      = mkKeySym #{const XK_3270_Test}
 #endif
 #ifdef XK_3270_Attn
 xK_3270_Attn                      :: KeySym
-xK_3270_Attn                      = #const XK_3270_Attn
+xK_3270_Attn                      = mkKeySym #{const XK_3270_Attn}
 #endif
 #ifdef XK_3270_CursorBlink
 xK_3270_CursorBlink               :: KeySym
-xK_3270_CursorBlink               = #const XK_3270_CursorBlink
+xK_3270_CursorBlink               = mkKeySym #{const XK_3270_CursorBlink}
 #endif
 #ifdef XK_3270_AltCursor
 xK_3270_AltCursor                 :: KeySym
-xK_3270_AltCursor                 = #const XK_3270_AltCursor
+xK_3270_AltCursor                 = mkKeySym #{const XK_3270_AltCursor}
 #endif
 #ifdef XK_3270_KeyClick
 xK_3270_KeyClick                  :: KeySym
-xK_3270_KeyClick                  = #const XK_3270_KeyClick
+xK_3270_KeyClick                  = mkKeySym #{const XK_3270_KeyClick}
 #endif
 #ifdef XK_3270_Jump
 xK_3270_Jump                      :: KeySym
-xK_3270_Jump                      = #const XK_3270_Jump
+xK_3270_Jump                      = mkKeySym #{const XK_3270_Jump}
 #endif
 #ifdef XK_3270_Ident
 xK_3270_Ident                     :: KeySym
-xK_3270_Ident                     = #const XK_3270_Ident
+xK_3270_Ident                     = mkKeySym #{const XK_3270_Ident}
 #endif
 #ifdef XK_3270_Rule
 xK_3270_Rule                      :: KeySym
-xK_3270_Rule                      = #const XK_3270_Rule
+xK_3270_Rule                      = mkKeySym #{const XK_3270_Rule}
 #endif
 #ifdef XK_3270_Copy
 xK_3270_Copy                      :: KeySym
-xK_3270_Copy                      = #const XK_3270_Copy
+xK_3270_Copy                      = mkKeySym #{const XK_3270_Copy}
 #endif
 #ifdef XK_3270_Play
 xK_3270_Play                      :: KeySym
-xK_3270_Play                      = #const XK_3270_Play
+xK_3270_Play                      = mkKeySym #{const XK_3270_Play}
 #endif
 #ifdef XK_3270_Setup
 xK_3270_Setup                     :: KeySym
-xK_3270_Setup                     = #const XK_3270_Setup
+xK_3270_Setup                     = mkKeySym #{const XK_3270_Setup}
 #endif
 #ifdef XK_3270_Record
 xK_3270_Record                    :: KeySym
-xK_3270_Record                    = #const XK_3270_Record
+xK_3270_Record                    = mkKeySym #{const XK_3270_Record}
 #endif
 #ifdef XK_3270_ChangeScreen
 xK_3270_ChangeScreen              :: KeySym
-xK_3270_ChangeScreen              = #const XK_3270_ChangeScreen
+xK_3270_ChangeScreen              = mkKeySym #{const XK_3270_ChangeScreen}
 #endif
 #ifdef XK_3270_DeleteWord
 xK_3270_DeleteWord                :: KeySym
-xK_3270_DeleteWord                = #const XK_3270_DeleteWord
+xK_3270_DeleteWord                = mkKeySym #{const XK_3270_DeleteWord}
 #endif
 #ifdef XK_3270_ExSelect
 xK_3270_ExSelect                  :: KeySym
-xK_3270_ExSelect                  = #const XK_3270_ExSelect
+xK_3270_ExSelect                  = mkKeySym #{const XK_3270_ExSelect}
 #endif
 #ifdef XK_3270_CursorSelect
 xK_3270_CursorSelect              :: KeySym
-xK_3270_CursorSelect              = #const XK_3270_CursorSelect
+xK_3270_CursorSelect              = mkKeySym #{const XK_3270_CursorSelect}
 #endif
 #ifdef XK_3270_PrintScreen
 xK_3270_PrintScreen               :: KeySym
-xK_3270_PrintScreen               = #const XK_3270_PrintScreen
+xK_3270_PrintScreen               = mkKeySym #{const XK_3270_PrintScreen}
 #endif
 #ifdef XK_3270_Enter
 xK_3270_Enter                     :: KeySym
-xK_3270_Enter                     = #const XK_3270_Enter
+xK_3270_Enter                     = mkKeySym #{const XK_3270_Enter}
 #endif
 
 -- XK_LATIN1
 #if 0
 #  ifdef XK_space
 xK_space                          :: KeySym
-xK_space                          = #const XK_space
+xK_space                          = mkKeySym #{const XK_space}
 #  endif
 #  ifdef XK_exclam
 xK_exclam                         :: KeySym
-xK_exclam                         = #const XK_exclam
+xK_exclam                         = mkKeySym #{const XK_exclam}
 #  endif
 #  ifdef XK_quotedbl
 xK_quotedbl                       :: KeySym
-xK_quotedbl                       = #const XK_quotedbl
+xK_quotedbl                       = mkKeySym #{const XK_quotedbl}
 #  endif
 #  ifdef XK_numbersign
 xK_numbersign                     :: KeySym
-xK_numbersign                     = #const XK_numbersign
+xK_numbersign                     = mkKeySym #{const XK_numbersign}
 #  endif
 #  ifdef XK_dollar
 xK_dollar                         :: KeySym
-xK_dollar                         = #const XK_dollar
+xK_dollar                         = mkKeySym #{const XK_dollar}
 #  endif
 #  ifdef XK_percent
 xK_percent                        :: KeySym
-xK_percent                        = #const XK_percent
+xK_percent                        = mkKeySym #{const XK_percent}
 #  endif
 #  ifdef XK_ampersand
 xK_ampersand                      :: KeySym
-xK_ampersand                      = #const XK_ampersand
+xK_ampersand                      = mkKeySym #{const XK_ampersand}
 #  endif
 #  ifdef XK_apostrophe
 xK_apostrophe                     :: KeySym
-xK_apostrophe                     = #const XK_apostrophe
+xK_apostrophe                     = mkKeySym #{const XK_apostrophe}
 #  endif
 #  ifdef XK_quoteright
 xK_quoteright                     :: KeySym
-xK_quoteright                     = #const XK_quoteright
+xK_quoteright                     = mkKeySym #{const XK_quoteright}
 #  endif
 #  ifdef XK_parenleft
 xK_parenleft                      :: KeySym
-xK_parenleft                      = #const XK_parenleft
+xK_parenleft                      = mkKeySym #{const XK_parenleft}
 #  endif
 #  ifdef XK_parenright
 xK_parenright                     :: KeySym
-xK_parenright                     = #const XK_parenright
+xK_parenright                     = mkKeySym #{const XK_parenright}
 #  endif
 #  ifdef XK_asterisk
 xK_asterisk                       :: KeySym
-xK_asterisk                       = #const XK_asterisk
+xK_asterisk                       = mkKeySym #{const XK_asterisk}
 #  endif
 #  ifdef XK_plus
 xK_plus                           :: KeySym
-xK_plus                           = #const XK_plus
+xK_plus                           = mkKeySym #{const XK_plus}
 #  endif
 #  ifdef XK_comma
 xK_comma                          :: KeySym
-xK_comma                          = #const XK_comma
+xK_comma                          = mkKeySym #{const XK_comma}
 #  endif
 #  ifdef XK_minus
 xK_minus                          :: KeySym
-xK_minus                          = #const XK_minus
+xK_minus                          = mkKeySym #{const XK_minus}
 #  endif
 #  ifdef XK_period
 xK_period                         :: KeySym
-xK_period                         = #const XK_period
+xK_period                         = mkKeySym #{const XK_period}
 #  endif
 #  ifdef XK_slash
 xK_slash                          :: KeySym
-xK_slash                          = #const XK_slash
+xK_slash                          = mkKeySym #{const XK_slash}
 #  endif
 #  ifdef XK_0
 xK_0                              :: KeySym
-xK_0                              = #const XK_0
+xK_0                              = mkKeySym #{const XK_0}
 #  endif
 #  ifdef XK_1
 xK_1                              :: KeySym
-xK_1                              = #const XK_1
+xK_1                              = mkKeySym #{const XK_1}
 #  endif
 #  ifdef XK_2
 xK_2                              :: KeySym
-xK_2                              = #const XK_2
+xK_2                              = mkKeySym #{const XK_2}
 #  endif
 #  ifdef XK_3
 xK_3                              :: KeySym
-xK_3                              = #const XK_3
+xK_3                              = mkKeySym #{const XK_3}
 #  endif
 #  ifdef XK_4
 xK_4                              :: KeySym
-xK_4                              = #const XK_4
+xK_4                              = mkKeySym #{const XK_4}
 #  endif
 #  ifdef XK_5
 xK_5                              :: KeySym
-xK_5                              = #const XK_5
+xK_5                              = mkKeySym #{const XK_5}
 #  endif
 #  ifdef XK_6
 xK_6                              :: KeySym
-xK_6                              = #const XK_6
+xK_6                              = mkKeySym #{const XK_6}
 #  endif
 #  ifdef XK_7
 xK_7                              :: KeySym
-xK_7                              = #const XK_7
+xK_7                              = mkKeySym #{const XK_7}
 #  endif
 #  ifdef XK_8
 xK_8                              :: KeySym
-xK_8                              = #const XK_8
+xK_8                              = mkKeySym #{const XK_8}
 #  endif
 #  ifdef XK_9
 xK_9                              :: KeySym
-xK_9                              = #const XK_9
+xK_9                              = mkKeySym #{const XK_9}
 #  endif
 #  ifdef XK_colon
 xK_colon                          :: KeySym
-xK_colon                          = #const XK_colon
+xK_colon                          = mkKeySym #{const XK_colon}
 #  endif
 #  ifdef XK_semicolon
 xK_semicolon                      :: KeySym
-xK_semicolon                      = #const XK_semicolon
+xK_semicolon                      = mkKeySym #{const XK_semicolon}
 #  endif
 #  ifdef XK_less
 xK_less                           :: KeySym
-xK_less                           = #const XK_less
+xK_less                           = mkKeySym #{const XK_less}
 #  endif
 #  ifdef XK_equal
 xK_equal                          :: KeySym
-xK_equal                          = #const XK_equal
+xK_equal                          = mkKeySym #{const XK_equal}
 #  endif
 #  ifdef XK_greater
 xK_greater                        :: KeySym
-xK_greater                        = #const XK_greater
+xK_greater                        = mkKeySym #{const XK_greater}
 #  endif
 #  ifdef XK_question
 xK_question                       :: KeySym
-xK_question                       = #const XK_question
+xK_question                       = mkKeySym #{const XK_question}
 #  endif
 #  ifdef XK_at
 xK_at                             :: KeySym
-xK_at                             = #const XK_at
+xK_at                             = mkKeySym #{const XK_at}
 #  endif
 #  ifdef XK_A
 xK_A                              :: KeySym
-xK_A                              = #const XK_A
+xK_A                              = mkKeySym #{const XK_A}
 #  endif
 #  ifdef XK_B
 xK_B                              :: KeySym
-xK_B                              = #const XK_B
+xK_B                              = mkKeySym #{const XK_B}
 #  endif
 #  ifdef XK_C
 xK_C                              :: KeySym
-xK_C                              = #const XK_C
+xK_C                              = mkKeySym #{const XK_C}
 #  endif
 #  ifdef XK_D
 xK_D                              :: KeySym
-xK_D                              = #const XK_D
+xK_D                              = mkKeySym #{const XK_D}
 #  endif
 #  ifdef XK_E
 xK_E                              :: KeySym
-xK_E                              = #const XK_E
+xK_E                              = mkKeySym #{const XK_E}
 #  endif
 #  ifdef XK_F
 xK_F                              :: KeySym
-xK_F                              = #const XK_F
+xK_F                              = mkKeySym #{const XK_F}
 #  endif
 #  ifdef XK_G
 xK_G                              :: KeySym
-xK_G                              = #const XK_G
+xK_G                              = mkKeySym #{const XK_G}
 #  endif
 #  ifdef XK_H
 xK_H                              :: KeySym
-xK_H                              = #const XK_H
+xK_H                              = mkKeySym #{const XK_H}
 #  endif
 #  ifdef XK_I
 xK_I                              :: KeySym
-xK_I                              = #const XK_I
+xK_I                              = mkKeySym #{const XK_I}
 #  endif
 #  ifdef XK_J
 xK_J                              :: KeySym
-xK_J                              = #const XK_J
+xK_J                              = mkKeySym #{const XK_J}
 #  endif
 #  ifdef XK_K
 xK_K                              :: KeySym
-xK_K                              = #const XK_K
+xK_K                              = mkKeySym #{const XK_K}
 #  endif
 #  ifdef XK_L
 xK_L                              :: KeySym
-xK_L                              = #const XK_L
+xK_L                              = mkKeySym #{const XK_L}
 #  endif
 #  ifdef XK_M
 xK_M                              :: KeySym
-xK_M                              = #const XK_M
+xK_M                              = mkKeySym #{const XK_M}
 #  endif
 #  ifdef XK_N
 xK_N                              :: KeySym
-xK_N                              = #const XK_N
+xK_N                              = mkKeySym #{const XK_N}
 #  endif
 #  ifdef XK_O
 xK_O                              :: KeySym
-xK_O                              = #const XK_O
+xK_O                              = mkKeySym #{const XK_O}
 #  endif
 #  ifdef XK_P
 xK_P                              :: KeySym
-xK_P                              = #const XK_P
+xK_P                              = mkKeySym #{const XK_P}
 #  endif
 #  ifdef XK_Q
 xK_Q                              :: KeySym
-xK_Q                              = #const XK_Q
+xK_Q                              = mkKeySym #{const XK_Q}
 #  endif
 #  ifdef XK_R
 xK_R                              :: KeySym
-xK_R                              = #const XK_R
+xK_R                              = mkKeySym #{const XK_R}
 #  endif
 #  ifdef XK_S
 xK_S                              :: KeySym
-xK_S                              = #const XK_S
+xK_S                              = mkKeySym #{const XK_S}
 #  endif
 #  ifdef XK_T
 xK_T                              :: KeySym
-xK_T                              = #const XK_T
+xK_T                              = mkKeySym #{const XK_T}
 #  endif
 #  ifdef XK_U
 xK_U                              :: KeySym
-xK_U                              = #const XK_U
+xK_U                              = mkKeySym #{const XK_U}
 #  endif
 #  ifdef XK_V
 xK_V                              :: KeySym
-xK_V                              = #const XK_V
+xK_V                              = mkKeySym #{const XK_V}
 #  endif
 #  ifdef XK_W
 xK_W                              :: KeySym
-xK_W                              = #const XK_W
+xK_W                              = mkKeySym #{const XK_W}
 #  endif
 #  ifdef XK_X
 xK_X                              :: KeySym
-xK_X                              = #const XK_X
+xK_X                              = mkKeySym #{const XK_X}
 #  endif
 #  ifdef XK_Y
 xK_Y                              :: KeySym
-xK_Y                              = #const XK_Y
+xK_Y                              = mkKeySym #{const XK_Y}
 #  endif
 #  ifdef XK_Z
 xK_Z                              :: KeySym
-xK_Z                              = #const XK_Z
+xK_Z                              = mkKeySym #{const XK_Z}
 #  endif
 #  ifdef XK_bracketleft
 xK_bracketleft                    :: KeySym
-xK_bracketleft                    = #const XK_bracketleft
+xK_bracketleft                    = mkKeySym #{const XK_bracketleft}
 #  endif
 #  ifdef XK_backslash
 xK_backslash                      :: KeySym
-xK_backslash                      = #const XK_backslash
+xK_backslash                      = mkKeySym #{const XK_backslash}
 #  endif
 #  ifdef XK_bracketright
 xK_bracketright                   :: KeySym
-xK_bracketright                   = #const XK_bracketright
+xK_bracketright                   = mkKeySym #{const XK_bracketright}
 #  endif
 #  ifdef XK_asciicircum
 xK_asciicircum                    :: KeySym
-xK_asciicircum                    = #const XK_asciicircum
+xK_asciicircum                    = mkKeySym #{const XK_asciicircum}
 #  endif
 #  ifdef XK_underscore
 xK_underscore                     :: KeySym
-xK_underscore                     = #const XK_underscore
+xK_underscore                     = mkKeySym #{const XK_underscore}
 #  endif
 #  ifdef XK_grave
 xK_grave                          :: KeySym
-xK_grave                          = #const XK_grave
+xK_grave                          = mkKeySym #{const XK_grave}
 #  endif
 #  ifdef XK_quoteleft
 xK_quoteleft                      :: KeySym
-xK_quoteleft                      = #const XK_quoteleft
+xK_quoteleft                      = mkKeySym #{const XK_quoteleft}
 #  endif
 #  ifdef XK_a
 xK_a                              :: KeySym
-xK_a                              = #const XK_a
+xK_a                              = mkKeySym #{const XK_a}
 #  endif
 #  ifdef XK_b
 xK_b                              :: KeySym
-xK_b                              = #const XK_b
+xK_b                              = mkKeySym #{const XK_b}
 #  endif
 #  ifdef XK_c
 xK_c                              :: KeySym
-xK_c                              = #const XK_c
+xK_c                              = mkKeySym #{const XK_c}
 #  endif
 #  ifdef XK_d
 xK_d                              :: KeySym
-xK_d                              = #const XK_d
+xK_d                              = mkKeySym #{const XK_d}
 #  endif
 #  ifdef XK_e
 xK_e                              :: KeySym
-xK_e                              = #const XK_e
+xK_e                              = mkKeySym #{const XK_e}
 #  endif
 #  ifdef XK_f
 xK_f                              :: KeySym
-xK_f                              = #const XK_f
+xK_f                              = mkKeySym #{const XK_f}
 #  endif
 #  ifdef XK_g
 xK_g                              :: KeySym
-xK_g                              = #const XK_g
+xK_g                              = mkKeySym #{const XK_g}
 #  endif
 #  ifdef XK_h
 xK_h                              :: KeySym
-xK_h                              = #const XK_h
+xK_h                              = mkKeySym #{const XK_h}
 #  endif
 #  ifdef XK_i
 xK_i                              :: KeySym
-xK_i                              = #const XK_i
+xK_i                              = mkKeySym #{const XK_i}
 #  endif
 #  ifdef XK_j
 xK_j                              :: KeySym
-xK_j                              = #const XK_j
+xK_j                              = mkKeySym #{const XK_j}
 #  endif
 #  ifdef XK_k
 xK_k                              :: KeySym
-xK_k                              = #const XK_k
+xK_k                              = mkKeySym #{const XK_k}
 #  endif
 #  ifdef XK_l
 xK_l                              :: KeySym
-xK_l                              = #const XK_l
+xK_l                              = mkKeySym #{const XK_l}
 #  endif
 #  ifdef XK_m
 xK_m                              :: KeySym
-xK_m                              = #const XK_m
+xK_m                              = mkKeySym #{const XK_m}
 #  endif
 #  ifdef XK_n
 xK_n                              :: KeySym
-xK_n                              = #const XK_n
+xK_n                              = mkKeySym #{const XK_n}
 #  endif
 #  ifdef XK_o
 xK_o                              :: KeySym
-xK_o                              = #const XK_o
+xK_o                              = mkKeySym #{const XK_o}
 #  endif
 #  ifdef XK_p
 xK_p                              :: KeySym
-xK_p                              = #const XK_p
+xK_p                              = mkKeySym #{const XK_p}
 #  endif
 #  ifdef XK_q
 xK_q                              :: KeySym
-xK_q                              = #const XK_q
+xK_q                              = mkKeySym #{const XK_q}
 #  endif
 #  ifdef XK_r
 xK_r                              :: KeySym
-xK_r                              = #const XK_r
+xK_r                              = mkKeySym #{const XK_r}
 #  endif
 #  ifdef XK_s
 xK_s                              :: KeySym
-xK_s                              = #const XK_s
+xK_s                              = mkKeySym #{const XK_s}
 #  endif
 #  ifdef XK_t
 xK_t                              :: KeySym
-xK_t                              = #const XK_t
+xK_t                              = mkKeySym #{const XK_t}
 #  endif
 #  ifdef XK_u
 xK_u                              :: KeySym
-xK_u                              = #const XK_u
+xK_u                              = mkKeySym #{const XK_u}
 #  endif
 #  ifdef XK_v
 xK_v                              :: KeySym
-xK_v                              = #const XK_v
+xK_v                              = mkKeySym #{const XK_v}
 #  endif
 #  ifdef XK_w
 xK_w                              :: KeySym
-xK_w                              = #const XK_w
+xK_w                              = mkKeySym #{const XK_w}
 #  endif
 #  ifdef XK_x
 xK_x                              :: KeySym
-xK_x                              = #const XK_x
+xK_x                              = mkKeySym #{const XK_x}
 #  endif
 #  ifdef XK_y
 xK_y                              :: KeySym
-xK_y                              = #const XK_y
+xK_y                              = mkKeySym #{const XK_y}
 #  endif
 #  ifdef XK_z
 xK_z                              :: KeySym
-xK_z                              = #const XK_z
+xK_z                              = mkKeySym #{const XK_z}
 #  endif
 #  ifdef XK_braceleft
 xK_braceleft                      :: KeySym
-xK_braceleft                      = #const XK_braceleft
+xK_braceleft                      = mkKeySym #{const XK_braceleft}
 #  endif
 #  ifdef XK_bar
 xK_bar                            :: KeySym
-xK_bar                            = #const XK_bar
+xK_bar                            = mkKeySym #{const XK_bar}
 #  endif
 #  ifdef XK_braceright
 xK_braceright                     :: KeySym
-xK_braceright                     = #const XK_braceright
+xK_braceright                     = mkKeySym #{const XK_braceright}
 #  endif
 #  ifdef XK_asciitilde
 xK_asciitilde                     :: KeySym
-xK_asciitilde                     = #const XK_asciitilde
+xK_asciitilde                     = mkKeySym #{const XK_asciitilde}
 #  endif
 #  ifdef XK_nobreakspace
 xK_nobreakspace                   :: KeySym
-xK_nobreakspace                   = #const XK_nobreakspace
+xK_nobreakspace                   = mkKeySym #{const XK_nobreakspace}
 #  endif
 #  ifdef XK_exclamdown
 xK_exclamdown                     :: KeySym
-xK_exclamdown                     = #const XK_exclamdown
+xK_exclamdown                     = mkKeySym #{const XK_exclamdown}
 #  endif
 #  ifdef XK_cent
 xK_cent                           :: KeySym
-xK_cent                           = #const XK_cent
+xK_cent                           = mkKeySym #{const XK_cent}
 #  endif
 #  ifdef XK_sterling
 xK_sterling                       :: KeySym
-xK_sterling                       = #const XK_sterling
+xK_sterling                       = mkKeySym #{const XK_sterling}
 #  endif
 #  ifdef XK_currency
 xK_currency                       :: KeySym
-xK_currency                       = #const XK_currency
+xK_currency                       = mkKeySym #{const XK_currency}
 #  endif
 #  ifdef XK_yen
 xK_yen                            :: KeySym
-xK_yen                            = #const XK_yen
+xK_yen                            = mkKeySym #{const XK_yen}
 #  endif
 #  ifdef XK_brokenbar
 xK_brokenbar                      :: KeySym
-xK_brokenbar                      = #const XK_brokenbar
+xK_brokenbar                      = mkKeySym #{const XK_brokenbar}
 #  endif
 #  ifdef XK_section
 xK_section                        :: KeySym
-xK_section                        = #const XK_section
+xK_section                        = mkKeySym #{const XK_section}
 #  endif
 #  ifdef XK_diaeresis
 xK_diaeresis                      :: KeySym
-xK_diaeresis                      = #const XK_diaeresis
+xK_diaeresis                      = mkKeySym #{const XK_diaeresis}
 #  endif
 #  ifdef XK_copyright
 xK_copyright                      :: KeySym
-xK_copyright                      = #const XK_copyright
+xK_copyright                      = mkKeySym #{const XK_copyright}
 #  endif
 #  ifdef XK_ordfeminine
 xK_ordfeminine                    :: KeySym
-xK_ordfeminine                    = #const XK_ordfeminine
+xK_ordfeminine                    = mkKeySym #{const XK_ordfeminine}
 #  endif
 #  ifdef XK_guillemotleft
 xK_guillemotleft                  :: KeySym
-xK_guillemotleft                  = #const XK_guillemotleft
+xK_guillemotleft                  = mkKeySym #{const XK_guillemotleft}
 #  endif
 #  ifdef XK_notsign
 xK_notsign                        :: KeySym
-xK_notsign                        = #const XK_notsign
+xK_notsign                        = mkKeySym #{const XK_notsign}
 #  endif
 #  ifdef XK_hyphen
 xK_hyphen                         :: KeySym
-xK_hyphen                         = #const XK_hyphen
+xK_hyphen                         = mkKeySym #{const XK_hyphen}
 #  endif
 #  ifdef XK_registered
 xK_registered                     :: KeySym
-xK_registered                     = #const XK_registered
+xK_registered                     = mkKeySym #{const XK_registered}
 #  endif
 #  ifdef XK_macron
 xK_macron                         :: KeySym
-xK_macron                         = #const XK_macron
+xK_macron                         = mkKeySym #{const XK_macron}
 #  endif
 #  ifdef XK_degree
 xK_degree                         :: KeySym
-xK_degree                         = #const XK_degree
+xK_degree                         = mkKeySym #{const XK_degree}
 #  endif
 #  ifdef XK_plusminus
 xK_plusminus                      :: KeySym
-xK_plusminus                      = #const XK_plusminus
+xK_plusminus                      = mkKeySym #{const XK_plusminus}
 #  endif
 #  ifdef XK_twosuperior
 xK_twosuperior                    :: KeySym
-xK_twosuperior                    = #const XK_twosuperior
+xK_twosuperior                    = mkKeySym #{const XK_twosuperior}
 #  endif
 #  ifdef XK_threesuperior
 xK_threesuperior                  :: KeySym
-xK_threesuperior                  = #const XK_threesuperior
+xK_threesuperior                  = mkKeySym #{const XK_threesuperior}
 #  endif
 #  ifdef XK_acute
 xK_acute                          :: KeySym
-xK_acute                          = #const XK_acute
+xK_acute                          = mkKeySym #{const XK_acute}
 #  endif
 #  ifdef XK_mu
 xK_mu                             :: KeySym
-xK_mu                             = #const XK_mu
+xK_mu                             = mkKeySym #{const XK_mu}
 #  endif
 #  ifdef XK_paragraph
 xK_paragraph                      :: KeySym
-xK_paragraph                      = #const XK_paragraph
+xK_paragraph                      = mkKeySym #{const XK_paragraph}
 #  endif
 #  ifdef XK_periodcentered
 xK_periodcentered                 :: KeySym
-xK_periodcentered                 = #const XK_periodcentered
+xK_periodcentered                 = mkKeySym #{const XK_periodcentered}
 #  endif
 #  ifdef XK_cedilla
 xK_cedilla                        :: KeySym
-xK_cedilla                        = #const XK_cedilla
+xK_cedilla                        = mkKeySym #{const XK_cedilla}
 #  endif
 #  ifdef XK_onesuperior
 xK_onesuperior                    :: KeySym
-xK_onesuperior                    = #const XK_onesuperior
+xK_onesuperior                    = mkKeySym #{const XK_onesuperior}
 #  endif
 #  ifdef XK_masculine
 xK_masculine                      :: KeySym
-xK_masculine                      = #const XK_masculine
+xK_masculine                      = mkKeySym #{const XK_masculine}
 #  endif
 #  ifdef XK_guillemotright
 xK_guillemotright                 :: KeySym
-xK_guillemotright                 = #const XK_guillemotright
+xK_guillemotright                 = mkKeySym #{const XK_guillemotright}
 #  endif
 #  ifdef XK_onequarter
 xK_onequarter                     :: KeySym
-xK_onequarter                     = #const XK_onequarter
+xK_onequarter                     = mkKeySym #{const XK_onequarter}
 #  endif
 #  ifdef XK_onehalf
 xK_onehalf                        :: KeySym
-xK_onehalf                        = #const XK_onehalf
+xK_onehalf                        = mkKeySym #{const XK_onehalf}
 #  endif
 #  ifdef XK_threequarters
 xK_threequarters                  :: KeySym
-xK_threequarters                  = #const XK_threequarters
+xK_threequarters                  = mkKeySym #{const XK_threequarters}
 #  endif
 #  ifdef XK_questiondown
 xK_questiondown                   :: KeySym
-xK_questiondown                   = #const XK_questiondown
+xK_questiondown                   = mkKeySym #{const XK_questiondown}
 #  endif
 #  ifdef XK_Agrave
 xK_Agrave                         :: KeySym
-xK_Agrave                         = #const XK_Agrave
+xK_Agrave                         = mkKeySym #{const XK_Agrave}
 #  endif
 #  ifdef XK_Aacute
 xK_Aacute                         :: KeySym
-xK_Aacute                         = #const XK_Aacute
+xK_Aacute                         = mkKeySym #{const XK_Aacute}
 #  endif
 #  ifdef XK_Acircumflex
 xK_Acircumflex                    :: KeySym
-xK_Acircumflex                    = #const XK_Acircumflex
+xK_Acircumflex                    = mkKeySym #{const XK_Acircumflex}
 #  endif
 #  ifdef XK_Atilde
 xK_Atilde                         :: KeySym
-xK_Atilde                         = #const XK_Atilde
+xK_Atilde                         = mkKeySym #{const XK_Atilde}
 #  endif
 #  ifdef XK_Adiaeresis
 xK_Adiaeresis                     :: KeySym
-xK_Adiaeresis                     = #const XK_Adiaeresis
+xK_Adiaeresis                     = mkKeySym #{const XK_Adiaeresis}
 #  endif
 #  ifdef XK_Aring
 xK_Aring                          :: KeySym
-xK_Aring                          = #const XK_Aring
+xK_Aring                          = mkKeySym #{const XK_Aring}
 #  endif
 #  ifdef XK_AE
 xK_AE                             :: KeySym
-xK_AE                             = #const XK_AE
+xK_AE                             = mkKeySym #{const XK_AE}
 #  endif
 #  ifdef XK_Ccedilla
 xK_Ccedilla                       :: KeySym
-xK_Ccedilla                       = #const XK_Ccedilla
+xK_Ccedilla                       = mkKeySym #{const XK_Ccedilla}
 #  endif
 #  ifdef XK_Egrave
 xK_Egrave                         :: KeySym
-xK_Egrave                         = #const XK_Egrave
+xK_Egrave                         = mkKeySym #{const XK_Egrave}
 #  endif
 #  ifdef XK_Eacute
 xK_Eacute                         :: KeySym
-xK_Eacute                         = #const XK_Eacute
+xK_Eacute                         = mkKeySym #{const XK_Eacute}
 #  endif
 #  ifdef XK_Ecircumflex
 xK_Ecircumflex                    :: KeySym
-xK_Ecircumflex                    = #const XK_Ecircumflex
+xK_Ecircumflex                    = mkKeySym #{const XK_Ecircumflex}
 #  endif
 #  ifdef XK_Ediaeresis
 xK_Ediaeresis                     :: KeySym
-xK_Ediaeresis                     = #const XK_Ediaeresis
+xK_Ediaeresis                     = mkKeySym #{const XK_Ediaeresis}
 #  endif
 #  ifdef XK_Igrave
 xK_Igrave                         :: KeySym
-xK_Igrave                         = #const XK_Igrave
+xK_Igrave                         = mkKeySym #{const XK_Igrave}
 #  endif
 #  ifdef XK_Iacute
 xK_Iacute                         :: KeySym
-xK_Iacute                         = #const XK_Iacute
+xK_Iacute                         = mkKeySym #{const XK_Iacute}
 #  endif
 #  ifdef XK_Icircumflex
 xK_Icircumflex                    :: KeySym
-xK_Icircumflex                    = #const XK_Icircumflex
+xK_Icircumflex                    = mkKeySym #{const XK_Icircumflex}
 #  endif
 #  ifdef XK_Idiaeresis
 xK_Idiaeresis                     :: KeySym
-xK_Idiaeresis                     = #const XK_Idiaeresis
+xK_Idiaeresis                     = mkKeySym #{const XK_Idiaeresis}
 #  endif
 #  ifdef XK_ETH
 xK_ETH                            :: KeySym
-xK_ETH                            = #const XK_ETH
+xK_ETH                            = mkKeySym #{const XK_ETH}
 #  endif
 #  ifdef XK_Eth
 xK_Eth                            :: KeySym
-xK_Eth                            = #const XK_Eth
+xK_Eth                            = mkKeySym #{const XK_Eth}
 #  endif
 #  ifdef XK_Ntilde
 xK_Ntilde                         :: KeySym
-xK_Ntilde                         = #const XK_Ntilde
+xK_Ntilde                         = mkKeySym #{const XK_Ntilde}
 #  endif
 #  ifdef XK_Ograve
 xK_Ograve                         :: KeySym
-xK_Ograve                         = #const XK_Ograve
+xK_Ograve                         = mkKeySym #{const XK_Ograve}
 #  endif
 #  ifdef XK_Oacute
 xK_Oacute                         :: KeySym
-xK_Oacute                         = #const XK_Oacute
+xK_Oacute                         = mkKeySym #{const XK_Oacute}
 #  endif
 #  ifdef XK_Ocircumflex
 xK_Ocircumflex                    :: KeySym
-xK_Ocircumflex                    = #const XK_Ocircumflex
+xK_Ocircumflex                    = mkKeySym #{const XK_Ocircumflex}
 #  endif
 #  ifdef XK_Otilde
 xK_Otilde                         :: KeySym
-xK_Otilde                         = #const XK_Otilde
+xK_Otilde                         = mkKeySym #{const XK_Otilde}
 #  endif
 #  ifdef XK_Odiaeresis
 xK_Odiaeresis                     :: KeySym
-xK_Odiaeresis                     = #const XK_Odiaeresis
+xK_Odiaeresis                     = mkKeySym #{const XK_Odiaeresis}
 #  endif
 #  ifdef XK_multiply
 xK_multiply                       :: KeySym
-xK_multiply                       = #const XK_multiply
+xK_multiply                       = mkKeySym #{const XK_multiply}
 #  endif
 #  ifdef XK_Oslash
 xK_Oslash                         :: KeySym
-xK_Oslash                         = #const XK_Oslash
+xK_Oslash                         = mkKeySym #{const XK_Oslash}
 #  endif
 #  ifdef XK_Ooblique
 xK_Ooblique                       :: KeySym
-xK_Ooblique                       = #const XK_Ooblique
+xK_Ooblique                       = mkKeySym #{const XK_Ooblique}
 #  endif
 #  ifdef XK_Ugrave
 xK_Ugrave                         :: KeySym
-xK_Ugrave                         = #const XK_Ugrave
+xK_Ugrave                         = mkKeySym #{const XK_Ugrave}
 #  endif
 #  ifdef XK_Uacute
 xK_Uacute                         :: KeySym
-xK_Uacute                         = #const XK_Uacute
+xK_Uacute                         = mkKeySym #{const XK_Uacute}
 #  endif
 #  ifdef XK_Ucircumflex
 xK_Ucircumflex                    :: KeySym
-xK_Ucircumflex                    = #const XK_Ucircumflex
+xK_Ucircumflex                    = mkKeySym #{const XK_Ucircumflex}
 #  endif
 #  ifdef XK_Udiaeresis
 xK_Udiaeresis                     :: KeySym
-xK_Udiaeresis                     = #const XK_Udiaeresis
+xK_Udiaeresis                     = mkKeySym #{const XK_Udiaeresis}
 #  endif
 #  ifdef XK_Yacute
 xK_Yacute                         :: KeySym
-xK_Yacute                         = #const XK_Yacute
+xK_Yacute                         = mkKeySym #{const XK_Yacute}
 #  endif
 #  ifdef XK_THORN
 xK_THORN                          :: KeySym
-xK_THORN                          = #const XK_THORN
+xK_THORN                          = mkKeySym #{const XK_THORN}
 #  endif
 #  ifdef XK_Thorn
 xK_Thorn                          :: KeySym
-xK_Thorn                          = #const XK_Thorn
+xK_Thorn                          = mkKeySym #{const XK_Thorn}
 #  endif
 #  ifdef XK_ssharp
 xK_ssharp                         :: KeySym
-xK_ssharp                         = #const XK_ssharp
+xK_ssharp                         = mkKeySym #{const XK_ssharp}
 #  endif
 #  ifdef XK_agrave
 xK_agrave                         :: KeySym
-xK_agrave                         = #const XK_agrave
+xK_agrave                         = mkKeySym #{const XK_agrave}
 #  endif
 #  ifdef XK_aacute
 xK_aacute                         :: KeySym
-xK_aacute                         = #const XK_aacute
+xK_aacute                         = mkKeySym #{const XK_aacute}
 #  endif
 #  ifdef XK_acircumflex
 xK_acircumflex                    :: KeySym
-xK_acircumflex                    = #const XK_acircumflex
+xK_acircumflex                    = mkKeySym #{const XK_acircumflex}
 #  endif
 #  ifdef XK_atilde
 xK_atilde                         :: KeySym
-xK_atilde                         = #const XK_atilde
+xK_atilde                         = mkKeySym #{const XK_atilde}
 #  endif
 #  ifdef XK_adiaeresis
 xK_adiaeresis                     :: KeySym
-xK_adiaeresis                     = #const XK_adiaeresis
+xK_adiaeresis                     = mkKeySym #{const XK_adiaeresis}
 #  endif
 #  ifdef XK_aring
 xK_aring                          :: KeySym
-xK_aring                          = #const XK_aring
+xK_aring                          = mkKeySym #{const XK_aring}
 #  endif
 #  ifdef XK_ae
 xK_ae                             :: KeySym
-xK_ae                             = #const XK_ae
+xK_ae                             = mkKeySym #{const XK_ae}
 #  endif
 #  ifdef XK_ccedilla
 xK_ccedilla                       :: KeySym
-xK_ccedilla                       = #const XK_ccedilla
+xK_ccedilla                       = mkKeySym #{const XK_ccedilla}
 #  endif
 #  ifdef XK_egrave
 xK_egrave                         :: KeySym
-xK_egrave                         = #const XK_egrave
+xK_egrave                         = mkKeySym #{const XK_egrave}
 #  endif
 #  ifdef XK_eacute
 xK_eacute                         :: KeySym
-xK_eacute                         = #const XK_eacute
+xK_eacute                         = mkKeySym #{const XK_eacute}
 #  endif
 #  ifdef XK_ecircumflex
 xK_ecircumflex                    :: KeySym
-xK_ecircumflex                    = #const XK_ecircumflex
+xK_ecircumflex                    = mkKeySym #{const XK_ecircumflex}
 #  endif
 #  ifdef XK_ediaeresis
 xK_ediaeresis                     :: KeySym
-xK_ediaeresis                     = #const XK_ediaeresis
+xK_ediaeresis                     = mkKeySym #{const XK_ediaeresis}
 #  endif
 #  ifdef XK_igrave
 xK_igrave                         :: KeySym
-xK_igrave                         = #const XK_igrave
+xK_igrave                         = mkKeySym #{const XK_igrave}
 #  endif
 #  ifdef XK_iacute
 xK_iacute                         :: KeySym
-xK_iacute                         = #const XK_iacute
+xK_iacute                         = mkKeySym #{const XK_iacute}
 #  endif
 #  ifdef XK_icircumflex
 xK_icircumflex                    :: KeySym
-xK_icircumflex                    = #const XK_icircumflex
+xK_icircumflex                    = mkKeySym #{const XK_icircumflex}
 #  endif
 #  ifdef XK_idiaeresis
 xK_idiaeresis                     :: KeySym
-xK_idiaeresis                     = #const XK_idiaeresis
+xK_idiaeresis                     = mkKeySym #{const XK_idiaeresis}
 #  endif
 #  ifdef XK_eth
 xK_eth                            :: KeySym
-xK_eth                            = #const XK_eth
+xK_eth                            = mkKeySym #{const XK_eth}
 #  endif
 #  ifdef XK_ntilde
 xK_ntilde                         :: KeySym
-xK_ntilde                         = #const XK_ntilde
+xK_ntilde                         = mkKeySym #{const XK_ntilde}
 #  endif
 #  ifdef XK_ograve
 xK_ograve                         :: KeySym
-xK_ograve                         = #const XK_ograve
+xK_ograve                         = mkKeySym #{const XK_ograve}
 #  endif
 #  ifdef XK_oacute
 xK_oacute                         :: KeySym
-xK_oacute                         = #const XK_oacute
+xK_oacute                         = mkKeySym #{const XK_oacute}
 #  endif
 #  ifdef XK_ocircumflex
 xK_ocircumflex                    :: KeySym
-xK_ocircumflex                    = #const XK_ocircumflex
+xK_ocircumflex                    = mkKeySym #{const XK_ocircumflex}
 #  endif
 #  ifdef XK_otilde
 xK_otilde                         :: KeySym
-xK_otilde                         = #const XK_otilde
+xK_otilde                         = mkKeySym #{const XK_otilde}
 #  endif
 #  ifdef XK_odiaeresis
 xK_odiaeresis                     :: KeySym
-xK_odiaeresis                     = #const XK_odiaeresis
+xK_odiaeresis                     = mkKeySym #{const XK_odiaeresis}
 #  endif
 #  ifdef XK_division
 xK_division                       :: KeySym
-xK_division                       = #const XK_division
+xK_division                       = mkKeySym #{const XK_division}
 #  endif
 #  ifdef XK_oslash
 xK_oslash                         :: KeySym
-xK_oslash                         = #const XK_oslash
+xK_oslash                         = mkKeySym #{const XK_oslash}
 #  endif
 #  ifdef XK_ooblique
 xK_ooblique                       :: KeySym
-xK_ooblique                       = #const XK_ooblique
+xK_ooblique                       = mkKeySym #{const XK_ooblique}
 #  endif
 #  ifdef XK_ugrave
 xK_ugrave                         :: KeySym
-xK_ugrave                         = #const XK_ugrave
+xK_ugrave                         = mkKeySym #{const XK_ugrave}
 #  endif
 #  ifdef XK_uacute
 xK_uacute                         :: KeySym
-xK_uacute                         = #const XK_uacute
+xK_uacute                         = mkKeySym #{const XK_uacute}
 #  endif
 #  ifdef XK_ucircumflex
 xK_ucircumflex                    :: KeySym
-xK_ucircumflex                    = #const XK_ucircumflex
+xK_ucircumflex                    = mkKeySym #{const XK_ucircumflex}
 #  endif
 #  ifdef XK_udiaeresis
 xK_udiaeresis                     :: KeySym
-xK_udiaeresis                     = #const XK_udiaeresis
+xK_udiaeresis                     = mkKeySym #{const XK_udiaeresis}
 #  endif
 #  ifdef XK_yacute
 xK_yacute                         :: KeySym
-xK_yacute                         = #const XK_yacute
+xK_yacute                         = mkKeySym #{const XK_yacute}
 #  endif
 #  ifdef XK_thorn
 xK_thorn                          :: KeySym
-xK_thorn                          = #const XK_thorn
+xK_thorn                          = mkKeySym #{const XK_thorn}
 #  endif
 #  ifdef XK_ydiaeresis
 xK_ydiaeresis                     :: KeySym
-xK_ydiaeresis                     = #const XK_ydiaeresis
+xK_ydiaeresis                     = mkKeySym #{const XK_ydiaeresis}
 #  endif
 #endif
 
 -- XK_LATIN2
 #ifdef XK_Aogonek
 xK_Aogonek                        :: KeySym
-xK_Aogonek                        = #const XK_Aogonek
+xK_Aogonek                        = mkKeySym #{const XK_Aogonek}
 #endif
 #ifdef XK_breve
 xK_breve                          :: KeySym
-xK_breve                          = #const XK_breve
+xK_breve                          = mkKeySym #{const XK_breve}
 #endif
 #ifdef XK_Lstroke
 xK_Lstroke                        :: KeySym
-xK_Lstroke                        = #const XK_Lstroke
+xK_Lstroke                        = mkKeySym #{const XK_Lstroke}
 #endif
 #ifdef XK_Lcaron
 xK_Lcaron                         :: KeySym
-xK_Lcaron                         = #const XK_Lcaron
+xK_Lcaron                         = mkKeySym #{const XK_Lcaron}
 #endif
 #ifdef XK_Sacute
 xK_Sacute                         :: KeySym
-xK_Sacute                         = #const XK_Sacute
+xK_Sacute                         = mkKeySym #{const XK_Sacute}
 #endif
 #ifdef XK_Scaron
 xK_Scaron                         :: KeySym
-xK_Scaron                         = #const XK_Scaron
+xK_Scaron                         = mkKeySym #{const XK_Scaron}
 #endif
 #ifdef XK_Scedilla
 xK_Scedilla                       :: KeySym
-xK_Scedilla                       = #const XK_Scedilla
+xK_Scedilla                       = mkKeySym #{const XK_Scedilla}
 #endif
 #ifdef XK_Tcaron
 xK_Tcaron                         :: KeySym
-xK_Tcaron                         = #const XK_Tcaron
+xK_Tcaron                         = mkKeySym #{const XK_Tcaron}
 #endif
 #ifdef XK_Zacute
 xK_Zacute                         :: KeySym
-xK_Zacute                         = #const XK_Zacute
+xK_Zacute                         = mkKeySym #{const XK_Zacute}
 #endif
 #ifdef XK_Zcaron
 xK_Zcaron                         :: KeySym
-xK_Zcaron                         = #const XK_Zcaron
+xK_Zcaron                         = mkKeySym #{const XK_Zcaron}
 #endif
 #ifdef XK_Zabovedot
 xK_Zabovedot                      :: KeySym
-xK_Zabovedot                      = #const XK_Zabovedot
+xK_Zabovedot                      = mkKeySym #{const XK_Zabovedot}
 #endif
 #ifdef XK_aogonek
 xK_aogonek                        :: KeySym
-xK_aogonek                        = #const XK_aogonek
+xK_aogonek                        = mkKeySym #{const XK_aogonek}
 #endif
 #ifdef XK_ogonek
 xK_ogonek                         :: KeySym
-xK_ogonek                         = #const XK_ogonek
+xK_ogonek                         = mkKeySym #{const XK_ogonek}
 #endif
 #ifdef XK_lstroke
 xK_lstroke                        :: KeySym
-xK_lstroke                        = #const XK_lstroke
+xK_lstroke                        = mkKeySym #{const XK_lstroke}
 #endif
 #ifdef XK_lcaron
 xK_lcaron                         :: KeySym
-xK_lcaron                         = #const XK_lcaron
+xK_lcaron                         = mkKeySym #{const XK_lcaron}
 #endif
 #ifdef XK_sacute
 xK_sacute                         :: KeySym
-xK_sacute                         = #const XK_sacute
+xK_sacute                         = mkKeySym #{const XK_sacute}
 #endif
 #ifdef XK_caron
 xK_caron                          :: KeySym
-xK_caron                          = #const XK_caron
+xK_caron                          = mkKeySym #{const XK_caron}
 #endif
 #ifdef XK_scaron
 xK_scaron                         :: KeySym
-xK_scaron                         = #const XK_scaron
+xK_scaron                         = mkKeySym #{const XK_scaron}
 #endif
 #ifdef XK_scedilla
 xK_scedilla                       :: KeySym
-xK_scedilla                       = #const XK_scedilla
+xK_scedilla                       = mkKeySym #{const XK_scedilla}
 #endif
 #ifdef XK_tcaron
 xK_tcaron                         :: KeySym
-xK_tcaron                         = #const XK_tcaron
+xK_tcaron                         = mkKeySym #{const XK_tcaron}
 #endif
 #ifdef XK_zacute
 xK_zacute                         :: KeySym
-xK_zacute                         = #const XK_zacute
+xK_zacute                         = mkKeySym #{const XK_zacute}
 #endif
 #ifdef XK_doubleacute
 xK_doubleacute                    :: KeySym
-xK_doubleacute                    = #const XK_doubleacute
+xK_doubleacute                    = mkKeySym #{const XK_doubleacute}
 #endif
 #ifdef XK_zcaron
 xK_zcaron                         :: KeySym
-xK_zcaron                         = #const XK_zcaron
+xK_zcaron                         = mkKeySym #{const XK_zcaron}
 #endif
 #ifdef XK_zabovedot
 xK_zabovedot                      :: KeySym
-xK_zabovedot                      = #const XK_zabovedot
+xK_zabovedot                      = mkKeySym #{const XK_zabovedot}
 #endif
 #ifdef XK_Racute
 xK_Racute                         :: KeySym
-xK_Racute                         = #const XK_Racute
+xK_Racute                         = mkKeySym #{const XK_Racute}
 #endif
 #ifdef XK_Abreve
 xK_Abreve                         :: KeySym
-xK_Abreve                         = #const XK_Abreve
+xK_Abreve                         = mkKeySym #{const XK_Abreve}
 #endif
 #ifdef XK_Lacute
 xK_Lacute                         :: KeySym
-xK_Lacute                         = #const XK_Lacute
+xK_Lacute                         = mkKeySym #{const XK_Lacute}
 #endif
 #ifdef XK_Cacute
 xK_Cacute                         :: KeySym
-xK_Cacute                         = #const XK_Cacute
+xK_Cacute                         = mkKeySym #{const XK_Cacute}
 #endif
 #ifdef XK_Ccaron
 xK_Ccaron                         :: KeySym
-xK_Ccaron                         = #const XK_Ccaron
+xK_Ccaron                         = mkKeySym #{const XK_Ccaron}
 #endif
 #ifdef XK_Eogonek
 xK_Eogonek                        :: KeySym
-xK_Eogonek                        = #const XK_Eogonek
+xK_Eogonek                        = mkKeySym #{const XK_Eogonek}
 #endif
 #ifdef XK_Ecaron
 xK_Ecaron                         :: KeySym
-xK_Ecaron                         = #const XK_Ecaron
+xK_Ecaron                         = mkKeySym #{const XK_Ecaron}
 #endif
 #ifdef XK_Dcaron
 xK_Dcaron                         :: KeySym
-xK_Dcaron                         = #const XK_Dcaron
+xK_Dcaron                         = mkKeySym #{const XK_Dcaron}
 #endif
 #ifdef XK_Dstroke
 xK_Dstroke                        :: KeySym
-xK_Dstroke                        = #const XK_Dstroke
+xK_Dstroke                        = mkKeySym #{const XK_Dstroke}
 #endif
 #ifdef XK_Nacute
 xK_Nacute                         :: KeySym
-xK_Nacute                         = #const XK_Nacute
+xK_Nacute                         = mkKeySym #{const XK_Nacute}
 #endif
 #ifdef XK_Ncaron
 xK_Ncaron                         :: KeySym
-xK_Ncaron                         = #const XK_Ncaron
+xK_Ncaron                         = mkKeySym #{const XK_Ncaron}
 #endif
 #ifdef XK_Odoubleacute
 xK_Odoubleacute                   :: KeySym
-xK_Odoubleacute                   = #const XK_Odoubleacute
+xK_Odoubleacute                   = mkKeySym #{const XK_Odoubleacute}
 #endif
 #ifdef XK_Rcaron
 xK_Rcaron                         :: KeySym
-xK_Rcaron                         = #const XK_Rcaron
+xK_Rcaron                         = mkKeySym #{const XK_Rcaron}
 #endif
 #ifdef XK_Uring
 xK_Uring                          :: KeySym
-xK_Uring                          = #const XK_Uring
+xK_Uring                          = mkKeySym #{const XK_Uring}
 #endif
 #ifdef XK_Udoubleacute
 xK_Udoubleacute                   :: KeySym
-xK_Udoubleacute                   = #const XK_Udoubleacute
+xK_Udoubleacute                   = mkKeySym #{const XK_Udoubleacute}
 #endif
 #ifdef XK_Tcedilla
 xK_Tcedilla                       :: KeySym
-xK_Tcedilla                       = #const XK_Tcedilla
+xK_Tcedilla                       = mkKeySym #{const XK_Tcedilla}
 #endif
 #ifdef XK_racute
 xK_racute                         :: KeySym
-xK_racute                         = #const XK_racute
+xK_racute                         = mkKeySym #{const XK_racute}
 #endif
 #ifdef XK_abreve
 xK_abreve                         :: KeySym
-xK_abreve                         = #const XK_abreve
+xK_abreve                         = mkKeySym #{const XK_abreve}
 #endif
 #ifdef XK_lacute
 xK_lacute                         :: KeySym
-xK_lacute                         = #const XK_lacute
+xK_lacute                         = mkKeySym #{const XK_lacute}
 #endif
 #ifdef XK_cacute
 xK_cacute                         :: KeySym
-xK_cacute                         = #const XK_cacute
+xK_cacute                         = mkKeySym #{const XK_cacute}
 #endif
 #ifdef XK_ccaron
 xK_ccaron                         :: KeySym
-xK_ccaron                         = #const XK_ccaron
+xK_ccaron                         = mkKeySym #{const XK_ccaron}
 #endif
 #ifdef XK_eogonek
 xK_eogonek                        :: KeySym
-xK_eogonek                        = #const XK_eogonek
+xK_eogonek                        = mkKeySym #{const XK_eogonek}
 #endif
 #ifdef XK_ecaron
 xK_ecaron                         :: KeySym
-xK_ecaron                         = #const XK_ecaron
+xK_ecaron                         = mkKeySym #{const XK_ecaron}
 #endif
 #ifdef XK_dcaron
 xK_dcaron                         :: KeySym
-xK_dcaron                         = #const XK_dcaron
+xK_dcaron                         = mkKeySym #{const XK_dcaron}
 #endif
 #ifdef XK_dstroke
 xK_dstroke                        :: KeySym
-xK_dstroke                        = #const XK_dstroke
+xK_dstroke                        = mkKeySym #{const XK_dstroke}
 #endif
 #ifdef XK_nacute
 xK_nacute                         :: KeySym
-xK_nacute                         = #const XK_nacute
+xK_nacute                         = mkKeySym #{const XK_nacute}
 #endif
 #ifdef XK_ncaron
 xK_ncaron                         :: KeySym
-xK_ncaron                         = #const XK_ncaron
+xK_ncaron                         = mkKeySym #{const XK_ncaron}
 #endif
 #ifdef XK_odoubleacute
 xK_odoubleacute                   :: KeySym
-xK_odoubleacute                   = #const XK_odoubleacute
+xK_odoubleacute                   = mkKeySym #{const XK_odoubleacute}
 #endif
 #ifdef XK_udoubleacute
 xK_udoubleacute                   :: KeySym
-xK_udoubleacute                   = #const XK_udoubleacute
+xK_udoubleacute                   = mkKeySym #{const XK_udoubleacute}
 #endif
 #ifdef XK_rcaron
 xK_rcaron                         :: KeySym
-xK_rcaron                         = #const XK_rcaron
+xK_rcaron                         = mkKeySym #{const XK_rcaron}
 #endif
 #ifdef XK_uring
 xK_uring                          :: KeySym
-xK_uring                          = #const XK_uring
+xK_uring                          = mkKeySym #{const XK_uring}
 #endif
 #ifdef XK_tcedilla
 xK_tcedilla                       :: KeySym
-xK_tcedilla                       = #const XK_tcedilla
+xK_tcedilla                       = mkKeySym #{const XK_tcedilla}
 #endif
 #ifdef XK_abovedot
 xK_abovedot                       :: KeySym
-xK_abovedot                       = #const XK_abovedot
+xK_abovedot                       = mkKeySym #{const XK_abovedot}
 #endif
 
 -- XK_LATIN3
 #ifdef XK_Hstroke
 xK_Hstroke                        :: KeySym
-xK_Hstroke                        = #const XK_Hstroke
+xK_Hstroke                        = mkKeySym #{const XK_Hstroke}
 #endif
 #ifdef XK_Hcircumflex
 xK_Hcircumflex                    :: KeySym
-xK_Hcircumflex                    = #const XK_Hcircumflex
+xK_Hcircumflex                    = mkKeySym #{const XK_Hcircumflex}
 #endif
 #ifdef XK_Iabovedot
 xK_Iabovedot                      :: KeySym
-xK_Iabovedot                      = #const XK_Iabovedot
+xK_Iabovedot                      = mkKeySym #{const XK_Iabovedot}
 #endif
 #ifdef XK_Gbreve
 xK_Gbreve                         :: KeySym
-xK_Gbreve                         = #const XK_Gbreve
+xK_Gbreve                         = mkKeySym #{const XK_Gbreve}
 #endif
 #ifdef XK_Jcircumflex
 xK_Jcircumflex                    :: KeySym
-xK_Jcircumflex                    = #const XK_Jcircumflex
+xK_Jcircumflex                    = mkKeySym #{const XK_Jcircumflex}
 #endif
 #ifdef XK_hstroke
 xK_hstroke                        :: KeySym
-xK_hstroke                        = #const XK_hstroke
+xK_hstroke                        = mkKeySym #{const XK_hstroke}
 #endif
 #ifdef XK_hcircumflex
 xK_hcircumflex                    :: KeySym
-xK_hcircumflex                    = #const XK_hcircumflex
+xK_hcircumflex                    = mkKeySym #{const XK_hcircumflex}
 #endif
 #ifdef XK_idotless
 xK_idotless                       :: KeySym
-xK_idotless                       = #const XK_idotless
+xK_idotless                       = mkKeySym #{const XK_idotless}
 #endif
 #ifdef XK_gbreve
 xK_gbreve                         :: KeySym
-xK_gbreve                         = #const XK_gbreve
+xK_gbreve                         = mkKeySym #{const XK_gbreve}
 #endif
 #ifdef XK_jcircumflex
 xK_jcircumflex                    :: KeySym
-xK_jcircumflex                    = #const XK_jcircumflex
+xK_jcircumflex                    = mkKeySym #{const XK_jcircumflex}
 #endif
 #ifdef XK_Cabovedot
 xK_Cabovedot                      :: KeySym
-xK_Cabovedot                      = #const XK_Cabovedot
+xK_Cabovedot                      = mkKeySym #{const XK_Cabovedot}
 #endif
 #ifdef XK_Ccircumflex
 xK_Ccircumflex                    :: KeySym
-xK_Ccircumflex                    = #const XK_Ccircumflex
+xK_Ccircumflex                    = mkKeySym #{const XK_Ccircumflex}
 #endif
 #ifdef XK_Gabovedot
 xK_Gabovedot                      :: KeySym
-xK_Gabovedot                      = #const XK_Gabovedot
+xK_Gabovedot                      = mkKeySym #{const XK_Gabovedot}
 #endif
 #ifdef XK_Gcircumflex
 xK_Gcircumflex                    :: KeySym
-xK_Gcircumflex                    = #const XK_Gcircumflex
+xK_Gcircumflex                    = mkKeySym #{const XK_Gcircumflex}
 #endif
 #ifdef XK_Ubreve
 xK_Ubreve                         :: KeySym
-xK_Ubreve                         = #const XK_Ubreve
+xK_Ubreve                         = mkKeySym #{const XK_Ubreve}
 #endif
 #ifdef XK_Scircumflex
 xK_Scircumflex                    :: KeySym
-xK_Scircumflex                    = #const XK_Scircumflex
+xK_Scircumflex                    = mkKeySym #{const XK_Scircumflex}
 #endif
 #ifdef XK_cabovedot
 xK_cabovedot                      :: KeySym
-xK_cabovedot                      = #const XK_cabovedot
+xK_cabovedot                      = mkKeySym #{const XK_cabovedot}
 #endif
 #ifdef XK_ccircumflex
 xK_ccircumflex                    :: KeySym
-xK_ccircumflex                    = #const XK_ccircumflex
+xK_ccircumflex                    = mkKeySym #{const XK_ccircumflex}
 #endif
 #ifdef XK_gabovedot
 xK_gabovedot                      :: KeySym
-xK_gabovedot                      = #const XK_gabovedot
+xK_gabovedot                      = mkKeySym #{const XK_gabovedot}
 #endif
 #ifdef XK_gcircumflex
 xK_gcircumflex                    :: KeySym
-xK_gcircumflex                    = #const XK_gcircumflex
+xK_gcircumflex                    = mkKeySym #{const XK_gcircumflex}
 #endif
 #ifdef XK_ubreve
 xK_ubreve                         :: KeySym
-xK_ubreve                         = #const XK_ubreve
+xK_ubreve                         = mkKeySym #{const XK_ubreve}
 #endif
 #ifdef XK_scircumflex
 xK_scircumflex                    :: KeySym
-xK_scircumflex                    = #const XK_scircumflex
+xK_scircumflex                    = mkKeySym #{const XK_scircumflex}
 #endif
 
 -- XK_LATIN4
 #ifdef XK_kra
 xK_kra                            :: KeySym
-xK_kra                            = #const XK_kra
+xK_kra                            = mkKeySym #{const XK_kra}
 #endif
 #ifdef XK_kappa
 xK_kappa                          :: KeySym
-xK_kappa                          = #const XK_kappa
+xK_kappa                          = mkKeySym #{const XK_kappa}
 #endif
 #ifdef XK_Rcedilla
 xK_Rcedilla                       :: KeySym
-xK_Rcedilla                       = #const XK_Rcedilla
+xK_Rcedilla                       = mkKeySym #{const XK_Rcedilla}
 #endif
 #ifdef XK_Itilde
 xK_Itilde                         :: KeySym
-xK_Itilde                         = #const XK_Itilde
+xK_Itilde                         = mkKeySym #{const XK_Itilde}
 #endif
 #ifdef XK_Lcedilla
 xK_Lcedilla                       :: KeySym
-xK_Lcedilla                       = #const XK_Lcedilla
+xK_Lcedilla                       = mkKeySym #{const XK_Lcedilla}
 #endif
 #ifdef XK_Emacron
 xK_Emacron                        :: KeySym
-xK_Emacron                        = #const XK_Emacron
+xK_Emacron                        = mkKeySym #{const XK_Emacron}
 #endif
 #ifdef XK_Gcedilla
 xK_Gcedilla                       :: KeySym
-xK_Gcedilla                       = #const XK_Gcedilla
+xK_Gcedilla                       = mkKeySym #{const XK_Gcedilla}
 #endif
 #ifdef XK_Tslash
 xK_Tslash                         :: KeySym
-xK_Tslash                         = #const XK_Tslash
+xK_Tslash                         = mkKeySym #{const XK_Tslash}
 #endif
 #ifdef XK_rcedilla
 xK_rcedilla                       :: KeySym
-xK_rcedilla                       = #const XK_rcedilla
+xK_rcedilla                       = mkKeySym #{const XK_rcedilla}
 #endif
 #ifdef XK_itilde
 xK_itilde                         :: KeySym
-xK_itilde                         = #const XK_itilde
+xK_itilde                         = mkKeySym #{const XK_itilde}
 #endif
 #ifdef XK_lcedilla
 xK_lcedilla                       :: KeySym
-xK_lcedilla                       = #const XK_lcedilla
+xK_lcedilla                       = mkKeySym #{const XK_lcedilla}
 #endif
 #ifdef XK_emacron
 xK_emacron                        :: KeySym
-xK_emacron                        = #const XK_emacron
+xK_emacron                        = mkKeySym #{const XK_emacron}
 #endif
 #ifdef XK_gcedilla
 xK_gcedilla                       :: KeySym
-xK_gcedilla                       = #const XK_gcedilla
+xK_gcedilla                       = mkKeySym #{const XK_gcedilla}
 #endif
 #ifdef XK_tslash
 xK_tslash                         :: KeySym
-xK_tslash                         = #const XK_tslash
+xK_tslash                         = mkKeySym #{const XK_tslash}
 #endif
 #ifdef XK_ENG
 xK_ENG                            :: KeySym
-xK_ENG                            = #const XK_ENG
+xK_ENG                            = mkKeySym #{const XK_ENG}
 #endif
 #ifdef XK_eng
 xK_eng                            :: KeySym
-xK_eng                            = #const XK_eng
+xK_eng                            = mkKeySym #{const XK_eng}
 #endif
 #ifdef XK_Amacron
 xK_Amacron                        :: KeySym
-xK_Amacron                        = #const XK_Amacron
+xK_Amacron                        = mkKeySym #{const XK_Amacron}
 #endif
 #ifdef XK_Iogonek
 xK_Iogonek                        :: KeySym
-xK_Iogonek                        = #const XK_Iogonek
+xK_Iogonek                        = mkKeySym #{const XK_Iogonek}
 #endif
 #ifdef XK_Eabovedot
 xK_Eabovedot                      :: KeySym
-xK_Eabovedot                      = #const XK_Eabovedot
+xK_Eabovedot                      = mkKeySym #{const XK_Eabovedot}
 #endif
 #ifdef XK_Imacron
 xK_Imacron                        :: KeySym
-xK_Imacron                        = #const XK_Imacron
+xK_Imacron                        = mkKeySym #{const XK_Imacron}
 #endif
 #ifdef XK_Ncedilla
 xK_Ncedilla                       :: KeySym
-xK_Ncedilla                       = #const XK_Ncedilla
+xK_Ncedilla                       = mkKeySym #{const XK_Ncedilla}
 #endif
 #ifdef XK_Omacron
 xK_Omacron                        :: KeySym
-xK_Omacron                        = #const XK_Omacron
+xK_Omacron                        = mkKeySym #{const XK_Omacron}
 #endif
 #ifdef XK_Kcedilla
 xK_Kcedilla                       :: KeySym
-xK_Kcedilla                       = #const XK_Kcedilla
+xK_Kcedilla                       = mkKeySym #{const XK_Kcedilla}
 #endif
 #ifdef XK_Uogonek
 xK_Uogonek                        :: KeySym
-xK_Uogonek                        = #const XK_Uogonek
+xK_Uogonek                        = mkKeySym #{const XK_Uogonek}
 #endif
 #ifdef XK_Utilde
 xK_Utilde                         :: KeySym
-xK_Utilde                         = #const XK_Utilde
+xK_Utilde                         = mkKeySym #{const XK_Utilde}
 #endif
 #ifdef XK_Umacron
 xK_Umacron                        :: KeySym
-xK_Umacron                        = #const XK_Umacron
+xK_Umacron                        = mkKeySym #{const XK_Umacron}
 #endif
 #ifdef XK_amacron
 xK_amacron                        :: KeySym
-xK_amacron                        = #const XK_amacron
+xK_amacron                        = mkKeySym #{const XK_amacron}
 #endif
 #ifdef XK_iogonek
 xK_iogonek                        :: KeySym
-xK_iogonek                        = #const XK_iogonek
+xK_iogonek                        = mkKeySym #{const XK_iogonek}
 #endif
 #ifdef XK_eabovedot
 xK_eabovedot                      :: KeySym
-xK_eabovedot                      = #const XK_eabovedot
+xK_eabovedot                      = mkKeySym #{const XK_eabovedot}
 #endif
 #ifdef XK_imacron
 xK_imacron                        :: KeySym
-xK_imacron                        = #const XK_imacron
+xK_imacron                        = mkKeySym #{const XK_imacron}
 #endif
 #ifdef XK_ncedilla
 xK_ncedilla                       :: KeySym
-xK_ncedilla                       = #const XK_ncedilla
+xK_ncedilla                       = mkKeySym #{const XK_ncedilla}
 #endif
 #ifdef XK_omacron
 xK_omacron                        :: KeySym
-xK_omacron                        = #const XK_omacron
+xK_omacron                        = mkKeySym #{const XK_omacron}
 #endif
 #ifdef XK_kcedilla
 xK_kcedilla                       :: KeySym
-xK_kcedilla                       = #const XK_kcedilla
+xK_kcedilla                       = mkKeySym #{const XK_kcedilla}
 #endif
 #ifdef XK_uogonek
 xK_uogonek                        :: KeySym
-xK_uogonek                        = #const XK_uogonek
+xK_uogonek                        = mkKeySym #{const XK_uogonek}
 #endif
 #ifdef XK_utilde
 xK_utilde                         :: KeySym
-xK_utilde                         = #const XK_utilde
+xK_utilde                         = mkKeySym #{const XK_utilde}
 #endif
 #ifdef XK_umacron
 xK_umacron                        :: KeySym
-xK_umacron                        = #const XK_umacron
+xK_umacron                        = mkKeySym #{const XK_umacron}
 #endif
 
 -- XK_LATIN8
 #ifdef XK_Babovedot
 xK_Babovedot                      :: KeySym
-xK_Babovedot                      = #const XK_Babovedot
+xK_Babovedot                      = mkKeySym #{const XK_Babovedot}
 #endif
 #ifdef XK_babovedot
 xK_babovedot                      :: KeySym
-xK_babovedot                      = #const XK_babovedot
+xK_babovedot                      = mkKeySym #{const XK_babovedot}
 #endif
 #ifdef XK_Dabovedot
 xK_Dabovedot                      :: KeySym
-xK_Dabovedot                      = #const XK_Dabovedot
+xK_Dabovedot                      = mkKeySym #{const XK_Dabovedot}
 #endif
 #ifdef XK_Wgrave
 xK_Wgrave                         :: KeySym
-xK_Wgrave                         = #const XK_Wgrave
+xK_Wgrave                         = mkKeySym #{const XK_Wgrave}
 #endif
 #ifdef XK_Wacute
 xK_Wacute                         :: KeySym
-xK_Wacute                         = #const XK_Wacute
+xK_Wacute                         = mkKeySym #{const XK_Wacute}
 #endif
 #ifdef XK_dabovedot
 xK_dabovedot                      :: KeySym
-xK_dabovedot                      = #const XK_dabovedot
+xK_dabovedot                      = mkKeySym #{const XK_dabovedot}
 #endif
 #ifdef XK_Ygrave
 xK_Ygrave                         :: KeySym
-xK_Ygrave                         = #const XK_Ygrave
+xK_Ygrave                         = mkKeySym #{const XK_Ygrave}
 #endif
 #ifdef XK_Fabovedot
 xK_Fabovedot                      :: KeySym
-xK_Fabovedot                      = #const XK_Fabovedot
+xK_Fabovedot                      = mkKeySym #{const XK_Fabovedot}
 #endif
 #ifdef XK_fabovedot
 xK_fabovedot                      :: KeySym
-xK_fabovedot                      = #const XK_fabovedot
+xK_fabovedot                      = mkKeySym #{const XK_fabovedot}
 #endif
 #ifdef XK_Mabovedot
 xK_Mabovedot                      :: KeySym
-xK_Mabovedot                      = #const XK_Mabovedot
+xK_Mabovedot                      = mkKeySym #{const XK_Mabovedot}
 #endif
 #ifdef XK_mabovedot
 xK_mabovedot                      :: KeySym
-xK_mabovedot                      = #const XK_mabovedot
+xK_mabovedot                      = mkKeySym #{const XK_mabovedot}
 #endif
 #ifdef XK_Pabovedot
 xK_Pabovedot                      :: KeySym
-xK_Pabovedot                      = #const XK_Pabovedot
+xK_Pabovedot                      = mkKeySym #{const XK_Pabovedot}
 #endif
 #ifdef XK_wgrave
 xK_wgrave                         :: KeySym
-xK_wgrave                         = #const XK_wgrave
+xK_wgrave                         = mkKeySym #{const XK_wgrave}
 #endif
 #ifdef XK_pabovedot
 xK_pabovedot                      :: KeySym
-xK_pabovedot                      = #const XK_pabovedot
+xK_pabovedot                      = mkKeySym #{const XK_pabovedot}
 #endif
 #ifdef XK_wacute
 xK_wacute                         :: KeySym
-xK_wacute                         = #const XK_wacute
+xK_wacute                         = mkKeySym #{const XK_wacute}
 #endif
 #ifdef XK_Sabovedot
 xK_Sabovedot                      :: KeySym
-xK_Sabovedot                      = #const XK_Sabovedot
+xK_Sabovedot                      = mkKeySym #{const XK_Sabovedot}
 #endif
 #ifdef XK_ygrave
 xK_ygrave                         :: KeySym
-xK_ygrave                         = #const XK_ygrave
+xK_ygrave                         = mkKeySym #{const XK_ygrave}
 #endif
 #ifdef XK_Wdiaeresis
 xK_Wdiaeresis                     :: KeySym
-xK_Wdiaeresis                     = #const XK_Wdiaeresis
+xK_Wdiaeresis                     = mkKeySym #{const XK_Wdiaeresis}
 #endif
 #ifdef XK_wdiaeresis
 xK_wdiaeresis                     :: KeySym
-xK_wdiaeresis                     = #const XK_wdiaeresis
+xK_wdiaeresis                     = mkKeySym #{const XK_wdiaeresis}
 #endif
 #ifdef XK_sabovedot
 xK_sabovedot                      :: KeySym
-xK_sabovedot                      = #const XK_sabovedot
+xK_sabovedot                      = mkKeySym #{const XK_sabovedot}
 #endif
 #ifdef XK_Wcircumflex
 xK_Wcircumflex                    :: KeySym
-xK_Wcircumflex                    = #const XK_Wcircumflex
+xK_Wcircumflex                    = mkKeySym #{const XK_Wcircumflex}
 #endif
 #ifdef XK_Tabovedot
 xK_Tabovedot                      :: KeySym
-xK_Tabovedot                      = #const XK_Tabovedot
+xK_Tabovedot                      = mkKeySym #{const XK_Tabovedot}
 #endif
 #ifdef XK_Ycircumflex
 xK_Ycircumflex                    :: KeySym
-xK_Ycircumflex                    = #const XK_Ycircumflex
+xK_Ycircumflex                    = mkKeySym #{const XK_Ycircumflex}
 #endif
 #ifdef XK_wcircumflex
 xK_wcircumflex                    :: KeySym
-xK_wcircumflex                    = #const XK_wcircumflex
+xK_wcircumflex                    = mkKeySym #{const XK_wcircumflex}
 #endif
 #ifdef XK_tabovedot
 xK_tabovedot                      :: KeySym
-xK_tabovedot                      = #const XK_tabovedot
+xK_tabovedot                      = mkKeySym #{const XK_tabovedot}
 #endif
 #ifdef XK_ycircumflex
 xK_ycircumflex                    :: KeySym
-xK_ycircumflex                    = #const XK_ycircumflex
+xK_ycircumflex                    = mkKeySym #{const XK_ycircumflex}
 #endif
 
 -- XK_LATIN9
 #ifdef XK_OE
 xK_OE                             :: KeySym
-xK_OE                             = #const XK_OE
+xK_OE                             = mkKeySym #{const XK_OE}
 #endif
 #ifdef XK_oe
 xK_oe                             :: KeySym
-xK_oe                             = #const XK_oe
+xK_oe                             = mkKeySym #{const XK_oe}
 #endif
 #ifdef XK_Ydiaeresis
 xK_Ydiaeresis                     :: KeySym
-xK_Ydiaeresis                     = #const XK_Ydiaeresis
+xK_Ydiaeresis                     = mkKeySym #{const XK_Ydiaeresis}
 #endif
 
 -- XK_KATAKANA
 #ifdef XK_overline
 xK_overline                       :: KeySym
-xK_overline                       = #const XK_overline
+xK_overline                       = mkKeySym #{const XK_overline}
 #endif
 #ifdef XK_kana_fullstop
 xK_kana_fullstop                  :: KeySym
-xK_kana_fullstop                  = #const XK_kana_fullstop
+xK_kana_fullstop                  = mkKeySym #{const XK_kana_fullstop}
 #endif
 #ifdef XK_kana_openingbracket
 xK_kana_openingbracket            :: KeySym
-xK_kana_openingbracket            = #const XK_kana_openingbracket
+xK_kana_openingbracket            = mkKeySym #{const XK_kana_openingbracket}
 #endif
 #ifdef XK_kana_closingbracket
 xK_kana_closingbracket            :: KeySym
-xK_kana_closingbracket            = #const XK_kana_closingbracket
+xK_kana_closingbracket            = mkKeySym #{const XK_kana_closingbracket}
 #endif
 #ifdef XK_kana_comma
 xK_kana_comma                     :: KeySym
-xK_kana_comma                     = #const XK_kana_comma
+xK_kana_comma                     = mkKeySym #{const XK_kana_comma}
 #endif
 #ifdef XK_kana_conjunctive
 xK_kana_conjunctive               :: KeySym
-xK_kana_conjunctive               = #const XK_kana_conjunctive
+xK_kana_conjunctive               = mkKeySym #{const XK_kana_conjunctive}
 #endif
 #ifdef XK_kana_middledot
 xK_kana_middledot                 :: KeySym
-xK_kana_middledot                 = #const XK_kana_middledot
+xK_kana_middledot                 = mkKeySym #{const XK_kana_middledot}
 #endif
 #ifdef XK_kana_WO
 xK_kana_WO                        :: KeySym
-xK_kana_WO                        = #const XK_kana_WO
+xK_kana_WO                        = mkKeySym #{const XK_kana_WO}
 #endif
 #ifdef XK_kana_a
 xK_kana_a                         :: KeySym
-xK_kana_a                         = #const XK_kana_a
+xK_kana_a                         = mkKeySym #{const XK_kana_a}
 #endif
 #ifdef XK_kana_i
 xK_kana_i                         :: KeySym
-xK_kana_i                         = #const XK_kana_i
+xK_kana_i                         = mkKeySym #{const XK_kana_i}
 #endif
 #ifdef XK_kana_u
 xK_kana_u                         :: KeySym
-xK_kana_u                         = #const XK_kana_u
+xK_kana_u                         = mkKeySym #{const XK_kana_u}
 #endif
 #ifdef XK_kana_e
 xK_kana_e                         :: KeySym
-xK_kana_e                         = #const XK_kana_e
+xK_kana_e                         = mkKeySym #{const XK_kana_e}
 #endif
 #ifdef XK_kana_o
 xK_kana_o                         :: KeySym
-xK_kana_o                         = #const XK_kana_o
+xK_kana_o                         = mkKeySym #{const XK_kana_o}
 #endif
 #ifdef XK_kana_ya
 xK_kana_ya                        :: KeySym
-xK_kana_ya                        = #const XK_kana_ya
+xK_kana_ya                        = mkKeySym #{const XK_kana_ya}
 #endif
 #ifdef XK_kana_yu
 xK_kana_yu                        :: KeySym
-xK_kana_yu                        = #const XK_kana_yu
+xK_kana_yu                        = mkKeySym #{const XK_kana_yu}
 #endif
 #ifdef XK_kana_yo
 xK_kana_yo                        :: KeySym
-xK_kana_yo                        = #const XK_kana_yo
+xK_kana_yo                        = mkKeySym #{const XK_kana_yo}
 #endif
 #ifdef XK_kana_tsu
 xK_kana_tsu                       :: KeySym
-xK_kana_tsu                       = #const XK_kana_tsu
+xK_kana_tsu                       = mkKeySym #{const XK_kana_tsu}
 #endif
 #ifdef XK_kana_tu
 xK_kana_tu                        :: KeySym
-xK_kana_tu                        = #const XK_kana_tu
+xK_kana_tu                        = mkKeySym #{const XK_kana_tu}
 #endif
 #ifdef XK_prolongedsound
 xK_prolongedsound                 :: KeySym
-xK_prolongedsound                 = #const XK_prolongedsound
+xK_prolongedsound                 = mkKeySym #{const XK_prolongedsound}
 #endif
 #ifdef XK_kana_A
 xK_kana_A                         :: KeySym
-xK_kana_A                         = #const XK_kana_A
+xK_kana_A                         = mkKeySym #{const XK_kana_A}
 #endif
 #ifdef XK_kana_I
 xK_kana_I                         :: KeySym
-xK_kana_I                         = #const XK_kana_I
+xK_kana_I                         = mkKeySym #{const XK_kana_I}
 #endif
 #ifdef XK_kana_U
 xK_kana_U                         :: KeySym
-xK_kana_U                         = #const XK_kana_U
+xK_kana_U                         = mkKeySym #{const XK_kana_U}
 #endif
 #ifdef XK_kana_E
 xK_kana_E                         :: KeySym
-xK_kana_E                         = #const XK_kana_E
+xK_kana_E                         = mkKeySym #{const XK_kana_E}
 #endif
 #ifdef XK_kana_O
 xK_kana_O                         :: KeySym
-xK_kana_O                         = #const XK_kana_O
+xK_kana_O                         = mkKeySym #{const XK_kana_O}
 #endif
 #ifdef XK_kana_KA
 xK_kana_KA                        :: KeySym
-xK_kana_KA                        = #const XK_kana_KA
+xK_kana_KA                        = mkKeySym #{const XK_kana_KA}
 #endif
 #ifdef XK_kana_KI
 xK_kana_KI                        :: KeySym
-xK_kana_KI                        = #const XK_kana_KI
+xK_kana_KI                        = mkKeySym #{const XK_kana_KI}
 #endif
 #ifdef XK_kana_KU
 xK_kana_KU                        :: KeySym
-xK_kana_KU                        = #const XK_kana_KU
+xK_kana_KU                        = mkKeySym #{const XK_kana_KU}
 #endif
 #ifdef XK_kana_KE
 xK_kana_KE                        :: KeySym
-xK_kana_KE                        = #const XK_kana_KE
+xK_kana_KE                        = mkKeySym #{const XK_kana_KE}
 #endif
 #ifdef XK_kana_KO
 xK_kana_KO                        :: KeySym
-xK_kana_KO                        = #const XK_kana_KO
+xK_kana_KO                        = mkKeySym #{const XK_kana_KO}
 #endif
 #ifdef XK_kana_SA
 xK_kana_SA                        :: KeySym
-xK_kana_SA                        = #const XK_kana_SA
+xK_kana_SA                        = mkKeySym #{const XK_kana_SA}
 #endif
 #ifdef XK_kana_SHI
 xK_kana_SHI                       :: KeySym
-xK_kana_SHI                       = #const XK_kana_SHI
+xK_kana_SHI                       = mkKeySym #{const XK_kana_SHI}
 #endif
 #ifdef XK_kana_SU
 xK_kana_SU                        :: KeySym
-xK_kana_SU                        = #const XK_kana_SU
+xK_kana_SU                        = mkKeySym #{const XK_kana_SU}
 #endif
 #ifdef XK_kana_SE
 xK_kana_SE                        :: KeySym
-xK_kana_SE                        = #const XK_kana_SE
+xK_kana_SE                        = mkKeySym #{const XK_kana_SE}
 #endif
 #ifdef XK_kana_SO
 xK_kana_SO                        :: KeySym
-xK_kana_SO                        = #const XK_kana_SO
+xK_kana_SO                        = mkKeySym #{const XK_kana_SO}
 #endif
 #ifdef XK_kana_TA
 xK_kana_TA                        :: KeySym
-xK_kana_TA                        = #const XK_kana_TA
+xK_kana_TA                        = mkKeySym #{const XK_kana_TA}
 #endif
 #ifdef XK_kana_CHI
 xK_kana_CHI                       :: KeySym
-xK_kana_CHI                       = #const XK_kana_CHI
+xK_kana_CHI                       = mkKeySym #{const XK_kana_CHI}
 #endif
 #ifdef XK_kana_TI
 xK_kana_TI                        :: KeySym
-xK_kana_TI                        = #const XK_kana_TI
+xK_kana_TI                        = mkKeySym #{const XK_kana_TI}
 #endif
 #ifdef XK_kana_TSU
 xK_kana_TSU                       :: KeySym
-xK_kana_TSU                       = #const XK_kana_TSU
+xK_kana_TSU                       = mkKeySym #{const XK_kana_TSU}
 #endif
 #ifdef XK_kana_TU
 xK_kana_TU                        :: KeySym
-xK_kana_TU                        = #const XK_kana_TU
+xK_kana_TU                        = mkKeySym #{const XK_kana_TU}
 #endif
 #ifdef XK_kana_TE
 xK_kana_TE                        :: KeySym
-xK_kana_TE                        = #const XK_kana_TE
+xK_kana_TE                        = mkKeySym #{const XK_kana_TE}
 #endif
 #ifdef XK_kana_TO
 xK_kana_TO                        :: KeySym
-xK_kana_TO                        = #const XK_kana_TO
+xK_kana_TO                        = mkKeySym #{const XK_kana_TO}
 #endif
 #ifdef XK_kana_NA
 xK_kana_NA                        :: KeySym
-xK_kana_NA                        = #const XK_kana_NA
+xK_kana_NA                        = mkKeySym #{const XK_kana_NA}
 #endif
 #ifdef XK_kana_NI
 xK_kana_NI                        :: KeySym
-xK_kana_NI                        = #const XK_kana_NI
+xK_kana_NI                        = mkKeySym #{const XK_kana_NI}
 #endif
 #ifdef XK_kana_NU
 xK_kana_NU                        :: KeySym
-xK_kana_NU                        = #const XK_kana_NU
+xK_kana_NU                        = mkKeySym #{const XK_kana_NU}
 #endif
 #ifdef XK_kana_NE
 xK_kana_NE                        :: KeySym
-xK_kana_NE                        = #const XK_kana_NE
+xK_kana_NE                        = mkKeySym #{const XK_kana_NE}
 #endif
 #ifdef XK_kana_NO
 xK_kana_NO                        :: KeySym
-xK_kana_NO                        = #const XK_kana_NO
+xK_kana_NO                        = mkKeySym #{const XK_kana_NO}
 #endif
 #ifdef XK_kana_HA
 xK_kana_HA                        :: KeySym
-xK_kana_HA                        = #const XK_kana_HA
+xK_kana_HA                        = mkKeySym #{const XK_kana_HA}
 #endif
 #ifdef XK_kana_HI
 xK_kana_HI                        :: KeySym
-xK_kana_HI                        = #const XK_kana_HI
+xK_kana_HI                        = mkKeySym #{const XK_kana_HI}
 #endif
 #ifdef XK_kana_FU
 xK_kana_FU                        :: KeySym
-xK_kana_FU                        = #const XK_kana_FU
+xK_kana_FU                        = mkKeySym #{const XK_kana_FU}
 #endif
 #ifdef XK_kana_HU
 xK_kana_HU                        :: KeySym
-xK_kana_HU                        = #const XK_kana_HU
+xK_kana_HU                        = mkKeySym #{const XK_kana_HU}
 #endif
 #ifdef XK_kana_HE
 xK_kana_HE                        :: KeySym
-xK_kana_HE                        = #const XK_kana_HE
+xK_kana_HE                        = mkKeySym #{const XK_kana_HE}
 #endif
 #ifdef XK_kana_HO
 xK_kana_HO                        :: KeySym
-xK_kana_HO                        = #const XK_kana_HO
+xK_kana_HO                        = mkKeySym #{const XK_kana_HO}
 #endif
 #ifdef XK_kana_MA
 xK_kana_MA                        :: KeySym
-xK_kana_MA                        = #const XK_kana_MA
+xK_kana_MA                        = mkKeySym #{const XK_kana_MA}
 #endif
 #ifdef XK_kana_MI
 xK_kana_MI                        :: KeySym
-xK_kana_MI                        = #const XK_kana_MI
+xK_kana_MI                        = mkKeySym #{const XK_kana_MI}
 #endif
 #ifdef XK_kana_MU
 xK_kana_MU                        :: KeySym
-xK_kana_MU                        = #const XK_kana_MU
+xK_kana_MU                        = mkKeySym #{const XK_kana_MU}
 #endif
 #ifdef XK_kana_ME
 xK_kana_ME                        :: KeySym
-xK_kana_ME                        = #const XK_kana_ME
+xK_kana_ME                        = mkKeySym #{const XK_kana_ME}
 #endif
 #ifdef XK_kana_MO
 xK_kana_MO                        :: KeySym
-xK_kana_MO                        = #const XK_kana_MO
+xK_kana_MO                        = mkKeySym #{const XK_kana_MO}
 #endif
 #ifdef XK_kana_YA
 xK_kana_YA                        :: KeySym
-xK_kana_YA                        = #const XK_kana_YA
+xK_kana_YA                        = mkKeySym #{const XK_kana_YA}
 #endif
 #ifdef XK_kana_YU
 xK_kana_YU                        :: KeySym
-xK_kana_YU                        = #const XK_kana_YU
+xK_kana_YU                        = mkKeySym #{const XK_kana_YU}
 #endif
 #ifdef XK_kana_YO
 xK_kana_YO                        :: KeySym
-xK_kana_YO                        = #const XK_kana_YO
+xK_kana_YO                        = mkKeySym #{const XK_kana_YO}
 #endif
 #ifdef XK_kana_RA
 xK_kana_RA                        :: KeySym
-xK_kana_RA                        = #const XK_kana_RA
+xK_kana_RA                        = mkKeySym #{const XK_kana_RA}
 #endif
 #ifdef XK_kana_RI
 xK_kana_RI                        :: KeySym
-xK_kana_RI                        = #const XK_kana_RI
+xK_kana_RI                        = mkKeySym #{const XK_kana_RI}
 #endif
 #ifdef XK_kana_RU
 xK_kana_RU                        :: KeySym
-xK_kana_RU                        = #const XK_kana_RU
+xK_kana_RU                        = mkKeySym #{const XK_kana_RU}
 #endif
 #ifdef XK_kana_RE
 xK_kana_RE                        :: KeySym
-xK_kana_RE                        = #const XK_kana_RE
+xK_kana_RE                        = mkKeySym #{const XK_kana_RE}
 #endif
 #ifdef XK_kana_RO
 xK_kana_RO                        :: KeySym
-xK_kana_RO                        = #const XK_kana_RO
+xK_kana_RO                        = mkKeySym #{const XK_kana_RO}
 #endif
 #ifdef XK_kana_WA
 xK_kana_WA                        :: KeySym
-xK_kana_WA                        = #const XK_kana_WA
+xK_kana_WA                        = mkKeySym #{const XK_kana_WA}
 #endif
 #ifdef XK_kana_N
 xK_kana_N                         :: KeySym
-xK_kana_N                         = #const XK_kana_N
+xK_kana_N                         = mkKeySym #{const XK_kana_N}
 #endif
 #ifdef XK_voicedsound
 xK_voicedsound                    :: KeySym
-xK_voicedsound                    = #const XK_voicedsound
+xK_voicedsound                    = mkKeySym #{const XK_voicedsound}
 #endif
 #ifdef XK_semivoicedsound
 xK_semivoicedsound                :: KeySym
-xK_semivoicedsound                = #const XK_semivoicedsound
+xK_semivoicedsound                = mkKeySym #{const XK_semivoicedsound}
 #endif
 #ifdef XK_kana_switch
 xK_kana_switch                    :: KeySym
-xK_kana_switch                    = #const XK_kana_switch
+xK_kana_switch                    = mkKeySym #{const XK_kana_switch}
 #endif
 
 -- XK_ARABIC
 #ifdef XK_Farsi_0
 xK_Farsi_0                        :: KeySym
-xK_Farsi_0                        = #const XK_Farsi_0
+xK_Farsi_0                        = mkKeySym #{const XK_Farsi_0}
 #endif
 #ifdef XK_Farsi_1
 xK_Farsi_1                        :: KeySym
-xK_Farsi_1                        = #const XK_Farsi_1
+xK_Farsi_1                        = mkKeySym #{const XK_Farsi_1}
 #endif
 #ifdef XK_Farsi_2
 xK_Farsi_2                        :: KeySym
-xK_Farsi_2                        = #const XK_Farsi_2
+xK_Farsi_2                        = mkKeySym #{const XK_Farsi_2}
 #endif
 #ifdef XK_Farsi_3
 xK_Farsi_3                        :: KeySym
-xK_Farsi_3                        = #const XK_Farsi_3
+xK_Farsi_3                        = mkKeySym #{const XK_Farsi_3}
 #endif
 #ifdef XK_Farsi_4
 xK_Farsi_4                        :: KeySym
-xK_Farsi_4                        = #const XK_Farsi_4
+xK_Farsi_4                        = mkKeySym #{const XK_Farsi_4}
 #endif
 #ifdef XK_Farsi_5
 xK_Farsi_5                        :: KeySym
-xK_Farsi_5                        = #const XK_Farsi_5
+xK_Farsi_5                        = mkKeySym #{const XK_Farsi_5}
 #endif
 #ifdef XK_Farsi_6
 xK_Farsi_6                        :: KeySym
-xK_Farsi_6                        = #const XK_Farsi_6
+xK_Farsi_6                        = mkKeySym #{const XK_Farsi_6}
 #endif
 #ifdef XK_Farsi_7
 xK_Farsi_7                        :: KeySym
-xK_Farsi_7                        = #const XK_Farsi_7
+xK_Farsi_7                        = mkKeySym #{const XK_Farsi_7}
 #endif
 #ifdef XK_Farsi_8
 xK_Farsi_8                        :: KeySym
-xK_Farsi_8                        = #const XK_Farsi_8
+xK_Farsi_8                        = mkKeySym #{const XK_Farsi_8}
 #endif
 #ifdef XK_Farsi_9
 xK_Farsi_9                        :: KeySym
-xK_Farsi_9                        = #const XK_Farsi_9
+xK_Farsi_9                        = mkKeySym #{const XK_Farsi_9}
 #endif
 #ifdef XK_Arabic_percent
 xK_Arabic_percent                 :: KeySym
-xK_Arabic_percent                 = #const XK_Arabic_percent
+xK_Arabic_percent                 = mkKeySym #{const XK_Arabic_percent}
 #endif
 #ifdef XK_Arabic_superscript_alef
 xK_Arabic_superscript_alef        :: KeySym
-xK_Arabic_superscript_alef        = #const XK_Arabic_superscript_alef
+xK_Arabic_superscript_alef        = mkKeySym #{const XK_Arabic_superscript_alef}
 #endif
 #ifdef XK_Arabic_tteh
 xK_Arabic_tteh                    :: KeySym
-xK_Arabic_tteh                    = #const XK_Arabic_tteh
+xK_Arabic_tteh                    = mkKeySym #{const XK_Arabic_tteh}
 #endif
 #ifdef XK_Arabic_peh
 xK_Arabic_peh                     :: KeySym
-xK_Arabic_peh                     = #const XK_Arabic_peh
+xK_Arabic_peh                     = mkKeySym #{const XK_Arabic_peh}
 #endif
 #ifdef XK_Arabic_tcheh
 xK_Arabic_tcheh                   :: KeySym
-xK_Arabic_tcheh                   = #const XK_Arabic_tcheh
+xK_Arabic_tcheh                   = mkKeySym #{const XK_Arabic_tcheh}
 #endif
 #ifdef XK_Arabic_ddal
 xK_Arabic_ddal                    :: KeySym
-xK_Arabic_ddal                    = #const XK_Arabic_ddal
+xK_Arabic_ddal                    = mkKeySym #{const XK_Arabic_ddal}
 #endif
 #ifdef XK_Arabic_rreh
 xK_Arabic_rreh                    :: KeySym
-xK_Arabic_rreh                    = #const XK_Arabic_rreh
+xK_Arabic_rreh                    = mkKeySym #{const XK_Arabic_rreh}
 #endif
 #ifdef XK_Arabic_comma
 xK_Arabic_comma                   :: KeySym
-xK_Arabic_comma                   = #const XK_Arabic_comma
+xK_Arabic_comma                   = mkKeySym #{const XK_Arabic_comma}
 #endif
 #ifdef XK_Arabic_fullstop
 xK_Arabic_fullstop                :: KeySym
-xK_Arabic_fullstop                = #const XK_Arabic_fullstop
+xK_Arabic_fullstop                = mkKeySym #{const XK_Arabic_fullstop}
 #endif
 #ifdef XK_Arabic_0
 xK_Arabic_0                       :: KeySym
-xK_Arabic_0                       = #const XK_Arabic_0
+xK_Arabic_0                       = mkKeySym #{const XK_Arabic_0}
 #endif
 #ifdef XK_Arabic_1
 xK_Arabic_1                       :: KeySym
-xK_Arabic_1                       = #const XK_Arabic_1
+xK_Arabic_1                       = mkKeySym #{const XK_Arabic_1}
 #endif
 #ifdef XK_Arabic_2
 xK_Arabic_2                       :: KeySym
-xK_Arabic_2                       = #const XK_Arabic_2
+xK_Arabic_2                       = mkKeySym #{const XK_Arabic_2}
 #endif
 #ifdef XK_Arabic_3
 xK_Arabic_3                       :: KeySym
-xK_Arabic_3                       = #const XK_Arabic_3
+xK_Arabic_3                       = mkKeySym #{const XK_Arabic_3}
 #endif
 #ifdef XK_Arabic_4
 xK_Arabic_4                       :: KeySym
-xK_Arabic_4                       = #const XK_Arabic_4
+xK_Arabic_4                       = mkKeySym #{const XK_Arabic_4}
 #endif
 #ifdef XK_Arabic_5
 xK_Arabic_5                       :: KeySym
-xK_Arabic_5                       = #const XK_Arabic_5
+xK_Arabic_5                       = mkKeySym #{const XK_Arabic_5}
 #endif
 #ifdef XK_Arabic_6
 xK_Arabic_6                       :: KeySym
-xK_Arabic_6                       = #const XK_Arabic_6
+xK_Arabic_6                       = mkKeySym #{const XK_Arabic_6}
 #endif
 #ifdef XK_Arabic_7
 xK_Arabic_7                       :: KeySym
-xK_Arabic_7                       = #const XK_Arabic_7
+xK_Arabic_7                       = mkKeySym #{const XK_Arabic_7}
 #endif
 #ifdef XK_Arabic_8
 xK_Arabic_8                       :: KeySym
-xK_Arabic_8                       = #const XK_Arabic_8
+xK_Arabic_8                       = mkKeySym #{const XK_Arabic_8}
 #endif
 #ifdef XK_Arabic_9
 xK_Arabic_9                       :: KeySym
-xK_Arabic_9                       = #const XK_Arabic_9
+xK_Arabic_9                       = mkKeySym #{const XK_Arabic_9}
 #endif
 #ifdef XK_Arabic_semicolon
 xK_Arabic_semicolon               :: KeySym
-xK_Arabic_semicolon               = #const XK_Arabic_semicolon
+xK_Arabic_semicolon               = mkKeySym #{const XK_Arabic_semicolon}
 #endif
 #ifdef XK_Arabic_question_mark
 xK_Arabic_question_mark           :: KeySym
-xK_Arabic_question_mark           = #const XK_Arabic_question_mark
+xK_Arabic_question_mark           = mkKeySym #{const XK_Arabic_question_mark}
 #endif
 #ifdef XK_Arabic_hamza
 xK_Arabic_hamza                   :: KeySym
-xK_Arabic_hamza                   = #const XK_Arabic_hamza
+xK_Arabic_hamza                   = mkKeySym #{const XK_Arabic_hamza}
 #endif
 #ifdef XK_Arabic_maddaonalef
 xK_Arabic_maddaonalef             :: KeySym
-xK_Arabic_maddaonalef             = #const XK_Arabic_maddaonalef
+xK_Arabic_maddaonalef             = mkKeySym #{const XK_Arabic_maddaonalef}
 #endif
 #ifdef XK_Arabic_hamzaonalef
 xK_Arabic_hamzaonalef             :: KeySym
-xK_Arabic_hamzaonalef             = #const XK_Arabic_hamzaonalef
+xK_Arabic_hamzaonalef             = mkKeySym #{const XK_Arabic_hamzaonalef}
 #endif
 #ifdef XK_Arabic_hamzaonwaw
 xK_Arabic_hamzaonwaw              :: KeySym
-xK_Arabic_hamzaonwaw              = #const XK_Arabic_hamzaonwaw
+xK_Arabic_hamzaonwaw              = mkKeySym #{const XK_Arabic_hamzaonwaw}
 #endif
 #ifdef XK_Arabic_hamzaunderalef
 xK_Arabic_hamzaunderalef          :: KeySym
-xK_Arabic_hamzaunderalef          = #const XK_Arabic_hamzaunderalef
+xK_Arabic_hamzaunderalef          = mkKeySym #{const XK_Arabic_hamzaunderalef}
 #endif
 #ifdef XK_Arabic_hamzaonyeh
 xK_Arabic_hamzaonyeh              :: KeySym
-xK_Arabic_hamzaonyeh              = #const XK_Arabic_hamzaonyeh
+xK_Arabic_hamzaonyeh              = mkKeySym #{const XK_Arabic_hamzaonyeh}
 #endif
 #ifdef XK_Arabic_alef
 xK_Arabic_alef                    :: KeySym
-xK_Arabic_alef                    = #const XK_Arabic_alef
+xK_Arabic_alef                    = mkKeySym #{const XK_Arabic_alef}
 #endif
 #ifdef XK_Arabic_beh
 xK_Arabic_beh                     :: KeySym
-xK_Arabic_beh                     = #const XK_Arabic_beh
+xK_Arabic_beh                     = mkKeySym #{const XK_Arabic_beh}
 #endif
 #ifdef XK_Arabic_tehmarbuta
 xK_Arabic_tehmarbuta              :: KeySym
-xK_Arabic_tehmarbuta              = #const XK_Arabic_tehmarbuta
+xK_Arabic_tehmarbuta              = mkKeySym #{const XK_Arabic_tehmarbuta}
 #endif
 #ifdef XK_Arabic_teh
 xK_Arabic_teh                     :: KeySym
-xK_Arabic_teh                     = #const XK_Arabic_teh
+xK_Arabic_teh                     = mkKeySym #{const XK_Arabic_teh}
 #endif
 #ifdef XK_Arabic_theh
 xK_Arabic_theh                    :: KeySym
-xK_Arabic_theh                    = #const XK_Arabic_theh
+xK_Arabic_theh                    = mkKeySym #{const XK_Arabic_theh}
 #endif
 #ifdef XK_Arabic_jeem
 xK_Arabic_jeem                    :: KeySym
-xK_Arabic_jeem                    = #const XK_Arabic_jeem
+xK_Arabic_jeem                    = mkKeySym #{const XK_Arabic_jeem}
 #endif
 #ifdef XK_Arabic_hah
 xK_Arabic_hah                     :: KeySym
-xK_Arabic_hah                     = #const XK_Arabic_hah
+xK_Arabic_hah                     = mkKeySym #{const XK_Arabic_hah}
 #endif
 #ifdef XK_Arabic_khah
 xK_Arabic_khah                    :: KeySym
-xK_Arabic_khah                    = #const XK_Arabic_khah
+xK_Arabic_khah                    = mkKeySym #{const XK_Arabic_khah}
 #endif
 #ifdef XK_Arabic_dal
 xK_Arabic_dal                     :: KeySym
-xK_Arabic_dal                     = #const XK_Arabic_dal
+xK_Arabic_dal                     = mkKeySym #{const XK_Arabic_dal}
 #endif
 #ifdef XK_Arabic_thal
 xK_Arabic_thal                    :: KeySym
-xK_Arabic_thal                    = #const XK_Arabic_thal
+xK_Arabic_thal                    = mkKeySym #{const XK_Arabic_thal}
 #endif
 #ifdef XK_Arabic_ra
 xK_Arabic_ra                      :: KeySym
-xK_Arabic_ra                      = #const XK_Arabic_ra
+xK_Arabic_ra                      = mkKeySym #{const XK_Arabic_ra}
 #endif
 #ifdef XK_Arabic_zain
 xK_Arabic_zain                    :: KeySym
-xK_Arabic_zain                    = #const XK_Arabic_zain
+xK_Arabic_zain                    = mkKeySym #{const XK_Arabic_zain}
 #endif
 #ifdef XK_Arabic_seen
 xK_Arabic_seen                    :: KeySym
-xK_Arabic_seen                    = #const XK_Arabic_seen
+xK_Arabic_seen                    = mkKeySym #{const XK_Arabic_seen}
 #endif
 #ifdef XK_Arabic_sheen
 xK_Arabic_sheen                   :: KeySym
-xK_Arabic_sheen                   = #const XK_Arabic_sheen
+xK_Arabic_sheen                   = mkKeySym #{const XK_Arabic_sheen}
 #endif
 #ifdef XK_Arabic_sad
 xK_Arabic_sad                     :: KeySym
-xK_Arabic_sad                     = #const XK_Arabic_sad
+xK_Arabic_sad                     = mkKeySym #{const XK_Arabic_sad}
 #endif
 #ifdef XK_Arabic_dad
 xK_Arabic_dad                     :: KeySym
-xK_Arabic_dad                     = #const XK_Arabic_dad
+xK_Arabic_dad                     = mkKeySym #{const XK_Arabic_dad}
 #endif
 #ifdef XK_Arabic_tah
 xK_Arabic_tah                     :: KeySym
-xK_Arabic_tah                     = #const XK_Arabic_tah
+xK_Arabic_tah                     = mkKeySym #{const XK_Arabic_tah}
 #endif
 #ifdef XK_Arabic_zah
 xK_Arabic_zah                     :: KeySym
-xK_Arabic_zah                     = #const XK_Arabic_zah
+xK_Arabic_zah                     = mkKeySym #{const XK_Arabic_zah}
 #endif
 #ifdef XK_Arabic_ain
 xK_Arabic_ain                     :: KeySym
-xK_Arabic_ain                     = #const XK_Arabic_ain
+xK_Arabic_ain                     = mkKeySym #{const XK_Arabic_ain}
 #endif
 #ifdef XK_Arabic_ghain
 xK_Arabic_ghain                   :: KeySym
-xK_Arabic_ghain                   = #const XK_Arabic_ghain
+xK_Arabic_ghain                   = mkKeySym #{const XK_Arabic_ghain}
 #endif
 #ifdef XK_Arabic_tatweel
 xK_Arabic_tatweel                 :: KeySym
-xK_Arabic_tatweel                 = #const XK_Arabic_tatweel
+xK_Arabic_tatweel                 = mkKeySym #{const XK_Arabic_tatweel}
 #endif
 #ifdef XK_Arabic_feh
 xK_Arabic_feh                     :: KeySym
-xK_Arabic_feh                     = #const XK_Arabic_feh
+xK_Arabic_feh                     = mkKeySym #{const XK_Arabic_feh}
 #endif
 #ifdef XK_Arabic_qaf
 xK_Arabic_qaf                     :: KeySym
-xK_Arabic_qaf                     = #const XK_Arabic_qaf
+xK_Arabic_qaf                     = mkKeySym #{const XK_Arabic_qaf}
 #endif
 #ifdef XK_Arabic_kaf
 xK_Arabic_kaf                     :: KeySym
-xK_Arabic_kaf                     = #const XK_Arabic_kaf
+xK_Arabic_kaf                     = mkKeySym #{const XK_Arabic_kaf}
 #endif
 #ifdef XK_Arabic_lam
 xK_Arabic_lam                     :: KeySym
-xK_Arabic_lam                     = #const XK_Arabic_lam
+xK_Arabic_lam                     = mkKeySym #{const XK_Arabic_lam}
 #endif
 #ifdef XK_Arabic_meem
 xK_Arabic_meem                    :: KeySym
-xK_Arabic_meem                    = #const XK_Arabic_meem
+xK_Arabic_meem                    = mkKeySym #{const XK_Arabic_meem}
 #endif
 #ifdef XK_Arabic_noon
 xK_Arabic_noon                    :: KeySym
-xK_Arabic_noon                    = #const XK_Arabic_noon
+xK_Arabic_noon                    = mkKeySym #{const XK_Arabic_noon}
 #endif
 #ifdef XK_Arabic_ha
 xK_Arabic_ha                      :: KeySym
-xK_Arabic_ha                      = #const XK_Arabic_ha
+xK_Arabic_ha                      = mkKeySym #{const XK_Arabic_ha}
 #endif
 #ifdef XK_Arabic_heh
 xK_Arabic_heh                     :: KeySym
-xK_Arabic_heh                     = #const XK_Arabic_heh
+xK_Arabic_heh                     = mkKeySym #{const XK_Arabic_heh}
 #endif
 #ifdef XK_Arabic_waw
 xK_Arabic_waw                     :: KeySym
-xK_Arabic_waw                     = #const XK_Arabic_waw
+xK_Arabic_waw                     = mkKeySym #{const XK_Arabic_waw}
 #endif
 #ifdef XK_Arabic_alefmaksura
 xK_Arabic_alefmaksura             :: KeySym
-xK_Arabic_alefmaksura             = #const XK_Arabic_alefmaksura
+xK_Arabic_alefmaksura             = mkKeySym #{const XK_Arabic_alefmaksura}
 #endif
 #ifdef XK_Arabic_yeh
 xK_Arabic_yeh                     :: KeySym
-xK_Arabic_yeh                     = #const XK_Arabic_yeh
+xK_Arabic_yeh                     = mkKeySym #{const XK_Arabic_yeh}
 #endif
 #ifdef XK_Arabic_fathatan
 xK_Arabic_fathatan                :: KeySym
-xK_Arabic_fathatan                = #const XK_Arabic_fathatan
+xK_Arabic_fathatan                = mkKeySym #{const XK_Arabic_fathatan}
 #endif
 #ifdef XK_Arabic_dammatan
 xK_Arabic_dammatan                :: KeySym
-xK_Arabic_dammatan                = #const XK_Arabic_dammatan
+xK_Arabic_dammatan                = mkKeySym #{const XK_Arabic_dammatan}
 #endif
 #ifdef XK_Arabic_kasratan
 xK_Arabic_kasratan                :: KeySym
-xK_Arabic_kasratan                = #const XK_Arabic_kasratan
+xK_Arabic_kasratan                = mkKeySym #{const XK_Arabic_kasratan}
 #endif
 #ifdef XK_Arabic_fatha
 xK_Arabic_fatha                   :: KeySym
-xK_Arabic_fatha                   = #const XK_Arabic_fatha
+xK_Arabic_fatha                   = mkKeySym #{const XK_Arabic_fatha}
 #endif
 #ifdef XK_Arabic_damma
 xK_Arabic_damma                   :: KeySym
-xK_Arabic_damma                   = #const XK_Arabic_damma
+xK_Arabic_damma                   = mkKeySym #{const XK_Arabic_damma}
 #endif
 #ifdef XK_Arabic_kasra
 xK_Arabic_kasra                   :: KeySym
-xK_Arabic_kasra                   = #const XK_Arabic_kasra
+xK_Arabic_kasra                   = mkKeySym #{const XK_Arabic_kasra}
 #endif
 #ifdef XK_Arabic_shadda
 xK_Arabic_shadda                  :: KeySym
-xK_Arabic_shadda                  = #const XK_Arabic_shadda
+xK_Arabic_shadda                  = mkKeySym #{const XK_Arabic_shadda}
 #endif
 #ifdef XK_Arabic_sukun
 xK_Arabic_sukun                   :: KeySym
-xK_Arabic_sukun                   = #const XK_Arabic_sukun
+xK_Arabic_sukun                   = mkKeySym #{const XK_Arabic_sukun}
 #endif
 #ifdef XK_Arabic_madda_above
 xK_Arabic_madda_above             :: KeySym
-xK_Arabic_madda_above             = #const XK_Arabic_madda_above
+xK_Arabic_madda_above             = mkKeySym #{const XK_Arabic_madda_above}
 #endif
 #ifdef XK_Arabic_hamza_above
 xK_Arabic_hamza_above             :: KeySym
-xK_Arabic_hamza_above             = #const XK_Arabic_hamza_above
+xK_Arabic_hamza_above             = mkKeySym #{const XK_Arabic_hamza_above}
 #endif
 #ifdef XK_Arabic_hamza_below
 xK_Arabic_hamza_below             :: KeySym
-xK_Arabic_hamza_below             = #const XK_Arabic_hamza_below
+xK_Arabic_hamza_below             = mkKeySym #{const XK_Arabic_hamza_below}
 #endif
 #ifdef XK_Arabic_jeh
 xK_Arabic_jeh                     :: KeySym
-xK_Arabic_jeh                     = #const XK_Arabic_jeh
+xK_Arabic_jeh                     = mkKeySym #{const XK_Arabic_jeh}
 #endif
 #ifdef XK_Arabic_veh
 xK_Arabic_veh                     :: KeySym
-xK_Arabic_veh                     = #const XK_Arabic_veh
+xK_Arabic_veh                     = mkKeySym #{const XK_Arabic_veh}
 #endif
 #ifdef XK_Arabic_keheh
 xK_Arabic_keheh                   :: KeySym
-xK_Arabic_keheh                   = #const XK_Arabic_keheh
+xK_Arabic_keheh                   = mkKeySym #{const XK_Arabic_keheh}
 #endif
 #ifdef XK_Arabic_gaf
 xK_Arabic_gaf                     :: KeySym
-xK_Arabic_gaf                     = #const XK_Arabic_gaf
+xK_Arabic_gaf                     = mkKeySym #{const XK_Arabic_gaf}
 #endif
 #ifdef XK_Arabic_noon_ghunna
 xK_Arabic_noon_ghunna             :: KeySym
-xK_Arabic_noon_ghunna             = #const XK_Arabic_noon_ghunna
+xK_Arabic_noon_ghunna             = mkKeySym #{const XK_Arabic_noon_ghunna}
 #endif
 #ifdef XK_Arabic_heh_doachashmee
 xK_Arabic_heh_doachashmee         :: KeySym
-xK_Arabic_heh_doachashmee         = #const XK_Arabic_heh_doachashmee
+xK_Arabic_heh_doachashmee         = mkKeySym #{const XK_Arabic_heh_doachashmee}
 #endif
 #ifdef XK_Farsi_yeh
 xK_Farsi_yeh                      :: KeySym
-xK_Farsi_yeh                      = #const XK_Farsi_yeh
+xK_Farsi_yeh                      = mkKeySym #{const XK_Farsi_yeh}
 #endif
 #ifdef XK_Arabic_farsi_yeh
 xK_Arabic_farsi_yeh               :: KeySym
-xK_Arabic_farsi_yeh               = #const XK_Arabic_farsi_yeh
+xK_Arabic_farsi_yeh               = mkKeySym #{const XK_Arabic_farsi_yeh}
 #endif
 #ifdef XK_Arabic_yeh_baree
 xK_Arabic_yeh_baree               :: KeySym
-xK_Arabic_yeh_baree               = #const XK_Arabic_yeh_baree
+xK_Arabic_yeh_baree               = mkKeySym #{const XK_Arabic_yeh_baree}
 #endif
 #ifdef XK_Arabic_heh_goal
 xK_Arabic_heh_goal                :: KeySym
-xK_Arabic_heh_goal                = #const XK_Arabic_heh_goal
+xK_Arabic_heh_goal                = mkKeySym #{const XK_Arabic_heh_goal}
 #endif
 #ifdef XK_Arabic_switch
 xK_Arabic_switch                  :: KeySym
-xK_Arabic_switch                  = #const XK_Arabic_switch
+xK_Arabic_switch                  = mkKeySym #{const XK_Arabic_switch}
 #endif
 
 -- XK_CYRILLIC
 #ifdef XK_Cyrillic_GHE_bar
 xK_Cyrillic_GHE_bar               :: KeySym
-xK_Cyrillic_GHE_bar               = #const XK_Cyrillic_GHE_bar
+xK_Cyrillic_GHE_bar               = mkKeySym #{const XK_Cyrillic_GHE_bar}
 #endif
 #ifdef XK_Cyrillic_ghe_bar
 xK_Cyrillic_ghe_bar               :: KeySym
-xK_Cyrillic_ghe_bar               = #const XK_Cyrillic_ghe_bar
+xK_Cyrillic_ghe_bar               = mkKeySym #{const XK_Cyrillic_ghe_bar}
 #endif
 #ifdef XK_Cyrillic_ZHE_descender
 xK_Cyrillic_ZHE_descender         :: KeySym
-xK_Cyrillic_ZHE_descender         = #const XK_Cyrillic_ZHE_descender
+xK_Cyrillic_ZHE_descender         = mkKeySym #{const XK_Cyrillic_ZHE_descender}
 #endif
 #ifdef XK_Cyrillic_zhe_descender
 xK_Cyrillic_zhe_descender         :: KeySym
-xK_Cyrillic_zhe_descender         = #const XK_Cyrillic_zhe_descender
+xK_Cyrillic_zhe_descender         = mkKeySym #{const XK_Cyrillic_zhe_descender}
 #endif
 #ifdef XK_Cyrillic_KA_descender
 xK_Cyrillic_KA_descender          :: KeySym
-xK_Cyrillic_KA_descender          = #const XK_Cyrillic_KA_descender
+xK_Cyrillic_KA_descender          = mkKeySym #{const XK_Cyrillic_KA_descender}
 #endif
 #ifdef XK_Cyrillic_ka_descender
 xK_Cyrillic_ka_descender          :: KeySym
-xK_Cyrillic_ka_descender          = #const XK_Cyrillic_ka_descender
+xK_Cyrillic_ka_descender          = mkKeySym #{const XK_Cyrillic_ka_descender}
 #endif
 #ifdef XK_Cyrillic_KA_vertstroke
 xK_Cyrillic_KA_vertstroke         :: KeySym
-xK_Cyrillic_KA_vertstroke         = #const XK_Cyrillic_KA_vertstroke
+xK_Cyrillic_KA_vertstroke         = mkKeySym #{const XK_Cyrillic_KA_vertstroke}
 #endif
 #ifdef XK_Cyrillic_ka_vertstroke
 xK_Cyrillic_ka_vertstroke         :: KeySym
-xK_Cyrillic_ka_vertstroke         = #const XK_Cyrillic_ka_vertstroke
+xK_Cyrillic_ka_vertstroke         = mkKeySym #{const XK_Cyrillic_ka_vertstroke}
 #endif
 #ifdef XK_Cyrillic_EN_descender
 xK_Cyrillic_EN_descender          :: KeySym
-xK_Cyrillic_EN_descender          = #const XK_Cyrillic_EN_descender
+xK_Cyrillic_EN_descender          = mkKeySym #{const XK_Cyrillic_EN_descender}
 #endif
 #ifdef XK_Cyrillic_en_descender
 xK_Cyrillic_en_descender          :: KeySym
-xK_Cyrillic_en_descender          = #const XK_Cyrillic_en_descender
+xK_Cyrillic_en_descender          = mkKeySym #{const XK_Cyrillic_en_descender}
 #endif
 #ifdef XK_Cyrillic_U_straight
 xK_Cyrillic_U_straight            :: KeySym
-xK_Cyrillic_U_straight            = #const XK_Cyrillic_U_straight
+xK_Cyrillic_U_straight            = mkKeySym #{const XK_Cyrillic_U_straight}
 #endif
 #ifdef XK_Cyrillic_u_straight
 xK_Cyrillic_u_straight            :: KeySym
-xK_Cyrillic_u_straight            = #const XK_Cyrillic_u_straight
+xK_Cyrillic_u_straight            = mkKeySym #{const XK_Cyrillic_u_straight}
 #endif
 #ifdef XK_Cyrillic_U_straight_bar
 xK_Cyrillic_U_straight_bar        :: KeySym
-xK_Cyrillic_U_straight_bar        = #const XK_Cyrillic_U_straight_bar
+xK_Cyrillic_U_straight_bar        = mkKeySym #{const XK_Cyrillic_U_straight_bar}
 #endif
 #ifdef XK_Cyrillic_u_straight_bar
 xK_Cyrillic_u_straight_bar        :: KeySym
-xK_Cyrillic_u_straight_bar        = #const XK_Cyrillic_u_straight_bar
+xK_Cyrillic_u_straight_bar        = mkKeySym #{const XK_Cyrillic_u_straight_bar}
 #endif
 #ifdef XK_Cyrillic_HA_descender
 xK_Cyrillic_HA_descender          :: KeySym
-xK_Cyrillic_HA_descender          = #const XK_Cyrillic_HA_descender
+xK_Cyrillic_HA_descender          = mkKeySym #{const XK_Cyrillic_HA_descender}
 #endif
 #ifdef XK_Cyrillic_ha_descender
 xK_Cyrillic_ha_descender          :: KeySym
-xK_Cyrillic_ha_descender          = #const XK_Cyrillic_ha_descender
+xK_Cyrillic_ha_descender          = mkKeySym #{const XK_Cyrillic_ha_descender}
 #endif
 #ifdef XK_Cyrillic_CHE_descender
 xK_Cyrillic_CHE_descender         :: KeySym
-xK_Cyrillic_CHE_descender         = #const XK_Cyrillic_CHE_descender
+xK_Cyrillic_CHE_descender         = mkKeySym #{const XK_Cyrillic_CHE_descender}
 #endif
 #ifdef XK_Cyrillic_che_descender
 xK_Cyrillic_che_descender         :: KeySym
-xK_Cyrillic_che_descender         = #const XK_Cyrillic_che_descender
+xK_Cyrillic_che_descender         = mkKeySym #{const XK_Cyrillic_che_descender}
 #endif
 #ifdef XK_Cyrillic_CHE_vertstroke
 xK_Cyrillic_CHE_vertstroke        :: KeySym
-xK_Cyrillic_CHE_vertstroke        = #const XK_Cyrillic_CHE_vertstroke
+xK_Cyrillic_CHE_vertstroke        = mkKeySym #{const XK_Cyrillic_CHE_vertstroke}
 #endif
 #ifdef XK_Cyrillic_che_vertstroke
 xK_Cyrillic_che_vertstroke        :: KeySym
-xK_Cyrillic_che_vertstroke        = #const XK_Cyrillic_che_vertstroke
+xK_Cyrillic_che_vertstroke        = mkKeySym #{const XK_Cyrillic_che_vertstroke}
 #endif
 #ifdef XK_Cyrillic_SHHA
 xK_Cyrillic_SHHA                  :: KeySym
-xK_Cyrillic_SHHA                  = #const XK_Cyrillic_SHHA
+xK_Cyrillic_SHHA                  = mkKeySym #{const XK_Cyrillic_SHHA}
 #endif
 #ifdef XK_Cyrillic_shha
 xK_Cyrillic_shha                  :: KeySym
-xK_Cyrillic_shha                  = #const XK_Cyrillic_shha
+xK_Cyrillic_shha                  = mkKeySym #{const XK_Cyrillic_shha}
 #endif
 #ifdef XK_Cyrillic_SCHWA
 xK_Cyrillic_SCHWA                 :: KeySym
-xK_Cyrillic_SCHWA                 = #const XK_Cyrillic_SCHWA
+xK_Cyrillic_SCHWA                 = mkKeySym #{const XK_Cyrillic_SCHWA}
 #endif
 #ifdef XK_Cyrillic_schwa
 xK_Cyrillic_schwa                 :: KeySym
-xK_Cyrillic_schwa                 = #const XK_Cyrillic_schwa
+xK_Cyrillic_schwa                 = mkKeySym #{const XK_Cyrillic_schwa}
 #endif
 #ifdef XK_Cyrillic_I_macron
 xK_Cyrillic_I_macron              :: KeySym
-xK_Cyrillic_I_macron              = #const XK_Cyrillic_I_macron
+xK_Cyrillic_I_macron              = mkKeySym #{const XK_Cyrillic_I_macron}
 #endif
 #ifdef XK_Cyrillic_i_macron
 xK_Cyrillic_i_macron              :: KeySym
-xK_Cyrillic_i_macron              = #const XK_Cyrillic_i_macron
+xK_Cyrillic_i_macron              = mkKeySym #{const XK_Cyrillic_i_macron}
 #endif
 #ifdef XK_Cyrillic_O_bar
 xK_Cyrillic_O_bar                 :: KeySym
-xK_Cyrillic_O_bar                 = #const XK_Cyrillic_O_bar
+xK_Cyrillic_O_bar                 = mkKeySym #{const XK_Cyrillic_O_bar}
 #endif
 #ifdef XK_Cyrillic_o_bar
 xK_Cyrillic_o_bar                 :: KeySym
-xK_Cyrillic_o_bar                 = #const XK_Cyrillic_o_bar
+xK_Cyrillic_o_bar                 = mkKeySym #{const XK_Cyrillic_o_bar}
 #endif
 #ifdef XK_Cyrillic_U_macron
 xK_Cyrillic_U_macron              :: KeySym
-xK_Cyrillic_U_macron              = #const XK_Cyrillic_U_macron
+xK_Cyrillic_U_macron              = mkKeySym #{const XK_Cyrillic_U_macron}
 #endif
 #ifdef XK_Cyrillic_u_macron
 xK_Cyrillic_u_macron              :: KeySym
-xK_Cyrillic_u_macron              = #const XK_Cyrillic_u_macron
+xK_Cyrillic_u_macron              = mkKeySym #{const XK_Cyrillic_u_macron}
 #endif
 #ifdef XK_Serbian_dje
 xK_Serbian_dje                    :: KeySym
-xK_Serbian_dje                    = #const XK_Serbian_dje
+xK_Serbian_dje                    = mkKeySym #{const XK_Serbian_dje}
 #endif
 #ifdef XK_Macedonia_gje
 xK_Macedonia_gje                  :: KeySym
-xK_Macedonia_gje                  = #const XK_Macedonia_gje
+xK_Macedonia_gje                  = mkKeySym #{const XK_Macedonia_gje}
 #endif
 #ifdef XK_Cyrillic_io
 xK_Cyrillic_io                    :: KeySym
-xK_Cyrillic_io                    = #const XK_Cyrillic_io
+xK_Cyrillic_io                    = mkKeySym #{const XK_Cyrillic_io}
 #endif
 #ifdef XK_Ukrainian_ie
 xK_Ukrainian_ie                   :: KeySym
-xK_Ukrainian_ie                   = #const XK_Ukrainian_ie
+xK_Ukrainian_ie                   = mkKeySym #{const XK_Ukrainian_ie}
 #endif
 #ifdef XK_Ukranian_je
 xK_Ukranian_je                    :: KeySym
-xK_Ukranian_je                    = #const XK_Ukranian_je
+xK_Ukranian_je                    = mkKeySym #{const XK_Ukranian_je}
 #endif
 #ifdef XK_Macedonia_dse
 xK_Macedonia_dse                  :: KeySym
-xK_Macedonia_dse                  = #const XK_Macedonia_dse
+xK_Macedonia_dse                  = mkKeySym #{const XK_Macedonia_dse}
 #endif
 #ifdef XK_Ukrainian_i
 xK_Ukrainian_i                    :: KeySym
-xK_Ukrainian_i                    = #const XK_Ukrainian_i
+xK_Ukrainian_i                    = mkKeySym #{const XK_Ukrainian_i}
 #endif
 #ifdef XK_Ukranian_i
 xK_Ukranian_i                     :: KeySym
-xK_Ukranian_i                     = #const XK_Ukranian_i
+xK_Ukranian_i                     = mkKeySym #{const XK_Ukranian_i}
 #endif
 #ifdef XK_Ukrainian_yi
 xK_Ukrainian_yi                   :: KeySym
-xK_Ukrainian_yi                   = #const XK_Ukrainian_yi
+xK_Ukrainian_yi                   = mkKeySym #{const XK_Ukrainian_yi}
 #endif
 #ifdef XK_Ukranian_yi
 xK_Ukranian_yi                    :: KeySym
-xK_Ukranian_yi                    = #const XK_Ukranian_yi
+xK_Ukranian_yi                    = mkKeySym #{const XK_Ukranian_yi}
 #endif
 #ifdef XK_Cyrillic_je
 xK_Cyrillic_je                    :: KeySym
-xK_Cyrillic_je                    = #const XK_Cyrillic_je
+xK_Cyrillic_je                    = mkKeySym #{const XK_Cyrillic_je}
 #endif
 #ifdef XK_Serbian_je
 xK_Serbian_je                     :: KeySym
-xK_Serbian_je                     = #const XK_Serbian_je
+xK_Serbian_je                     = mkKeySym #{const XK_Serbian_je}
 #endif
 #ifdef XK_Cyrillic_lje
 xK_Cyrillic_lje                   :: KeySym
-xK_Cyrillic_lje                   = #const XK_Cyrillic_lje
+xK_Cyrillic_lje                   = mkKeySym #{const XK_Cyrillic_lje}
 #endif
 #ifdef XK_Serbian_lje
 xK_Serbian_lje                    :: KeySym
-xK_Serbian_lje                    = #const XK_Serbian_lje
+xK_Serbian_lje                    = mkKeySym #{const XK_Serbian_lje}
 #endif
 #ifdef XK_Cyrillic_nje
 xK_Cyrillic_nje                   :: KeySym
-xK_Cyrillic_nje                   = #const XK_Cyrillic_nje
+xK_Cyrillic_nje                   = mkKeySym #{const XK_Cyrillic_nje}
 #endif
 #ifdef XK_Serbian_nje
 xK_Serbian_nje                    :: KeySym
-xK_Serbian_nje                    = #const XK_Serbian_nje
+xK_Serbian_nje                    = mkKeySym #{const XK_Serbian_nje}
 #endif
 #ifdef XK_Serbian_tshe
 xK_Serbian_tshe                   :: KeySym
-xK_Serbian_tshe                   = #const XK_Serbian_tshe
+xK_Serbian_tshe                   = mkKeySym #{const XK_Serbian_tshe}
 #endif
 #ifdef XK_Macedonia_kje
 xK_Macedonia_kje                  :: KeySym
-xK_Macedonia_kje                  = #const XK_Macedonia_kje
+xK_Macedonia_kje                  = mkKeySym #{const XK_Macedonia_kje}
 #endif
 #ifdef XK_Ukrainian_ghe_with_upturn
 xK_Ukrainian_ghe_with_upturn      :: KeySym
-xK_Ukrainian_ghe_with_upturn      = #const XK_Ukrainian_ghe_with_upturn
+xK_Ukrainian_ghe_with_upturn      = mkKeySym #{const XK_Ukrainian_ghe_with_upturn}
 #endif
 #ifdef XK_Byelorussian_shortu
 xK_Byelorussian_shortu            :: KeySym
-xK_Byelorussian_shortu            = #const XK_Byelorussian_shortu
+xK_Byelorussian_shortu            = mkKeySym #{const XK_Byelorussian_shortu}
 #endif
 #ifdef XK_Cyrillic_dzhe
 xK_Cyrillic_dzhe                  :: KeySym
-xK_Cyrillic_dzhe                  = #const XK_Cyrillic_dzhe
+xK_Cyrillic_dzhe                  = mkKeySym #{const XK_Cyrillic_dzhe}
 #endif
 #ifdef XK_Serbian_dze
 xK_Serbian_dze                    :: KeySym
-xK_Serbian_dze                    = #const XK_Serbian_dze
+xK_Serbian_dze                    = mkKeySym #{const XK_Serbian_dze}
 #endif
 #ifdef XK_numerosign
 xK_numerosign                     :: KeySym
-xK_numerosign                     = #const XK_numerosign
+xK_numerosign                     = mkKeySym #{const XK_numerosign}
 #endif
 #ifdef XK_Serbian_DJE
 xK_Serbian_DJE                    :: KeySym
-xK_Serbian_DJE                    = #const XK_Serbian_DJE
+xK_Serbian_DJE                    = mkKeySym #{const XK_Serbian_DJE}
 #endif
 #ifdef XK_Macedonia_GJE
 xK_Macedonia_GJE                  :: KeySym
-xK_Macedonia_GJE                  = #const XK_Macedonia_GJE
+xK_Macedonia_GJE                  = mkKeySym #{const XK_Macedonia_GJE}
 #endif
 #ifdef XK_Cyrillic_IO
 xK_Cyrillic_IO                    :: KeySym
-xK_Cyrillic_IO                    = #const XK_Cyrillic_IO
+xK_Cyrillic_IO                    = mkKeySym #{const XK_Cyrillic_IO}
 #endif
 #ifdef XK_Ukrainian_IE
 xK_Ukrainian_IE                   :: KeySym
-xK_Ukrainian_IE                   = #const XK_Ukrainian_IE
+xK_Ukrainian_IE                   = mkKeySym #{const XK_Ukrainian_IE}
 #endif
 #ifdef XK_Ukranian_JE
 xK_Ukranian_JE                    :: KeySym
-xK_Ukranian_JE                    = #const XK_Ukranian_JE
+xK_Ukranian_JE                    = mkKeySym #{const XK_Ukranian_JE}
 #endif
 #ifdef XK_Macedonia_DSE
 xK_Macedonia_DSE                  :: KeySym
-xK_Macedonia_DSE                  = #const XK_Macedonia_DSE
+xK_Macedonia_DSE                  = mkKeySym #{const XK_Macedonia_DSE}
 #endif
 #ifdef XK_Ukrainian_I
 xK_Ukrainian_I                    :: KeySym
-xK_Ukrainian_I                    = #const XK_Ukrainian_I
+xK_Ukrainian_I                    = mkKeySym #{const XK_Ukrainian_I}
 #endif
 #ifdef XK_Ukranian_I
 xK_Ukranian_I                     :: KeySym
-xK_Ukranian_I                     = #const XK_Ukranian_I
+xK_Ukranian_I                     = mkKeySym #{const XK_Ukranian_I}
 #endif
 #ifdef XK_Ukrainian_YI
 xK_Ukrainian_YI                   :: KeySym
-xK_Ukrainian_YI                   = #const XK_Ukrainian_YI
+xK_Ukrainian_YI                   = mkKeySym #{const XK_Ukrainian_YI}
 #endif
 #ifdef XK_Ukranian_YI
 xK_Ukranian_YI                    :: KeySym
-xK_Ukranian_YI                    = #const XK_Ukranian_YI
+xK_Ukranian_YI                    = mkKeySym #{const XK_Ukranian_YI}
 #endif
 #ifdef XK_Cyrillic_JE
 xK_Cyrillic_JE                    :: KeySym
-xK_Cyrillic_JE                    = #const XK_Cyrillic_JE
+xK_Cyrillic_JE                    = mkKeySym #{const XK_Cyrillic_JE}
 #endif
 #ifdef XK_Serbian_JE
 xK_Serbian_JE                     :: KeySym
-xK_Serbian_JE                     = #const XK_Serbian_JE
+xK_Serbian_JE                     = mkKeySym #{const XK_Serbian_JE}
 #endif
 #ifdef XK_Cyrillic_LJE
 xK_Cyrillic_LJE                   :: KeySym
-xK_Cyrillic_LJE                   = #const XK_Cyrillic_LJE
+xK_Cyrillic_LJE                   = mkKeySym #{const XK_Cyrillic_LJE}
 #endif
 #ifdef XK_Serbian_LJE
 xK_Serbian_LJE                    :: KeySym
-xK_Serbian_LJE                    = #const XK_Serbian_LJE
+xK_Serbian_LJE                    = mkKeySym #{const XK_Serbian_LJE}
 #endif
 #ifdef XK_Cyrillic_NJE
 xK_Cyrillic_NJE                   :: KeySym
-xK_Cyrillic_NJE                   = #const XK_Cyrillic_NJE
+xK_Cyrillic_NJE                   = mkKeySym #{const XK_Cyrillic_NJE}
 #endif
 #ifdef XK_Serbian_NJE
 xK_Serbian_NJE                    :: KeySym
-xK_Serbian_NJE                    = #const XK_Serbian_NJE
+xK_Serbian_NJE                    = mkKeySym #{const XK_Serbian_NJE}
 #endif
 #ifdef XK_Serbian_TSHE
 xK_Serbian_TSHE                   :: KeySym
-xK_Serbian_TSHE                   = #const XK_Serbian_TSHE
+xK_Serbian_TSHE                   = mkKeySym #{const XK_Serbian_TSHE}
 #endif
 #ifdef XK_Macedonia_KJE
 xK_Macedonia_KJE                  :: KeySym
-xK_Macedonia_KJE                  = #const XK_Macedonia_KJE
+xK_Macedonia_KJE                  = mkKeySym #{const XK_Macedonia_KJE}
 #endif
 #ifdef XK_Ukrainian_GHE_WITH_UPTURN
 xK_Ukrainian_GHE_WITH_UPTURN      :: KeySym
-xK_Ukrainian_GHE_WITH_UPTURN      = #const XK_Ukrainian_GHE_WITH_UPTURN
+xK_Ukrainian_GHE_WITH_UPTURN      = mkKeySym #{const XK_Ukrainian_GHE_WITH_UPTURN}
 #endif
 #ifdef XK_Byelorussian_SHORTU
 xK_Byelorussian_SHORTU            :: KeySym
-xK_Byelorussian_SHORTU            = #const XK_Byelorussian_SHORTU
+xK_Byelorussian_SHORTU            = mkKeySym #{const XK_Byelorussian_SHORTU}
 #endif
 #ifdef XK_Cyrillic_DZHE
 xK_Cyrillic_DZHE                  :: KeySym
-xK_Cyrillic_DZHE                  = #const XK_Cyrillic_DZHE
+xK_Cyrillic_DZHE                  = mkKeySym #{const XK_Cyrillic_DZHE}
 #endif
 #ifdef XK_Serbian_DZE
 xK_Serbian_DZE                    :: KeySym
-xK_Serbian_DZE                    = #const XK_Serbian_DZE
+xK_Serbian_DZE                    = mkKeySym #{const XK_Serbian_DZE}
 #endif
 #ifdef XK_Cyrillic_yu
 xK_Cyrillic_yu                    :: KeySym
-xK_Cyrillic_yu                    = #const XK_Cyrillic_yu
+xK_Cyrillic_yu                    = mkKeySym #{const XK_Cyrillic_yu}
 #endif
 #ifdef XK_Cyrillic_a
 xK_Cyrillic_a                     :: KeySym
-xK_Cyrillic_a                     = #const XK_Cyrillic_a
+xK_Cyrillic_a                     = mkKeySym #{const XK_Cyrillic_a}
 #endif
 #ifdef XK_Cyrillic_be
 xK_Cyrillic_be                    :: KeySym
-xK_Cyrillic_be                    = #const XK_Cyrillic_be
+xK_Cyrillic_be                    = mkKeySym #{const XK_Cyrillic_be}
 #endif
 #ifdef XK_Cyrillic_tse
 xK_Cyrillic_tse                   :: KeySym
-xK_Cyrillic_tse                   = #const XK_Cyrillic_tse
+xK_Cyrillic_tse                   = mkKeySym #{const XK_Cyrillic_tse}
 #endif
 #ifdef XK_Cyrillic_de
 xK_Cyrillic_de                    :: KeySym
-xK_Cyrillic_de                    = #const XK_Cyrillic_de
+xK_Cyrillic_de                    = mkKeySym #{const XK_Cyrillic_de}
 #endif
 #ifdef XK_Cyrillic_ie
 xK_Cyrillic_ie                    :: KeySym
-xK_Cyrillic_ie                    = #const XK_Cyrillic_ie
+xK_Cyrillic_ie                    = mkKeySym #{const XK_Cyrillic_ie}
 #endif
 #ifdef XK_Cyrillic_ef
 xK_Cyrillic_ef                    :: KeySym
-xK_Cyrillic_ef                    = #const XK_Cyrillic_ef
+xK_Cyrillic_ef                    = mkKeySym #{const XK_Cyrillic_ef}
 #endif
 #ifdef XK_Cyrillic_ghe
 xK_Cyrillic_ghe                   :: KeySym
-xK_Cyrillic_ghe                   = #const XK_Cyrillic_ghe
+xK_Cyrillic_ghe                   = mkKeySym #{const XK_Cyrillic_ghe}
 #endif
 #ifdef XK_Cyrillic_ha
 xK_Cyrillic_ha                    :: KeySym
-xK_Cyrillic_ha                    = #const XK_Cyrillic_ha
+xK_Cyrillic_ha                    = mkKeySym #{const XK_Cyrillic_ha}
 #endif
 #ifdef XK_Cyrillic_i
 xK_Cyrillic_i                     :: KeySym
-xK_Cyrillic_i                     = #const XK_Cyrillic_i
+xK_Cyrillic_i                     = mkKeySym #{const XK_Cyrillic_i}
 #endif
 #ifdef XK_Cyrillic_shorti
 xK_Cyrillic_shorti                :: KeySym
-xK_Cyrillic_shorti                = #const XK_Cyrillic_shorti
+xK_Cyrillic_shorti                = mkKeySym #{const XK_Cyrillic_shorti}
 #endif
 #ifdef XK_Cyrillic_ka
 xK_Cyrillic_ka                    :: KeySym
-xK_Cyrillic_ka                    = #const XK_Cyrillic_ka
+xK_Cyrillic_ka                    = mkKeySym #{const XK_Cyrillic_ka}
 #endif
 #ifdef XK_Cyrillic_el
 xK_Cyrillic_el                    :: KeySym
-xK_Cyrillic_el                    = #const XK_Cyrillic_el
+xK_Cyrillic_el                    = mkKeySym #{const XK_Cyrillic_el}
 #endif
 #ifdef XK_Cyrillic_em
 xK_Cyrillic_em                    :: KeySym
-xK_Cyrillic_em                    = #const XK_Cyrillic_em
+xK_Cyrillic_em                    = mkKeySym #{const XK_Cyrillic_em}
 #endif
 #ifdef XK_Cyrillic_en
 xK_Cyrillic_en                    :: KeySym
-xK_Cyrillic_en                    = #const XK_Cyrillic_en
+xK_Cyrillic_en                    = mkKeySym #{const XK_Cyrillic_en}
 #endif
 #ifdef XK_Cyrillic_o
 xK_Cyrillic_o                     :: KeySym
-xK_Cyrillic_o                     = #const XK_Cyrillic_o
+xK_Cyrillic_o                     = mkKeySym #{const XK_Cyrillic_o}
 #endif
 #ifdef XK_Cyrillic_pe
 xK_Cyrillic_pe                    :: KeySym
-xK_Cyrillic_pe                    = #const XK_Cyrillic_pe
+xK_Cyrillic_pe                    = mkKeySym #{const XK_Cyrillic_pe}
 #endif
 #ifdef XK_Cyrillic_ya
 xK_Cyrillic_ya                    :: KeySym
-xK_Cyrillic_ya                    = #const XK_Cyrillic_ya
+xK_Cyrillic_ya                    = mkKeySym #{const XK_Cyrillic_ya}
 #endif
 #ifdef XK_Cyrillic_er
 xK_Cyrillic_er                    :: KeySym
-xK_Cyrillic_er                    = #const XK_Cyrillic_er
+xK_Cyrillic_er                    = mkKeySym #{const XK_Cyrillic_er}
 #endif
 #ifdef XK_Cyrillic_es
 xK_Cyrillic_es                    :: KeySym
-xK_Cyrillic_es                    = #const XK_Cyrillic_es
+xK_Cyrillic_es                    = mkKeySym #{const XK_Cyrillic_es}
 #endif
 #ifdef XK_Cyrillic_te
 xK_Cyrillic_te                    :: KeySym
-xK_Cyrillic_te                    = #const XK_Cyrillic_te
+xK_Cyrillic_te                    = mkKeySym #{const XK_Cyrillic_te}
 #endif
 #ifdef XK_Cyrillic_u
 xK_Cyrillic_u                     :: KeySym
-xK_Cyrillic_u                     = #const XK_Cyrillic_u
+xK_Cyrillic_u                     = mkKeySym #{const XK_Cyrillic_u}
 #endif
 #ifdef XK_Cyrillic_zhe
 xK_Cyrillic_zhe                   :: KeySym
-xK_Cyrillic_zhe                   = #const XK_Cyrillic_zhe
+xK_Cyrillic_zhe                   = mkKeySym #{const XK_Cyrillic_zhe}
 #endif
 #ifdef XK_Cyrillic_ve
 xK_Cyrillic_ve                    :: KeySym
-xK_Cyrillic_ve                    = #const XK_Cyrillic_ve
+xK_Cyrillic_ve                    = mkKeySym #{const XK_Cyrillic_ve}
 #endif
 #ifdef XK_Cyrillic_softsign
 xK_Cyrillic_softsign              :: KeySym
-xK_Cyrillic_softsign              = #const XK_Cyrillic_softsign
+xK_Cyrillic_softsign              = mkKeySym #{const XK_Cyrillic_softsign}
 #endif
 #ifdef XK_Cyrillic_yeru
 xK_Cyrillic_yeru                  :: KeySym
-xK_Cyrillic_yeru                  = #const XK_Cyrillic_yeru
+xK_Cyrillic_yeru                  = mkKeySym #{const XK_Cyrillic_yeru}
 #endif
 #ifdef XK_Cyrillic_ze
 xK_Cyrillic_ze                    :: KeySym
-xK_Cyrillic_ze                    = #const XK_Cyrillic_ze
+xK_Cyrillic_ze                    = mkKeySym #{const XK_Cyrillic_ze}
 #endif
 #ifdef XK_Cyrillic_sha
 xK_Cyrillic_sha                   :: KeySym
-xK_Cyrillic_sha                   = #const XK_Cyrillic_sha
+xK_Cyrillic_sha                   = mkKeySym #{const XK_Cyrillic_sha}
 #endif
 #ifdef XK_Cyrillic_e
 xK_Cyrillic_e                     :: KeySym
-xK_Cyrillic_e                     = #const XK_Cyrillic_e
+xK_Cyrillic_e                     = mkKeySym #{const XK_Cyrillic_e}
 #endif
 #ifdef XK_Cyrillic_shcha
 xK_Cyrillic_shcha                 :: KeySym
-xK_Cyrillic_shcha                 = #const XK_Cyrillic_shcha
+xK_Cyrillic_shcha                 = mkKeySym #{const XK_Cyrillic_shcha}
 #endif
 #ifdef XK_Cyrillic_che
 xK_Cyrillic_che                   :: KeySym
-xK_Cyrillic_che                   = #const XK_Cyrillic_che
+xK_Cyrillic_che                   = mkKeySym #{const XK_Cyrillic_che}
 #endif
 #ifdef XK_Cyrillic_hardsign
 xK_Cyrillic_hardsign              :: KeySym
-xK_Cyrillic_hardsign              = #const XK_Cyrillic_hardsign
+xK_Cyrillic_hardsign              = mkKeySym #{const XK_Cyrillic_hardsign}
 #endif
 #ifdef XK_Cyrillic_YU
 xK_Cyrillic_YU                    :: KeySym
-xK_Cyrillic_YU                    = #const XK_Cyrillic_YU
+xK_Cyrillic_YU                    = mkKeySym #{const XK_Cyrillic_YU}
 #endif
 #ifdef XK_Cyrillic_A
 xK_Cyrillic_A                     :: KeySym
-xK_Cyrillic_A                     = #const XK_Cyrillic_A
+xK_Cyrillic_A                     = mkKeySym #{const XK_Cyrillic_A}
 #endif
 #ifdef XK_Cyrillic_BE
 xK_Cyrillic_BE                    :: KeySym
-xK_Cyrillic_BE                    = #const XK_Cyrillic_BE
+xK_Cyrillic_BE                    = mkKeySym #{const XK_Cyrillic_BE}
 #endif
 #ifdef XK_Cyrillic_TSE
 xK_Cyrillic_TSE                   :: KeySym
-xK_Cyrillic_TSE                   = #const XK_Cyrillic_TSE
+xK_Cyrillic_TSE                   = mkKeySym #{const XK_Cyrillic_TSE}
 #endif
 #ifdef XK_Cyrillic_DE
 xK_Cyrillic_DE                    :: KeySym
-xK_Cyrillic_DE                    = #const XK_Cyrillic_DE
+xK_Cyrillic_DE                    = mkKeySym #{const XK_Cyrillic_DE}
 #endif
 #ifdef XK_Cyrillic_IE
 xK_Cyrillic_IE                    :: KeySym
-xK_Cyrillic_IE                    = #const XK_Cyrillic_IE
+xK_Cyrillic_IE                    = mkKeySym #{const XK_Cyrillic_IE}
 #endif
 #ifdef XK_Cyrillic_EF
 xK_Cyrillic_EF                    :: KeySym
-xK_Cyrillic_EF                    = #const XK_Cyrillic_EF
+xK_Cyrillic_EF                    = mkKeySym #{const XK_Cyrillic_EF}
 #endif
 #ifdef XK_Cyrillic_GHE
 xK_Cyrillic_GHE                   :: KeySym
-xK_Cyrillic_GHE                   = #const XK_Cyrillic_GHE
+xK_Cyrillic_GHE                   = mkKeySym #{const XK_Cyrillic_GHE}
 #endif
 #ifdef XK_Cyrillic_HA
 xK_Cyrillic_HA                    :: KeySym
-xK_Cyrillic_HA                    = #const XK_Cyrillic_HA
+xK_Cyrillic_HA                    = mkKeySym #{const XK_Cyrillic_HA}
 #endif
 #ifdef XK_Cyrillic_I
 xK_Cyrillic_I                     :: KeySym
-xK_Cyrillic_I                     = #const XK_Cyrillic_I
+xK_Cyrillic_I                     = mkKeySym #{const XK_Cyrillic_I}
 #endif
 #ifdef XK_Cyrillic_SHORTI
 xK_Cyrillic_SHORTI                :: KeySym
-xK_Cyrillic_SHORTI                = #const XK_Cyrillic_SHORTI
+xK_Cyrillic_SHORTI                = mkKeySym #{const XK_Cyrillic_SHORTI}
 #endif
 #ifdef XK_Cyrillic_KA
 xK_Cyrillic_KA                    :: KeySym
-xK_Cyrillic_KA                    = #const XK_Cyrillic_KA
+xK_Cyrillic_KA                    = mkKeySym #{const XK_Cyrillic_KA}
 #endif
 #ifdef XK_Cyrillic_EL
 xK_Cyrillic_EL                    :: KeySym
-xK_Cyrillic_EL                    = #const XK_Cyrillic_EL
+xK_Cyrillic_EL                    = mkKeySym #{const XK_Cyrillic_EL}
 #endif
 #ifdef XK_Cyrillic_EM
 xK_Cyrillic_EM                    :: KeySym
-xK_Cyrillic_EM                    = #const XK_Cyrillic_EM
+xK_Cyrillic_EM                    = mkKeySym #{const XK_Cyrillic_EM}
 #endif
 #ifdef XK_Cyrillic_EN
 xK_Cyrillic_EN                    :: KeySym
-xK_Cyrillic_EN                    = #const XK_Cyrillic_EN
+xK_Cyrillic_EN                    = mkKeySym #{const XK_Cyrillic_EN}
 #endif
 #ifdef XK_Cyrillic_O
 xK_Cyrillic_O                     :: KeySym
-xK_Cyrillic_O                     = #const XK_Cyrillic_O
+xK_Cyrillic_O                     = mkKeySym #{const XK_Cyrillic_O}
 #endif
 #ifdef XK_Cyrillic_PE
 xK_Cyrillic_PE                    :: KeySym
-xK_Cyrillic_PE                    = #const XK_Cyrillic_PE
+xK_Cyrillic_PE                    = mkKeySym #{const XK_Cyrillic_PE}
 #endif
 #ifdef XK_Cyrillic_YA
 xK_Cyrillic_YA                    :: KeySym
-xK_Cyrillic_YA                    = #const XK_Cyrillic_YA
+xK_Cyrillic_YA                    = mkKeySym #{const XK_Cyrillic_YA}
 #endif
 #ifdef XK_Cyrillic_ER
 xK_Cyrillic_ER                    :: KeySym
-xK_Cyrillic_ER                    = #const XK_Cyrillic_ER
+xK_Cyrillic_ER                    = mkKeySym #{const XK_Cyrillic_ER}
 #endif
 #ifdef XK_Cyrillic_ES
 xK_Cyrillic_ES                    :: KeySym
-xK_Cyrillic_ES                    = #const XK_Cyrillic_ES
+xK_Cyrillic_ES                    = mkKeySym #{const XK_Cyrillic_ES}
 #endif
 #ifdef XK_Cyrillic_TE
 xK_Cyrillic_TE                    :: KeySym
-xK_Cyrillic_TE                    = #const XK_Cyrillic_TE
+xK_Cyrillic_TE                    = mkKeySym #{const XK_Cyrillic_TE}
 #endif
 #ifdef XK_Cyrillic_U
 xK_Cyrillic_U                     :: KeySym
-xK_Cyrillic_U                     = #const XK_Cyrillic_U
+xK_Cyrillic_U                     = mkKeySym #{const XK_Cyrillic_U}
 #endif
 #ifdef XK_Cyrillic_ZHE
 xK_Cyrillic_ZHE                   :: KeySym
-xK_Cyrillic_ZHE                   = #const XK_Cyrillic_ZHE
+xK_Cyrillic_ZHE                   = mkKeySym #{const XK_Cyrillic_ZHE}
 #endif
 #ifdef XK_Cyrillic_VE
 xK_Cyrillic_VE                    :: KeySym
-xK_Cyrillic_VE                    = #const XK_Cyrillic_VE
+xK_Cyrillic_VE                    = mkKeySym #{const XK_Cyrillic_VE}
 #endif
 #ifdef XK_Cyrillic_SOFTSIGN
 xK_Cyrillic_SOFTSIGN              :: KeySym
-xK_Cyrillic_SOFTSIGN              = #const XK_Cyrillic_SOFTSIGN
+xK_Cyrillic_SOFTSIGN              = mkKeySym #{const XK_Cyrillic_SOFTSIGN}
 #endif
 #ifdef XK_Cyrillic_YERU
 xK_Cyrillic_YERU                  :: KeySym
-xK_Cyrillic_YERU                  = #const XK_Cyrillic_YERU
+xK_Cyrillic_YERU                  = mkKeySym #{const XK_Cyrillic_YERU}
 #endif
 #ifdef XK_Cyrillic_ZE
 xK_Cyrillic_ZE                    :: KeySym
-xK_Cyrillic_ZE                    = #const XK_Cyrillic_ZE
+xK_Cyrillic_ZE                    = mkKeySym #{const XK_Cyrillic_ZE}
 #endif
 #ifdef XK_Cyrillic_SHA
 xK_Cyrillic_SHA                   :: KeySym
-xK_Cyrillic_SHA                   = #const XK_Cyrillic_SHA
+xK_Cyrillic_SHA                   = mkKeySym #{const XK_Cyrillic_SHA}
 #endif
 #ifdef XK_Cyrillic_E
 xK_Cyrillic_E                     :: KeySym
-xK_Cyrillic_E                     = #const XK_Cyrillic_E
+xK_Cyrillic_E                     = mkKeySym #{const XK_Cyrillic_E}
 #endif
 #ifdef XK_Cyrillic_SHCHA
 xK_Cyrillic_SHCHA                 :: KeySym
-xK_Cyrillic_SHCHA                 = #const XK_Cyrillic_SHCHA
+xK_Cyrillic_SHCHA                 = mkKeySym #{const XK_Cyrillic_SHCHA}
 #endif
 #ifdef XK_Cyrillic_CHE
 xK_Cyrillic_CHE                   :: KeySym
-xK_Cyrillic_CHE                   = #const XK_Cyrillic_CHE
+xK_Cyrillic_CHE                   = mkKeySym #{const XK_Cyrillic_CHE}
 #endif
 #ifdef XK_Cyrillic_HARDSIGN
 xK_Cyrillic_HARDSIGN              :: KeySym
-xK_Cyrillic_HARDSIGN              = #const XK_Cyrillic_HARDSIGN
+xK_Cyrillic_HARDSIGN              = mkKeySym #{const XK_Cyrillic_HARDSIGN}
 #endif
 
 -- XK_GREEK
 #ifdef XK_Greek_ALPHAaccent
 xK_Greek_ALPHAaccent              :: KeySym
-xK_Greek_ALPHAaccent              = #const XK_Greek_ALPHAaccent
+xK_Greek_ALPHAaccent              = mkKeySym #{const XK_Greek_ALPHAaccent}
 #endif
 #ifdef XK_Greek_EPSILONaccent
 xK_Greek_EPSILONaccent            :: KeySym
-xK_Greek_EPSILONaccent            = #const XK_Greek_EPSILONaccent
+xK_Greek_EPSILONaccent            = mkKeySym #{const XK_Greek_EPSILONaccent}
 #endif
 #ifdef XK_Greek_ETAaccent
 xK_Greek_ETAaccent                :: KeySym
-xK_Greek_ETAaccent                = #const XK_Greek_ETAaccent
+xK_Greek_ETAaccent                = mkKeySym #{const XK_Greek_ETAaccent}
 #endif
 #ifdef XK_Greek_IOTAaccent
 xK_Greek_IOTAaccent               :: KeySym
-xK_Greek_IOTAaccent               = #const XK_Greek_IOTAaccent
+xK_Greek_IOTAaccent               = mkKeySym #{const XK_Greek_IOTAaccent}
 #endif
 #ifdef XK_Greek_IOTAdieresis
 xK_Greek_IOTAdieresis             :: KeySym
-xK_Greek_IOTAdieresis             = #const XK_Greek_IOTAdieresis
+xK_Greek_IOTAdieresis             = mkKeySym #{const XK_Greek_IOTAdieresis}
 #endif
 #ifdef XK_Greek_IOTAdiaeresis
 xK_Greek_IOTAdiaeresis            :: KeySym
-xK_Greek_IOTAdiaeresis            = #const XK_Greek_IOTAdiaeresis
+xK_Greek_IOTAdiaeresis            = mkKeySym #{const XK_Greek_IOTAdiaeresis}
 #endif
 #ifdef XK_Greek_OMICRONaccent
 xK_Greek_OMICRONaccent            :: KeySym
-xK_Greek_OMICRONaccent            = #const XK_Greek_OMICRONaccent
+xK_Greek_OMICRONaccent            = mkKeySym #{const XK_Greek_OMICRONaccent}
 #endif
 #ifdef XK_Greek_UPSILONaccent
 xK_Greek_UPSILONaccent            :: KeySym
-xK_Greek_UPSILONaccent            = #const XK_Greek_UPSILONaccent
+xK_Greek_UPSILONaccent            = mkKeySym #{const XK_Greek_UPSILONaccent}
 #endif
 #ifdef XK_Greek_UPSILONdieresis
 xK_Greek_UPSILONdieresis          :: KeySym
-xK_Greek_UPSILONdieresis          = #const XK_Greek_UPSILONdieresis
+xK_Greek_UPSILONdieresis          = mkKeySym #{const XK_Greek_UPSILONdieresis}
 #endif
 #ifdef XK_Greek_OMEGAaccent
 xK_Greek_OMEGAaccent              :: KeySym
-xK_Greek_OMEGAaccent              = #const XK_Greek_OMEGAaccent
+xK_Greek_OMEGAaccent              = mkKeySym #{const XK_Greek_OMEGAaccent}
 #endif
 #ifdef XK_Greek_accentdieresis
 xK_Greek_accentdieresis           :: KeySym
-xK_Greek_accentdieresis           = #const XK_Greek_accentdieresis
+xK_Greek_accentdieresis           = mkKeySym #{const XK_Greek_accentdieresis}
 #endif
 #ifdef XK_Greek_horizbar
 xK_Greek_horizbar                 :: KeySym
-xK_Greek_horizbar                 = #const XK_Greek_horizbar
+xK_Greek_horizbar                 = mkKeySym #{const XK_Greek_horizbar}
 #endif
 #ifdef XK_Greek_alphaaccent
 xK_Greek_alphaaccent              :: KeySym
-xK_Greek_alphaaccent              = #const XK_Greek_alphaaccent
+xK_Greek_alphaaccent              = mkKeySym #{const XK_Greek_alphaaccent}
 #endif
 #ifdef XK_Greek_epsilonaccent
 xK_Greek_epsilonaccent            :: KeySym
-xK_Greek_epsilonaccent            = #const XK_Greek_epsilonaccent
+xK_Greek_epsilonaccent            = mkKeySym #{const XK_Greek_epsilonaccent}
 #endif
 #ifdef XK_Greek_etaaccent
 xK_Greek_etaaccent                :: KeySym
-xK_Greek_etaaccent                = #const XK_Greek_etaaccent
+xK_Greek_etaaccent                = mkKeySym #{const XK_Greek_etaaccent}
 #endif
 #ifdef XK_Greek_iotaaccent
 xK_Greek_iotaaccent               :: KeySym
-xK_Greek_iotaaccent               = #const XK_Greek_iotaaccent
+xK_Greek_iotaaccent               = mkKeySym #{const XK_Greek_iotaaccent}
 #endif
 #ifdef XK_Greek_iotadieresis
 xK_Greek_iotadieresis             :: KeySym
-xK_Greek_iotadieresis             = #const XK_Greek_iotadieresis
+xK_Greek_iotadieresis             = mkKeySym #{const XK_Greek_iotadieresis}
 #endif
 #ifdef XK_Greek_iotaaccentdieresis
 xK_Greek_iotaaccentdieresis       :: KeySym
-xK_Greek_iotaaccentdieresis       = #const XK_Greek_iotaaccentdieresis
+xK_Greek_iotaaccentdieresis       = mkKeySym #{const XK_Greek_iotaaccentdieresis}
 #endif
 #ifdef XK_Greek_omicronaccent
 xK_Greek_omicronaccent            :: KeySym
-xK_Greek_omicronaccent            = #const XK_Greek_omicronaccent
+xK_Greek_omicronaccent            = mkKeySym #{const XK_Greek_omicronaccent}
 #endif
 #ifdef XK_Greek_upsilonaccent
 xK_Greek_upsilonaccent            :: KeySym
-xK_Greek_upsilonaccent            = #const XK_Greek_upsilonaccent
+xK_Greek_upsilonaccent            = mkKeySym #{const XK_Greek_upsilonaccent}
 #endif
 #ifdef XK_Greek_upsilondieresis
 xK_Greek_upsilondieresis          :: KeySym
-xK_Greek_upsilondieresis          = #const XK_Greek_upsilondieresis
+xK_Greek_upsilondieresis          = mkKeySym #{const XK_Greek_upsilondieresis}
 #endif
 #ifdef XK_Greek_upsilonaccentdieresis
 xK_Greek_upsilonaccentdieresis    :: KeySym
-xK_Greek_upsilonaccentdieresis    = #const XK_Greek_upsilonaccentdieresis
+xK_Greek_upsilonaccentdieresis    = mkKeySym #{const XK_Greek_upsilonaccentdieresis}
 #endif
 #ifdef XK_Greek_omegaaccent
 xK_Greek_omegaaccent              :: KeySym
-xK_Greek_omegaaccent              = #const XK_Greek_omegaaccent
+xK_Greek_omegaaccent              = mkKeySym #{const XK_Greek_omegaaccent}
 #endif
 #ifdef XK_Greek_ALPHA
 xK_Greek_ALPHA                    :: KeySym
-xK_Greek_ALPHA                    = #const XK_Greek_ALPHA
+xK_Greek_ALPHA                    = mkKeySym #{const XK_Greek_ALPHA}
 #endif
 #ifdef XK_Greek_BETA
 xK_Greek_BETA                     :: KeySym
-xK_Greek_BETA                     = #const XK_Greek_BETA
+xK_Greek_BETA                     = mkKeySym #{const XK_Greek_BETA}
 #endif
 #ifdef XK_Greek_GAMMA
 xK_Greek_GAMMA                    :: KeySym
-xK_Greek_GAMMA                    = #const XK_Greek_GAMMA
+xK_Greek_GAMMA                    = mkKeySym #{const XK_Greek_GAMMA}
 #endif
 #ifdef XK_Greek_DELTA
 xK_Greek_DELTA                    :: KeySym
-xK_Greek_DELTA                    = #const XK_Greek_DELTA
+xK_Greek_DELTA                    = mkKeySym #{const XK_Greek_DELTA}
 #endif
 #ifdef XK_Greek_EPSILON
 xK_Greek_EPSILON                  :: KeySym
-xK_Greek_EPSILON                  = #const XK_Greek_EPSILON
+xK_Greek_EPSILON                  = mkKeySym #{const XK_Greek_EPSILON}
 #endif
 #ifdef XK_Greek_ZETA
 xK_Greek_ZETA                     :: KeySym
-xK_Greek_ZETA                     = #const XK_Greek_ZETA
+xK_Greek_ZETA                     = mkKeySym #{const XK_Greek_ZETA}
 #endif
 #ifdef XK_Greek_ETA
 xK_Greek_ETA                      :: KeySym
-xK_Greek_ETA                      = #const XK_Greek_ETA
+xK_Greek_ETA                      = mkKeySym #{const XK_Greek_ETA}
 #endif
 #ifdef XK_Greek_THETA
 xK_Greek_THETA                    :: KeySym
-xK_Greek_THETA                    = #const XK_Greek_THETA
+xK_Greek_THETA                    = mkKeySym #{const XK_Greek_THETA}
 #endif
 #ifdef XK_Greek_IOTA
 xK_Greek_IOTA                     :: KeySym
-xK_Greek_IOTA                     = #const XK_Greek_IOTA
+xK_Greek_IOTA                     = mkKeySym #{const XK_Greek_IOTA}
 #endif
 #ifdef XK_Greek_KAPPA
 xK_Greek_KAPPA                    :: KeySym
-xK_Greek_KAPPA                    = #const XK_Greek_KAPPA
+xK_Greek_KAPPA                    = mkKeySym #{const XK_Greek_KAPPA}
 #endif
 #ifdef XK_Greek_LAMDA
 xK_Greek_LAMDA                    :: KeySym
-xK_Greek_LAMDA                    = #const XK_Greek_LAMDA
+xK_Greek_LAMDA                    = mkKeySym #{const XK_Greek_LAMDA}
 #endif
 #ifdef XK_Greek_LAMBDA
 xK_Greek_LAMBDA                   :: KeySym
-xK_Greek_LAMBDA                   = #const XK_Greek_LAMBDA
+xK_Greek_LAMBDA                   = mkKeySym #{const XK_Greek_LAMBDA}
 #endif
 #ifdef XK_Greek_MU
 xK_Greek_MU                       :: KeySym
-xK_Greek_MU                       = #const XK_Greek_MU
+xK_Greek_MU                       = mkKeySym #{const XK_Greek_MU}
 #endif
 #ifdef XK_Greek_NU
 xK_Greek_NU                       :: KeySym
-xK_Greek_NU                       = #const XK_Greek_NU
+xK_Greek_NU                       = mkKeySym #{const XK_Greek_NU}
 #endif
 #ifdef XK_Greek_XI
 xK_Greek_XI                       :: KeySym
-xK_Greek_XI                       = #const XK_Greek_XI
+xK_Greek_XI                       = mkKeySym #{const XK_Greek_XI}
 #endif
 #ifdef XK_Greek_OMICRON
 xK_Greek_OMICRON                  :: KeySym
-xK_Greek_OMICRON                  = #const XK_Greek_OMICRON
+xK_Greek_OMICRON                  = mkKeySym #{const XK_Greek_OMICRON}
 #endif
 #ifdef XK_Greek_PI
 xK_Greek_PI                       :: KeySym
-xK_Greek_PI                       = #const XK_Greek_PI
+xK_Greek_PI                       = mkKeySym #{const XK_Greek_PI}
 #endif
 #ifdef XK_Greek_RHO
 xK_Greek_RHO                      :: KeySym
-xK_Greek_RHO                      = #const XK_Greek_RHO
+xK_Greek_RHO                      = mkKeySym #{const XK_Greek_RHO}
 #endif
 #ifdef XK_Greek_SIGMA
 xK_Greek_SIGMA                    :: KeySym
-xK_Greek_SIGMA                    = #const XK_Greek_SIGMA
+xK_Greek_SIGMA                    = mkKeySym #{const XK_Greek_SIGMA}
 #endif
 #ifdef XK_Greek_TAU
 xK_Greek_TAU                      :: KeySym
-xK_Greek_TAU                      = #const XK_Greek_TAU
+xK_Greek_TAU                      = mkKeySym #{const XK_Greek_TAU}
 #endif
 #ifdef XK_Greek_UPSILON
 xK_Greek_UPSILON                  :: KeySym
-xK_Greek_UPSILON                  = #const XK_Greek_UPSILON
+xK_Greek_UPSILON                  = mkKeySym #{const XK_Greek_UPSILON}
 #endif
 #ifdef XK_Greek_PHI
 xK_Greek_PHI                      :: KeySym
-xK_Greek_PHI                      = #const XK_Greek_PHI
+xK_Greek_PHI                      = mkKeySym #{const XK_Greek_PHI}
 #endif
 #ifdef XK_Greek_CHI
 xK_Greek_CHI                      :: KeySym
-xK_Greek_CHI                      = #const XK_Greek_CHI
+xK_Greek_CHI                      = mkKeySym #{const XK_Greek_CHI}
 #endif
 #ifdef XK_Greek_PSI
 xK_Greek_PSI                      :: KeySym
-xK_Greek_PSI                      = #const XK_Greek_PSI
+xK_Greek_PSI                      = mkKeySym #{const XK_Greek_PSI}
 #endif
 #ifdef XK_Greek_OMEGA
 xK_Greek_OMEGA                    :: KeySym
-xK_Greek_OMEGA                    = #const XK_Greek_OMEGA
+xK_Greek_OMEGA                    = mkKeySym #{const XK_Greek_OMEGA}
 #endif
 #ifdef XK_Greek_alpha
 xK_Greek_alpha                    :: KeySym
-xK_Greek_alpha                    = #const XK_Greek_alpha
+xK_Greek_alpha                    = mkKeySym #{const XK_Greek_alpha}
 #endif
 #ifdef XK_Greek_beta
 xK_Greek_beta                     :: KeySym
-xK_Greek_beta                     = #const XK_Greek_beta
+xK_Greek_beta                     = mkKeySym #{const XK_Greek_beta}
 #endif
 #ifdef XK_Greek_gamma
 xK_Greek_gamma                    :: KeySym
-xK_Greek_gamma                    = #const XK_Greek_gamma
+xK_Greek_gamma                    = mkKeySym #{const XK_Greek_gamma}
 #endif
 #ifdef XK_Greek_delta
 xK_Greek_delta                    :: KeySym
-xK_Greek_delta                    = #const XK_Greek_delta
+xK_Greek_delta                    = mkKeySym #{const XK_Greek_delta}
 #endif
 #ifdef XK_Greek_epsilon
 xK_Greek_epsilon                  :: KeySym
-xK_Greek_epsilon                  = #const XK_Greek_epsilon
+xK_Greek_epsilon                  = mkKeySym #{const XK_Greek_epsilon}
 #endif
 #ifdef XK_Greek_zeta
 xK_Greek_zeta                     :: KeySym
-xK_Greek_zeta                     = #const XK_Greek_zeta
+xK_Greek_zeta                     = mkKeySym #{const XK_Greek_zeta}
 #endif
 #ifdef XK_Greek_eta
 xK_Greek_eta                      :: KeySym
-xK_Greek_eta                      = #const XK_Greek_eta
+xK_Greek_eta                      = mkKeySym #{const XK_Greek_eta}
 #endif
 #ifdef XK_Greek_theta
 xK_Greek_theta                    :: KeySym
-xK_Greek_theta                    = #const XK_Greek_theta
+xK_Greek_theta                    = mkKeySym #{const XK_Greek_theta}
 #endif
 #ifdef XK_Greek_iota
 xK_Greek_iota                     :: KeySym
-xK_Greek_iota                     = #const XK_Greek_iota
+xK_Greek_iota                     = mkKeySym #{const XK_Greek_iota}
 #endif
 #ifdef XK_Greek_kappa
 xK_Greek_kappa                    :: KeySym
-xK_Greek_kappa                    = #const XK_Greek_kappa
+xK_Greek_kappa                    = mkKeySym #{const XK_Greek_kappa}
 #endif
 #ifdef XK_Greek_lamda
 xK_Greek_lamda                    :: KeySym
-xK_Greek_lamda                    = #const XK_Greek_lamda
+xK_Greek_lamda                    = mkKeySym #{const XK_Greek_lamda}
 #endif
 #ifdef XK_Greek_lambda
 xK_Greek_lambda                   :: KeySym
-xK_Greek_lambda                   = #const XK_Greek_lambda
+xK_Greek_lambda                   = mkKeySym #{const XK_Greek_lambda}
 #endif
 #ifdef XK_Greek_mu
 xK_Greek_mu                       :: KeySym
-xK_Greek_mu                       = #const XK_Greek_mu
+xK_Greek_mu                       = mkKeySym #{const XK_Greek_mu}
 #endif
 #ifdef XK_Greek_nu
 xK_Greek_nu                       :: KeySym
-xK_Greek_nu                       = #const XK_Greek_nu
+xK_Greek_nu                       = mkKeySym #{const XK_Greek_nu}
 #endif
 #ifdef XK_Greek_xi
 xK_Greek_xi                       :: KeySym
-xK_Greek_xi                       = #const XK_Greek_xi
+xK_Greek_xi                       = mkKeySym #{const XK_Greek_xi}
 #endif
 #ifdef XK_Greek_omicron
 xK_Greek_omicron                  :: KeySym
-xK_Greek_omicron                  = #const XK_Greek_omicron
+xK_Greek_omicron                  = mkKeySym #{const XK_Greek_omicron}
 #endif
 #ifdef XK_Greek_pi
 xK_Greek_pi                       :: KeySym
-xK_Greek_pi                       = #const XK_Greek_pi
+xK_Greek_pi                       = mkKeySym #{const XK_Greek_pi}
 #endif
 #ifdef XK_Greek_rho
 xK_Greek_rho                      :: KeySym
-xK_Greek_rho                      = #const XK_Greek_rho
+xK_Greek_rho                      = mkKeySym #{const XK_Greek_rho}
 #endif
 #ifdef XK_Greek_sigma
 xK_Greek_sigma                    :: KeySym
-xK_Greek_sigma                    = #const XK_Greek_sigma
+xK_Greek_sigma                    = mkKeySym #{const XK_Greek_sigma}
 #endif
 #ifdef XK_Greek_finalsmallsigma
 xK_Greek_finalsmallsigma          :: KeySym
-xK_Greek_finalsmallsigma          = #const XK_Greek_finalsmallsigma
+xK_Greek_finalsmallsigma          = mkKeySym #{const XK_Greek_finalsmallsigma}
 #endif
 #ifdef XK_Greek_tau
 xK_Greek_tau                      :: KeySym
-xK_Greek_tau                      = #const XK_Greek_tau
+xK_Greek_tau                      = mkKeySym #{const XK_Greek_tau}
 #endif
 #ifdef XK_Greek_upsilon
 xK_Greek_upsilon                  :: KeySym
-xK_Greek_upsilon                  = #const XK_Greek_upsilon
+xK_Greek_upsilon                  = mkKeySym #{const XK_Greek_upsilon}
 #endif
 #ifdef XK_Greek_phi
 xK_Greek_phi                      :: KeySym
-xK_Greek_phi                      = #const XK_Greek_phi
+xK_Greek_phi                      = mkKeySym #{const XK_Greek_phi}
 #endif
 #ifdef XK_Greek_chi
 xK_Greek_chi                      :: KeySym
-xK_Greek_chi                      = #const XK_Greek_chi
+xK_Greek_chi                      = mkKeySym #{const XK_Greek_chi}
 #endif
 #ifdef XK_Greek_psi
 xK_Greek_psi                      :: KeySym
-xK_Greek_psi                      = #const XK_Greek_psi
+xK_Greek_psi                      = mkKeySym #{const XK_Greek_psi}
 #endif
 #ifdef XK_Greek_omega
 xK_Greek_omega                    :: KeySym
-xK_Greek_omega                    = #const XK_Greek_omega
+xK_Greek_omega                    = mkKeySym #{const XK_Greek_omega}
 #endif
 #ifdef XK_Greek_switch
 xK_Greek_switch                   :: KeySym
-xK_Greek_switch                   = #const XK_Greek_switch
+xK_Greek_switch                   = mkKeySym #{const XK_Greek_switch}
 #endif
 
 -- XK_TECHNICAL
 #ifdef XK_leftradical
 xK_leftradical                    :: KeySym
-xK_leftradical                    = #const XK_leftradical
+xK_leftradical                    = mkKeySym #{const XK_leftradical}
 #endif
 #ifdef XK_topleftradical
 xK_topleftradical                 :: KeySym
-xK_topleftradical                 = #const XK_topleftradical
+xK_topleftradical                 = mkKeySym #{const XK_topleftradical}
 #endif
 #ifdef XK_horizconnector
 xK_horizconnector                 :: KeySym
-xK_horizconnector                 = #const XK_horizconnector
+xK_horizconnector                 = mkKeySym #{const XK_horizconnector}
 #endif
 #ifdef XK_topintegral
 xK_topintegral                    :: KeySym
-xK_topintegral                    = #const XK_topintegral
+xK_topintegral                    = mkKeySym #{const XK_topintegral}
 #endif
 #ifdef XK_botintegral
 xK_botintegral                    :: KeySym
-xK_botintegral                    = #const XK_botintegral
+xK_botintegral                    = mkKeySym #{const XK_botintegral}
 #endif
 #ifdef XK_vertconnector
 xK_vertconnector                  :: KeySym
-xK_vertconnector                  = #const XK_vertconnector
+xK_vertconnector                  = mkKeySym #{const XK_vertconnector}
 #endif
 #ifdef XK_topleftsqbracket
 xK_topleftsqbracket               :: KeySym
-xK_topleftsqbracket               = #const XK_topleftsqbracket
+xK_topleftsqbracket               = mkKeySym #{const XK_topleftsqbracket}
 #endif
 #ifdef XK_botleftsqbracket
 xK_botleftsqbracket               :: KeySym
-xK_botleftsqbracket               = #const XK_botleftsqbracket
+xK_botleftsqbracket               = mkKeySym #{const XK_botleftsqbracket}
 #endif
 #ifdef XK_toprightsqbracket
 xK_toprightsqbracket              :: KeySym
-xK_toprightsqbracket              = #const XK_toprightsqbracket
+xK_toprightsqbracket              = mkKeySym #{const XK_toprightsqbracket}
 #endif
 #ifdef XK_botrightsqbracket
 xK_botrightsqbracket              :: KeySym
-xK_botrightsqbracket              = #const XK_botrightsqbracket
+xK_botrightsqbracket              = mkKeySym #{const XK_botrightsqbracket}
 #endif
 #ifdef XK_topleftparens
 xK_topleftparens                  :: KeySym
-xK_topleftparens                  = #const XK_topleftparens
+xK_topleftparens                  = mkKeySym #{const XK_topleftparens}
 #endif
 #ifdef XK_botleftparens
 xK_botleftparens                  :: KeySym
-xK_botleftparens                  = #const XK_botleftparens
+xK_botleftparens                  = mkKeySym #{const XK_botleftparens}
 #endif
 #ifdef XK_toprightparens
 xK_toprightparens                 :: KeySym
-xK_toprightparens                 = #const XK_toprightparens
+xK_toprightparens                 = mkKeySym #{const XK_toprightparens}
 #endif
 #ifdef XK_botrightparens
 xK_botrightparens                 :: KeySym
-xK_botrightparens                 = #const XK_botrightparens
+xK_botrightparens                 = mkKeySym #{const XK_botrightparens}
 #endif
 #ifdef XK_leftmiddlecurlybrace
 xK_leftmiddlecurlybrace           :: KeySym
-xK_leftmiddlecurlybrace           = #const XK_leftmiddlecurlybrace
+xK_leftmiddlecurlybrace           = mkKeySym #{const XK_leftmiddlecurlybrace}
 #endif
 #ifdef XK_rightmiddlecurlybrace
 xK_rightmiddlecurlybrace          :: KeySym
-xK_rightmiddlecurlybrace          = #const XK_rightmiddlecurlybrace
+xK_rightmiddlecurlybrace          = mkKeySym #{const XK_rightmiddlecurlybrace}
 #endif
 #ifdef XK_topleftsummation
 xK_topleftsummation               :: KeySym
-xK_topleftsummation               = #const XK_topleftsummation
+xK_topleftsummation               = mkKeySym #{const XK_topleftsummation}
 #endif
 #ifdef XK_botleftsummation
 xK_botleftsummation               :: KeySym
-xK_botleftsummation               = #const XK_botleftsummation
+xK_botleftsummation               = mkKeySym #{const XK_botleftsummation}
 #endif
 #ifdef XK_topvertsummationconnector
 xK_topvertsummationconnector      :: KeySym
-xK_topvertsummationconnector      = #const XK_topvertsummationconnector
+xK_topvertsummationconnector      = mkKeySym #{const XK_topvertsummationconnector}
 #endif
 #ifdef XK_botvertsummationconnector
 xK_botvertsummationconnector      :: KeySym
-xK_botvertsummationconnector      = #const XK_botvertsummationconnector
+xK_botvertsummationconnector      = mkKeySym #{const XK_botvertsummationconnector}
 #endif
 #ifdef XK_toprightsummation
 xK_toprightsummation              :: KeySym
-xK_toprightsummation              = #const XK_toprightsummation
+xK_toprightsummation              = mkKeySym #{const XK_toprightsummation}
 #endif
 #ifdef XK_botrightsummation
 xK_botrightsummation              :: KeySym
-xK_botrightsummation              = #const XK_botrightsummation
+xK_botrightsummation              = mkKeySym #{const XK_botrightsummation}
 #endif
 #ifdef XK_rightmiddlesummation
 xK_rightmiddlesummation           :: KeySym
-xK_rightmiddlesummation           = #const XK_rightmiddlesummation
+xK_rightmiddlesummation           = mkKeySym #{const XK_rightmiddlesummation}
 #endif
 #ifdef XK_lessthanequal
 xK_lessthanequal                  :: KeySym
-xK_lessthanequal                  = #const XK_lessthanequal
+xK_lessthanequal                  = mkKeySym #{const XK_lessthanequal}
 #endif
 #ifdef XK_notequal
 xK_notequal                       :: KeySym
-xK_notequal                       = #const XK_notequal
+xK_notequal                       = mkKeySym #{const XK_notequal}
 #endif
 #ifdef XK_greaterthanequal
 xK_greaterthanequal               :: KeySym
-xK_greaterthanequal               = #const XK_greaterthanequal
+xK_greaterthanequal               = mkKeySym #{const XK_greaterthanequal}
 #endif
 #ifdef XK_integral
 xK_integral                       :: KeySym
-xK_integral                       = #const XK_integral
+xK_integral                       = mkKeySym #{const XK_integral}
 #endif
 #ifdef XK_therefore
 xK_therefore                      :: KeySym
-xK_therefore                      = #const XK_therefore
+xK_therefore                      = mkKeySym #{const XK_therefore}
 #endif
 #ifdef XK_variation
 xK_variation                      :: KeySym
-xK_variation                      = #const XK_variation
+xK_variation                      = mkKeySym #{const XK_variation}
 #endif
 #ifdef XK_infinity
 xK_infinity                       :: KeySym
-xK_infinity                       = #const XK_infinity
+xK_infinity                       = mkKeySym #{const XK_infinity}
 #endif
 #ifdef XK_nabla
 xK_nabla                          :: KeySym
-xK_nabla                          = #const XK_nabla
+xK_nabla                          = mkKeySym #{const XK_nabla}
 #endif
 #ifdef XK_approximate
 xK_approximate                    :: KeySym
-xK_approximate                    = #const XK_approximate
+xK_approximate                    = mkKeySym #{const XK_approximate}
 #endif
 #ifdef XK_similarequal
 xK_similarequal                   :: KeySym
-xK_similarequal                   = #const XK_similarequal
+xK_similarequal                   = mkKeySym #{const XK_similarequal}
 #endif
 #ifdef XK_ifonlyif
 xK_ifonlyif                       :: KeySym
-xK_ifonlyif                       = #const XK_ifonlyif
+xK_ifonlyif                       = mkKeySym #{const XK_ifonlyif}
 #endif
 #ifdef XK_implies
 xK_implies                        :: KeySym
-xK_implies                        = #const XK_implies
+xK_implies                        = mkKeySym #{const XK_implies}
 #endif
 #ifdef XK_identical
 xK_identical                      :: KeySym
-xK_identical                      = #const XK_identical
+xK_identical                      = mkKeySym #{const XK_identical}
 #endif
 #ifdef XK_radical
 xK_radical                        :: KeySym
-xK_radical                        = #const XK_radical
+xK_radical                        = mkKeySym #{const XK_radical}
 #endif
 #ifdef XK_includedin
 xK_includedin                     :: KeySym
-xK_includedin                     = #const XK_includedin
+xK_includedin                     = mkKeySym #{const XK_includedin}
 #endif
 #ifdef XK_includes
 xK_includes                       :: KeySym
-xK_includes                       = #const XK_includes
+xK_includes                       = mkKeySym #{const XK_includes}
 #endif
 #ifdef XK_intersection
 xK_intersection                   :: KeySym
-xK_intersection                   = #const XK_intersection
+xK_intersection                   = mkKeySym #{const XK_intersection}
 #endif
 #ifdef XK_union
 xK_union                          :: KeySym
-xK_union                          = #const XK_union
+xK_union                          = mkKeySym #{const XK_union}
 #endif
 #ifdef XK_logicaland
 xK_logicaland                     :: KeySym
-xK_logicaland                     = #const XK_logicaland
+xK_logicaland                     = mkKeySym #{const XK_logicaland}
 #endif
 #ifdef XK_logicalor
 xK_logicalor                      :: KeySym
-xK_logicalor                      = #const XK_logicalor
+xK_logicalor                      = mkKeySym #{const XK_logicalor}
 #endif
 #ifdef XK_partialderivative
 xK_partialderivative              :: KeySym
-xK_partialderivative              = #const XK_partialderivative
+xK_partialderivative              = mkKeySym #{const XK_partialderivative}
 #endif
 #ifdef XK_function
 xK_function                       :: KeySym
-xK_function                       = #const XK_function
+xK_function                       = mkKeySym #{const XK_function}
 #endif
 #ifdef XK_leftarrow
 xK_leftarrow                      :: KeySym
-xK_leftarrow                      = #const XK_leftarrow
+xK_leftarrow                      = mkKeySym #{const XK_leftarrow}
 #endif
 #ifdef XK_uparrow
 xK_uparrow                        :: KeySym
-xK_uparrow                        = #const XK_uparrow
+xK_uparrow                        = mkKeySym #{const XK_uparrow}
 #endif
 #ifdef XK_rightarrow
 xK_rightarrow                     :: KeySym
-xK_rightarrow                     = #const XK_rightarrow
+xK_rightarrow                     = mkKeySym #{const XK_rightarrow}
 #endif
 #ifdef XK_downarrow
 xK_downarrow                      :: KeySym
-xK_downarrow                      = #const XK_downarrow
+xK_downarrow                      = mkKeySym #{const XK_downarrow}
 #endif
 
 -- XK_SPECIAL
 #ifdef XK_blank
 xK_blank                          :: KeySym
-xK_blank                          = #const XK_blank
+xK_blank                          = mkKeySym #{const XK_blank}
 #endif
 #ifdef XK_soliddiamond
 xK_soliddiamond                   :: KeySym
-xK_soliddiamond                   = #const XK_soliddiamond
+xK_soliddiamond                   = mkKeySym #{const XK_soliddiamond}
 #endif
 #ifdef XK_checkerboard
 xK_checkerboard                   :: KeySym
-xK_checkerboard                   = #const XK_checkerboard
+xK_checkerboard                   = mkKeySym #{const XK_checkerboard}
 #endif
 #ifdef XK_ht
 xK_ht                             :: KeySym
-xK_ht                             = #const XK_ht
+xK_ht                             = mkKeySym #{const XK_ht}
 #endif
 #ifdef XK_ff
 xK_ff                             :: KeySym
-xK_ff                             = #const XK_ff
+xK_ff                             = mkKeySym #{const XK_ff}
 #endif
 #ifdef XK_cr
 xK_cr                             :: KeySym
-xK_cr                             = #const XK_cr
+xK_cr                             = mkKeySym #{const XK_cr}
 #endif
 #ifdef XK_lf
 xK_lf                             :: KeySym
-xK_lf                             = #const XK_lf
+xK_lf                             = mkKeySym #{const XK_lf}
 #endif
 #ifdef XK_nl
 xK_nl                             :: KeySym
-xK_nl                             = #const XK_nl
+xK_nl                             = mkKeySym #{const XK_nl}
 #endif
 #ifdef XK_vt
 xK_vt                             :: KeySym
-xK_vt                             = #const XK_vt
+xK_vt                             = mkKeySym #{const XK_vt}
 #endif
 #ifdef XK_lowrightcorner
 xK_lowrightcorner                 :: KeySym
-xK_lowrightcorner                 = #const XK_lowrightcorner
+xK_lowrightcorner                 = mkKeySym #{const XK_lowrightcorner}
 #endif
 #ifdef XK_uprightcorner
 xK_uprightcorner                  :: KeySym
-xK_uprightcorner                  = #const XK_uprightcorner
+xK_uprightcorner                  = mkKeySym #{const XK_uprightcorner}
 #endif
 #ifdef XK_upleftcorner
 xK_upleftcorner                   :: KeySym
-xK_upleftcorner                   = #const XK_upleftcorner
+xK_upleftcorner                   = mkKeySym #{const XK_upleftcorner}
 #endif
 #ifdef XK_lowleftcorner
 xK_lowleftcorner                  :: KeySym
-xK_lowleftcorner                  = #const XK_lowleftcorner
+xK_lowleftcorner                  = mkKeySym #{const XK_lowleftcorner}
 #endif
 #ifdef XK_crossinglines
 xK_crossinglines                  :: KeySym
-xK_crossinglines                  = #const XK_crossinglines
+xK_crossinglines                  = mkKeySym #{const XK_crossinglines}
 #endif
 #ifdef XK_horizlinescan1
 xK_horizlinescan1                 :: KeySym
-xK_horizlinescan1                 = #const XK_horizlinescan1
+xK_horizlinescan1                 = mkKeySym #{const XK_horizlinescan1}
 #endif
 #ifdef XK_horizlinescan3
 xK_horizlinescan3                 :: KeySym
-xK_horizlinescan3                 = #const XK_horizlinescan3
+xK_horizlinescan3                 = mkKeySym #{const XK_horizlinescan3}
 #endif
 #ifdef XK_horizlinescan5
 xK_horizlinescan5                 :: KeySym
-xK_horizlinescan5                 = #const XK_horizlinescan5
+xK_horizlinescan5                 = mkKeySym #{const XK_horizlinescan5}
 #endif
 #ifdef XK_horizlinescan7
 xK_horizlinescan7                 :: KeySym
-xK_horizlinescan7                 = #const XK_horizlinescan7
+xK_horizlinescan7                 = mkKeySym #{const XK_horizlinescan7}
 #endif
 #ifdef XK_horizlinescan9
 xK_horizlinescan9                 :: KeySym
-xK_horizlinescan9                 = #const XK_horizlinescan9
+xK_horizlinescan9                 = mkKeySym #{const XK_horizlinescan9}
 #endif
 #ifdef XK_leftt
 xK_leftt                          :: KeySym
-xK_leftt                          = #const XK_leftt
+xK_leftt                          = mkKeySym #{const XK_leftt}
 #endif
 #ifdef XK_rightt
 xK_rightt                         :: KeySym
-xK_rightt                         = #const XK_rightt
+xK_rightt                         = mkKeySym #{const XK_rightt}
 #endif
 #ifdef XK_bott
 xK_bott                           :: KeySym
-xK_bott                           = #const XK_bott
+xK_bott                           = mkKeySym #{const XK_bott}
 #endif
 #ifdef XK_topt
 xK_topt                           :: KeySym
-xK_topt                           = #const XK_topt
+xK_topt                           = mkKeySym #{const XK_topt}
 #endif
 #ifdef XK_vertbar
 xK_vertbar                        :: KeySym
-xK_vertbar                        = #const XK_vertbar
+xK_vertbar                        = mkKeySym #{const XK_vertbar}
 #endif
 
 -- XK_PUBLISHING
 #ifdef XK_emspace
 xK_emspace                        :: KeySym
-xK_emspace                        = #const XK_emspace
+xK_emspace                        = mkKeySym #{const XK_emspace}
 #endif
 #ifdef XK_enspace
 xK_enspace                        :: KeySym
-xK_enspace                        = #const XK_enspace
+xK_enspace                        = mkKeySym #{const XK_enspace}
 #endif
 #ifdef XK_em3space
 xK_em3space                       :: KeySym
-xK_em3space                       = #const XK_em3space
+xK_em3space                       = mkKeySym #{const XK_em3space}
 #endif
 #ifdef XK_em4space
 xK_em4space                       :: KeySym
-xK_em4space                       = #const XK_em4space
+xK_em4space                       = mkKeySym #{const XK_em4space}
 #endif
 #ifdef XK_digitspace
 xK_digitspace                     :: KeySym
-xK_digitspace                     = #const XK_digitspace
+xK_digitspace                     = mkKeySym #{const XK_digitspace}
 #endif
 #ifdef XK_punctspace
 xK_punctspace                     :: KeySym
-xK_punctspace                     = #const XK_punctspace
+xK_punctspace                     = mkKeySym #{const XK_punctspace}
 #endif
 #ifdef XK_thinspace
 xK_thinspace                      :: KeySym
-xK_thinspace                      = #const XK_thinspace
+xK_thinspace                      = mkKeySym #{const XK_thinspace}
 #endif
 #ifdef XK_hairspace
 xK_hairspace                      :: KeySym
-xK_hairspace                      = #const XK_hairspace
+xK_hairspace                      = mkKeySym #{const XK_hairspace}
 #endif
 #ifdef XK_emdash
 xK_emdash                         :: KeySym
-xK_emdash                         = #const XK_emdash
+xK_emdash                         = mkKeySym #{const XK_emdash}
 #endif
 #ifdef XK_endash
 xK_endash                         :: KeySym
-xK_endash                         = #const XK_endash
+xK_endash                         = mkKeySym #{const XK_endash}
 #endif
 #ifdef XK_signifblank
 xK_signifblank                    :: KeySym
-xK_signifblank                    = #const XK_signifblank
+xK_signifblank                    = mkKeySym #{const XK_signifblank}
 #endif
 #ifdef XK_ellipsis
 xK_ellipsis                       :: KeySym
-xK_ellipsis                       = #const XK_ellipsis
+xK_ellipsis                       = mkKeySym #{const XK_ellipsis}
 #endif
 #ifdef XK_doubbaselinedot
 xK_doubbaselinedot                :: KeySym
-xK_doubbaselinedot                = #const XK_doubbaselinedot
+xK_doubbaselinedot                = mkKeySym #{const XK_doubbaselinedot}
 #endif
 #ifdef XK_onethird
 xK_onethird                       :: KeySym
-xK_onethird                       = #const XK_onethird
+xK_onethird                       = mkKeySym #{const XK_onethird}
 #endif
 #ifdef XK_twothirds
 xK_twothirds                      :: KeySym
-xK_twothirds                      = #const XK_twothirds
+xK_twothirds                      = mkKeySym #{const XK_twothirds}
 #endif
 #ifdef XK_onefifth
 xK_onefifth                       :: KeySym
-xK_onefifth                       = #const XK_onefifth
+xK_onefifth                       = mkKeySym #{const XK_onefifth}
 #endif
 #ifdef XK_twofifths
 xK_twofifths                      :: KeySym
-xK_twofifths                      = #const XK_twofifths
+xK_twofifths                      = mkKeySym #{const XK_twofifths}
 #endif
 #ifdef XK_threefifths
 xK_threefifths                    :: KeySym
-xK_threefifths                    = #const XK_threefifths
+xK_threefifths                    = mkKeySym #{const XK_threefifths}
 #endif
 #ifdef XK_fourfifths
 xK_fourfifths                     :: KeySym
-xK_fourfifths                     = #const XK_fourfifths
+xK_fourfifths                     = mkKeySym #{const XK_fourfifths}
 #endif
 #ifdef XK_onesixth
 xK_onesixth                       :: KeySym
-xK_onesixth                       = #const XK_onesixth
+xK_onesixth                       = mkKeySym #{const XK_onesixth}
 #endif
 #ifdef XK_fivesixths
 xK_fivesixths                     :: KeySym
-xK_fivesixths                     = #const XK_fivesixths
+xK_fivesixths                     = mkKeySym #{const XK_fivesixths}
 #endif
 #ifdef XK_careof
 xK_careof                         :: KeySym
-xK_careof                         = #const XK_careof
+xK_careof                         = mkKeySym #{const XK_careof}
 #endif
 #ifdef XK_figdash
 xK_figdash                        :: KeySym
-xK_figdash                        = #const XK_figdash
+xK_figdash                        = mkKeySym #{const XK_figdash}
 #endif
 #ifdef XK_leftanglebracket
 xK_leftanglebracket               :: KeySym
-xK_leftanglebracket               = #const XK_leftanglebracket
+xK_leftanglebracket               = mkKeySym #{const XK_leftanglebracket}
 #endif
 #ifdef XK_decimalpoint
 xK_decimalpoint                   :: KeySym
-xK_decimalpoint                   = #const XK_decimalpoint
+xK_decimalpoint                   = mkKeySym #{const XK_decimalpoint}
 #endif
 #ifdef XK_rightanglebracket
 xK_rightanglebracket              :: KeySym
-xK_rightanglebracket              = #const XK_rightanglebracket
+xK_rightanglebracket              = mkKeySym #{const XK_rightanglebracket}
 #endif
 #ifdef XK_marker
 xK_marker                         :: KeySym
-xK_marker                         = #const XK_marker
+xK_marker                         = mkKeySym #{const XK_marker}
 #endif
 #ifdef XK_oneeighth
 xK_oneeighth                      :: KeySym
-xK_oneeighth                      = #const XK_oneeighth
+xK_oneeighth                      = mkKeySym #{const XK_oneeighth}
 #endif
 #ifdef XK_threeeighths
 xK_threeeighths                   :: KeySym
-xK_threeeighths                   = #const XK_threeeighths
+xK_threeeighths                   = mkKeySym #{const XK_threeeighths}
 #endif
 #ifdef XK_fiveeighths
 xK_fiveeighths                    :: KeySym
-xK_fiveeighths                    = #const XK_fiveeighths
+xK_fiveeighths                    = mkKeySym #{const XK_fiveeighths}
 #endif
 #ifdef XK_seveneighths
 xK_seveneighths                   :: KeySym
-xK_seveneighths                   = #const XK_seveneighths
+xK_seveneighths                   = mkKeySym #{const XK_seveneighths}
 #endif
 #ifdef XK_trademark
 xK_trademark                      :: KeySym
-xK_trademark                      = #const XK_trademark
+xK_trademark                      = mkKeySym #{const XK_trademark}
 #endif
 #ifdef XK_signaturemark
 xK_signaturemark                  :: KeySym
-xK_signaturemark                  = #const XK_signaturemark
+xK_signaturemark                  = mkKeySym #{const XK_signaturemark}
 #endif
 #ifdef XK_trademarkincircle
 xK_trademarkincircle              :: KeySym
-xK_trademarkincircle              = #const XK_trademarkincircle
+xK_trademarkincircle              = mkKeySym #{const XK_trademarkincircle}
 #endif
 #ifdef XK_leftopentriangle
 xK_leftopentriangle               :: KeySym
-xK_leftopentriangle               = #const XK_leftopentriangle
+xK_leftopentriangle               = mkKeySym #{const XK_leftopentriangle}
 #endif
 #ifdef XK_rightopentriangle
 xK_rightopentriangle              :: KeySym
-xK_rightopentriangle              = #const XK_rightopentriangle
+xK_rightopentriangle              = mkKeySym #{const XK_rightopentriangle}
 #endif
 #ifdef XK_emopencircle
 xK_emopencircle                   :: KeySym
-xK_emopencircle                   = #const XK_emopencircle
+xK_emopencircle                   = mkKeySym #{const XK_emopencircle}
 #endif
 #ifdef XK_emopenrectangle
 xK_emopenrectangle                :: KeySym
-xK_emopenrectangle                = #const XK_emopenrectangle
+xK_emopenrectangle                = mkKeySym #{const XK_emopenrectangle}
 #endif
 #ifdef XK_leftsinglequotemark
 xK_leftsinglequotemark            :: KeySym
-xK_leftsinglequotemark            = #const XK_leftsinglequotemark
+xK_leftsinglequotemark            = mkKeySym #{const XK_leftsinglequotemark}
 #endif
 #ifdef XK_rightsinglequotemark
 xK_rightsinglequotemark           :: KeySym
-xK_rightsinglequotemark           = #const XK_rightsinglequotemark
+xK_rightsinglequotemark           = mkKeySym #{const XK_rightsinglequotemark}
 #endif
 #ifdef XK_leftdoublequotemark
 xK_leftdoublequotemark            :: KeySym
-xK_leftdoublequotemark            = #const XK_leftdoublequotemark
+xK_leftdoublequotemark            = mkKeySym #{const XK_leftdoublequotemark}
 #endif
 #ifdef XK_rightdoublequotemark
 xK_rightdoublequotemark           :: KeySym
-xK_rightdoublequotemark           = #const XK_rightdoublequotemark
+xK_rightdoublequotemark           = mkKeySym #{const XK_rightdoublequotemark}
 #endif
 #ifdef XK_prescription
 xK_prescription                   :: KeySym
-xK_prescription                   = #const XK_prescription
+xK_prescription                   = mkKeySym #{const XK_prescription}
 #endif
 #ifdef XK_minutes
 xK_minutes                        :: KeySym
-xK_minutes                        = #const XK_minutes
+xK_minutes                        = mkKeySym #{const XK_minutes}
 #endif
 #ifdef XK_seconds
 xK_seconds                        :: KeySym
-xK_seconds                        = #const XK_seconds
+xK_seconds                        = mkKeySym #{const XK_seconds}
 #endif
 #ifdef XK_latincross
 xK_latincross                     :: KeySym
-xK_latincross                     = #const XK_latincross
+xK_latincross                     = mkKeySym #{const XK_latincross}
 #endif
 #ifdef XK_hexagram
 xK_hexagram                       :: KeySym
-xK_hexagram                       = #const XK_hexagram
+xK_hexagram                       = mkKeySym #{const XK_hexagram}
 #endif
 #ifdef XK_filledrectbullet
 xK_filledrectbullet               :: KeySym
-xK_filledrectbullet               = #const XK_filledrectbullet
+xK_filledrectbullet               = mkKeySym #{const XK_filledrectbullet}
 #endif
 #ifdef XK_filledlefttribullet
 xK_filledlefttribullet            :: KeySym
-xK_filledlefttribullet            = #const XK_filledlefttribullet
+xK_filledlefttribullet            = mkKeySym #{const XK_filledlefttribullet}
 #endif
 #ifdef XK_filledrighttribullet
 xK_filledrighttribullet           :: KeySym
-xK_filledrighttribullet           = #const XK_filledrighttribullet
+xK_filledrighttribullet           = mkKeySym #{const XK_filledrighttribullet}
 #endif
 #ifdef XK_emfilledcircle
 xK_emfilledcircle                 :: KeySym
-xK_emfilledcircle                 = #const XK_emfilledcircle
+xK_emfilledcircle                 = mkKeySym #{const XK_emfilledcircle}
 #endif
 #ifdef XK_emfilledrect
 xK_emfilledrect                   :: KeySym
-xK_emfilledrect                   = #const XK_emfilledrect
+xK_emfilledrect                   = mkKeySym #{const XK_emfilledrect}
 #endif
 #ifdef XK_enopencircbullet
 xK_enopencircbullet               :: KeySym
-xK_enopencircbullet               = #const XK_enopencircbullet
+xK_enopencircbullet               = mkKeySym #{const XK_enopencircbullet}
 #endif
 #ifdef XK_enopensquarebullet
 xK_enopensquarebullet             :: KeySym
-xK_enopensquarebullet             = #const XK_enopensquarebullet
+xK_enopensquarebullet             = mkKeySym #{const XK_enopensquarebullet}
 #endif
 #ifdef XK_openrectbullet
 xK_openrectbullet                 :: KeySym
-xK_openrectbullet                 = #const XK_openrectbullet
+xK_openrectbullet                 = mkKeySym #{const XK_openrectbullet}
 #endif
 #ifdef XK_opentribulletup
 xK_opentribulletup                :: KeySym
-xK_opentribulletup                = #const XK_opentribulletup
+xK_opentribulletup                = mkKeySym #{const XK_opentribulletup}
 #endif
 #ifdef XK_opentribulletdown
 xK_opentribulletdown              :: KeySym
-xK_opentribulletdown              = #const XK_opentribulletdown
+xK_opentribulletdown              = mkKeySym #{const XK_opentribulletdown}
 #endif
 #ifdef XK_openstar
 xK_openstar                       :: KeySym
-xK_openstar                       = #const XK_openstar
+xK_openstar                       = mkKeySym #{const XK_openstar}
 #endif
 #ifdef XK_enfilledcircbullet
 xK_enfilledcircbullet             :: KeySym
-xK_enfilledcircbullet             = #const XK_enfilledcircbullet
+xK_enfilledcircbullet             = mkKeySym #{const XK_enfilledcircbullet}
 #endif
 #ifdef XK_enfilledsqbullet
 xK_enfilledsqbullet               :: KeySym
-xK_enfilledsqbullet               = #const XK_enfilledsqbullet
+xK_enfilledsqbullet               = mkKeySym #{const XK_enfilledsqbullet}
 #endif
 #ifdef XK_filledtribulletup
 xK_filledtribulletup              :: KeySym
-xK_filledtribulletup              = #const XK_filledtribulletup
+xK_filledtribulletup              = mkKeySym #{const XK_filledtribulletup}
 #endif
 #ifdef XK_filledtribulletdown
 xK_filledtribulletdown            :: KeySym
-xK_filledtribulletdown            = #const XK_filledtribulletdown
+xK_filledtribulletdown            = mkKeySym #{const XK_filledtribulletdown}
 #endif
 #ifdef XK_leftpointer
 xK_leftpointer                    :: KeySym
-xK_leftpointer                    = #const XK_leftpointer
+xK_leftpointer                    = mkKeySym #{const XK_leftpointer}
 #endif
 #ifdef XK_rightpointer
 xK_rightpointer                   :: KeySym
-xK_rightpointer                   = #const XK_rightpointer
+xK_rightpointer                   = mkKeySym #{const XK_rightpointer}
 #endif
 #ifdef XK_club
 xK_club                           :: KeySym
-xK_club                           = #const XK_club
+xK_club                           = mkKeySym #{const XK_club}
 #endif
 #ifdef XK_diamond
 xK_diamond                        :: KeySym
-xK_diamond                        = #const XK_diamond
+xK_diamond                        = mkKeySym #{const XK_diamond}
 #endif
 #ifdef XK_heart
 xK_heart                          :: KeySym
-xK_heart                          = #const XK_heart
+xK_heart                          = mkKeySym #{const XK_heart}
 #endif
 #ifdef XK_maltesecross
 xK_maltesecross                   :: KeySym
-xK_maltesecross                   = #const XK_maltesecross
+xK_maltesecross                   = mkKeySym #{const XK_maltesecross}
 #endif
 #ifdef XK_dagger
 xK_dagger                         :: KeySym
-xK_dagger                         = #const XK_dagger
+xK_dagger                         = mkKeySym #{const XK_dagger}
 #endif
 #ifdef XK_doubledagger
 xK_doubledagger                   :: KeySym
-xK_doubledagger                   = #const XK_doubledagger
+xK_doubledagger                   = mkKeySym #{const XK_doubledagger}
 #endif
 #ifdef XK_checkmark
 xK_checkmark                      :: KeySym
-xK_checkmark                      = #const XK_checkmark
+xK_checkmark                      = mkKeySym #{const XK_checkmark}
 #endif
 #ifdef XK_ballotcross
 xK_ballotcross                    :: KeySym
-xK_ballotcross                    = #const XK_ballotcross
+xK_ballotcross                    = mkKeySym #{const XK_ballotcross}
 #endif
 #ifdef XK_musicalsharp
 xK_musicalsharp                   :: KeySym
-xK_musicalsharp                   = #const XK_musicalsharp
+xK_musicalsharp                   = mkKeySym #{const XK_musicalsharp}
 #endif
 #ifdef XK_musicalflat
 xK_musicalflat                    :: KeySym
-xK_musicalflat                    = #const XK_musicalflat
+xK_musicalflat                    = mkKeySym #{const XK_musicalflat}
 #endif
 #ifdef XK_malesymbol
 xK_malesymbol                     :: KeySym
-xK_malesymbol                     = #const XK_malesymbol
+xK_malesymbol                     = mkKeySym #{const XK_malesymbol}
 #endif
 #ifdef XK_femalesymbol
 xK_femalesymbol                   :: KeySym
-xK_femalesymbol                   = #const XK_femalesymbol
+xK_femalesymbol                   = mkKeySym #{const XK_femalesymbol}
 #endif
 #ifdef XK_telephone
 xK_telephone                      :: KeySym
-xK_telephone                      = #const XK_telephone
+xK_telephone                      = mkKeySym #{const XK_telephone}
 #endif
 #ifdef XK_telephonerecorder
 xK_telephonerecorder              :: KeySym
-xK_telephonerecorder              = #const XK_telephonerecorder
+xK_telephonerecorder              = mkKeySym #{const XK_telephonerecorder}
 #endif
 #ifdef XK_phonographcopyright
 xK_phonographcopyright            :: KeySym
-xK_phonographcopyright            = #const XK_phonographcopyright
+xK_phonographcopyright            = mkKeySym #{const XK_phonographcopyright}
 #endif
 #ifdef XK_caret
 xK_caret                          :: KeySym
-xK_caret                          = #const XK_caret
+xK_caret                          = mkKeySym #{const XK_caret}
 #endif
 #ifdef XK_singlelowquotemark
 xK_singlelowquotemark             :: KeySym
-xK_singlelowquotemark             = #const XK_singlelowquotemark
+xK_singlelowquotemark             = mkKeySym #{const XK_singlelowquotemark}
 #endif
 #ifdef XK_doublelowquotemark
 xK_doublelowquotemark             :: KeySym
-xK_doublelowquotemark             = #const XK_doublelowquotemark
+xK_doublelowquotemark             = mkKeySym #{const XK_doublelowquotemark}
 #endif
 #ifdef XK_cursor
 xK_cursor                         :: KeySym
-xK_cursor                         = #const XK_cursor
+xK_cursor                         = mkKeySym #{const XK_cursor}
 #endif
 
 -- XK_APL
 #ifdef XK_leftcaret
 xK_leftcaret                      :: KeySym
-xK_leftcaret                      = #const XK_leftcaret
+xK_leftcaret                      = mkKeySym #{const XK_leftcaret}
 #endif
 #ifdef XK_rightcaret
 xK_rightcaret                     :: KeySym
-xK_rightcaret                     = #const XK_rightcaret
+xK_rightcaret                     = mkKeySym #{const XK_rightcaret}
 #endif
 #ifdef XK_downcaret
 xK_downcaret                      :: KeySym
-xK_downcaret                      = #const XK_downcaret
+xK_downcaret                      = mkKeySym #{const XK_downcaret}
 #endif
 #ifdef XK_upcaret
 xK_upcaret                        :: KeySym
-xK_upcaret                        = #const XK_upcaret
+xK_upcaret                        = mkKeySym #{const XK_upcaret}
 #endif
 #ifdef XK_overbar
 xK_overbar                        :: KeySym
-xK_overbar                        = #const XK_overbar
+xK_overbar                        = mkKeySym #{const XK_overbar}
 #endif
 #ifdef XK_downtack
 xK_downtack                       :: KeySym
-xK_downtack                       = #const XK_downtack
+xK_downtack                       = mkKeySym #{const XK_downtack}
 #endif
 #ifdef XK_upshoe
 xK_upshoe                         :: KeySym
-xK_upshoe                         = #const XK_upshoe
+xK_upshoe                         = mkKeySym #{const XK_upshoe}
 #endif
 #ifdef XK_downstile
 xK_downstile                      :: KeySym
-xK_downstile                      = #const XK_downstile
+xK_downstile                      = mkKeySym #{const XK_downstile}
 #endif
 #ifdef XK_underbar
 xK_underbar                       :: KeySym
-xK_underbar                       = #const XK_underbar
+xK_underbar                       = mkKeySym #{const XK_underbar}
 #endif
 #ifdef XK_jot
 xK_jot                            :: KeySym
-xK_jot                            = #const XK_jot
+xK_jot                            = mkKeySym #{const XK_jot}
 #endif
 #ifdef XK_quad
 xK_quad                           :: KeySym
-xK_quad                           = #const XK_quad
+xK_quad                           = mkKeySym #{const XK_quad}
 #endif
 #ifdef XK_uptack
 xK_uptack                         :: KeySym
-xK_uptack                         = #const XK_uptack
+xK_uptack                         = mkKeySym #{const XK_uptack}
 #endif
 #ifdef XK_circle
 xK_circle                         :: KeySym
-xK_circle                         = #const XK_circle
+xK_circle                         = mkKeySym #{const XK_circle}
 #endif
 #ifdef XK_upstile
 xK_upstile                        :: KeySym
-xK_upstile                        = #const XK_upstile
+xK_upstile                        = mkKeySym #{const XK_upstile}
 #endif
 #ifdef XK_downshoe
 xK_downshoe                       :: KeySym
-xK_downshoe                       = #const XK_downshoe
+xK_downshoe                       = mkKeySym #{const XK_downshoe}
 #endif
 #ifdef XK_rightshoe
 xK_rightshoe                      :: KeySym
-xK_rightshoe                      = #const XK_rightshoe
+xK_rightshoe                      = mkKeySym #{const XK_rightshoe}
 #endif
 #ifdef XK_leftshoe
 xK_leftshoe                       :: KeySym
-xK_leftshoe                       = #const XK_leftshoe
+xK_leftshoe                       = mkKeySym #{const XK_leftshoe}
 #endif
 #ifdef XK_lefttack
 xK_lefttack                       :: KeySym
-xK_lefttack                       = #const XK_lefttack
+xK_lefttack                       = mkKeySym #{const XK_lefttack}
 #endif
 #ifdef XK_righttack
 xK_righttack                      :: KeySym
-xK_righttack                      = #const XK_righttack
+xK_righttack                      = mkKeySym #{const XK_righttack}
 #endif
 
 -- XK_HEBREW
 #ifdef XK_hebrew_doublelowline
 xK_hebrew_doublelowline           :: KeySym
-xK_hebrew_doublelowline           = #const XK_hebrew_doublelowline
+xK_hebrew_doublelowline           = mkKeySym #{const XK_hebrew_doublelowline}
 #endif
 #ifdef XK_hebrew_aleph
 xK_hebrew_aleph                   :: KeySym
-xK_hebrew_aleph                   = #const XK_hebrew_aleph
+xK_hebrew_aleph                   = mkKeySym #{const XK_hebrew_aleph}
 #endif
 #ifdef XK_hebrew_bet
 xK_hebrew_bet                     :: KeySym
-xK_hebrew_bet                     = #const XK_hebrew_bet
+xK_hebrew_bet                     = mkKeySym #{const XK_hebrew_bet}
 #endif
 #ifdef XK_hebrew_beth
 xK_hebrew_beth                    :: KeySym
-xK_hebrew_beth                    = #const XK_hebrew_beth
+xK_hebrew_beth                    = mkKeySym #{const XK_hebrew_beth}
 #endif
 #ifdef XK_hebrew_gimel
 xK_hebrew_gimel                   :: KeySym
-xK_hebrew_gimel                   = #const XK_hebrew_gimel
+xK_hebrew_gimel                   = mkKeySym #{const XK_hebrew_gimel}
 #endif
 #ifdef XK_hebrew_gimmel
 xK_hebrew_gimmel                  :: KeySym
-xK_hebrew_gimmel                  = #const XK_hebrew_gimmel
+xK_hebrew_gimmel                  = mkKeySym #{const XK_hebrew_gimmel}
 #endif
 #ifdef XK_hebrew_dalet
 xK_hebrew_dalet                   :: KeySym
-xK_hebrew_dalet                   = #const XK_hebrew_dalet
+xK_hebrew_dalet                   = mkKeySym #{const XK_hebrew_dalet}
 #endif
 #ifdef XK_hebrew_daleth
 xK_hebrew_daleth                  :: KeySym
-xK_hebrew_daleth                  = #const XK_hebrew_daleth
+xK_hebrew_daleth                  = mkKeySym #{const XK_hebrew_daleth}
 #endif
 #ifdef XK_hebrew_he
 xK_hebrew_he                      :: KeySym
-xK_hebrew_he                      = #const XK_hebrew_he
+xK_hebrew_he                      = mkKeySym #{const XK_hebrew_he}
 #endif
 #ifdef XK_hebrew_waw
 xK_hebrew_waw                     :: KeySym
-xK_hebrew_waw                     = #const XK_hebrew_waw
+xK_hebrew_waw                     = mkKeySym #{const XK_hebrew_waw}
 #endif
 #ifdef XK_hebrew_zain
 xK_hebrew_zain                    :: KeySym
-xK_hebrew_zain                    = #const XK_hebrew_zain
+xK_hebrew_zain                    = mkKeySym #{const XK_hebrew_zain}
 #endif
 #ifdef XK_hebrew_zayin
 xK_hebrew_zayin                   :: KeySym
-xK_hebrew_zayin                   = #const XK_hebrew_zayin
+xK_hebrew_zayin                   = mkKeySym #{const XK_hebrew_zayin}
 #endif
 #ifdef XK_hebrew_chet
 xK_hebrew_chet                    :: KeySym
-xK_hebrew_chet                    = #const XK_hebrew_chet
+xK_hebrew_chet                    = mkKeySym #{const XK_hebrew_chet}
 #endif
 #ifdef XK_hebrew_het
 xK_hebrew_het                     :: KeySym
-xK_hebrew_het                     = #const XK_hebrew_het
+xK_hebrew_het                     = mkKeySym #{const XK_hebrew_het}
 #endif
 #ifdef XK_hebrew_tet
 xK_hebrew_tet                     :: KeySym
-xK_hebrew_tet                     = #const XK_hebrew_tet
+xK_hebrew_tet                     = mkKeySym #{const XK_hebrew_tet}
 #endif
 #ifdef XK_hebrew_teth
 xK_hebrew_teth                    :: KeySym
-xK_hebrew_teth                    = #const XK_hebrew_teth
+xK_hebrew_teth                    = mkKeySym #{const XK_hebrew_teth}
 #endif
 #ifdef XK_hebrew_yod
 xK_hebrew_yod                     :: KeySym
-xK_hebrew_yod                     = #const XK_hebrew_yod
+xK_hebrew_yod                     = mkKeySym #{const XK_hebrew_yod}
 #endif
 #ifdef XK_hebrew_finalkaph
 xK_hebrew_finalkaph               :: KeySym
-xK_hebrew_finalkaph               = #const XK_hebrew_finalkaph
+xK_hebrew_finalkaph               = mkKeySym #{const XK_hebrew_finalkaph}
 #endif
 #ifdef XK_hebrew_kaph
 xK_hebrew_kaph                    :: KeySym
-xK_hebrew_kaph                    = #const XK_hebrew_kaph
+xK_hebrew_kaph                    = mkKeySym #{const XK_hebrew_kaph}
 #endif
 #ifdef XK_hebrew_lamed
 xK_hebrew_lamed                   :: KeySym
-xK_hebrew_lamed                   = #const XK_hebrew_lamed
+xK_hebrew_lamed                   = mkKeySym #{const XK_hebrew_lamed}
 #endif
 #ifdef XK_hebrew_finalmem
 xK_hebrew_finalmem                :: KeySym
-xK_hebrew_finalmem                = #const XK_hebrew_finalmem
+xK_hebrew_finalmem                = mkKeySym #{const XK_hebrew_finalmem}
 #endif
 #ifdef XK_hebrew_mem
 xK_hebrew_mem                     :: KeySym
-xK_hebrew_mem                     = #const XK_hebrew_mem
+xK_hebrew_mem                     = mkKeySym #{const XK_hebrew_mem}
 #endif
 #ifdef XK_hebrew_finalnun
 xK_hebrew_finalnun                :: KeySym
-xK_hebrew_finalnun                = #const XK_hebrew_finalnun
+xK_hebrew_finalnun                = mkKeySym #{const XK_hebrew_finalnun}
 #endif
 #ifdef XK_hebrew_nun
 xK_hebrew_nun                     :: KeySym
-xK_hebrew_nun                     = #const XK_hebrew_nun
+xK_hebrew_nun                     = mkKeySym #{const XK_hebrew_nun}
 #endif
 #ifdef XK_hebrew_samech
 xK_hebrew_samech                  :: KeySym
-xK_hebrew_samech                  = #const XK_hebrew_samech
+xK_hebrew_samech                  = mkKeySym #{const XK_hebrew_samech}
 #endif
 #ifdef XK_hebrew_samekh
 xK_hebrew_samekh                  :: KeySym
-xK_hebrew_samekh                  = #const XK_hebrew_samekh
+xK_hebrew_samekh                  = mkKeySym #{const XK_hebrew_samekh}
 #endif
 #ifdef XK_hebrew_ayin
 xK_hebrew_ayin                    :: KeySym
-xK_hebrew_ayin                    = #const XK_hebrew_ayin
+xK_hebrew_ayin                    = mkKeySym #{const XK_hebrew_ayin}
 #endif
 #ifdef XK_hebrew_finalpe
 xK_hebrew_finalpe                 :: KeySym
-xK_hebrew_finalpe                 = #const XK_hebrew_finalpe
+xK_hebrew_finalpe                 = mkKeySym #{const XK_hebrew_finalpe}
 #endif
 #ifdef XK_hebrew_pe
 xK_hebrew_pe                      :: KeySym
-xK_hebrew_pe                      = #const XK_hebrew_pe
+xK_hebrew_pe                      = mkKeySym #{const XK_hebrew_pe}
 #endif
 #ifdef XK_hebrew_finalzade
 xK_hebrew_finalzade               :: KeySym
-xK_hebrew_finalzade               = #const XK_hebrew_finalzade
+xK_hebrew_finalzade               = mkKeySym #{const XK_hebrew_finalzade}
 #endif
 #ifdef XK_hebrew_finalzadi
 xK_hebrew_finalzadi               :: KeySym
-xK_hebrew_finalzadi               = #const XK_hebrew_finalzadi
+xK_hebrew_finalzadi               = mkKeySym #{const XK_hebrew_finalzadi}
 #endif
 #ifdef XK_hebrew_zade
 xK_hebrew_zade                    :: KeySym
-xK_hebrew_zade                    = #const XK_hebrew_zade
+xK_hebrew_zade                    = mkKeySym #{const XK_hebrew_zade}
 #endif
 #ifdef XK_hebrew_zadi
 xK_hebrew_zadi                    :: KeySym
-xK_hebrew_zadi                    = #const XK_hebrew_zadi
+xK_hebrew_zadi                    = mkKeySym #{const XK_hebrew_zadi}
 #endif
 #ifdef XK_hebrew_qoph
 xK_hebrew_qoph                    :: KeySym
-xK_hebrew_qoph                    = #const XK_hebrew_qoph
+xK_hebrew_qoph                    = mkKeySym #{const XK_hebrew_qoph}
 #endif
 #ifdef XK_hebrew_kuf
 xK_hebrew_kuf                     :: KeySym
-xK_hebrew_kuf                     = #const XK_hebrew_kuf
+xK_hebrew_kuf                     = mkKeySym #{const XK_hebrew_kuf}
 #endif
 #ifdef XK_hebrew_resh
 xK_hebrew_resh                    :: KeySym
-xK_hebrew_resh                    = #const XK_hebrew_resh
+xK_hebrew_resh                    = mkKeySym #{const XK_hebrew_resh}
 #endif
 #ifdef XK_hebrew_shin
 xK_hebrew_shin                    :: KeySym
-xK_hebrew_shin                    = #const XK_hebrew_shin
+xK_hebrew_shin                    = mkKeySym #{const XK_hebrew_shin}
 #endif
 #ifdef XK_hebrew_taw
 xK_hebrew_taw                     :: KeySym
-xK_hebrew_taw                     = #const XK_hebrew_taw
+xK_hebrew_taw                     = mkKeySym #{const XK_hebrew_taw}
 #endif
 #ifdef XK_hebrew_taf
 xK_hebrew_taf                     :: KeySym
-xK_hebrew_taf                     = #const XK_hebrew_taf
+xK_hebrew_taf                     = mkKeySym #{const XK_hebrew_taf}
 #endif
 #ifdef XK_Hebrew_switch
 xK_Hebrew_switch                  :: KeySym
-xK_Hebrew_switch                  = #const XK_Hebrew_switch
+xK_Hebrew_switch                  = mkKeySym #{const XK_Hebrew_switch}
 #endif
 
 -- XK_THAI
 #ifdef XK_Thai_kokai
 xK_Thai_kokai                     :: KeySym
-xK_Thai_kokai                     = #const XK_Thai_kokai
+xK_Thai_kokai                     = mkKeySym #{const XK_Thai_kokai}
 #endif
 #ifdef XK_Thai_khokhai
 xK_Thai_khokhai                   :: KeySym
-xK_Thai_khokhai                   = #const XK_Thai_khokhai
+xK_Thai_khokhai                   = mkKeySym #{const XK_Thai_khokhai}
 #endif
 #ifdef XK_Thai_khokhuat
 xK_Thai_khokhuat                  :: KeySym
-xK_Thai_khokhuat                  = #const XK_Thai_khokhuat
+xK_Thai_khokhuat                  = mkKeySym #{const XK_Thai_khokhuat}
 #endif
 #ifdef XK_Thai_khokhwai
 xK_Thai_khokhwai                  :: KeySym
-xK_Thai_khokhwai                  = #const XK_Thai_khokhwai
+xK_Thai_khokhwai                  = mkKeySym #{const XK_Thai_khokhwai}
 #endif
 #ifdef XK_Thai_khokhon
 xK_Thai_khokhon                   :: KeySym
-xK_Thai_khokhon                   = #const XK_Thai_khokhon
+xK_Thai_khokhon                   = mkKeySym #{const XK_Thai_khokhon}
 #endif
 #ifdef XK_Thai_khorakhang
 xK_Thai_khorakhang                :: KeySym
-xK_Thai_khorakhang                = #const XK_Thai_khorakhang
+xK_Thai_khorakhang                = mkKeySym #{const XK_Thai_khorakhang}
 #endif
 #ifdef XK_Thai_ngongu
 xK_Thai_ngongu                    :: KeySym
-xK_Thai_ngongu                    = #const XK_Thai_ngongu
+xK_Thai_ngongu                    = mkKeySym #{const XK_Thai_ngongu}
 #endif
 #ifdef XK_Thai_chochan
 xK_Thai_chochan                   :: KeySym
-xK_Thai_chochan                   = #const XK_Thai_chochan
+xK_Thai_chochan                   = mkKeySym #{const XK_Thai_chochan}
 #endif
 #ifdef XK_Thai_choching
 xK_Thai_choching                  :: KeySym
-xK_Thai_choching                  = #const XK_Thai_choching
+xK_Thai_choching                  = mkKeySym #{const XK_Thai_choching}
 #endif
 #ifdef XK_Thai_chochang
 xK_Thai_chochang                  :: KeySym
-xK_Thai_chochang                  = #const XK_Thai_chochang
+xK_Thai_chochang                  = mkKeySym #{const XK_Thai_chochang}
 #endif
 #ifdef XK_Thai_soso
 xK_Thai_soso                      :: KeySym
-xK_Thai_soso                      = #const XK_Thai_soso
+xK_Thai_soso                      = mkKeySym #{const XK_Thai_soso}
 #endif
 #ifdef XK_Thai_chochoe
 xK_Thai_chochoe                   :: KeySym
-xK_Thai_chochoe                   = #const XK_Thai_chochoe
+xK_Thai_chochoe                   = mkKeySym #{const XK_Thai_chochoe}
 #endif
 #ifdef XK_Thai_yoying
 xK_Thai_yoying                    :: KeySym
-xK_Thai_yoying                    = #const XK_Thai_yoying
+xK_Thai_yoying                    = mkKeySym #{const XK_Thai_yoying}
 #endif
 #ifdef XK_Thai_dochada
 xK_Thai_dochada                   :: KeySym
-xK_Thai_dochada                   = #const XK_Thai_dochada
+xK_Thai_dochada                   = mkKeySym #{const XK_Thai_dochada}
 #endif
 #ifdef XK_Thai_topatak
 xK_Thai_topatak                   :: KeySym
-xK_Thai_topatak                   = #const XK_Thai_topatak
+xK_Thai_topatak                   = mkKeySym #{const XK_Thai_topatak}
 #endif
 #ifdef XK_Thai_thothan
 xK_Thai_thothan                   :: KeySym
-xK_Thai_thothan                   = #const XK_Thai_thothan
+xK_Thai_thothan                   = mkKeySym #{const XK_Thai_thothan}
 #endif
 #ifdef XK_Thai_thonangmontho
 xK_Thai_thonangmontho             :: KeySym
-xK_Thai_thonangmontho             = #const XK_Thai_thonangmontho
+xK_Thai_thonangmontho             = mkKeySym #{const XK_Thai_thonangmontho}
 #endif
 #ifdef XK_Thai_thophuthao
 xK_Thai_thophuthao                :: KeySym
-xK_Thai_thophuthao                = #const XK_Thai_thophuthao
+xK_Thai_thophuthao                = mkKeySym #{const XK_Thai_thophuthao}
 #endif
 #ifdef XK_Thai_nonen
 xK_Thai_nonen                     :: KeySym
-xK_Thai_nonen                     = #const XK_Thai_nonen
+xK_Thai_nonen                     = mkKeySym #{const XK_Thai_nonen}
 #endif
 #ifdef XK_Thai_dodek
 xK_Thai_dodek                     :: KeySym
-xK_Thai_dodek                     = #const XK_Thai_dodek
+xK_Thai_dodek                     = mkKeySym #{const XK_Thai_dodek}
 #endif
 #ifdef XK_Thai_totao
 xK_Thai_totao                     :: KeySym
-xK_Thai_totao                     = #const XK_Thai_totao
+xK_Thai_totao                     = mkKeySym #{const XK_Thai_totao}
 #endif
 #ifdef XK_Thai_thothung
 xK_Thai_thothung                  :: KeySym
-xK_Thai_thothung                  = #const XK_Thai_thothung
+xK_Thai_thothung                  = mkKeySym #{const XK_Thai_thothung}
 #endif
 #ifdef XK_Thai_thothahan
 xK_Thai_thothahan                 :: KeySym
-xK_Thai_thothahan                 = #const XK_Thai_thothahan
+xK_Thai_thothahan                 = mkKeySym #{const XK_Thai_thothahan}
 #endif
 #ifdef XK_Thai_thothong
 xK_Thai_thothong                  :: KeySym
-xK_Thai_thothong                  = #const XK_Thai_thothong
+xK_Thai_thothong                  = mkKeySym #{const XK_Thai_thothong}
 #endif
 #ifdef XK_Thai_nonu
 xK_Thai_nonu                      :: KeySym
-xK_Thai_nonu                      = #const XK_Thai_nonu
+xK_Thai_nonu                      = mkKeySym #{const XK_Thai_nonu}
 #endif
 #ifdef XK_Thai_bobaimai
 xK_Thai_bobaimai                  :: KeySym
-xK_Thai_bobaimai                  = #const XK_Thai_bobaimai
+xK_Thai_bobaimai                  = mkKeySym #{const XK_Thai_bobaimai}
 #endif
 #ifdef XK_Thai_popla
 xK_Thai_popla                     :: KeySym
-xK_Thai_popla                     = #const XK_Thai_popla
+xK_Thai_popla                     = mkKeySym #{const XK_Thai_popla}
 #endif
 #ifdef XK_Thai_phophung
 xK_Thai_phophung                  :: KeySym
-xK_Thai_phophung                  = #const XK_Thai_phophung
+xK_Thai_phophung                  = mkKeySym #{const XK_Thai_phophung}
 #endif
 #ifdef XK_Thai_fofa
 xK_Thai_fofa                      :: KeySym
-xK_Thai_fofa                      = #const XK_Thai_fofa
+xK_Thai_fofa                      = mkKeySym #{const XK_Thai_fofa}
 #endif
 #ifdef XK_Thai_phophan
 xK_Thai_phophan                   :: KeySym
-xK_Thai_phophan                   = #const XK_Thai_phophan
+xK_Thai_phophan                   = mkKeySym #{const XK_Thai_phophan}
 #endif
 #ifdef XK_Thai_fofan
 xK_Thai_fofan                     :: KeySym
-xK_Thai_fofan                     = #const XK_Thai_fofan
+xK_Thai_fofan                     = mkKeySym #{const XK_Thai_fofan}
 #endif
 #ifdef XK_Thai_phosamphao
 xK_Thai_phosamphao                :: KeySym
-xK_Thai_phosamphao                = #const XK_Thai_phosamphao
+xK_Thai_phosamphao                = mkKeySym #{const XK_Thai_phosamphao}
 #endif
 #ifdef XK_Thai_moma
 xK_Thai_moma                      :: KeySym
-xK_Thai_moma                      = #const XK_Thai_moma
+xK_Thai_moma                      = mkKeySym #{const XK_Thai_moma}
 #endif
 #ifdef XK_Thai_yoyak
 xK_Thai_yoyak                     :: KeySym
-xK_Thai_yoyak                     = #const XK_Thai_yoyak
+xK_Thai_yoyak                     = mkKeySym #{const XK_Thai_yoyak}
 #endif
 #ifdef XK_Thai_rorua
 xK_Thai_rorua                     :: KeySym
-xK_Thai_rorua                     = #const XK_Thai_rorua
+xK_Thai_rorua                     = mkKeySym #{const XK_Thai_rorua}
 #endif
 #ifdef XK_Thai_ru
 xK_Thai_ru                        :: KeySym
-xK_Thai_ru                        = #const XK_Thai_ru
+xK_Thai_ru                        = mkKeySym #{const XK_Thai_ru}
 #endif
 #ifdef XK_Thai_loling
 xK_Thai_loling                    :: KeySym
-xK_Thai_loling                    = #const XK_Thai_loling
+xK_Thai_loling                    = mkKeySym #{const XK_Thai_loling}
 #endif
 #ifdef XK_Thai_lu
 xK_Thai_lu                        :: KeySym
-xK_Thai_lu                        = #const XK_Thai_lu
+xK_Thai_lu                        = mkKeySym #{const XK_Thai_lu}
 #endif
 #ifdef XK_Thai_wowaen
 xK_Thai_wowaen                    :: KeySym
-xK_Thai_wowaen                    = #const XK_Thai_wowaen
+xK_Thai_wowaen                    = mkKeySym #{const XK_Thai_wowaen}
 #endif
 #ifdef XK_Thai_sosala
 xK_Thai_sosala                    :: KeySym
-xK_Thai_sosala                    = #const XK_Thai_sosala
+xK_Thai_sosala                    = mkKeySym #{const XK_Thai_sosala}
 #endif
 #ifdef XK_Thai_sorusi
 xK_Thai_sorusi                    :: KeySym
-xK_Thai_sorusi                    = #const XK_Thai_sorusi
+xK_Thai_sorusi                    = mkKeySym #{const XK_Thai_sorusi}
 #endif
 #ifdef XK_Thai_sosua
 xK_Thai_sosua                     :: KeySym
-xK_Thai_sosua                     = #const XK_Thai_sosua
+xK_Thai_sosua                     = mkKeySym #{const XK_Thai_sosua}
 #endif
 #ifdef XK_Thai_hohip
 xK_Thai_hohip                     :: KeySym
-xK_Thai_hohip                     = #const XK_Thai_hohip
+xK_Thai_hohip                     = mkKeySym #{const XK_Thai_hohip}
 #endif
 #ifdef XK_Thai_lochula
 xK_Thai_lochula                   :: KeySym
-xK_Thai_lochula                   = #const XK_Thai_lochula
+xK_Thai_lochula                   = mkKeySym #{const XK_Thai_lochula}
 #endif
 #ifdef XK_Thai_oang
 xK_Thai_oang                      :: KeySym
-xK_Thai_oang                      = #const XK_Thai_oang
+xK_Thai_oang                      = mkKeySym #{const XK_Thai_oang}
 #endif
 #ifdef XK_Thai_honokhuk
 xK_Thai_honokhuk                  :: KeySym
-xK_Thai_honokhuk                  = #const XK_Thai_honokhuk
+xK_Thai_honokhuk                  = mkKeySym #{const XK_Thai_honokhuk}
 #endif
 #ifdef XK_Thai_paiyannoi
 xK_Thai_paiyannoi                 :: KeySym
-xK_Thai_paiyannoi                 = #const XK_Thai_paiyannoi
+xK_Thai_paiyannoi                 = mkKeySym #{const XK_Thai_paiyannoi}
 #endif
 #ifdef XK_Thai_saraa
 xK_Thai_saraa                     :: KeySym
-xK_Thai_saraa                     = #const XK_Thai_saraa
+xK_Thai_saraa                     = mkKeySym #{const XK_Thai_saraa}
 #endif
 #ifdef XK_Thai_maihanakat
 xK_Thai_maihanakat                :: KeySym
-xK_Thai_maihanakat                = #const XK_Thai_maihanakat
+xK_Thai_maihanakat                = mkKeySym #{const XK_Thai_maihanakat}
 #endif
 #ifdef XK_Thai_saraaa
 xK_Thai_saraaa                    :: KeySym
-xK_Thai_saraaa                    = #const XK_Thai_saraaa
+xK_Thai_saraaa                    = mkKeySym #{const XK_Thai_saraaa}
 #endif
 #ifdef XK_Thai_saraam
 xK_Thai_saraam                    :: KeySym
-xK_Thai_saraam                    = #const XK_Thai_saraam
+xK_Thai_saraam                    = mkKeySym #{const XK_Thai_saraam}
 #endif
 #ifdef XK_Thai_sarai
 xK_Thai_sarai                     :: KeySym
-xK_Thai_sarai                     = #const XK_Thai_sarai
+xK_Thai_sarai                     = mkKeySym #{const XK_Thai_sarai}
 #endif
 #ifdef XK_Thai_saraii
 xK_Thai_saraii                    :: KeySym
-xK_Thai_saraii                    = #const XK_Thai_saraii
+xK_Thai_saraii                    = mkKeySym #{const XK_Thai_saraii}
 #endif
 #ifdef XK_Thai_saraue
 xK_Thai_saraue                    :: KeySym
-xK_Thai_saraue                    = #const XK_Thai_saraue
+xK_Thai_saraue                    = mkKeySym #{const XK_Thai_saraue}
 #endif
 #ifdef XK_Thai_sarauee
 xK_Thai_sarauee                   :: KeySym
-xK_Thai_sarauee                   = #const XK_Thai_sarauee
+xK_Thai_sarauee                   = mkKeySym #{const XK_Thai_sarauee}
 #endif
 #ifdef XK_Thai_sarau
 xK_Thai_sarau                     :: KeySym
-xK_Thai_sarau                     = #const XK_Thai_sarau
+xK_Thai_sarau                     = mkKeySym #{const XK_Thai_sarau}
 #endif
 #ifdef XK_Thai_sarauu
 xK_Thai_sarauu                    :: KeySym
-xK_Thai_sarauu                    = #const XK_Thai_sarauu
+xK_Thai_sarauu                    = mkKeySym #{const XK_Thai_sarauu}
 #endif
 #ifdef XK_Thai_phinthu
 xK_Thai_phinthu                   :: KeySym
-xK_Thai_phinthu                   = #const XK_Thai_phinthu
+xK_Thai_phinthu                   = mkKeySym #{const XK_Thai_phinthu}
 #endif
 #ifdef XK_Thai_maihanakat_maitho
 xK_Thai_maihanakat_maitho         :: KeySym
-xK_Thai_maihanakat_maitho         = #const XK_Thai_maihanakat_maitho
+xK_Thai_maihanakat_maitho         = mkKeySym #{const XK_Thai_maihanakat_maitho}
 #endif
 #ifdef XK_Thai_baht
 xK_Thai_baht                      :: KeySym
-xK_Thai_baht                      = #const XK_Thai_baht
+xK_Thai_baht                      = mkKeySym #{const XK_Thai_baht}
 #endif
 #ifdef XK_Thai_sarae
 xK_Thai_sarae                     :: KeySym
-xK_Thai_sarae                     = #const XK_Thai_sarae
+xK_Thai_sarae                     = mkKeySym #{const XK_Thai_sarae}
 #endif
 #ifdef XK_Thai_saraae
 xK_Thai_saraae                    :: KeySym
-xK_Thai_saraae                    = #const XK_Thai_saraae
+xK_Thai_saraae                    = mkKeySym #{const XK_Thai_saraae}
 #endif
 #ifdef XK_Thai_sarao
 xK_Thai_sarao                     :: KeySym
-xK_Thai_sarao                     = #const XK_Thai_sarao
+xK_Thai_sarao                     = mkKeySym #{const XK_Thai_sarao}
 #endif
 #ifdef XK_Thai_saraaimaimuan
 xK_Thai_saraaimaimuan             :: KeySym
-xK_Thai_saraaimaimuan             = #const XK_Thai_saraaimaimuan
+xK_Thai_saraaimaimuan             = mkKeySym #{const XK_Thai_saraaimaimuan}
 #endif
 #ifdef XK_Thai_saraaimaimalai
 xK_Thai_saraaimaimalai            :: KeySym
-xK_Thai_saraaimaimalai            = #const XK_Thai_saraaimaimalai
+xK_Thai_saraaimaimalai            = mkKeySym #{const XK_Thai_saraaimaimalai}
 #endif
 #ifdef XK_Thai_lakkhangyao
 xK_Thai_lakkhangyao               :: KeySym
-xK_Thai_lakkhangyao               = #const XK_Thai_lakkhangyao
+xK_Thai_lakkhangyao               = mkKeySym #{const XK_Thai_lakkhangyao}
 #endif
 #ifdef XK_Thai_maiyamok
 xK_Thai_maiyamok                  :: KeySym
-xK_Thai_maiyamok                  = #const XK_Thai_maiyamok
+xK_Thai_maiyamok                  = mkKeySym #{const XK_Thai_maiyamok}
 #endif
 #ifdef XK_Thai_maitaikhu
 xK_Thai_maitaikhu                 :: KeySym
-xK_Thai_maitaikhu                 = #const XK_Thai_maitaikhu
+xK_Thai_maitaikhu                 = mkKeySym #{const XK_Thai_maitaikhu}
 #endif
 #ifdef XK_Thai_maiek
 xK_Thai_maiek                     :: KeySym
-xK_Thai_maiek                     = #const XK_Thai_maiek
+xK_Thai_maiek                     = mkKeySym #{const XK_Thai_maiek}
 #endif
 #ifdef XK_Thai_maitho
 xK_Thai_maitho                    :: KeySym
-xK_Thai_maitho                    = #const XK_Thai_maitho
+xK_Thai_maitho                    = mkKeySym #{const XK_Thai_maitho}
 #endif
 #ifdef XK_Thai_maitri
 xK_Thai_maitri                    :: KeySym
-xK_Thai_maitri                    = #const XK_Thai_maitri
+xK_Thai_maitri                    = mkKeySym #{const XK_Thai_maitri}
 #endif
 #ifdef XK_Thai_maichattawa
 xK_Thai_maichattawa               :: KeySym
-xK_Thai_maichattawa               = #const XK_Thai_maichattawa
+xK_Thai_maichattawa               = mkKeySym #{const XK_Thai_maichattawa}
 #endif
 #ifdef XK_Thai_thanthakhat
 xK_Thai_thanthakhat               :: KeySym
-xK_Thai_thanthakhat               = #const XK_Thai_thanthakhat
+xK_Thai_thanthakhat               = mkKeySym #{const XK_Thai_thanthakhat}
 #endif
 #ifdef XK_Thai_nikhahit
 xK_Thai_nikhahit                  :: KeySym
-xK_Thai_nikhahit                  = #const XK_Thai_nikhahit
+xK_Thai_nikhahit                  = mkKeySym #{const XK_Thai_nikhahit}
 #endif
 #ifdef XK_Thai_leksun
 xK_Thai_leksun                    :: KeySym
-xK_Thai_leksun                    = #const XK_Thai_leksun
+xK_Thai_leksun                    = mkKeySym #{const XK_Thai_leksun}
 #endif
 #ifdef XK_Thai_leknung
 xK_Thai_leknung                   :: KeySym
-xK_Thai_leknung                   = #const XK_Thai_leknung
+xK_Thai_leknung                   = mkKeySym #{const XK_Thai_leknung}
 #endif
 #ifdef XK_Thai_leksong
 xK_Thai_leksong                   :: KeySym
-xK_Thai_leksong                   = #const XK_Thai_leksong
+xK_Thai_leksong                   = mkKeySym #{const XK_Thai_leksong}
 #endif
 #ifdef XK_Thai_leksam
 xK_Thai_leksam                    :: KeySym
-xK_Thai_leksam                    = #const XK_Thai_leksam
+xK_Thai_leksam                    = mkKeySym #{const XK_Thai_leksam}
 #endif
 #ifdef XK_Thai_leksi
 xK_Thai_leksi                     :: KeySym
-xK_Thai_leksi                     = #const XK_Thai_leksi
+xK_Thai_leksi                     = mkKeySym #{const XK_Thai_leksi}
 #endif
 #ifdef XK_Thai_lekha
 xK_Thai_lekha                     :: KeySym
-xK_Thai_lekha                     = #const XK_Thai_lekha
+xK_Thai_lekha                     = mkKeySym #{const XK_Thai_lekha}
 #endif
 #ifdef XK_Thai_lekhok
 xK_Thai_lekhok                    :: KeySym
-xK_Thai_lekhok                    = #const XK_Thai_lekhok
+xK_Thai_lekhok                    = mkKeySym #{const XK_Thai_lekhok}
 #endif
 #ifdef XK_Thai_lekchet
 xK_Thai_lekchet                   :: KeySym
-xK_Thai_lekchet                   = #const XK_Thai_lekchet
+xK_Thai_lekchet                   = mkKeySym #{const XK_Thai_lekchet}
 #endif
 #ifdef XK_Thai_lekpaet
 xK_Thai_lekpaet                   :: KeySym
-xK_Thai_lekpaet                   = #const XK_Thai_lekpaet
+xK_Thai_lekpaet                   = mkKeySym #{const XK_Thai_lekpaet}
 #endif
 #ifdef XK_Thai_lekkao
 xK_Thai_lekkao                    :: KeySym
-xK_Thai_lekkao                    = #const XK_Thai_lekkao
+xK_Thai_lekkao                    = mkKeySym #{const XK_Thai_lekkao}
 #endif
 
 -- XK_KOREAN
 #ifdef XK_Hangul
 xK_Hangul                         :: KeySym
-xK_Hangul                         = #const XK_Hangul
+xK_Hangul                         = mkKeySym #{const XK_Hangul}
 #endif
 #ifdef XK_Hangul_Start
 xK_Hangul_Start                   :: KeySym
-xK_Hangul_Start                   = #const XK_Hangul_Start
+xK_Hangul_Start                   = mkKeySym #{const XK_Hangul_Start}
 #endif
 #ifdef XK_Hangul_End
 xK_Hangul_End                     :: KeySym
-xK_Hangul_End                     = #const XK_Hangul_End
+xK_Hangul_End                     = mkKeySym #{const XK_Hangul_End}
 #endif
 #ifdef XK_Hangul_Hanja
 xK_Hangul_Hanja                   :: KeySym
-xK_Hangul_Hanja                   = #const XK_Hangul_Hanja
+xK_Hangul_Hanja                   = mkKeySym #{const XK_Hangul_Hanja}
 #endif
 #ifdef XK_Hangul_Jamo
 xK_Hangul_Jamo                    :: KeySym
-xK_Hangul_Jamo                    = #const XK_Hangul_Jamo
+xK_Hangul_Jamo                    = mkKeySym #{const XK_Hangul_Jamo}
 #endif
 #ifdef XK_Hangul_Romaja
 xK_Hangul_Romaja                  :: KeySym
-xK_Hangul_Romaja                  = #const XK_Hangul_Romaja
+xK_Hangul_Romaja                  = mkKeySym #{const XK_Hangul_Romaja}
 #endif
 #ifdef XK_Hangul_Codeinput
 xK_Hangul_Codeinput               :: KeySym
-xK_Hangul_Codeinput               = #const XK_Hangul_Codeinput
+xK_Hangul_Codeinput               = mkKeySym #{const XK_Hangul_Codeinput}
 #endif
 #ifdef XK_Hangul_Jeonja
 xK_Hangul_Jeonja                  :: KeySym
-xK_Hangul_Jeonja                  = #const XK_Hangul_Jeonja
+xK_Hangul_Jeonja                  = mkKeySym #{const XK_Hangul_Jeonja}
 #endif
 #ifdef XK_Hangul_Banja
 xK_Hangul_Banja                   :: KeySym
-xK_Hangul_Banja                   = #const XK_Hangul_Banja
+xK_Hangul_Banja                   = mkKeySym #{const XK_Hangul_Banja}
 #endif
 #ifdef XK_Hangul_PreHanja
 xK_Hangul_PreHanja                :: KeySym
-xK_Hangul_PreHanja                = #const XK_Hangul_PreHanja
+xK_Hangul_PreHanja                = mkKeySym #{const XK_Hangul_PreHanja}
 #endif
 #ifdef XK_Hangul_PostHanja
 xK_Hangul_PostHanja               :: KeySym
-xK_Hangul_PostHanja               = #const XK_Hangul_PostHanja
+xK_Hangul_PostHanja               = mkKeySym #{const XK_Hangul_PostHanja}
 #endif
 #ifdef XK_Hangul_SingleCandidate
 xK_Hangul_SingleCandidate         :: KeySym
-xK_Hangul_SingleCandidate         = #const XK_Hangul_SingleCandidate
+xK_Hangul_SingleCandidate         = mkKeySym #{const XK_Hangul_SingleCandidate}
 #endif
 #ifdef XK_Hangul_MultipleCandidate
 xK_Hangul_MultipleCandidate       :: KeySym
-xK_Hangul_MultipleCandidate       = #const XK_Hangul_MultipleCandidate
+xK_Hangul_MultipleCandidate       = mkKeySym #{const XK_Hangul_MultipleCandidate}
 #endif
 #ifdef XK_Hangul_PreviousCandidate
 xK_Hangul_PreviousCandidate       :: KeySym
-xK_Hangul_PreviousCandidate       = #const XK_Hangul_PreviousCandidate
+xK_Hangul_PreviousCandidate       = mkKeySym #{const XK_Hangul_PreviousCandidate}
 #endif
 #ifdef XK_Hangul_Special
 xK_Hangul_Special                 :: KeySym
-xK_Hangul_Special                 = #const XK_Hangul_Special
+xK_Hangul_Special                 = mkKeySym #{const XK_Hangul_Special}
 #endif
 #ifdef XK_Hangul_switch
 xK_Hangul_switch                  :: KeySym
-xK_Hangul_switch                  = #const XK_Hangul_switch
+xK_Hangul_switch                  = mkKeySym #{const XK_Hangul_switch}
 #endif
 #ifdef XK_Hangul_Kiyeog
 xK_Hangul_Kiyeog                  :: KeySym
-xK_Hangul_Kiyeog                  = #const XK_Hangul_Kiyeog
+xK_Hangul_Kiyeog                  = mkKeySym #{const XK_Hangul_Kiyeog}
 #endif
 #ifdef XK_Hangul_SsangKiyeog
 xK_Hangul_SsangKiyeog             :: KeySym
-xK_Hangul_SsangKiyeog             = #const XK_Hangul_SsangKiyeog
+xK_Hangul_SsangKiyeog             = mkKeySym #{const XK_Hangul_SsangKiyeog}
 #endif
 #ifdef XK_Hangul_KiyeogSios
 xK_Hangul_KiyeogSios              :: KeySym
-xK_Hangul_KiyeogSios              = #const XK_Hangul_KiyeogSios
+xK_Hangul_KiyeogSios              = mkKeySym #{const XK_Hangul_KiyeogSios}
 #endif
 #ifdef XK_Hangul_Nieun
 xK_Hangul_Nieun                   :: KeySym
-xK_Hangul_Nieun                   = #const XK_Hangul_Nieun
+xK_Hangul_Nieun                   = mkKeySym #{const XK_Hangul_Nieun}
 #endif
 #ifdef XK_Hangul_NieunJieuj
 xK_Hangul_NieunJieuj              :: KeySym
-xK_Hangul_NieunJieuj              = #const XK_Hangul_NieunJieuj
+xK_Hangul_NieunJieuj              = mkKeySym #{const XK_Hangul_NieunJieuj}
 #endif
 #ifdef XK_Hangul_NieunHieuh
 xK_Hangul_NieunHieuh              :: KeySym
-xK_Hangul_NieunHieuh              = #const XK_Hangul_NieunHieuh
+xK_Hangul_NieunHieuh              = mkKeySym #{const XK_Hangul_NieunHieuh}
 #endif
 #ifdef XK_Hangul_Dikeud
 xK_Hangul_Dikeud                  :: KeySym
-xK_Hangul_Dikeud                  = #const XK_Hangul_Dikeud
+xK_Hangul_Dikeud                  = mkKeySym #{const XK_Hangul_Dikeud}
 #endif
 #ifdef XK_Hangul_SsangDikeud
 xK_Hangul_SsangDikeud             :: KeySym
-xK_Hangul_SsangDikeud             = #const XK_Hangul_SsangDikeud
+xK_Hangul_SsangDikeud             = mkKeySym #{const XK_Hangul_SsangDikeud}
 #endif
 #ifdef XK_Hangul_Rieul
 xK_Hangul_Rieul                   :: KeySym
-xK_Hangul_Rieul                   = #const XK_Hangul_Rieul
+xK_Hangul_Rieul                   = mkKeySym #{const XK_Hangul_Rieul}
 #endif
 #ifdef XK_Hangul_RieulKiyeog
 xK_Hangul_RieulKiyeog             :: KeySym
-xK_Hangul_RieulKiyeog             = #const XK_Hangul_RieulKiyeog
+xK_Hangul_RieulKiyeog             = mkKeySym #{const XK_Hangul_RieulKiyeog}
 #endif
 #ifdef XK_Hangul_RieulMieum
 xK_Hangul_RieulMieum              :: KeySym
-xK_Hangul_RieulMieum              = #const XK_Hangul_RieulMieum
+xK_Hangul_RieulMieum              = mkKeySym #{const XK_Hangul_RieulMieum}
 #endif
 #ifdef XK_Hangul_RieulPieub
 xK_Hangul_RieulPieub              :: KeySym
-xK_Hangul_RieulPieub              = #const XK_Hangul_RieulPieub
+xK_Hangul_RieulPieub              = mkKeySym #{const XK_Hangul_RieulPieub}
 #endif
 #ifdef XK_Hangul_RieulSios
 xK_Hangul_RieulSios               :: KeySym
-xK_Hangul_RieulSios               = #const XK_Hangul_RieulSios
+xK_Hangul_RieulSios               = mkKeySym #{const XK_Hangul_RieulSios}
 #endif
 #ifdef XK_Hangul_RieulTieut
 xK_Hangul_RieulTieut              :: KeySym
-xK_Hangul_RieulTieut              = #const XK_Hangul_RieulTieut
+xK_Hangul_RieulTieut              = mkKeySym #{const XK_Hangul_RieulTieut}
 #endif
 #ifdef XK_Hangul_RieulPhieuf
 xK_Hangul_RieulPhieuf             :: KeySym
-xK_Hangul_RieulPhieuf             = #const XK_Hangul_RieulPhieuf
+xK_Hangul_RieulPhieuf             = mkKeySym #{const XK_Hangul_RieulPhieuf}
 #endif
 #ifdef XK_Hangul_RieulHieuh
 xK_Hangul_RieulHieuh              :: KeySym
-xK_Hangul_RieulHieuh              = #const XK_Hangul_RieulHieuh
+xK_Hangul_RieulHieuh              = mkKeySym #{const XK_Hangul_RieulHieuh}
 #endif
 #ifdef XK_Hangul_Mieum
 xK_Hangul_Mieum                   :: KeySym
-xK_Hangul_Mieum                   = #const XK_Hangul_Mieum
+xK_Hangul_Mieum                   = mkKeySym #{const XK_Hangul_Mieum}
 #endif
 #ifdef XK_Hangul_Pieub
 xK_Hangul_Pieub                   :: KeySym
-xK_Hangul_Pieub                   = #const XK_Hangul_Pieub
+xK_Hangul_Pieub                   = mkKeySym #{const XK_Hangul_Pieub}
 #endif
 #ifdef XK_Hangul_SsangPieub
 xK_Hangul_SsangPieub              :: KeySym
-xK_Hangul_SsangPieub              = #const XK_Hangul_SsangPieub
+xK_Hangul_SsangPieub              = mkKeySym #{const XK_Hangul_SsangPieub}
 #endif
 #ifdef XK_Hangul_PieubSios
 xK_Hangul_PieubSios               :: KeySym
-xK_Hangul_PieubSios               = #const XK_Hangul_PieubSios
+xK_Hangul_PieubSios               = mkKeySym #{const XK_Hangul_PieubSios}
 #endif
 #ifdef XK_Hangul_Sios
 xK_Hangul_Sios                    :: KeySym
-xK_Hangul_Sios                    = #const XK_Hangul_Sios
+xK_Hangul_Sios                    = mkKeySym #{const XK_Hangul_Sios}
 #endif
 #ifdef XK_Hangul_SsangSios
 xK_Hangul_SsangSios               :: KeySym
-xK_Hangul_SsangSios               = #const XK_Hangul_SsangSios
+xK_Hangul_SsangSios               = mkKeySym #{const XK_Hangul_SsangSios}
 #endif
 #ifdef XK_Hangul_Ieung
 xK_Hangul_Ieung                   :: KeySym
-xK_Hangul_Ieung                   = #const XK_Hangul_Ieung
+xK_Hangul_Ieung                   = mkKeySym #{const XK_Hangul_Ieung}
 #endif
 #ifdef XK_Hangul_Jieuj
 xK_Hangul_Jieuj                   :: KeySym
-xK_Hangul_Jieuj                   = #const XK_Hangul_Jieuj
+xK_Hangul_Jieuj                   = mkKeySym #{const XK_Hangul_Jieuj}
 #endif
 #ifdef XK_Hangul_SsangJieuj
 xK_Hangul_SsangJieuj              :: KeySym
-xK_Hangul_SsangJieuj              = #const XK_Hangul_SsangJieuj
+xK_Hangul_SsangJieuj              = mkKeySym #{const XK_Hangul_SsangJieuj}
 #endif
 #ifdef XK_Hangul_Cieuc
 xK_Hangul_Cieuc                   :: KeySym
-xK_Hangul_Cieuc                   = #const XK_Hangul_Cieuc
+xK_Hangul_Cieuc                   = mkKeySym #{const XK_Hangul_Cieuc}
 #endif
 #ifdef XK_Hangul_Khieuq
 xK_Hangul_Khieuq                  :: KeySym
-xK_Hangul_Khieuq                  = #const XK_Hangul_Khieuq
+xK_Hangul_Khieuq                  = mkKeySym #{const XK_Hangul_Khieuq}
 #endif
 #ifdef XK_Hangul_Tieut
 xK_Hangul_Tieut                   :: KeySym
-xK_Hangul_Tieut                   = #const XK_Hangul_Tieut
+xK_Hangul_Tieut                   = mkKeySym #{const XK_Hangul_Tieut}
 #endif
 #ifdef XK_Hangul_Phieuf
 xK_Hangul_Phieuf                  :: KeySym
-xK_Hangul_Phieuf                  = #const XK_Hangul_Phieuf
+xK_Hangul_Phieuf                  = mkKeySym #{const XK_Hangul_Phieuf}
 #endif
 #ifdef XK_Hangul_Hieuh
 xK_Hangul_Hieuh                   :: KeySym
-xK_Hangul_Hieuh                   = #const XK_Hangul_Hieuh
+xK_Hangul_Hieuh                   = mkKeySym #{const XK_Hangul_Hieuh}
 #endif
 #ifdef XK_Hangul_A
 xK_Hangul_A                       :: KeySym
-xK_Hangul_A                       = #const XK_Hangul_A
+xK_Hangul_A                       = mkKeySym #{const XK_Hangul_A}
 #endif
 #ifdef XK_Hangul_AE
 xK_Hangul_AE                      :: KeySym
-xK_Hangul_AE                      = #const XK_Hangul_AE
+xK_Hangul_AE                      = mkKeySym #{const XK_Hangul_AE}
 #endif
 #ifdef XK_Hangul_YA
 xK_Hangul_YA                      :: KeySym
-xK_Hangul_YA                      = #const XK_Hangul_YA
+xK_Hangul_YA                      = mkKeySym #{const XK_Hangul_YA}
 #endif
 #ifdef XK_Hangul_YAE
 xK_Hangul_YAE                     :: KeySym
-xK_Hangul_YAE                     = #const XK_Hangul_YAE
+xK_Hangul_YAE                     = mkKeySym #{const XK_Hangul_YAE}
 #endif
 #ifdef XK_Hangul_EO
 xK_Hangul_EO                      :: KeySym
-xK_Hangul_EO                      = #const XK_Hangul_EO
+xK_Hangul_EO                      = mkKeySym #{const XK_Hangul_EO}
 #endif
 #ifdef XK_Hangul_E
 xK_Hangul_E                       :: KeySym
-xK_Hangul_E                       = #const XK_Hangul_E
+xK_Hangul_E                       = mkKeySym #{const XK_Hangul_E}
 #endif
 #ifdef XK_Hangul_YEO
 xK_Hangul_YEO                     :: KeySym
-xK_Hangul_YEO                     = #const XK_Hangul_YEO
+xK_Hangul_YEO                     = mkKeySym #{const XK_Hangul_YEO}
 #endif
 #ifdef XK_Hangul_YE
 xK_Hangul_YE                      :: KeySym
-xK_Hangul_YE                      = #const XK_Hangul_YE
+xK_Hangul_YE                      = mkKeySym #{const XK_Hangul_YE}
 #endif
 #ifdef XK_Hangul_O
 xK_Hangul_O                       :: KeySym
-xK_Hangul_O                       = #const XK_Hangul_O
+xK_Hangul_O                       = mkKeySym #{const XK_Hangul_O}
 #endif
 #ifdef XK_Hangul_WA
 xK_Hangul_WA                      :: KeySym
-xK_Hangul_WA                      = #const XK_Hangul_WA
+xK_Hangul_WA                      = mkKeySym #{const XK_Hangul_WA}
 #endif
 #ifdef XK_Hangul_WAE
 xK_Hangul_WAE                     :: KeySym
-xK_Hangul_WAE                     = #const XK_Hangul_WAE
+xK_Hangul_WAE                     = mkKeySym #{const XK_Hangul_WAE}
 #endif
 #ifdef XK_Hangul_OE
 xK_Hangul_OE                      :: KeySym
-xK_Hangul_OE                      = #const XK_Hangul_OE
+xK_Hangul_OE                      = mkKeySym #{const XK_Hangul_OE}
 #endif
 #ifdef XK_Hangul_YO
 xK_Hangul_YO                      :: KeySym
-xK_Hangul_YO                      = #const XK_Hangul_YO
+xK_Hangul_YO                      = mkKeySym #{const XK_Hangul_YO}
 #endif
 #ifdef XK_Hangul_U
 xK_Hangul_U                       :: KeySym
-xK_Hangul_U                       = #const XK_Hangul_U
+xK_Hangul_U                       = mkKeySym #{const XK_Hangul_U}
 #endif
 #ifdef XK_Hangul_WEO
 xK_Hangul_WEO                     :: KeySym
-xK_Hangul_WEO                     = #const XK_Hangul_WEO
+xK_Hangul_WEO                     = mkKeySym #{const XK_Hangul_WEO}
 #endif
 #ifdef XK_Hangul_WE
 xK_Hangul_WE                      :: KeySym
-xK_Hangul_WE                      = #const XK_Hangul_WE
+xK_Hangul_WE                      = mkKeySym #{const XK_Hangul_WE}
 #endif
 #ifdef XK_Hangul_WI
 xK_Hangul_WI                      :: KeySym
-xK_Hangul_WI                      = #const XK_Hangul_WI
+xK_Hangul_WI                      = mkKeySym #{const XK_Hangul_WI}
 #endif
 #ifdef XK_Hangul_YU
 xK_Hangul_YU                      :: KeySym
-xK_Hangul_YU                      = #const XK_Hangul_YU
+xK_Hangul_YU                      = mkKeySym #{const XK_Hangul_YU}
 #endif
 #ifdef XK_Hangul_EU
 xK_Hangul_EU                      :: KeySym
-xK_Hangul_EU                      = #const XK_Hangul_EU
+xK_Hangul_EU                      = mkKeySym #{const XK_Hangul_EU}
 #endif
 #ifdef XK_Hangul_YI
 xK_Hangul_YI                      :: KeySym
-xK_Hangul_YI                      = #const XK_Hangul_YI
+xK_Hangul_YI                      = mkKeySym #{const XK_Hangul_YI}
 #endif
 #ifdef XK_Hangul_I
 xK_Hangul_I                       :: KeySym
-xK_Hangul_I                       = #const XK_Hangul_I
+xK_Hangul_I                       = mkKeySym #{const XK_Hangul_I}
 #endif
 #ifdef XK_Hangul_J_Kiyeog
 xK_Hangul_J_Kiyeog                :: KeySym
-xK_Hangul_J_Kiyeog                = #const XK_Hangul_J_Kiyeog
+xK_Hangul_J_Kiyeog                = mkKeySym #{const XK_Hangul_J_Kiyeog}
 #endif
 #ifdef XK_Hangul_J_SsangKiyeog
 xK_Hangul_J_SsangKiyeog           :: KeySym
-xK_Hangul_J_SsangKiyeog           = #const XK_Hangul_J_SsangKiyeog
+xK_Hangul_J_SsangKiyeog           = mkKeySym #{const XK_Hangul_J_SsangKiyeog}
 #endif
 #ifdef XK_Hangul_J_KiyeogSios
 xK_Hangul_J_KiyeogSios            :: KeySym
-xK_Hangul_J_KiyeogSios            = #const XK_Hangul_J_KiyeogSios
+xK_Hangul_J_KiyeogSios            = mkKeySym #{const XK_Hangul_J_KiyeogSios}
 #endif
 #ifdef XK_Hangul_J_Nieun
 xK_Hangul_J_Nieun                 :: KeySym
-xK_Hangul_J_Nieun                 = #const XK_Hangul_J_Nieun
+xK_Hangul_J_Nieun                 = mkKeySym #{const XK_Hangul_J_Nieun}
 #endif
 #ifdef XK_Hangul_J_NieunJieuj
 xK_Hangul_J_NieunJieuj            :: KeySym
-xK_Hangul_J_NieunJieuj            = #const XK_Hangul_J_NieunJieuj
+xK_Hangul_J_NieunJieuj            = mkKeySym #{const XK_Hangul_J_NieunJieuj}
 #endif
 #ifdef XK_Hangul_J_NieunHieuh
 xK_Hangul_J_NieunHieuh            :: KeySym
-xK_Hangul_J_NieunHieuh            = #const XK_Hangul_J_NieunHieuh
+xK_Hangul_J_NieunHieuh            = mkKeySym #{const XK_Hangul_J_NieunHieuh}
 #endif
 #ifdef XK_Hangul_J_Dikeud
 xK_Hangul_J_Dikeud                :: KeySym
-xK_Hangul_J_Dikeud                = #const XK_Hangul_J_Dikeud
+xK_Hangul_J_Dikeud                = mkKeySym #{const XK_Hangul_J_Dikeud}
 #endif
 #ifdef XK_Hangul_J_Rieul
 xK_Hangul_J_Rieul                 :: KeySym
-xK_Hangul_J_Rieul                 = #const XK_Hangul_J_Rieul
+xK_Hangul_J_Rieul                 = mkKeySym #{const XK_Hangul_J_Rieul}
 #endif
 #ifdef XK_Hangul_J_RieulKiyeog
 xK_Hangul_J_RieulKiyeog           :: KeySym
-xK_Hangul_J_RieulKiyeog           = #const XK_Hangul_J_RieulKiyeog
+xK_Hangul_J_RieulKiyeog           = mkKeySym #{const XK_Hangul_J_RieulKiyeog}
 #endif
 #ifdef XK_Hangul_J_RieulMieum
 xK_Hangul_J_RieulMieum            :: KeySym
-xK_Hangul_J_RieulMieum            = #const XK_Hangul_J_RieulMieum
+xK_Hangul_J_RieulMieum            = mkKeySym #{const XK_Hangul_J_RieulMieum}
 #endif
 #ifdef XK_Hangul_J_RieulPieub
 xK_Hangul_J_RieulPieub            :: KeySym
-xK_Hangul_J_RieulPieub            = #const XK_Hangul_J_RieulPieub
+xK_Hangul_J_RieulPieub            = mkKeySym #{const XK_Hangul_J_RieulPieub}
 #endif
 #ifdef XK_Hangul_J_RieulSios
 xK_Hangul_J_RieulSios             :: KeySym
-xK_Hangul_J_RieulSios             = #const XK_Hangul_J_RieulSios
+xK_Hangul_J_RieulSios             = mkKeySym #{const XK_Hangul_J_RieulSios}
 #endif
 #ifdef XK_Hangul_J_RieulTieut
 xK_Hangul_J_RieulTieut            :: KeySym
-xK_Hangul_J_RieulTieut            = #const XK_Hangul_J_RieulTieut
+xK_Hangul_J_RieulTieut            = mkKeySym #{const XK_Hangul_J_RieulTieut}
 #endif
 #ifdef XK_Hangul_J_RieulPhieuf
 xK_Hangul_J_RieulPhieuf           :: KeySym
-xK_Hangul_J_RieulPhieuf           = #const XK_Hangul_J_RieulPhieuf
+xK_Hangul_J_RieulPhieuf           = mkKeySym #{const XK_Hangul_J_RieulPhieuf}
 #endif
 #ifdef XK_Hangul_J_RieulHieuh
 xK_Hangul_J_RieulHieuh            :: KeySym
-xK_Hangul_J_RieulHieuh            = #const XK_Hangul_J_RieulHieuh
+xK_Hangul_J_RieulHieuh            = mkKeySym #{const XK_Hangul_J_RieulHieuh}
 #endif
 #ifdef XK_Hangul_J_Mieum
 xK_Hangul_J_Mieum                 :: KeySym
-xK_Hangul_J_Mieum                 = #const XK_Hangul_J_Mieum
+xK_Hangul_J_Mieum                 = mkKeySym #{const XK_Hangul_J_Mieum}
 #endif
 #ifdef XK_Hangul_J_Pieub
 xK_Hangul_J_Pieub                 :: KeySym
-xK_Hangul_J_Pieub                 = #const XK_Hangul_J_Pieub
+xK_Hangul_J_Pieub                 = mkKeySym #{const XK_Hangul_J_Pieub}
 #endif
 #ifdef XK_Hangul_J_PieubSios
 xK_Hangul_J_PieubSios             :: KeySym
-xK_Hangul_J_PieubSios             = #const XK_Hangul_J_PieubSios
+xK_Hangul_J_PieubSios             = mkKeySym #{const XK_Hangul_J_PieubSios}
 #endif
 #ifdef XK_Hangul_J_Sios
 xK_Hangul_J_Sios                  :: KeySym
-xK_Hangul_J_Sios                  = #const XK_Hangul_J_Sios
+xK_Hangul_J_Sios                  = mkKeySym #{const XK_Hangul_J_Sios}
 #endif
 #ifdef XK_Hangul_J_SsangSios
 xK_Hangul_J_SsangSios             :: KeySym
-xK_Hangul_J_SsangSios             = #const XK_Hangul_J_SsangSios
+xK_Hangul_J_SsangSios             = mkKeySym #{const XK_Hangul_J_SsangSios}
 #endif
 #ifdef XK_Hangul_J_Ieung
 xK_Hangul_J_Ieung                 :: KeySym
-xK_Hangul_J_Ieung                 = #const XK_Hangul_J_Ieung
+xK_Hangul_J_Ieung                 = mkKeySym #{const XK_Hangul_J_Ieung}
 #endif
 #ifdef XK_Hangul_J_Jieuj
 xK_Hangul_J_Jieuj                 :: KeySym
-xK_Hangul_J_Jieuj                 = #const XK_Hangul_J_Jieuj
+xK_Hangul_J_Jieuj                 = mkKeySym #{const XK_Hangul_J_Jieuj}
 #endif
 #ifdef XK_Hangul_J_Cieuc
 xK_Hangul_J_Cieuc                 :: KeySym
-xK_Hangul_J_Cieuc                 = #const XK_Hangul_J_Cieuc
+xK_Hangul_J_Cieuc                 = mkKeySym #{const XK_Hangul_J_Cieuc}
 #endif
 #ifdef XK_Hangul_J_Khieuq
 xK_Hangul_J_Khieuq                :: KeySym
-xK_Hangul_J_Khieuq                = #const XK_Hangul_J_Khieuq
+xK_Hangul_J_Khieuq                = mkKeySym #{const XK_Hangul_J_Khieuq}
 #endif
 #ifdef XK_Hangul_J_Tieut
 xK_Hangul_J_Tieut                 :: KeySym
-xK_Hangul_J_Tieut                 = #const XK_Hangul_J_Tieut
+xK_Hangul_J_Tieut                 = mkKeySym #{const XK_Hangul_J_Tieut}
 #endif
 #ifdef XK_Hangul_J_Phieuf
 xK_Hangul_J_Phieuf                :: KeySym
-xK_Hangul_J_Phieuf                = #const XK_Hangul_J_Phieuf
+xK_Hangul_J_Phieuf                = mkKeySym #{const XK_Hangul_J_Phieuf}
 #endif
 #ifdef XK_Hangul_J_Hieuh
 xK_Hangul_J_Hieuh                 :: KeySym
-xK_Hangul_J_Hieuh                 = #const XK_Hangul_J_Hieuh
+xK_Hangul_J_Hieuh                 = mkKeySym #{const XK_Hangul_J_Hieuh}
 #endif
 #ifdef XK_Hangul_RieulYeorinHieuh
 xK_Hangul_RieulYeorinHieuh        :: KeySym
-xK_Hangul_RieulYeorinHieuh        = #const XK_Hangul_RieulYeorinHieuh
+xK_Hangul_RieulYeorinHieuh        = mkKeySym #{const XK_Hangul_RieulYeorinHieuh}
 #endif
 #ifdef XK_Hangul_SunkyeongeumMieum
 xK_Hangul_SunkyeongeumMieum       :: KeySym
-xK_Hangul_SunkyeongeumMieum       = #const XK_Hangul_SunkyeongeumMieum
+xK_Hangul_SunkyeongeumMieum       = mkKeySym #{const XK_Hangul_SunkyeongeumMieum}
 #endif
 #ifdef XK_Hangul_SunkyeongeumPieub
 xK_Hangul_SunkyeongeumPieub       :: KeySym
-xK_Hangul_SunkyeongeumPieub       = #const XK_Hangul_SunkyeongeumPieub
+xK_Hangul_SunkyeongeumPieub       = mkKeySym #{const XK_Hangul_SunkyeongeumPieub}
 #endif
 #ifdef XK_Hangul_PanSios
 xK_Hangul_PanSios                 :: KeySym
-xK_Hangul_PanSios                 = #const XK_Hangul_PanSios
+xK_Hangul_PanSios                 = mkKeySym #{const XK_Hangul_PanSios}
 #endif
 #ifdef XK_Hangul_KkogjiDalrinIeung
 xK_Hangul_KkogjiDalrinIeung       :: KeySym
-xK_Hangul_KkogjiDalrinIeung       = #const XK_Hangul_KkogjiDalrinIeung
+xK_Hangul_KkogjiDalrinIeung       = mkKeySym #{const XK_Hangul_KkogjiDalrinIeung}
 #endif
 #ifdef XK_Hangul_SunkyeongeumPhieuf
 xK_Hangul_SunkyeongeumPhieuf      :: KeySym
-xK_Hangul_SunkyeongeumPhieuf      = #const XK_Hangul_SunkyeongeumPhieuf
+xK_Hangul_SunkyeongeumPhieuf      = mkKeySym #{const XK_Hangul_SunkyeongeumPhieuf}
 #endif
 #ifdef XK_Hangul_YeorinHieuh
 xK_Hangul_YeorinHieuh             :: KeySym
-xK_Hangul_YeorinHieuh             = #const XK_Hangul_YeorinHieuh
+xK_Hangul_YeorinHieuh             = mkKeySym #{const XK_Hangul_YeorinHieuh}
 #endif
 #ifdef XK_Hangul_AraeA
 xK_Hangul_AraeA                   :: KeySym
-xK_Hangul_AraeA                   = #const XK_Hangul_AraeA
+xK_Hangul_AraeA                   = mkKeySym #{const XK_Hangul_AraeA}
 #endif
 #ifdef XK_Hangul_AraeAE
 xK_Hangul_AraeAE                  :: KeySym
-xK_Hangul_AraeAE                  = #const XK_Hangul_AraeAE
+xK_Hangul_AraeAE                  = mkKeySym #{const XK_Hangul_AraeAE}
 #endif
 #ifdef XK_Hangul_J_PanSios
 xK_Hangul_J_PanSios               :: KeySym
-xK_Hangul_J_PanSios               = #const XK_Hangul_J_PanSios
+xK_Hangul_J_PanSios               = mkKeySym #{const XK_Hangul_J_PanSios}
 #endif
 #ifdef XK_Hangul_J_KkogjiDalrinIeung
 xK_Hangul_J_KkogjiDalrinIeung     :: KeySym
-xK_Hangul_J_KkogjiDalrinIeung     = #const XK_Hangul_J_KkogjiDalrinIeung
+xK_Hangul_J_KkogjiDalrinIeung     = mkKeySym #{const XK_Hangul_J_KkogjiDalrinIeung}
 #endif
 #ifdef XK_Hangul_J_YeorinHieuh
 xK_Hangul_J_YeorinHieuh           :: KeySym
-xK_Hangul_J_YeorinHieuh           = #const XK_Hangul_J_YeorinHieuh
+xK_Hangul_J_YeorinHieuh           = mkKeySym #{const XK_Hangul_J_YeorinHieuh}
 #endif
 #ifdef XK_Korean_Won
 xK_Korean_Won                     :: KeySym
-xK_Korean_Won                     = #const XK_Korean_Won
+xK_Korean_Won                     = mkKeySym #{const XK_Korean_Won}
 #endif
 
 -- XK_ARMENIAN
 #ifdef XK_Armenian_ligature_ew
 xK_Armenian_ligature_ew           :: KeySym
-xK_Armenian_ligature_ew           = #const XK_Armenian_ligature_ew
+xK_Armenian_ligature_ew           = mkKeySym #{const XK_Armenian_ligature_ew}
 #endif
 #ifdef XK_Armenian_full_stop
 xK_Armenian_full_stop             :: KeySym
-xK_Armenian_full_stop             = #const XK_Armenian_full_stop
+xK_Armenian_full_stop             = mkKeySym #{const XK_Armenian_full_stop}
 #endif
 #ifdef XK_Armenian_verjaket
 xK_Armenian_verjaket              :: KeySym
-xK_Armenian_verjaket              = #const XK_Armenian_verjaket
+xK_Armenian_verjaket              = mkKeySym #{const XK_Armenian_verjaket}
 #endif
 #ifdef XK_Armenian_separation_mark
 xK_Armenian_separation_mark       :: KeySym
-xK_Armenian_separation_mark       = #const XK_Armenian_separation_mark
+xK_Armenian_separation_mark       = mkKeySym #{const XK_Armenian_separation_mark}
 #endif
 #ifdef XK_Armenian_but
 xK_Armenian_but                   :: KeySym
-xK_Armenian_but                   = #const XK_Armenian_but
+xK_Armenian_but                   = mkKeySym #{const XK_Armenian_but}
 #endif
 #ifdef XK_Armenian_hyphen
 xK_Armenian_hyphen                :: KeySym
-xK_Armenian_hyphen                = #const XK_Armenian_hyphen
+xK_Armenian_hyphen                = mkKeySym #{const XK_Armenian_hyphen}
 #endif
 #ifdef XK_Armenian_yentamna
 xK_Armenian_yentamna              :: KeySym
-xK_Armenian_yentamna              = #const XK_Armenian_yentamna
+xK_Armenian_yentamna              = mkKeySym #{const XK_Armenian_yentamna}
 #endif
 #ifdef XK_Armenian_exclam
 xK_Armenian_exclam                :: KeySym
-xK_Armenian_exclam                = #const XK_Armenian_exclam
+xK_Armenian_exclam                = mkKeySym #{const XK_Armenian_exclam}
 #endif
 #ifdef XK_Armenian_amanak
 xK_Armenian_amanak                :: KeySym
-xK_Armenian_amanak                = #const XK_Armenian_amanak
+xK_Armenian_amanak                = mkKeySym #{const XK_Armenian_amanak}
 #endif
 #ifdef XK_Armenian_accent
 xK_Armenian_accent                :: KeySym
-xK_Armenian_accent                = #const XK_Armenian_accent
+xK_Armenian_accent                = mkKeySym #{const XK_Armenian_accent}
 #endif
 #ifdef XK_Armenian_shesht
 xK_Armenian_shesht                :: KeySym
-xK_Armenian_shesht                = #const XK_Armenian_shesht
+xK_Armenian_shesht                = mkKeySym #{const XK_Armenian_shesht}
 #endif
 #ifdef XK_Armenian_question
 xK_Armenian_question              :: KeySym
-xK_Armenian_question              = #const XK_Armenian_question
+xK_Armenian_question              = mkKeySym #{const XK_Armenian_question}
 #endif
 #ifdef XK_Armenian_paruyk
 xK_Armenian_paruyk                :: KeySym
-xK_Armenian_paruyk                = #const XK_Armenian_paruyk
+xK_Armenian_paruyk                = mkKeySym #{const XK_Armenian_paruyk}
 #endif
 #ifdef XK_Armenian_AYB
 xK_Armenian_AYB                   :: KeySym
-xK_Armenian_AYB                   = #const XK_Armenian_AYB
+xK_Armenian_AYB                   = mkKeySym #{const XK_Armenian_AYB}
 #endif
 #ifdef XK_Armenian_ayb
 xK_Armenian_ayb                   :: KeySym
-xK_Armenian_ayb                   = #const XK_Armenian_ayb
+xK_Armenian_ayb                   = mkKeySym #{const XK_Armenian_ayb}
 #endif
 #ifdef XK_Armenian_BEN
 xK_Armenian_BEN                   :: KeySym
-xK_Armenian_BEN                   = #const XK_Armenian_BEN
+xK_Armenian_BEN                   = mkKeySym #{const XK_Armenian_BEN}
 #endif
 #ifdef XK_Armenian_ben
 xK_Armenian_ben                   :: KeySym
-xK_Armenian_ben                   = #const XK_Armenian_ben
+xK_Armenian_ben                   = mkKeySym #{const XK_Armenian_ben}
 #endif
 #ifdef XK_Armenian_GIM
 xK_Armenian_GIM                   :: KeySym
-xK_Armenian_GIM                   = #const XK_Armenian_GIM
+xK_Armenian_GIM                   = mkKeySym #{const XK_Armenian_GIM}
 #endif
 #ifdef XK_Armenian_gim
 xK_Armenian_gim                   :: KeySym
-xK_Armenian_gim                   = #const XK_Armenian_gim
+xK_Armenian_gim                   = mkKeySym #{const XK_Armenian_gim}
 #endif
 #ifdef XK_Armenian_DA
 xK_Armenian_DA                    :: KeySym
-xK_Armenian_DA                    = #const XK_Armenian_DA
+xK_Armenian_DA                    = mkKeySym #{const XK_Armenian_DA}
 #endif
 #ifdef XK_Armenian_da
 xK_Armenian_da                    :: KeySym
-xK_Armenian_da                    = #const XK_Armenian_da
+xK_Armenian_da                    = mkKeySym #{const XK_Armenian_da}
 #endif
 #ifdef XK_Armenian_YECH
 xK_Armenian_YECH                  :: KeySym
-xK_Armenian_YECH                  = #const XK_Armenian_YECH
+xK_Armenian_YECH                  = mkKeySym #{const XK_Armenian_YECH}
 #endif
 #ifdef XK_Armenian_yech
 xK_Armenian_yech                  :: KeySym
-xK_Armenian_yech                  = #const XK_Armenian_yech
+xK_Armenian_yech                  = mkKeySym #{const XK_Armenian_yech}
 #endif
 #ifdef XK_Armenian_ZA
 xK_Armenian_ZA                    :: KeySym
-xK_Armenian_ZA                    = #const XK_Armenian_ZA
+xK_Armenian_ZA                    = mkKeySym #{const XK_Armenian_ZA}
 #endif
 #ifdef XK_Armenian_za
 xK_Armenian_za                    :: KeySym
-xK_Armenian_za                    = #const XK_Armenian_za
+xK_Armenian_za                    = mkKeySym #{const XK_Armenian_za}
 #endif
 #ifdef XK_Armenian_E
 xK_Armenian_E                     :: KeySym
-xK_Armenian_E                     = #const XK_Armenian_E
+xK_Armenian_E                     = mkKeySym #{const XK_Armenian_E}
 #endif
 #ifdef XK_Armenian_e
 xK_Armenian_e                     :: KeySym
-xK_Armenian_e                     = #const XK_Armenian_e
+xK_Armenian_e                     = mkKeySym #{const XK_Armenian_e}
 #endif
 #ifdef XK_Armenian_AT
 xK_Armenian_AT                    :: KeySym
-xK_Armenian_AT                    = #const XK_Armenian_AT
+xK_Armenian_AT                    = mkKeySym #{const XK_Armenian_AT}
 #endif
 #ifdef XK_Armenian_at
 xK_Armenian_at                    :: KeySym
-xK_Armenian_at                    = #const XK_Armenian_at
+xK_Armenian_at                    = mkKeySym #{const XK_Armenian_at}
 #endif
 #ifdef XK_Armenian_TO
 xK_Armenian_TO                    :: KeySym
-xK_Armenian_TO                    = #const XK_Armenian_TO
+xK_Armenian_TO                    = mkKeySym #{const XK_Armenian_TO}
 #endif
 #ifdef XK_Armenian_to
 xK_Armenian_to                    :: KeySym
-xK_Armenian_to                    = #const XK_Armenian_to
+xK_Armenian_to                    = mkKeySym #{const XK_Armenian_to}
 #endif
 #ifdef XK_Armenian_ZHE
 xK_Armenian_ZHE                   :: KeySym
-xK_Armenian_ZHE                   = #const XK_Armenian_ZHE
+xK_Armenian_ZHE                   = mkKeySym #{const XK_Armenian_ZHE}
 #endif
 #ifdef XK_Armenian_zhe
 xK_Armenian_zhe                   :: KeySym
-xK_Armenian_zhe                   = #const XK_Armenian_zhe
+xK_Armenian_zhe                   = mkKeySym #{const XK_Armenian_zhe}
 #endif
 #ifdef XK_Armenian_INI
 xK_Armenian_INI                   :: KeySym
-xK_Armenian_INI                   = #const XK_Armenian_INI
+xK_Armenian_INI                   = mkKeySym #{const XK_Armenian_INI}
 #endif
 #ifdef XK_Armenian_ini
 xK_Armenian_ini                   :: KeySym
-xK_Armenian_ini                   = #const XK_Armenian_ini
+xK_Armenian_ini                   = mkKeySym #{const XK_Armenian_ini}
 #endif
 #ifdef XK_Armenian_LYUN
 xK_Armenian_LYUN                  :: KeySym
-xK_Armenian_LYUN                  = #const XK_Armenian_LYUN
+xK_Armenian_LYUN                  = mkKeySym #{const XK_Armenian_LYUN}
 #endif
 #ifdef XK_Armenian_lyun
 xK_Armenian_lyun                  :: KeySym
-xK_Armenian_lyun                  = #const XK_Armenian_lyun
+xK_Armenian_lyun                  = mkKeySym #{const XK_Armenian_lyun}
 #endif
 #ifdef XK_Armenian_KHE
 xK_Armenian_KHE                   :: KeySym
-xK_Armenian_KHE                   = #const XK_Armenian_KHE
+xK_Armenian_KHE                   = mkKeySym #{const XK_Armenian_KHE}
 #endif
 #ifdef XK_Armenian_khe
 xK_Armenian_khe                   :: KeySym
-xK_Armenian_khe                   = #const XK_Armenian_khe
+xK_Armenian_khe                   = mkKeySym #{const XK_Armenian_khe}
 #endif
 #ifdef XK_Armenian_TSA
 xK_Armenian_TSA                   :: KeySym
-xK_Armenian_TSA                   = #const XK_Armenian_TSA
+xK_Armenian_TSA                   = mkKeySym #{const XK_Armenian_TSA}
 #endif
 #ifdef XK_Armenian_tsa
 xK_Armenian_tsa                   :: KeySym
-xK_Armenian_tsa                   = #const XK_Armenian_tsa
+xK_Armenian_tsa                   = mkKeySym #{const XK_Armenian_tsa}
 #endif
 #ifdef XK_Armenian_KEN
 xK_Armenian_KEN                   :: KeySym
-xK_Armenian_KEN                   = #const XK_Armenian_KEN
+xK_Armenian_KEN                   = mkKeySym #{const XK_Armenian_KEN}
 #endif
 #ifdef XK_Armenian_ken
 xK_Armenian_ken                   :: KeySym
-xK_Armenian_ken                   = #const XK_Armenian_ken
+xK_Armenian_ken                   = mkKeySym #{const XK_Armenian_ken}
 #endif
 #ifdef XK_Armenian_HO
 xK_Armenian_HO                    :: KeySym
-xK_Armenian_HO                    = #const XK_Armenian_HO
+xK_Armenian_HO                    = mkKeySym #{const XK_Armenian_HO}
 #endif
 #ifdef XK_Armenian_ho
 xK_Armenian_ho                    :: KeySym
-xK_Armenian_ho                    = #const XK_Armenian_ho
+xK_Armenian_ho                    = mkKeySym #{const XK_Armenian_ho}
 #endif
 #ifdef XK_Armenian_DZA
 xK_Armenian_DZA                   :: KeySym
-xK_Armenian_DZA                   = #const XK_Armenian_DZA
+xK_Armenian_DZA                   = mkKeySym #{const XK_Armenian_DZA}
 #endif
 #ifdef XK_Armenian_dza
 xK_Armenian_dza                   :: KeySym
-xK_Armenian_dza                   = #const XK_Armenian_dza
+xK_Armenian_dza                   = mkKeySym #{const XK_Armenian_dza}
 #endif
 #ifdef XK_Armenian_GHAT
 xK_Armenian_GHAT                  :: KeySym
-xK_Armenian_GHAT                  = #const XK_Armenian_GHAT
+xK_Armenian_GHAT                  = mkKeySym #{const XK_Armenian_GHAT}
 #endif
 #ifdef XK_Armenian_ghat
 xK_Armenian_ghat                  :: KeySym
-xK_Armenian_ghat                  = #const XK_Armenian_ghat
+xK_Armenian_ghat                  = mkKeySym #{const XK_Armenian_ghat}
 #endif
 #ifdef XK_Armenian_TCHE
 xK_Armenian_TCHE                  :: KeySym
-xK_Armenian_TCHE                  = #const XK_Armenian_TCHE
+xK_Armenian_TCHE                  = mkKeySym #{const XK_Armenian_TCHE}
 #endif
 #ifdef XK_Armenian_tche
 xK_Armenian_tche                  :: KeySym
-xK_Armenian_tche                  = #const XK_Armenian_tche
+xK_Armenian_tche                  = mkKeySym #{const XK_Armenian_tche}
 #endif
 #ifdef XK_Armenian_MEN
 xK_Armenian_MEN                   :: KeySym
-xK_Armenian_MEN                   = #const XK_Armenian_MEN
+xK_Armenian_MEN                   = mkKeySym #{const XK_Armenian_MEN}
 #endif
 #ifdef XK_Armenian_men
 xK_Armenian_men                   :: KeySym
-xK_Armenian_men                   = #const XK_Armenian_men
+xK_Armenian_men                   = mkKeySym #{const XK_Armenian_men}
 #endif
 #ifdef XK_Armenian_HI
 xK_Armenian_HI                    :: KeySym
-xK_Armenian_HI                    = #const XK_Armenian_HI
+xK_Armenian_HI                    = mkKeySym #{const XK_Armenian_HI}
 #endif
 #ifdef XK_Armenian_hi
 xK_Armenian_hi                    :: KeySym
-xK_Armenian_hi                    = #const XK_Armenian_hi
+xK_Armenian_hi                    = mkKeySym #{const XK_Armenian_hi}
 #endif
 #ifdef XK_Armenian_NU
 xK_Armenian_NU                    :: KeySym
-xK_Armenian_NU                    = #const XK_Armenian_NU
+xK_Armenian_NU                    = mkKeySym #{const XK_Armenian_NU}
 #endif
 #ifdef XK_Armenian_nu
 xK_Armenian_nu                    :: KeySym
-xK_Armenian_nu                    = #const XK_Armenian_nu
+xK_Armenian_nu                    = mkKeySym #{const XK_Armenian_nu}
 #endif
 #ifdef XK_Armenian_SHA
 xK_Armenian_SHA                   :: KeySym
-xK_Armenian_SHA                   = #const XK_Armenian_SHA
+xK_Armenian_SHA                   = mkKeySym #{const XK_Armenian_SHA}
 #endif
 #ifdef XK_Armenian_sha
 xK_Armenian_sha                   :: KeySym
-xK_Armenian_sha                   = #const XK_Armenian_sha
+xK_Armenian_sha                   = mkKeySym #{const XK_Armenian_sha}
 #endif
 #ifdef XK_Armenian_VO
 xK_Armenian_VO                    :: KeySym
-xK_Armenian_VO                    = #const XK_Armenian_VO
+xK_Armenian_VO                    = mkKeySym #{const XK_Armenian_VO}
 #endif
 #ifdef XK_Armenian_vo
 xK_Armenian_vo                    :: KeySym
-xK_Armenian_vo                    = #const XK_Armenian_vo
+xK_Armenian_vo                    = mkKeySym #{const XK_Armenian_vo}
 #endif
 #ifdef XK_Armenian_CHA
 xK_Armenian_CHA                   :: KeySym
-xK_Armenian_CHA                   = #const XK_Armenian_CHA
+xK_Armenian_CHA                   = mkKeySym #{const XK_Armenian_CHA}
 #endif
 #ifdef XK_Armenian_cha
 xK_Armenian_cha                   :: KeySym
-xK_Armenian_cha                   = #const XK_Armenian_cha
+xK_Armenian_cha                   = mkKeySym #{const XK_Armenian_cha}
 #endif
 #ifdef XK_Armenian_PE
 xK_Armenian_PE                    :: KeySym
-xK_Armenian_PE                    = #const XK_Armenian_PE
+xK_Armenian_PE                    = mkKeySym #{const XK_Armenian_PE}
 #endif
 #ifdef XK_Armenian_pe
 xK_Armenian_pe                    :: KeySym
-xK_Armenian_pe                    = #const XK_Armenian_pe
+xK_Armenian_pe                    = mkKeySym #{const XK_Armenian_pe}
 #endif
 #ifdef XK_Armenian_JE
 xK_Armenian_JE                    :: KeySym
-xK_Armenian_JE                    = #const XK_Armenian_JE
+xK_Armenian_JE                    = mkKeySym #{const XK_Armenian_JE}
 #endif
 #ifdef XK_Armenian_je
 xK_Armenian_je                    :: KeySym
-xK_Armenian_je                    = #const XK_Armenian_je
+xK_Armenian_je                    = mkKeySym #{const XK_Armenian_je}
 #endif
 #ifdef XK_Armenian_RA
 xK_Armenian_RA                    :: KeySym
-xK_Armenian_RA                    = #const XK_Armenian_RA
+xK_Armenian_RA                    = mkKeySym #{const XK_Armenian_RA}
 #endif
 #ifdef XK_Armenian_ra
 xK_Armenian_ra                    :: KeySym
-xK_Armenian_ra                    = #const XK_Armenian_ra
+xK_Armenian_ra                    = mkKeySym #{const XK_Armenian_ra}
 #endif
 #ifdef XK_Armenian_SE
 xK_Armenian_SE                    :: KeySym
-xK_Armenian_SE                    = #const XK_Armenian_SE
+xK_Armenian_SE                    = mkKeySym #{const XK_Armenian_SE}
 #endif
 #ifdef XK_Armenian_se
 xK_Armenian_se                    :: KeySym
-xK_Armenian_se                    = #const XK_Armenian_se
+xK_Armenian_se                    = mkKeySym #{const XK_Armenian_se}
 #endif
 #ifdef XK_Armenian_VEV
 xK_Armenian_VEV                   :: KeySym
-xK_Armenian_VEV                   = #const XK_Armenian_VEV
+xK_Armenian_VEV                   = mkKeySym #{const XK_Armenian_VEV}
 #endif
 #ifdef XK_Armenian_vev
 xK_Armenian_vev                   :: KeySym
-xK_Armenian_vev                   = #const XK_Armenian_vev
+xK_Armenian_vev                   = mkKeySym #{const XK_Armenian_vev}
 #endif
 #ifdef XK_Armenian_TYUN
 xK_Armenian_TYUN                  :: KeySym
-xK_Armenian_TYUN                  = #const XK_Armenian_TYUN
+xK_Armenian_TYUN                  = mkKeySym #{const XK_Armenian_TYUN}
 #endif
 #ifdef XK_Armenian_tyun
 xK_Armenian_tyun                  :: KeySym
-xK_Armenian_tyun                  = #const XK_Armenian_tyun
+xK_Armenian_tyun                  = mkKeySym #{const XK_Armenian_tyun}
 #endif
 #ifdef XK_Armenian_RE
 xK_Armenian_RE                    :: KeySym
-xK_Armenian_RE                    = #const XK_Armenian_RE
+xK_Armenian_RE                    = mkKeySym #{const XK_Armenian_RE}
 #endif
 #ifdef XK_Armenian_re
 xK_Armenian_re                    :: KeySym
-xK_Armenian_re                    = #const XK_Armenian_re
+xK_Armenian_re                    = mkKeySym #{const XK_Armenian_re}
 #endif
 #ifdef XK_Armenian_TSO
 xK_Armenian_TSO                   :: KeySym
-xK_Armenian_TSO                   = #const XK_Armenian_TSO
+xK_Armenian_TSO                   = mkKeySym #{const XK_Armenian_TSO}
 #endif
 #ifdef XK_Armenian_tso
 xK_Armenian_tso                   :: KeySym
-xK_Armenian_tso                   = #const XK_Armenian_tso
+xK_Armenian_tso                   = mkKeySym #{const XK_Armenian_tso}
 #endif
 #ifdef XK_Armenian_VYUN
 xK_Armenian_VYUN                  :: KeySym
-xK_Armenian_VYUN                  = #const XK_Armenian_VYUN
+xK_Armenian_VYUN                  = mkKeySym #{const XK_Armenian_VYUN}
 #endif
 #ifdef XK_Armenian_vyun
 xK_Armenian_vyun                  :: KeySym
-xK_Armenian_vyun                  = #const XK_Armenian_vyun
+xK_Armenian_vyun                  = mkKeySym #{const XK_Armenian_vyun}
 #endif
 #ifdef XK_Armenian_PYUR
 xK_Armenian_PYUR                  :: KeySym
-xK_Armenian_PYUR                  = #const XK_Armenian_PYUR
+xK_Armenian_PYUR                  = mkKeySym #{const XK_Armenian_PYUR}
 #endif
 #ifdef XK_Armenian_pyur
 xK_Armenian_pyur                  :: KeySym
-xK_Armenian_pyur                  = #const XK_Armenian_pyur
+xK_Armenian_pyur                  = mkKeySym #{const XK_Armenian_pyur}
 #endif
 #ifdef XK_Armenian_KE
 xK_Armenian_KE                    :: KeySym
-xK_Armenian_KE                    = #const XK_Armenian_KE
+xK_Armenian_KE                    = mkKeySym #{const XK_Armenian_KE}
 #endif
 #ifdef XK_Armenian_ke
 xK_Armenian_ke                    :: KeySym
-xK_Armenian_ke                    = #const XK_Armenian_ke
+xK_Armenian_ke                    = mkKeySym #{const XK_Armenian_ke}
 #endif
 #ifdef XK_Armenian_O
 xK_Armenian_O                     :: KeySym
-xK_Armenian_O                     = #const XK_Armenian_O
+xK_Armenian_O                     = mkKeySym #{const XK_Armenian_O}
 #endif
 #ifdef XK_Armenian_o
 xK_Armenian_o                     :: KeySym
-xK_Armenian_o                     = #const XK_Armenian_o
+xK_Armenian_o                     = mkKeySym #{const XK_Armenian_o}
 #endif
 #ifdef XK_Armenian_FE
 xK_Armenian_FE                    :: KeySym
-xK_Armenian_FE                    = #const XK_Armenian_FE
+xK_Armenian_FE                    = mkKeySym #{const XK_Armenian_FE}
 #endif
 #ifdef XK_Armenian_fe
 xK_Armenian_fe                    :: KeySym
-xK_Armenian_fe                    = #const XK_Armenian_fe
+xK_Armenian_fe                    = mkKeySym #{const XK_Armenian_fe}
 #endif
 #ifdef XK_Armenian_apostrophe
 xK_Armenian_apostrophe            :: KeySym
-xK_Armenian_apostrophe            = #const XK_Armenian_apostrophe
+xK_Armenian_apostrophe            = mkKeySym #{const XK_Armenian_apostrophe}
 #endif
 
 -- XK_GEORGIAN
 #ifdef XK_Georgian_an
 xK_Georgian_an                    :: KeySym
-xK_Georgian_an                    = #const XK_Georgian_an
+xK_Georgian_an                    = mkKeySym #{const XK_Georgian_an}
 #endif
 #ifdef XK_Georgian_ban
 xK_Georgian_ban                   :: KeySym
-xK_Georgian_ban                   = #const XK_Georgian_ban
+xK_Georgian_ban                   = mkKeySym #{const XK_Georgian_ban}
 #endif
 #ifdef XK_Georgian_gan
 xK_Georgian_gan                   :: KeySym
-xK_Georgian_gan                   = #const XK_Georgian_gan
+xK_Georgian_gan                   = mkKeySym #{const XK_Georgian_gan}
 #endif
 #ifdef XK_Georgian_don
 xK_Georgian_don                   :: KeySym
-xK_Georgian_don                   = #const XK_Georgian_don
+xK_Georgian_don                   = mkKeySym #{const XK_Georgian_don}
 #endif
 #ifdef XK_Georgian_en
 xK_Georgian_en                    :: KeySym
-xK_Georgian_en                    = #const XK_Georgian_en
+xK_Georgian_en                    = mkKeySym #{const XK_Georgian_en}
 #endif
 #ifdef XK_Georgian_vin
 xK_Georgian_vin                   :: KeySym
-xK_Georgian_vin                   = #const XK_Georgian_vin
+xK_Georgian_vin                   = mkKeySym #{const XK_Georgian_vin}
 #endif
 #ifdef XK_Georgian_zen
 xK_Georgian_zen                   :: KeySym
-xK_Georgian_zen                   = #const XK_Georgian_zen
+xK_Georgian_zen                   = mkKeySym #{const XK_Georgian_zen}
 #endif
 #ifdef XK_Georgian_tan
 xK_Georgian_tan                   :: KeySym
-xK_Georgian_tan                   = #const XK_Georgian_tan
+xK_Georgian_tan                   = mkKeySym #{const XK_Georgian_tan}
 #endif
 #ifdef XK_Georgian_in
 xK_Georgian_in                    :: KeySym
-xK_Georgian_in                    = #const XK_Georgian_in
+xK_Georgian_in                    = mkKeySym #{const XK_Georgian_in}
 #endif
 #ifdef XK_Georgian_kan
 xK_Georgian_kan                   :: KeySym
-xK_Georgian_kan                   = #const XK_Georgian_kan
+xK_Georgian_kan                   = mkKeySym #{const XK_Georgian_kan}
 #endif
 #ifdef XK_Georgian_las
 xK_Georgian_las                   :: KeySym
-xK_Georgian_las                   = #const XK_Georgian_las
+xK_Georgian_las                   = mkKeySym #{const XK_Georgian_las}
 #endif
 #ifdef XK_Georgian_man
 xK_Georgian_man                   :: KeySym
-xK_Georgian_man                   = #const XK_Georgian_man
+xK_Georgian_man                   = mkKeySym #{const XK_Georgian_man}
 #endif
 #ifdef XK_Georgian_nar
 xK_Georgian_nar                   :: KeySym
-xK_Georgian_nar                   = #const XK_Georgian_nar
+xK_Georgian_nar                   = mkKeySym #{const XK_Georgian_nar}
 #endif
 #ifdef XK_Georgian_on
 xK_Georgian_on                    :: KeySym
-xK_Georgian_on                    = #const XK_Georgian_on
+xK_Georgian_on                    = mkKeySym #{const XK_Georgian_on}
 #endif
 #ifdef XK_Georgian_par
 xK_Georgian_par                   :: KeySym
-xK_Georgian_par                   = #const XK_Georgian_par
+xK_Georgian_par                   = mkKeySym #{const XK_Georgian_par}
 #endif
 #ifdef XK_Georgian_zhar
 xK_Georgian_zhar                  :: KeySym
-xK_Georgian_zhar                  = #const XK_Georgian_zhar
+xK_Georgian_zhar                  = mkKeySym #{const XK_Georgian_zhar}
 #endif
 #ifdef XK_Georgian_rae
 xK_Georgian_rae                   :: KeySym
-xK_Georgian_rae                   = #const XK_Georgian_rae
+xK_Georgian_rae                   = mkKeySym #{const XK_Georgian_rae}
 #endif
 #ifdef XK_Georgian_san
 xK_Georgian_san                   :: KeySym
-xK_Georgian_san                   = #const XK_Georgian_san
+xK_Georgian_san                   = mkKeySym #{const XK_Georgian_san}
 #endif
 #ifdef XK_Georgian_tar
 xK_Georgian_tar                   :: KeySym
-xK_Georgian_tar                   = #const XK_Georgian_tar
+xK_Georgian_tar                   = mkKeySym #{const XK_Georgian_tar}
 #endif
 #ifdef XK_Georgian_un
 xK_Georgian_un                    :: KeySym
-xK_Georgian_un                    = #const XK_Georgian_un
+xK_Georgian_un                    = mkKeySym #{const XK_Georgian_un}
 #endif
 #ifdef XK_Georgian_phar
 xK_Georgian_phar                  :: KeySym
-xK_Georgian_phar                  = #const XK_Georgian_phar
+xK_Georgian_phar                  = mkKeySym #{const XK_Georgian_phar}
 #endif
 #ifdef XK_Georgian_khar
 xK_Georgian_khar                  :: KeySym
-xK_Georgian_khar                  = #const XK_Georgian_khar
+xK_Georgian_khar                  = mkKeySym #{const XK_Georgian_khar}
 #endif
 #ifdef XK_Georgian_ghan
 xK_Georgian_ghan                  :: KeySym
-xK_Georgian_ghan                  = #const XK_Georgian_ghan
+xK_Georgian_ghan                  = mkKeySym #{const XK_Georgian_ghan}
 #endif
 #ifdef XK_Georgian_qar
 xK_Georgian_qar                   :: KeySym
-xK_Georgian_qar                   = #const XK_Georgian_qar
+xK_Georgian_qar                   = mkKeySym #{const XK_Georgian_qar}
 #endif
 #ifdef XK_Georgian_shin
 xK_Georgian_shin                  :: KeySym
-xK_Georgian_shin                  = #const XK_Georgian_shin
+xK_Georgian_shin                  = mkKeySym #{const XK_Georgian_shin}
 #endif
 #ifdef XK_Georgian_chin
 xK_Georgian_chin                  :: KeySym
-xK_Georgian_chin                  = #const XK_Georgian_chin
+xK_Georgian_chin                  = mkKeySym #{const XK_Georgian_chin}
 #endif
 #ifdef XK_Georgian_can
 xK_Georgian_can                   :: KeySym
-xK_Georgian_can                   = #const XK_Georgian_can
+xK_Georgian_can                   = mkKeySym #{const XK_Georgian_can}
 #endif
 #ifdef XK_Georgian_jil
 xK_Georgian_jil                   :: KeySym
-xK_Georgian_jil                   = #const XK_Georgian_jil
+xK_Georgian_jil                   = mkKeySym #{const XK_Georgian_jil}
 #endif
 #ifdef XK_Georgian_cil
 xK_Georgian_cil                   :: KeySym
-xK_Georgian_cil                   = #const XK_Georgian_cil
+xK_Georgian_cil                   = mkKeySym #{const XK_Georgian_cil}
 #endif
 #ifdef XK_Georgian_char
 xK_Georgian_char                  :: KeySym
-xK_Georgian_char                  = #const XK_Georgian_char
+xK_Georgian_char                  = mkKeySym #{const XK_Georgian_char}
 #endif
 #ifdef XK_Georgian_xan
 xK_Georgian_xan                   :: KeySym
-xK_Georgian_xan                   = #const XK_Georgian_xan
+xK_Georgian_xan                   = mkKeySym #{const XK_Georgian_xan}
 #endif
 #ifdef XK_Georgian_jhan
 xK_Georgian_jhan                  :: KeySym
-xK_Georgian_jhan                  = #const XK_Georgian_jhan
+xK_Georgian_jhan                  = mkKeySym #{const XK_Georgian_jhan}
 #endif
 #ifdef XK_Georgian_hae
 xK_Georgian_hae                   :: KeySym
-xK_Georgian_hae                   = #const XK_Georgian_hae
+xK_Georgian_hae                   = mkKeySym #{const XK_Georgian_hae}
 #endif
 #ifdef XK_Georgian_he
 xK_Georgian_he                    :: KeySym
-xK_Georgian_he                    = #const XK_Georgian_he
+xK_Georgian_he                    = mkKeySym #{const XK_Georgian_he}
 #endif
 #ifdef XK_Georgian_hie
 xK_Georgian_hie                   :: KeySym
-xK_Georgian_hie                   = #const XK_Georgian_hie
+xK_Georgian_hie                   = mkKeySym #{const XK_Georgian_hie}
 #endif
 #ifdef XK_Georgian_we
 xK_Georgian_we                    :: KeySym
-xK_Georgian_we                    = #const XK_Georgian_we
+xK_Georgian_we                    = mkKeySym #{const XK_Georgian_we}
 #endif
 #ifdef XK_Georgian_har
 xK_Georgian_har                   :: KeySym
-xK_Georgian_har                   = #const XK_Georgian_har
+xK_Georgian_har                   = mkKeySym #{const XK_Georgian_har}
 #endif
 #ifdef XK_Georgian_hoe
 xK_Georgian_hoe                   :: KeySym
-xK_Georgian_hoe                   = #const XK_Georgian_hoe
+xK_Georgian_hoe                   = mkKeySym #{const XK_Georgian_hoe}
 #endif
 #ifdef XK_Georgian_fi
 xK_Georgian_fi                    :: KeySym
-xK_Georgian_fi                    = #const XK_Georgian_fi
+xK_Georgian_fi                    = mkKeySym #{const XK_Georgian_fi}
 #endif
 
 -- XK_CAUCASUS
 #ifdef XK_Xabovedot
 xK_Xabovedot                      :: KeySym
-xK_Xabovedot                      = #const XK_Xabovedot
+xK_Xabovedot                      = mkKeySym #{const XK_Xabovedot}
 #endif
 #ifdef XK_Ibreve
 xK_Ibreve                         :: KeySym
-xK_Ibreve                         = #const XK_Ibreve
+xK_Ibreve                         = mkKeySym #{const XK_Ibreve}
 #endif
 #ifdef XK_Zstroke
 xK_Zstroke                        :: KeySym
-xK_Zstroke                        = #const XK_Zstroke
+xK_Zstroke                        = mkKeySym #{const XK_Zstroke}
 #endif
 #ifdef XK_Gcaron
 xK_Gcaron                         :: KeySym
-xK_Gcaron                         = #const XK_Gcaron
+xK_Gcaron                         = mkKeySym #{const XK_Gcaron}
 #endif
 #ifdef XK_Ocaron
 xK_Ocaron                         :: KeySym
-xK_Ocaron                         = #const XK_Ocaron
+xK_Ocaron                         = mkKeySym #{const XK_Ocaron}
 #endif
 #ifdef XK_Obarred
 xK_Obarred                        :: KeySym
-xK_Obarred                        = #const XK_Obarred
+xK_Obarred                        = mkKeySym #{const XK_Obarred}
 #endif
 #ifdef XK_xabovedot
 xK_xabovedot                      :: KeySym
-xK_xabovedot                      = #const XK_xabovedot
+xK_xabovedot                      = mkKeySym #{const XK_xabovedot}
 #endif
 #ifdef XK_ibreve
 xK_ibreve                         :: KeySym
-xK_ibreve                         = #const XK_ibreve
+xK_ibreve                         = mkKeySym #{const XK_ibreve}
 #endif
 #ifdef XK_zstroke
 xK_zstroke                        :: KeySym
-xK_zstroke                        = #const XK_zstroke
+xK_zstroke                        = mkKeySym #{const XK_zstroke}
 #endif
 #ifdef XK_gcaron
 xK_gcaron                         :: KeySym
-xK_gcaron                         = #const XK_gcaron
+xK_gcaron                         = mkKeySym #{const XK_gcaron}
 #endif
 #ifdef XK_ocaron
 xK_ocaron                         :: KeySym
-xK_ocaron                         = #const XK_ocaron
+xK_ocaron                         = mkKeySym #{const XK_ocaron}
 #endif
 #ifdef XK_obarred
 xK_obarred                        :: KeySym
-xK_obarred                        = #const XK_obarred
+xK_obarred                        = mkKeySym #{const XK_obarred}
 #endif
 #ifdef XK_SCHWA
 xK_SCHWA                          :: KeySym
-xK_SCHWA                          = #const XK_SCHWA
+xK_SCHWA                          = mkKeySym #{const XK_SCHWA}
 #endif
 #ifdef XK_schwa
 xK_schwa                          :: KeySym
-xK_schwa                          = #const XK_schwa
+xK_schwa                          = mkKeySym #{const XK_schwa}
 #endif
 #ifdef XK_Lbelowdot
 xK_Lbelowdot                      :: KeySym
-xK_Lbelowdot                      = #const XK_Lbelowdot
+xK_Lbelowdot                      = mkKeySym #{const XK_Lbelowdot}
 #endif
 #ifdef XK_lbelowdot
 xK_lbelowdot                      :: KeySym
-xK_lbelowdot                      = #const XK_lbelowdot
+xK_lbelowdot                      = mkKeySym #{const XK_lbelowdot}
 #endif
 
 -- XK_VIETNAMESE
 #ifdef XK_Abelowdot
 xK_Abelowdot                      :: KeySym
-xK_Abelowdot                      = #const XK_Abelowdot
+xK_Abelowdot                      = mkKeySym #{const XK_Abelowdot}
 #endif
 #ifdef XK_abelowdot
 xK_abelowdot                      :: KeySym
-xK_abelowdot                      = #const XK_abelowdot
+xK_abelowdot                      = mkKeySym #{const XK_abelowdot}
 #endif
 #ifdef XK_Ahook
 xK_Ahook                          :: KeySym
-xK_Ahook                          = #const XK_Ahook
+xK_Ahook                          = mkKeySym #{const XK_Ahook}
 #endif
 #ifdef XK_ahook
 xK_ahook                          :: KeySym
-xK_ahook                          = #const XK_ahook
+xK_ahook                          = mkKeySym #{const XK_ahook}
 #endif
 #ifdef XK_Acircumflexacute
 xK_Acircumflexacute               :: KeySym
-xK_Acircumflexacute               = #const XK_Acircumflexacute
+xK_Acircumflexacute               = mkKeySym #{const XK_Acircumflexacute}
 #endif
 #ifdef XK_acircumflexacute
 xK_acircumflexacute               :: KeySym
-xK_acircumflexacute               = #const XK_acircumflexacute
+xK_acircumflexacute               = mkKeySym #{const XK_acircumflexacute}
 #endif
 #ifdef XK_Acircumflexgrave
 xK_Acircumflexgrave               :: KeySym
-xK_Acircumflexgrave               = #const XK_Acircumflexgrave
+xK_Acircumflexgrave               = mkKeySym #{const XK_Acircumflexgrave}
 #endif
 #ifdef XK_acircumflexgrave
 xK_acircumflexgrave               :: KeySym
-xK_acircumflexgrave               = #const XK_acircumflexgrave
+xK_acircumflexgrave               = mkKeySym #{const XK_acircumflexgrave}
 #endif
 #ifdef XK_Acircumflexhook
 xK_Acircumflexhook                :: KeySym
-xK_Acircumflexhook                = #const XK_Acircumflexhook
+xK_Acircumflexhook                = mkKeySym #{const XK_Acircumflexhook}
 #endif
 #ifdef XK_acircumflexhook
 xK_acircumflexhook                :: KeySym
-xK_acircumflexhook                = #const XK_acircumflexhook
+xK_acircumflexhook                = mkKeySym #{const XK_acircumflexhook}
 #endif
 #ifdef XK_Acircumflextilde
 xK_Acircumflextilde               :: KeySym
-xK_Acircumflextilde               = #const XK_Acircumflextilde
+xK_Acircumflextilde               = mkKeySym #{const XK_Acircumflextilde}
 #endif
 #ifdef XK_acircumflextilde
 xK_acircumflextilde               :: KeySym
-xK_acircumflextilde               = #const XK_acircumflextilde
+xK_acircumflextilde               = mkKeySym #{const XK_acircumflextilde}
 #endif
 #ifdef XK_Acircumflexbelowdot
 xK_Acircumflexbelowdot            :: KeySym
-xK_Acircumflexbelowdot            = #const XK_Acircumflexbelowdot
+xK_Acircumflexbelowdot            = mkKeySym #{const XK_Acircumflexbelowdot}
 #endif
 #ifdef XK_acircumflexbelowdot
 xK_acircumflexbelowdot            :: KeySym
-xK_acircumflexbelowdot            = #const XK_acircumflexbelowdot
+xK_acircumflexbelowdot            = mkKeySym #{const XK_acircumflexbelowdot}
 #endif
 #ifdef XK_Abreveacute
 xK_Abreveacute                    :: KeySym
-xK_Abreveacute                    = #const XK_Abreveacute
+xK_Abreveacute                    = mkKeySym #{const XK_Abreveacute}
 #endif
 #ifdef XK_abreveacute
 xK_abreveacute                    :: KeySym
-xK_abreveacute                    = #const XK_abreveacute
+xK_abreveacute                    = mkKeySym #{const XK_abreveacute}
 #endif
 #ifdef XK_Abrevegrave
 xK_Abrevegrave                    :: KeySym
-xK_Abrevegrave                    = #const XK_Abrevegrave
+xK_Abrevegrave                    = mkKeySym #{const XK_Abrevegrave}
 #endif
 #ifdef XK_abrevegrave
 xK_abrevegrave                    :: KeySym
-xK_abrevegrave                    = #const XK_abrevegrave
+xK_abrevegrave                    = mkKeySym #{const XK_abrevegrave}
 #endif
 #ifdef XK_Abrevehook
 xK_Abrevehook                     :: KeySym
-xK_Abrevehook                     = #const XK_Abrevehook
+xK_Abrevehook                     = mkKeySym #{const XK_Abrevehook}
 #endif
 #ifdef XK_abrevehook
 xK_abrevehook                     :: KeySym
-xK_abrevehook                     = #const XK_abrevehook
+xK_abrevehook                     = mkKeySym #{const XK_abrevehook}
 #endif
 #ifdef XK_Abrevetilde
 xK_Abrevetilde                    :: KeySym
-xK_Abrevetilde                    = #const XK_Abrevetilde
+xK_Abrevetilde                    = mkKeySym #{const XK_Abrevetilde}
 #endif
 #ifdef XK_abrevetilde
 xK_abrevetilde                    :: KeySym
-xK_abrevetilde                    = #const XK_abrevetilde
+xK_abrevetilde                    = mkKeySym #{const XK_abrevetilde}
 #endif
 #ifdef XK_Abrevebelowdot
 xK_Abrevebelowdot                 :: KeySym
-xK_Abrevebelowdot                 = #const XK_Abrevebelowdot
+xK_Abrevebelowdot                 = mkKeySym #{const XK_Abrevebelowdot}
 #endif
 #ifdef XK_abrevebelowdot
 xK_abrevebelowdot                 :: KeySym
-xK_abrevebelowdot                 = #const XK_abrevebelowdot
+xK_abrevebelowdot                 = mkKeySym #{const XK_abrevebelowdot}
 #endif
 #ifdef XK_Ebelowdot
 xK_Ebelowdot                      :: KeySym
-xK_Ebelowdot                      = #const XK_Ebelowdot
+xK_Ebelowdot                      = mkKeySym #{const XK_Ebelowdot}
 #endif
 #ifdef XK_ebelowdot
 xK_ebelowdot                      :: KeySym
-xK_ebelowdot                      = #const XK_ebelowdot
+xK_ebelowdot                      = mkKeySym #{const XK_ebelowdot}
 #endif
 #ifdef XK_Ehook
 xK_Ehook                          :: KeySym
-xK_Ehook                          = #const XK_Ehook
+xK_Ehook                          = mkKeySym #{const XK_Ehook}
 #endif
 #ifdef XK_ehook
 xK_ehook                          :: KeySym
-xK_ehook                          = #const XK_ehook
+xK_ehook                          = mkKeySym #{const XK_ehook}
 #endif
 #ifdef XK_Etilde
 xK_Etilde                         :: KeySym
-xK_Etilde                         = #const XK_Etilde
+xK_Etilde                         = mkKeySym #{const XK_Etilde}
 #endif
 #ifdef XK_etilde
 xK_etilde                         :: KeySym
-xK_etilde                         = #const XK_etilde
+xK_etilde                         = mkKeySym #{const XK_etilde}
 #endif
 #ifdef XK_Ecircumflexacute
 xK_Ecircumflexacute               :: KeySym
-xK_Ecircumflexacute               = #const XK_Ecircumflexacute
+xK_Ecircumflexacute               = mkKeySym #{const XK_Ecircumflexacute}
 #endif
 #ifdef XK_ecircumflexacute
 xK_ecircumflexacute               :: KeySym
-xK_ecircumflexacute               = #const XK_ecircumflexacute
+xK_ecircumflexacute               = mkKeySym #{const XK_ecircumflexacute}
 #endif
 #ifdef XK_Ecircumflexgrave
 xK_Ecircumflexgrave               :: KeySym
-xK_Ecircumflexgrave               = #const XK_Ecircumflexgrave
+xK_Ecircumflexgrave               = mkKeySym #{const XK_Ecircumflexgrave}
 #endif
 #ifdef XK_ecircumflexgrave
 xK_ecircumflexgrave               :: KeySym
-xK_ecircumflexgrave               = #const XK_ecircumflexgrave
+xK_ecircumflexgrave               = mkKeySym #{const XK_ecircumflexgrave}
 #endif
 #ifdef XK_Ecircumflexhook
 xK_Ecircumflexhook                :: KeySym
-xK_Ecircumflexhook                = #const XK_Ecircumflexhook
+xK_Ecircumflexhook                = mkKeySym #{const XK_Ecircumflexhook}
 #endif
 #ifdef XK_ecircumflexhook
 xK_ecircumflexhook                :: KeySym
-xK_ecircumflexhook                = #const XK_ecircumflexhook
+xK_ecircumflexhook                = mkKeySym #{const XK_ecircumflexhook}
 #endif
 #ifdef XK_Ecircumflextilde
 xK_Ecircumflextilde               :: KeySym
-xK_Ecircumflextilde               = #const XK_Ecircumflextilde
+xK_Ecircumflextilde               = mkKeySym #{const XK_Ecircumflextilde}
 #endif
 #ifdef XK_ecircumflextilde
 xK_ecircumflextilde               :: KeySym
-xK_ecircumflextilde               = #const XK_ecircumflextilde
+xK_ecircumflextilde               = mkKeySym #{const XK_ecircumflextilde}
 #endif
 #ifdef XK_Ecircumflexbelowdot
 xK_Ecircumflexbelowdot            :: KeySym
-xK_Ecircumflexbelowdot            = #const XK_Ecircumflexbelowdot
+xK_Ecircumflexbelowdot            = mkKeySym #{const XK_Ecircumflexbelowdot}
 #endif
 #ifdef XK_ecircumflexbelowdot
 xK_ecircumflexbelowdot            :: KeySym
-xK_ecircumflexbelowdot            = #const XK_ecircumflexbelowdot
+xK_ecircumflexbelowdot            = mkKeySym #{const XK_ecircumflexbelowdot}
 #endif
 #ifdef XK_Ihook
 xK_Ihook                          :: KeySym
-xK_Ihook                          = #const XK_Ihook
+xK_Ihook                          = mkKeySym #{const XK_Ihook}
 #endif
 #ifdef XK_ihook
 xK_ihook                          :: KeySym
-xK_ihook                          = #const XK_ihook
+xK_ihook                          = mkKeySym #{const XK_ihook}
 #endif
 #ifdef XK_Ibelowdot
 xK_Ibelowdot                      :: KeySym
-xK_Ibelowdot                      = #const XK_Ibelowdot
+xK_Ibelowdot                      = mkKeySym #{const XK_Ibelowdot}
 #endif
 #ifdef XK_ibelowdot
 xK_ibelowdot                      :: KeySym
-xK_ibelowdot                      = #const XK_ibelowdot
+xK_ibelowdot                      = mkKeySym #{const XK_ibelowdot}
 #endif
 #ifdef XK_Obelowdot
 xK_Obelowdot                      :: KeySym
-xK_Obelowdot                      = #const XK_Obelowdot
+xK_Obelowdot                      = mkKeySym #{const XK_Obelowdot}
 #endif
 #ifdef XK_obelowdot
 xK_obelowdot                      :: KeySym
-xK_obelowdot                      = #const XK_obelowdot
+xK_obelowdot                      = mkKeySym #{const XK_obelowdot}
 #endif
 #ifdef XK_Ohook
 xK_Ohook                          :: KeySym
-xK_Ohook                          = #const XK_Ohook
+xK_Ohook                          = mkKeySym #{const XK_Ohook}
 #endif
 #ifdef XK_ohook
 xK_ohook                          :: KeySym
-xK_ohook                          = #const XK_ohook
+xK_ohook                          = mkKeySym #{const XK_ohook}
 #endif
 #ifdef XK_Ocircumflexacute
 xK_Ocircumflexacute               :: KeySym
-xK_Ocircumflexacute               = #const XK_Ocircumflexacute
+xK_Ocircumflexacute               = mkKeySym #{const XK_Ocircumflexacute}
 #endif
 #ifdef XK_ocircumflexacute
 xK_ocircumflexacute               :: KeySym
-xK_ocircumflexacute               = #const XK_ocircumflexacute
+xK_ocircumflexacute               = mkKeySym #{const XK_ocircumflexacute}
 #endif
 #ifdef XK_Ocircumflexgrave
 xK_Ocircumflexgrave               :: KeySym
-xK_Ocircumflexgrave               = #const XK_Ocircumflexgrave
+xK_Ocircumflexgrave               = mkKeySym #{const XK_Ocircumflexgrave}
 #endif
 #ifdef XK_ocircumflexgrave
 xK_ocircumflexgrave               :: KeySym
-xK_ocircumflexgrave               = #const XK_ocircumflexgrave
+xK_ocircumflexgrave               = mkKeySym #{const XK_ocircumflexgrave}
 #endif
 #ifdef XK_Ocircumflexhook
 xK_Ocircumflexhook                :: KeySym
-xK_Ocircumflexhook                = #const XK_Ocircumflexhook
+xK_Ocircumflexhook                = mkKeySym #{const XK_Ocircumflexhook}
 #endif
 #ifdef XK_ocircumflexhook
 xK_ocircumflexhook                :: KeySym
-xK_ocircumflexhook                = #const XK_ocircumflexhook
+xK_ocircumflexhook                = mkKeySym #{const XK_ocircumflexhook}
 #endif
 #ifdef XK_Ocircumflextilde
 xK_Ocircumflextilde               :: KeySym
-xK_Ocircumflextilde               = #const XK_Ocircumflextilde
+xK_Ocircumflextilde               = mkKeySym #{const XK_Ocircumflextilde}
 #endif
 #ifdef XK_ocircumflextilde
 xK_ocircumflextilde               :: KeySym
-xK_ocircumflextilde               = #const XK_ocircumflextilde
+xK_ocircumflextilde               = mkKeySym #{const XK_ocircumflextilde}
 #endif
 #ifdef XK_Ocircumflexbelowdot
 xK_Ocircumflexbelowdot            :: KeySym
-xK_Ocircumflexbelowdot            = #const XK_Ocircumflexbelowdot
+xK_Ocircumflexbelowdot            = mkKeySym #{const XK_Ocircumflexbelowdot}
 #endif
 #ifdef XK_ocircumflexbelowdot
 xK_ocircumflexbelowdot            :: KeySym
-xK_ocircumflexbelowdot            = #const XK_ocircumflexbelowdot
+xK_ocircumflexbelowdot            = mkKeySym #{const XK_ocircumflexbelowdot}
 #endif
 #ifdef XK_Ohornacute
 xK_Ohornacute                     :: KeySym
-xK_Ohornacute                     = #const XK_Ohornacute
+xK_Ohornacute                     = mkKeySym #{const XK_Ohornacute}
 #endif
 #ifdef XK_ohornacute
 xK_ohornacute                     :: KeySym
-xK_ohornacute                     = #const XK_ohornacute
+xK_ohornacute                     = mkKeySym #{const XK_ohornacute}
 #endif
 #ifdef XK_Ohorngrave
 xK_Ohorngrave                     :: KeySym
-xK_Ohorngrave                     = #const XK_Ohorngrave
+xK_Ohorngrave                     = mkKeySym #{const XK_Ohorngrave}
 #endif
 #ifdef XK_ohorngrave
 xK_ohorngrave                     :: KeySym
-xK_ohorngrave                     = #const XK_ohorngrave
+xK_ohorngrave                     = mkKeySym #{const XK_ohorngrave}
 #endif
 #ifdef XK_Ohornhook
 xK_Ohornhook                      :: KeySym
-xK_Ohornhook                      = #const XK_Ohornhook
+xK_Ohornhook                      = mkKeySym #{const XK_Ohornhook}
 #endif
 #ifdef XK_ohornhook
 xK_ohornhook                      :: KeySym
-xK_ohornhook                      = #const XK_ohornhook
+xK_ohornhook                      = mkKeySym #{const XK_ohornhook}
 #endif
 #ifdef XK_Ohorntilde
 xK_Ohorntilde                     :: KeySym
-xK_Ohorntilde                     = #const XK_Ohorntilde
+xK_Ohorntilde                     = mkKeySym #{const XK_Ohorntilde}
 #endif
 #ifdef XK_ohorntilde
 xK_ohorntilde                     :: KeySym
-xK_ohorntilde                     = #const XK_ohorntilde
+xK_ohorntilde                     = mkKeySym #{const XK_ohorntilde}
 #endif
 #ifdef XK_Ohornbelowdot
 xK_Ohornbelowdot                  :: KeySym
-xK_Ohornbelowdot                  = #const XK_Ohornbelowdot
+xK_Ohornbelowdot                  = mkKeySym #{const XK_Ohornbelowdot}
 #endif
 #ifdef XK_ohornbelowdot
 xK_ohornbelowdot                  :: KeySym
-xK_ohornbelowdot                  = #const XK_ohornbelowdot
+xK_ohornbelowdot                  = mkKeySym #{const XK_ohornbelowdot}
 #endif
 #ifdef XK_Ubelowdot
 xK_Ubelowdot                      :: KeySym
-xK_Ubelowdot                      = #const XK_Ubelowdot
+xK_Ubelowdot                      = mkKeySym #{const XK_Ubelowdot}
 #endif
 #ifdef XK_ubelowdot
 xK_ubelowdot                      :: KeySym
-xK_ubelowdot                      = #const XK_ubelowdot
+xK_ubelowdot                      = mkKeySym #{const XK_ubelowdot}
 #endif
 #ifdef XK_Uhook
 xK_Uhook                          :: KeySym
-xK_Uhook                          = #const XK_Uhook
+xK_Uhook                          = mkKeySym #{const XK_Uhook}
 #endif
 #ifdef XK_uhook
 xK_uhook                          :: KeySym
-xK_uhook                          = #const XK_uhook
+xK_uhook                          = mkKeySym #{const XK_uhook}
 #endif
 #ifdef XK_Uhornacute
 xK_Uhornacute                     :: KeySym
-xK_Uhornacute                     = #const XK_Uhornacute
+xK_Uhornacute                     = mkKeySym #{const XK_Uhornacute}
 #endif
 #ifdef XK_uhornacute
 xK_uhornacute                     :: KeySym
-xK_uhornacute                     = #const XK_uhornacute
+xK_uhornacute                     = mkKeySym #{const XK_uhornacute}
 #endif
 #ifdef XK_Uhorngrave
 xK_Uhorngrave                     :: KeySym
-xK_Uhorngrave                     = #const XK_Uhorngrave
+xK_Uhorngrave                     = mkKeySym #{const XK_Uhorngrave}
 #endif
 #ifdef XK_uhorngrave
 xK_uhorngrave                     :: KeySym
-xK_uhorngrave                     = #const XK_uhorngrave
+xK_uhorngrave                     = mkKeySym #{const XK_uhorngrave}
 #endif
 #ifdef XK_Uhornhook
 xK_Uhornhook                      :: KeySym
-xK_Uhornhook                      = #const XK_Uhornhook
+xK_Uhornhook                      = mkKeySym #{const XK_Uhornhook}
 #endif
 #ifdef XK_uhornhook
 xK_uhornhook                      :: KeySym
-xK_uhornhook                      = #const XK_uhornhook
+xK_uhornhook                      = mkKeySym #{const XK_uhornhook}
 #endif
 #ifdef XK_Uhorntilde
 xK_Uhorntilde                     :: KeySym
-xK_Uhorntilde                     = #const XK_Uhorntilde
+xK_Uhorntilde                     = mkKeySym #{const XK_Uhorntilde}
 #endif
 #ifdef XK_uhorntilde
 xK_uhorntilde                     :: KeySym
-xK_uhorntilde                     = #const XK_uhorntilde
+xK_uhorntilde                     = mkKeySym #{const XK_uhorntilde}
 #endif
 #ifdef XK_Uhornbelowdot
 xK_Uhornbelowdot                  :: KeySym
-xK_Uhornbelowdot                  = #const XK_Uhornbelowdot
+xK_Uhornbelowdot                  = mkKeySym #{const XK_Uhornbelowdot}
 #endif
 #ifdef XK_uhornbelowdot
 xK_uhornbelowdot                  :: KeySym
-xK_uhornbelowdot                  = #const XK_uhornbelowdot
+xK_uhornbelowdot                  = mkKeySym #{const XK_uhornbelowdot}
 #endif
 #ifdef XK_Ybelowdot
 xK_Ybelowdot                      :: KeySym
-xK_Ybelowdot                      = #const XK_Ybelowdot
+xK_Ybelowdot                      = mkKeySym #{const XK_Ybelowdot}
 #endif
 #ifdef XK_ybelowdot
 xK_ybelowdot                      :: KeySym
-xK_ybelowdot                      = #const XK_ybelowdot
+xK_ybelowdot                      = mkKeySym #{const XK_ybelowdot}
 #endif
 #ifdef XK_Yhook
 xK_Yhook                          :: KeySym
-xK_Yhook                          = #const XK_Yhook
+xK_Yhook                          = mkKeySym #{const XK_Yhook}
 #endif
 #ifdef XK_yhook
 xK_yhook                          :: KeySym
-xK_yhook                          = #const XK_yhook
+xK_yhook                          = mkKeySym #{const XK_yhook}
 #endif
 #ifdef XK_Ytilde
 xK_Ytilde                         :: KeySym
-xK_Ytilde                         = #const XK_Ytilde
+xK_Ytilde                         = mkKeySym #{const XK_Ytilde}
 #endif
 #ifdef XK_ytilde
 xK_ytilde                         :: KeySym
-xK_ytilde                         = #const XK_ytilde
+xK_ytilde                         = mkKeySym #{const XK_ytilde}
 #endif
 #ifdef XK_Ohorn
 xK_Ohorn                          :: KeySym
-xK_Ohorn                          = #const XK_Ohorn
+xK_Ohorn                          = mkKeySym #{const XK_Ohorn}
 #endif
 #ifdef XK_ohorn
 xK_ohorn                          :: KeySym
-xK_ohorn                          = #const XK_ohorn
+xK_ohorn                          = mkKeySym #{const XK_ohorn}
 #endif
 #ifdef XK_Uhorn
 xK_Uhorn                          :: KeySym
-xK_Uhorn                          = #const XK_Uhorn
+xK_Uhorn                          = mkKeySym #{const XK_Uhorn}
 #endif
 #ifdef XK_uhorn
 xK_uhorn                          :: KeySym
-xK_uhorn                          = #const XK_uhorn
+xK_uhorn                          = mkKeySym #{const XK_uhorn}
 #endif
 
 -- XK_CURRENCY
 #ifdef XK_EcuSign
 xK_EcuSign                        :: KeySym
-xK_EcuSign                        = #const XK_EcuSign
+xK_EcuSign                        = mkKeySym #{const XK_EcuSign}
 #endif
 #ifdef XK_ColonSign
 xK_ColonSign                      :: KeySym
-xK_ColonSign                      = #const XK_ColonSign
+xK_ColonSign                      = mkKeySym #{const XK_ColonSign}
 #endif
 #ifdef XK_CruzeiroSign
 xK_CruzeiroSign                   :: KeySym
-xK_CruzeiroSign                   = #const XK_CruzeiroSign
+xK_CruzeiroSign                   = mkKeySym #{const XK_CruzeiroSign}
 #endif
 #ifdef XK_FFrancSign
 xK_FFrancSign                     :: KeySym
-xK_FFrancSign                     = #const XK_FFrancSign
+xK_FFrancSign                     = mkKeySym #{const XK_FFrancSign}
 #endif
 #ifdef XK_LiraSign
 xK_LiraSign                       :: KeySym
-xK_LiraSign                       = #const XK_LiraSign
+xK_LiraSign                       = mkKeySym #{const XK_LiraSign}
 #endif
 #ifdef XK_MillSign
 xK_MillSign                       :: KeySym
-xK_MillSign                       = #const XK_MillSign
+xK_MillSign                       = mkKeySym #{const XK_MillSign}
 #endif
 #ifdef XK_NairaSign
 xK_NairaSign                      :: KeySym
-xK_NairaSign                      = #const XK_NairaSign
+xK_NairaSign                      = mkKeySym #{const XK_NairaSign}
 #endif
 #ifdef XK_PesetaSign
 xK_PesetaSign                     :: KeySym
-xK_PesetaSign                     = #const XK_PesetaSign
+xK_PesetaSign                     = mkKeySym #{const XK_PesetaSign}
 #endif
 #ifdef XK_RupeeSign
 xK_RupeeSign                      :: KeySym
-xK_RupeeSign                      = #const XK_RupeeSign
+xK_RupeeSign                      = mkKeySym #{const XK_RupeeSign}
 #endif
 #ifdef XK_WonSign
 xK_WonSign                        :: KeySym
-xK_WonSign                        = #const XK_WonSign
+xK_WonSign                        = mkKeySym #{const XK_WonSign}
 #endif
 #ifdef XK_NewSheqelSign
 xK_NewSheqelSign                  :: KeySym
-xK_NewSheqelSign                  = #const XK_NewSheqelSign
+xK_NewSheqelSign                  = mkKeySym #{const XK_NewSheqelSign}
 #endif
 #ifdef XK_DongSign
 xK_DongSign                       :: KeySym
-xK_DongSign                       = #const XK_DongSign
+xK_DongSign                       = mkKeySym #{const XK_DongSign}
 #endif
 #ifdef XK_EuroSign
 xK_EuroSign                       :: KeySym
-xK_EuroSign                       = #const XK_EuroSign
+xK_EuroSign                       = mkKeySym #{const XK_EuroSign}
 #endif
 
 -- XK_MATHEMATICAL
 #ifdef XK_zerosuperior
 xK_zerosuperior                   :: KeySym
-xK_zerosuperior                   = #const XK_zerosuperior
+xK_zerosuperior                   = mkKeySym #{const XK_zerosuperior}
 #endif
 #ifdef XK_foursuperior
 xK_foursuperior                   :: KeySym
-xK_foursuperior                   = #const XK_foursuperior
+xK_foursuperior                   = mkKeySym #{const XK_foursuperior}
 #endif
 #ifdef XK_fivesuperior
 xK_fivesuperior                   :: KeySym
-xK_fivesuperior                   = #const XK_fivesuperior
+xK_fivesuperior                   = mkKeySym #{const XK_fivesuperior}
 #endif
 #ifdef XK_sixsuperior
 xK_sixsuperior                    :: KeySym
-xK_sixsuperior                    = #const XK_sixsuperior
+xK_sixsuperior                    = mkKeySym #{const XK_sixsuperior}
 #endif
 #ifdef XK_sevensuperior
 xK_sevensuperior                  :: KeySym
-xK_sevensuperior                  = #const XK_sevensuperior
+xK_sevensuperior                  = mkKeySym #{const XK_sevensuperior}
 #endif
 #ifdef XK_eightsuperior
 xK_eightsuperior                  :: KeySym
-xK_eightsuperior                  = #const XK_eightsuperior
+xK_eightsuperior                  = mkKeySym #{const XK_eightsuperior}
 #endif
 #ifdef XK_ninesuperior
 xK_ninesuperior                   :: KeySym
-xK_ninesuperior                   = #const XK_ninesuperior
+xK_ninesuperior                   = mkKeySym #{const XK_ninesuperior}
 #endif
 #ifdef XK_zerosubscript
 xK_zerosubscript                  :: KeySym
-xK_zerosubscript                  = #const XK_zerosubscript
+xK_zerosubscript                  = mkKeySym #{const XK_zerosubscript}
 #endif
 #ifdef XK_onesubscript
 xK_onesubscript                   :: KeySym
-xK_onesubscript                   = #const XK_onesubscript
+xK_onesubscript                   = mkKeySym #{const XK_onesubscript}
 #endif
 #ifdef XK_twosubscript
 xK_twosubscript                   :: KeySym
-xK_twosubscript                   = #const XK_twosubscript
+xK_twosubscript                   = mkKeySym #{const XK_twosubscript}
 #endif
 #ifdef XK_threesubscript
 xK_threesubscript                 :: KeySym
-xK_threesubscript                 = #const XK_threesubscript
+xK_threesubscript                 = mkKeySym #{const XK_threesubscript}
 #endif
 #ifdef XK_foursubscript
 xK_foursubscript                  :: KeySym
-xK_foursubscript                  = #const XK_foursubscript
+xK_foursubscript                  = mkKeySym #{const XK_foursubscript}
 #endif
 #ifdef XK_fivesubscript
 xK_fivesubscript                  :: KeySym
-xK_fivesubscript                  = #const XK_fivesubscript
+xK_fivesubscript                  = mkKeySym #{const XK_fivesubscript}
 #endif
 #ifdef XK_sixsubscript
 xK_sixsubscript                   :: KeySym
-xK_sixsubscript                   = #const XK_sixsubscript
+xK_sixsubscript                   = mkKeySym #{const XK_sixsubscript}
 #endif
 #ifdef XK_sevensubscript
 xK_sevensubscript                 :: KeySym
-xK_sevensubscript                 = #const XK_sevensubscript
+xK_sevensubscript                 = mkKeySym #{const XK_sevensubscript}
 #endif
 #ifdef XK_eightsubscript
 xK_eightsubscript                 :: KeySym
-xK_eightsubscript                 = #const XK_eightsubscript
+xK_eightsubscript                 = mkKeySym #{const XK_eightsubscript}
 #endif
 #ifdef XK_ninesubscript
 xK_ninesubscript                  :: KeySym
-xK_ninesubscript                  = #const XK_ninesubscript
+xK_ninesubscript                  = mkKeySym #{const XK_ninesubscript}
 #endif
 #ifdef XK_partdifferential
 xK_partdifferential               :: KeySym
-xK_partdifferential               = #const XK_partdifferential
+xK_partdifferential               = mkKeySym #{const XK_partdifferential}
 #endif
 #ifdef XK_emptyset
 xK_emptyset                       :: KeySym
-xK_emptyset                       = #const XK_emptyset
+xK_emptyset                       = mkKeySym #{const XK_emptyset}
 #endif
 #ifdef XK_elementof
 xK_elementof                      :: KeySym
-xK_elementof                      = #const XK_elementof
+xK_elementof                      = mkKeySym #{const XK_elementof}
 #endif
 #ifdef XK_notelementof
 xK_notelementof                   :: KeySym
-xK_notelementof                   = #const XK_notelementof
+xK_notelementof                   = mkKeySym #{const XK_notelementof}
 #endif
 #ifdef XK_containsas
 xK_containsas                     :: KeySym
-xK_containsas                     = #const XK_containsas
+xK_containsas                     = mkKeySym #{const XK_containsas}
 #endif
 #ifdef XK_squareroot
 xK_squareroot                     :: KeySym
-xK_squareroot                     = #const XK_squareroot
+xK_squareroot                     = mkKeySym #{const XK_squareroot}
 #endif
 #ifdef XK_cuberoot
 xK_cuberoot                       :: KeySym
-xK_cuberoot                       = #const XK_cuberoot
+xK_cuberoot                       = mkKeySym #{const XK_cuberoot}
 #endif
 #ifdef XK_fourthroot
 xK_fourthroot                     :: KeySym
-xK_fourthroot                     = #const XK_fourthroot
+xK_fourthroot                     = mkKeySym #{const XK_fourthroot}
 #endif
 #ifdef XK_dintegral
 xK_dintegral                      :: KeySym
-xK_dintegral                      = #const XK_dintegral
+xK_dintegral                      = mkKeySym #{const XK_dintegral}
 #endif
 #ifdef XK_tintegral
 xK_tintegral                      :: KeySym
-xK_tintegral                      = #const XK_tintegral
+xK_tintegral                      = mkKeySym #{const XK_tintegral}
 #endif
 #ifdef XK_because
 xK_because                        :: KeySym
-xK_because                        = #const XK_because
+xK_because                        = mkKeySym #{const XK_because}
 #endif
 #ifdef XK_approxeq
 xK_approxeq                       :: KeySym
-xK_approxeq                       = #const XK_approxeq
+xK_approxeq                       = mkKeySym #{const XK_approxeq}
 #endif
 #ifdef XK_notapproxeq
 xK_notapproxeq                    :: KeySym
-xK_notapproxeq                    = #const XK_notapproxeq
+xK_notapproxeq                    = mkKeySym #{const XK_notapproxeq}
 #endif
 #ifdef XK_notidentical
 xK_notidentical                   :: KeySym
-xK_notidentical                   = #const XK_notidentical
+xK_notidentical                   = mkKeySym #{const XK_notidentical}
 #endif
 #ifdef XK_stricteq
 xK_stricteq                       :: KeySym
-xK_stricteq                       = #const XK_stricteq
+xK_stricteq                       = mkKeySym #{const XK_stricteq}
 #endif
 
 -- XK_BRAILLE
 #ifdef XK_braille_dot_1
 xK_braille_dot_1                  :: KeySym
-xK_braille_dot_1                  = #const XK_braille_dot_1
+xK_braille_dot_1                  = mkKeySym #{const XK_braille_dot_1}
 #endif
 #ifdef XK_braille_dot_2
 xK_braille_dot_2                  :: KeySym
-xK_braille_dot_2                  = #const XK_braille_dot_2
+xK_braille_dot_2                  = mkKeySym #{const XK_braille_dot_2}
 #endif
 #ifdef XK_braille_dot_3
 xK_braille_dot_3                  :: KeySym
-xK_braille_dot_3                  = #const XK_braille_dot_3
+xK_braille_dot_3                  = mkKeySym #{const XK_braille_dot_3}
 #endif
 #ifdef XK_braille_dot_4
 xK_braille_dot_4                  :: KeySym
-xK_braille_dot_4                  = #const XK_braille_dot_4
+xK_braille_dot_4                  = mkKeySym #{const XK_braille_dot_4}
 #endif
 #ifdef XK_braille_dot_5
 xK_braille_dot_5                  :: KeySym
-xK_braille_dot_5                  = #const XK_braille_dot_5
+xK_braille_dot_5                  = mkKeySym #{const XK_braille_dot_5}
 #endif
 #ifdef XK_braille_dot_6
 xK_braille_dot_6                  :: KeySym
-xK_braille_dot_6                  = #const XK_braille_dot_6
+xK_braille_dot_6                  = mkKeySym #{const XK_braille_dot_6}
 #endif
 #ifdef XK_braille_dot_7
 xK_braille_dot_7                  :: KeySym
-xK_braille_dot_7                  = #const XK_braille_dot_7
+xK_braille_dot_7                  = mkKeySym #{const XK_braille_dot_7}
 #endif
 #ifdef XK_braille_dot_8
 xK_braille_dot_8                  :: KeySym
-xK_braille_dot_8                  = #const XK_braille_dot_8
+xK_braille_dot_8                  = mkKeySym #{const XK_braille_dot_8}
 #endif
 #ifdef XK_braille_dot_9
 xK_braille_dot_9                  :: KeySym
-xK_braille_dot_9                  = #const XK_braille_dot_9
+xK_braille_dot_9                  = mkKeySym #{const XK_braille_dot_9}
 #endif
 #ifdef XK_braille_dot_10
 xK_braille_dot_10                 :: KeySym
-xK_braille_dot_10                 = #const XK_braille_dot_10
+xK_braille_dot_10                 = mkKeySym #{const XK_braille_dot_10}
 #endif
 #ifdef XK_braille_blank
 xK_braille_blank                  :: KeySym
-xK_braille_blank                  = #const XK_braille_blank
+xK_braille_blank                  = mkKeySym #{const XK_braille_blank}
 #endif
 #ifdef XK_braille_dots_1
 xK_braille_dots_1                 :: KeySym
-xK_braille_dots_1                 = #const XK_braille_dots_1
+xK_braille_dots_1                 = mkKeySym #{const XK_braille_dots_1}
 #endif
 #ifdef XK_braille_dots_2
 xK_braille_dots_2                 :: KeySym
-xK_braille_dots_2                 = #const XK_braille_dots_2
+xK_braille_dots_2                 = mkKeySym #{const XK_braille_dots_2}
 #endif
 #ifdef XK_braille_dots_12
 xK_braille_dots_12                :: KeySym
-xK_braille_dots_12                = #const XK_braille_dots_12
+xK_braille_dots_12                = mkKeySym #{const XK_braille_dots_12}
 #endif
 #ifdef XK_braille_dots_3
 xK_braille_dots_3                 :: KeySym
-xK_braille_dots_3                 = #const XK_braille_dots_3
+xK_braille_dots_3                 = mkKeySym #{const XK_braille_dots_3}
 #endif
 #ifdef XK_braille_dots_13
 xK_braille_dots_13                :: KeySym
-xK_braille_dots_13                = #const XK_braille_dots_13
+xK_braille_dots_13                = mkKeySym #{const XK_braille_dots_13}
 #endif
 #ifdef XK_braille_dots_23
 xK_braille_dots_23                :: KeySym
-xK_braille_dots_23                = #const XK_braille_dots_23
+xK_braille_dots_23                = mkKeySym #{const XK_braille_dots_23}
 #endif
 #ifdef XK_braille_dots_123
 xK_braille_dots_123               :: KeySym
-xK_braille_dots_123               = #const XK_braille_dots_123
+xK_braille_dots_123               = mkKeySym #{const XK_braille_dots_123}
 #endif
 #ifdef XK_braille_dots_4
 xK_braille_dots_4                 :: KeySym
-xK_braille_dots_4                 = #const XK_braille_dots_4
+xK_braille_dots_4                 = mkKeySym #{const XK_braille_dots_4}
 #endif
 #ifdef XK_braille_dots_14
 xK_braille_dots_14                :: KeySym
-xK_braille_dots_14                = #const XK_braille_dots_14
+xK_braille_dots_14                = mkKeySym #{const XK_braille_dots_14}
 #endif
 #ifdef XK_braille_dots_24
 xK_braille_dots_24                :: KeySym
-xK_braille_dots_24                = #const XK_braille_dots_24
+xK_braille_dots_24                = mkKeySym #{const XK_braille_dots_24}
 #endif
 #ifdef XK_braille_dots_124
 xK_braille_dots_124               :: KeySym
-xK_braille_dots_124               = #const XK_braille_dots_124
+xK_braille_dots_124               = mkKeySym #{const XK_braille_dots_124}
 #endif
 #ifdef XK_braille_dots_34
 xK_braille_dots_34                :: KeySym
-xK_braille_dots_34                = #const XK_braille_dots_34
+xK_braille_dots_34                = mkKeySym #{const XK_braille_dots_34}
 #endif
 #ifdef XK_braille_dots_134
 xK_braille_dots_134               :: KeySym
-xK_braille_dots_134               = #const XK_braille_dots_134
+xK_braille_dots_134               = mkKeySym #{const XK_braille_dots_134}
 #endif
 #ifdef XK_braille_dots_234
 xK_braille_dots_234               :: KeySym
-xK_braille_dots_234               = #const XK_braille_dots_234
+xK_braille_dots_234               = mkKeySym #{const XK_braille_dots_234}
 #endif
 #ifdef XK_braille_dots_1234
 xK_braille_dots_1234              :: KeySym
-xK_braille_dots_1234              = #const XK_braille_dots_1234
+xK_braille_dots_1234              = mkKeySym #{const XK_braille_dots_1234}
 #endif
 #ifdef XK_braille_dots_5
 xK_braille_dots_5                 :: KeySym
-xK_braille_dots_5                 = #const XK_braille_dots_5
+xK_braille_dots_5                 = mkKeySym #{const XK_braille_dots_5}
 #endif
 #ifdef XK_braille_dots_15
 xK_braille_dots_15                :: KeySym
-xK_braille_dots_15                = #const XK_braille_dots_15
+xK_braille_dots_15                = mkKeySym #{const XK_braille_dots_15}
 #endif
 #ifdef XK_braille_dots_25
 xK_braille_dots_25                :: KeySym
-xK_braille_dots_25                = #const XK_braille_dots_25
+xK_braille_dots_25                = mkKeySym #{const XK_braille_dots_25}
 #endif
 #ifdef XK_braille_dots_125
 xK_braille_dots_125               :: KeySym
-xK_braille_dots_125               = #const XK_braille_dots_125
+xK_braille_dots_125               = mkKeySym #{const XK_braille_dots_125}
 #endif
 #ifdef XK_braille_dots_35
 xK_braille_dots_35                :: KeySym
-xK_braille_dots_35                = #const XK_braille_dots_35
+xK_braille_dots_35                = mkKeySym #{const XK_braille_dots_35}
 #endif
 #ifdef XK_braille_dots_135
 xK_braille_dots_135               :: KeySym
-xK_braille_dots_135               = #const XK_braille_dots_135
+xK_braille_dots_135               = mkKeySym #{const XK_braille_dots_135}
 #endif
 #ifdef XK_braille_dots_235
 xK_braille_dots_235               :: KeySym
-xK_braille_dots_235               = #const XK_braille_dots_235
+xK_braille_dots_235               = mkKeySym #{const XK_braille_dots_235}
 #endif
 #ifdef XK_braille_dots_1235
 xK_braille_dots_1235              :: KeySym
-xK_braille_dots_1235              = #const XK_braille_dots_1235
+xK_braille_dots_1235              = mkKeySym #{const XK_braille_dots_1235}
 #endif
 #ifdef XK_braille_dots_45
 xK_braille_dots_45                :: KeySym
-xK_braille_dots_45                = #const XK_braille_dots_45
+xK_braille_dots_45                = mkKeySym #{const XK_braille_dots_45}
 #endif
 #ifdef XK_braille_dots_145
 xK_braille_dots_145               :: KeySym
-xK_braille_dots_145               = #const XK_braille_dots_145
+xK_braille_dots_145               = mkKeySym #{const XK_braille_dots_145}
 #endif
 #ifdef XK_braille_dots_245
 xK_braille_dots_245               :: KeySym
-xK_braille_dots_245               = #const XK_braille_dots_245
+xK_braille_dots_245               = mkKeySym #{const XK_braille_dots_245}
 #endif
 #ifdef XK_braille_dots_1245
 xK_braille_dots_1245              :: KeySym
-xK_braille_dots_1245              = #const XK_braille_dots_1245
+xK_braille_dots_1245              = mkKeySym #{const XK_braille_dots_1245}
 #endif
 #ifdef XK_braille_dots_345
 xK_braille_dots_345               :: KeySym
-xK_braille_dots_345               = #const XK_braille_dots_345
+xK_braille_dots_345               = mkKeySym #{const XK_braille_dots_345}
 #endif
 #ifdef XK_braille_dots_1345
 xK_braille_dots_1345              :: KeySym
-xK_braille_dots_1345              = #const XK_braille_dots_1345
+xK_braille_dots_1345              = mkKeySym #{const XK_braille_dots_1345}
 #endif
 #ifdef XK_braille_dots_2345
 xK_braille_dots_2345              :: KeySym
-xK_braille_dots_2345              = #const XK_braille_dots_2345
+xK_braille_dots_2345              = mkKeySym #{const XK_braille_dots_2345}
 #endif
 #ifdef XK_braille_dots_12345
 xK_braille_dots_12345             :: KeySym
-xK_braille_dots_12345             = #const XK_braille_dots_12345
+xK_braille_dots_12345             = mkKeySym #{const XK_braille_dots_12345}
 #endif
 #ifdef XK_braille_dots_6
 xK_braille_dots_6                 :: KeySym
-xK_braille_dots_6                 = #const XK_braille_dots_6
+xK_braille_dots_6                 = mkKeySym #{const XK_braille_dots_6}
 #endif
 #ifdef XK_braille_dots_16
 xK_braille_dots_16                :: KeySym
-xK_braille_dots_16                = #const XK_braille_dots_16
+xK_braille_dots_16                = mkKeySym #{const XK_braille_dots_16}
 #endif
 #ifdef XK_braille_dots_26
 xK_braille_dots_26                :: KeySym
-xK_braille_dots_26                = #const XK_braille_dots_26
+xK_braille_dots_26                = mkKeySym #{const XK_braille_dots_26}
 #endif
 #ifdef XK_braille_dots_126
 xK_braille_dots_126               :: KeySym
-xK_braille_dots_126               = #const XK_braille_dots_126
+xK_braille_dots_126               = mkKeySym #{const XK_braille_dots_126}
 #endif
 #ifdef XK_braille_dots_36
 xK_braille_dots_36                :: KeySym
-xK_braille_dots_36                = #const XK_braille_dots_36
+xK_braille_dots_36                = mkKeySym #{const XK_braille_dots_36}
 #endif
 #ifdef XK_braille_dots_136
 xK_braille_dots_136               :: KeySym
-xK_braille_dots_136               = #const XK_braille_dots_136
+xK_braille_dots_136               = mkKeySym #{const XK_braille_dots_136}
 #endif
 #ifdef XK_braille_dots_236
 xK_braille_dots_236               :: KeySym
-xK_braille_dots_236               = #const XK_braille_dots_236
+xK_braille_dots_236               = mkKeySym #{const XK_braille_dots_236}
 #endif
 #ifdef XK_braille_dots_1236
 xK_braille_dots_1236              :: KeySym
-xK_braille_dots_1236              = #const XK_braille_dots_1236
+xK_braille_dots_1236              = mkKeySym #{const XK_braille_dots_1236}
 #endif
 #ifdef XK_braille_dots_46
 xK_braille_dots_46                :: KeySym
-xK_braille_dots_46                = #const XK_braille_dots_46
+xK_braille_dots_46                = mkKeySym #{const XK_braille_dots_46}
 #endif
 #ifdef XK_braille_dots_146
 xK_braille_dots_146               :: KeySym
-xK_braille_dots_146               = #const XK_braille_dots_146
+xK_braille_dots_146               = mkKeySym #{const XK_braille_dots_146}
 #endif
 #ifdef XK_braille_dots_246
 xK_braille_dots_246               :: KeySym
-xK_braille_dots_246               = #const XK_braille_dots_246
+xK_braille_dots_246               = mkKeySym #{const XK_braille_dots_246}
 #endif
 #ifdef XK_braille_dots_1246
 xK_braille_dots_1246              :: KeySym
-xK_braille_dots_1246              = #const XK_braille_dots_1246
+xK_braille_dots_1246              = mkKeySym #{const XK_braille_dots_1246}
 #endif
 #ifdef XK_braille_dots_346
 xK_braille_dots_346               :: KeySym
-xK_braille_dots_346               = #const XK_braille_dots_346
+xK_braille_dots_346               = mkKeySym #{const XK_braille_dots_346}
 #endif
 #ifdef XK_braille_dots_1346
 xK_braille_dots_1346              :: KeySym
-xK_braille_dots_1346              = #const XK_braille_dots_1346
+xK_braille_dots_1346              = mkKeySym #{const XK_braille_dots_1346}
 #endif
 #ifdef XK_braille_dots_2346
 xK_braille_dots_2346              :: KeySym
-xK_braille_dots_2346              = #const XK_braille_dots_2346
+xK_braille_dots_2346              = mkKeySym #{const XK_braille_dots_2346}
 #endif
 #ifdef XK_braille_dots_12346
 xK_braille_dots_12346             :: KeySym
-xK_braille_dots_12346             = #const XK_braille_dots_12346
+xK_braille_dots_12346             = mkKeySym #{const XK_braille_dots_12346}
 #endif
 #ifdef XK_braille_dots_56
 xK_braille_dots_56                :: KeySym
-xK_braille_dots_56                = #const XK_braille_dots_56
+xK_braille_dots_56                = mkKeySym #{const XK_braille_dots_56}
 #endif
 #ifdef XK_braille_dots_156
 xK_braille_dots_156               :: KeySym
-xK_braille_dots_156               = #const XK_braille_dots_156
+xK_braille_dots_156               = mkKeySym #{const XK_braille_dots_156}
 #endif
 #ifdef XK_braille_dots_256
 xK_braille_dots_256               :: KeySym
-xK_braille_dots_256               = #const XK_braille_dots_256
+xK_braille_dots_256               = mkKeySym #{const XK_braille_dots_256}
 #endif
 #ifdef XK_braille_dots_1256
 xK_braille_dots_1256              :: KeySym
-xK_braille_dots_1256              = #const XK_braille_dots_1256
+xK_braille_dots_1256              = mkKeySym #{const XK_braille_dots_1256}
 #endif
 #ifdef XK_braille_dots_356
 xK_braille_dots_356               :: KeySym
-xK_braille_dots_356               = #const XK_braille_dots_356
+xK_braille_dots_356               = mkKeySym #{const XK_braille_dots_356}
 #endif
 #ifdef XK_braille_dots_1356
 xK_braille_dots_1356              :: KeySym
-xK_braille_dots_1356              = #const XK_braille_dots_1356
+xK_braille_dots_1356              = mkKeySym #{const XK_braille_dots_1356}
 #endif
 #ifdef XK_braille_dots_2356
 xK_braille_dots_2356              :: KeySym
-xK_braille_dots_2356              = #const XK_braille_dots_2356
+xK_braille_dots_2356              = mkKeySym #{const XK_braille_dots_2356}
 #endif
 #ifdef XK_braille_dots_12356
 xK_braille_dots_12356             :: KeySym
-xK_braille_dots_12356             = #const XK_braille_dots_12356
+xK_braille_dots_12356             = mkKeySym #{const XK_braille_dots_12356}
 #endif
 #ifdef XK_braille_dots_456
 xK_braille_dots_456               :: KeySym
-xK_braille_dots_456               = #const XK_braille_dots_456
+xK_braille_dots_456               = mkKeySym #{const XK_braille_dots_456}
 #endif
 #ifdef XK_braille_dots_1456
 xK_braille_dots_1456              :: KeySym
-xK_braille_dots_1456              = #const XK_braille_dots_1456
+xK_braille_dots_1456              = mkKeySym #{const XK_braille_dots_1456}
 #endif
 #ifdef XK_braille_dots_2456
 xK_braille_dots_2456              :: KeySym
-xK_braille_dots_2456              = #const XK_braille_dots_2456
+xK_braille_dots_2456              = mkKeySym #{const XK_braille_dots_2456}
 #endif
 #ifdef XK_braille_dots_12456
 xK_braille_dots_12456             :: KeySym
-xK_braille_dots_12456             = #const XK_braille_dots_12456
+xK_braille_dots_12456             = mkKeySym #{const XK_braille_dots_12456}
 #endif
 #ifdef XK_braille_dots_3456
 xK_braille_dots_3456              :: KeySym
-xK_braille_dots_3456              = #const XK_braille_dots_3456
+xK_braille_dots_3456              = mkKeySym #{const XK_braille_dots_3456}
 #endif
 #ifdef XK_braille_dots_13456
 xK_braille_dots_13456             :: KeySym
-xK_braille_dots_13456             = #const XK_braille_dots_13456
+xK_braille_dots_13456             = mkKeySym #{const XK_braille_dots_13456}
 #endif
 #ifdef XK_braille_dots_23456
 xK_braille_dots_23456             :: KeySym
-xK_braille_dots_23456             = #const XK_braille_dots_23456
+xK_braille_dots_23456             = mkKeySym #{const XK_braille_dots_23456}
 #endif
 #ifdef XK_braille_dots_123456
 xK_braille_dots_123456            :: KeySym
-xK_braille_dots_123456            = #const XK_braille_dots_123456
+xK_braille_dots_123456            = mkKeySym #{const XK_braille_dots_123456}
 #endif
 #ifdef XK_braille_dots_7
 xK_braille_dots_7                 :: KeySym
-xK_braille_dots_7                 = #const XK_braille_dots_7
+xK_braille_dots_7                 = mkKeySym #{const XK_braille_dots_7}
 #endif
 #ifdef XK_braille_dots_17
 xK_braille_dots_17                :: KeySym
-xK_braille_dots_17                = #const XK_braille_dots_17
+xK_braille_dots_17                = mkKeySym #{const XK_braille_dots_17}
 #endif
 #ifdef XK_braille_dots_27
 xK_braille_dots_27                :: KeySym
-xK_braille_dots_27                = #const XK_braille_dots_27
+xK_braille_dots_27                = mkKeySym #{const XK_braille_dots_27}
 #endif
 #ifdef XK_braille_dots_127
 xK_braille_dots_127               :: KeySym
-xK_braille_dots_127               = #const XK_braille_dots_127
+xK_braille_dots_127               = mkKeySym #{const XK_braille_dots_127}
 #endif
 #ifdef XK_braille_dots_37
 xK_braille_dots_37                :: KeySym
-xK_braille_dots_37                = #const XK_braille_dots_37
+xK_braille_dots_37                = mkKeySym #{const XK_braille_dots_37}
 #endif
 #ifdef XK_braille_dots_137
 xK_braille_dots_137               :: KeySym
-xK_braille_dots_137               = #const XK_braille_dots_137
+xK_braille_dots_137               = mkKeySym #{const XK_braille_dots_137}
 #endif
 #ifdef XK_braille_dots_237
 xK_braille_dots_237               :: KeySym
-xK_braille_dots_237               = #const XK_braille_dots_237
+xK_braille_dots_237               = mkKeySym #{const XK_braille_dots_237}
 #endif
 #ifdef XK_braille_dots_1237
 xK_braille_dots_1237              :: KeySym
-xK_braille_dots_1237              = #const XK_braille_dots_1237
+xK_braille_dots_1237              = mkKeySym #{const XK_braille_dots_1237}
 #endif
 #ifdef XK_braille_dots_47
 xK_braille_dots_47                :: KeySym
-xK_braille_dots_47                = #const XK_braille_dots_47
+xK_braille_dots_47                = mkKeySym #{const XK_braille_dots_47}
 #endif
 #ifdef XK_braille_dots_147
 xK_braille_dots_147               :: KeySym
-xK_braille_dots_147               = #const XK_braille_dots_147
+xK_braille_dots_147               = mkKeySym #{const XK_braille_dots_147}
 #endif
 #ifdef XK_braille_dots_247
 xK_braille_dots_247               :: KeySym
-xK_braille_dots_247               = #const XK_braille_dots_247
+xK_braille_dots_247               = mkKeySym #{const XK_braille_dots_247}
 #endif
 #ifdef XK_braille_dots_1247
 xK_braille_dots_1247              :: KeySym
-xK_braille_dots_1247              = #const XK_braille_dots_1247
+xK_braille_dots_1247              = mkKeySym #{const XK_braille_dots_1247}
 #endif
 #ifdef XK_braille_dots_347
 xK_braille_dots_347               :: KeySym
-xK_braille_dots_347               = #const XK_braille_dots_347
+xK_braille_dots_347               = mkKeySym #{const XK_braille_dots_347}
 #endif
 #ifdef XK_braille_dots_1347
 xK_braille_dots_1347              :: KeySym
-xK_braille_dots_1347              = #const XK_braille_dots_1347
+xK_braille_dots_1347              = mkKeySym #{const XK_braille_dots_1347}
 #endif
 #ifdef XK_braille_dots_2347
 xK_braille_dots_2347              :: KeySym
-xK_braille_dots_2347              = #const XK_braille_dots_2347
+xK_braille_dots_2347              = mkKeySym #{const XK_braille_dots_2347}
 #endif
 #ifdef XK_braille_dots_12347
 xK_braille_dots_12347             :: KeySym
-xK_braille_dots_12347             = #const XK_braille_dots_12347
+xK_braille_dots_12347             = mkKeySym #{const XK_braille_dots_12347}
 #endif
 #ifdef XK_braille_dots_57
 xK_braille_dots_57                :: KeySym
-xK_braille_dots_57                = #const XK_braille_dots_57
+xK_braille_dots_57                = mkKeySym #{const XK_braille_dots_57}
 #endif
 #ifdef XK_braille_dots_157
 xK_braille_dots_157               :: KeySym
-xK_braille_dots_157               = #const XK_braille_dots_157
+xK_braille_dots_157               = mkKeySym #{const XK_braille_dots_157}
 #endif
 #ifdef XK_braille_dots_257
 xK_braille_dots_257               :: KeySym
-xK_braille_dots_257               = #const XK_braille_dots_257
+xK_braille_dots_257               = mkKeySym #{const XK_braille_dots_257}
 #endif
 #ifdef XK_braille_dots_1257
 xK_braille_dots_1257              :: KeySym
-xK_braille_dots_1257              = #const XK_braille_dots_1257
+xK_braille_dots_1257              = mkKeySym #{const XK_braille_dots_1257}
 #endif
 #ifdef XK_braille_dots_357
 xK_braille_dots_357               :: KeySym
-xK_braille_dots_357               = #const XK_braille_dots_357
+xK_braille_dots_357               = mkKeySym #{const XK_braille_dots_357}
 #endif
 #ifdef XK_braille_dots_1357
 xK_braille_dots_1357              :: KeySym
-xK_braille_dots_1357              = #const XK_braille_dots_1357
+xK_braille_dots_1357              = mkKeySym #{const XK_braille_dots_1357}
 #endif
 #ifdef XK_braille_dots_2357
 xK_braille_dots_2357              :: KeySym
-xK_braille_dots_2357              = #const XK_braille_dots_2357
+xK_braille_dots_2357              = mkKeySym #{const XK_braille_dots_2357}
 #endif
 #ifdef XK_braille_dots_12357
 xK_braille_dots_12357             :: KeySym
-xK_braille_dots_12357             = #const XK_braille_dots_12357
+xK_braille_dots_12357             = mkKeySym #{const XK_braille_dots_12357}
 #endif
 #ifdef XK_braille_dots_457
 xK_braille_dots_457               :: KeySym
-xK_braille_dots_457               = #const XK_braille_dots_457
+xK_braille_dots_457               = mkKeySym #{const XK_braille_dots_457}
 #endif
 #ifdef XK_braille_dots_1457
 xK_braille_dots_1457              :: KeySym
-xK_braille_dots_1457              = #const XK_braille_dots_1457
+xK_braille_dots_1457              = mkKeySym #{const XK_braille_dots_1457}
 #endif
 #ifdef XK_braille_dots_2457
 xK_braille_dots_2457              :: KeySym
-xK_braille_dots_2457              = #const XK_braille_dots_2457
+xK_braille_dots_2457              = mkKeySym #{const XK_braille_dots_2457}
 #endif
 #ifdef XK_braille_dots_12457
 xK_braille_dots_12457             :: KeySym
-xK_braille_dots_12457             = #const XK_braille_dots_12457
+xK_braille_dots_12457             = mkKeySym #{const XK_braille_dots_12457}
 #endif
 #ifdef XK_braille_dots_3457
 xK_braille_dots_3457              :: KeySym
-xK_braille_dots_3457              = #const XK_braille_dots_3457
+xK_braille_dots_3457              = mkKeySym #{const XK_braille_dots_3457}
 #endif
 #ifdef XK_braille_dots_13457
 xK_braille_dots_13457             :: KeySym
-xK_braille_dots_13457             = #const XK_braille_dots_13457
+xK_braille_dots_13457             = mkKeySym #{const XK_braille_dots_13457}
 #endif
 #ifdef XK_braille_dots_23457
 xK_braille_dots_23457             :: KeySym
-xK_braille_dots_23457             = #const XK_braille_dots_23457
+xK_braille_dots_23457             = mkKeySym #{const XK_braille_dots_23457}
 #endif
 #ifdef XK_braille_dots_123457
 xK_braille_dots_123457            :: KeySym
-xK_braille_dots_123457            = #const XK_braille_dots_123457
+xK_braille_dots_123457            = mkKeySym #{const XK_braille_dots_123457}
 #endif
 #ifdef XK_braille_dots_67
 xK_braille_dots_67                :: KeySym
-xK_braille_dots_67                = #const XK_braille_dots_67
+xK_braille_dots_67                = mkKeySym #{const XK_braille_dots_67}
 #endif
 #ifdef XK_braille_dots_167
 xK_braille_dots_167               :: KeySym
-xK_braille_dots_167               = #const XK_braille_dots_167
+xK_braille_dots_167               = mkKeySym #{const XK_braille_dots_167}
 #endif
 #ifdef XK_braille_dots_267
 xK_braille_dots_267               :: KeySym
-xK_braille_dots_267               = #const XK_braille_dots_267
+xK_braille_dots_267               = mkKeySym #{const XK_braille_dots_267}
 #endif
 #ifdef XK_braille_dots_1267
 xK_braille_dots_1267              :: KeySym
-xK_braille_dots_1267              = #const XK_braille_dots_1267
+xK_braille_dots_1267              = mkKeySym #{const XK_braille_dots_1267}
 #endif
 #ifdef XK_braille_dots_367
 xK_braille_dots_367               :: KeySym
-xK_braille_dots_367               = #const XK_braille_dots_367
+xK_braille_dots_367               = mkKeySym #{const XK_braille_dots_367}
 #endif
 #ifdef XK_braille_dots_1367
 xK_braille_dots_1367              :: KeySym
-xK_braille_dots_1367              = #const XK_braille_dots_1367
+xK_braille_dots_1367              = mkKeySym #{const XK_braille_dots_1367}
 #endif
 #ifdef XK_braille_dots_2367
 xK_braille_dots_2367              :: KeySym
-xK_braille_dots_2367              = #const XK_braille_dots_2367
+xK_braille_dots_2367              = mkKeySym #{const XK_braille_dots_2367}
 #endif
 #ifdef XK_braille_dots_12367
 xK_braille_dots_12367             :: KeySym
-xK_braille_dots_12367             = #const XK_braille_dots_12367
+xK_braille_dots_12367             = mkKeySym #{const XK_braille_dots_12367}
 #endif
 #ifdef XK_braille_dots_467
 xK_braille_dots_467               :: KeySym
-xK_braille_dots_467               = #const XK_braille_dots_467
+xK_braille_dots_467               = mkKeySym #{const XK_braille_dots_467}
 #endif
 #ifdef XK_braille_dots_1467
 xK_braille_dots_1467              :: KeySym
-xK_braille_dots_1467              = #const XK_braille_dots_1467
+xK_braille_dots_1467              = mkKeySym #{const XK_braille_dots_1467}
 #endif
 #ifdef XK_braille_dots_2467
 xK_braille_dots_2467              :: KeySym
-xK_braille_dots_2467              = #const XK_braille_dots_2467
+xK_braille_dots_2467              = mkKeySym #{const XK_braille_dots_2467}
 #endif
 #ifdef XK_braille_dots_12467
 xK_braille_dots_12467             :: KeySym
-xK_braille_dots_12467             = #const XK_braille_dots_12467
+xK_braille_dots_12467             = mkKeySym #{const XK_braille_dots_12467}
 #endif
 #ifdef XK_braille_dots_3467
 xK_braille_dots_3467              :: KeySym
-xK_braille_dots_3467              = #const XK_braille_dots_3467
+xK_braille_dots_3467              = mkKeySym #{const XK_braille_dots_3467}
 #endif
 #ifdef XK_braille_dots_13467
 xK_braille_dots_13467             :: KeySym
-xK_braille_dots_13467             = #const XK_braille_dots_13467
+xK_braille_dots_13467             = mkKeySym #{const XK_braille_dots_13467}
 #endif
 #ifdef XK_braille_dots_23467
 xK_braille_dots_23467             :: KeySym
-xK_braille_dots_23467             = #const XK_braille_dots_23467
+xK_braille_dots_23467             = mkKeySym #{const XK_braille_dots_23467}
 #endif
 #ifdef XK_braille_dots_123467
 xK_braille_dots_123467            :: KeySym
-xK_braille_dots_123467            = #const XK_braille_dots_123467
+xK_braille_dots_123467            = mkKeySym #{const XK_braille_dots_123467}
 #endif
 #ifdef XK_braille_dots_567
 xK_braille_dots_567               :: KeySym
-xK_braille_dots_567               = #const XK_braille_dots_567
+xK_braille_dots_567               = mkKeySym #{const XK_braille_dots_567}
 #endif
 #ifdef XK_braille_dots_1567
 xK_braille_dots_1567              :: KeySym
-xK_braille_dots_1567              = #const XK_braille_dots_1567
+xK_braille_dots_1567              = mkKeySym #{const XK_braille_dots_1567}
 #endif
 #ifdef XK_braille_dots_2567
 xK_braille_dots_2567              :: KeySym
-xK_braille_dots_2567              = #const XK_braille_dots_2567
+xK_braille_dots_2567              = mkKeySym #{const XK_braille_dots_2567}
 #endif
 #ifdef XK_braille_dots_12567
 xK_braille_dots_12567             :: KeySym
-xK_braille_dots_12567             = #const XK_braille_dots_12567
+xK_braille_dots_12567             = mkKeySym #{const XK_braille_dots_12567}
 #endif
 #ifdef XK_braille_dots_3567
 xK_braille_dots_3567              :: KeySym
-xK_braille_dots_3567              = #const XK_braille_dots_3567
+xK_braille_dots_3567              = mkKeySym #{const XK_braille_dots_3567}
 #endif
 #ifdef XK_braille_dots_13567
 xK_braille_dots_13567             :: KeySym
-xK_braille_dots_13567             = #const XK_braille_dots_13567
+xK_braille_dots_13567             = mkKeySym #{const XK_braille_dots_13567}
 #endif
 #ifdef XK_braille_dots_23567
 xK_braille_dots_23567             :: KeySym
-xK_braille_dots_23567             = #const XK_braille_dots_23567
+xK_braille_dots_23567             = mkKeySym #{const XK_braille_dots_23567}
 #endif
 #ifdef XK_braille_dots_123567
 xK_braille_dots_123567            :: KeySym
-xK_braille_dots_123567            = #const XK_braille_dots_123567
+xK_braille_dots_123567            = mkKeySym #{const XK_braille_dots_123567}
 #endif
 #ifdef XK_braille_dots_4567
 xK_braille_dots_4567              :: KeySym
-xK_braille_dots_4567              = #const XK_braille_dots_4567
+xK_braille_dots_4567              = mkKeySym #{const XK_braille_dots_4567}
 #endif
 #ifdef XK_braille_dots_14567
 xK_braille_dots_14567             :: KeySym
-xK_braille_dots_14567             = #const XK_braille_dots_14567
+xK_braille_dots_14567             = mkKeySym #{const XK_braille_dots_14567}
 #endif
 #ifdef XK_braille_dots_24567
 xK_braille_dots_24567             :: KeySym
-xK_braille_dots_24567             = #const XK_braille_dots_24567
+xK_braille_dots_24567             = mkKeySym #{const XK_braille_dots_24567}
 #endif
 #ifdef XK_braille_dots_124567
 xK_braille_dots_124567            :: KeySym
-xK_braille_dots_124567            = #const XK_braille_dots_124567
+xK_braille_dots_124567            = mkKeySym #{const XK_braille_dots_124567}
 #endif
 #ifdef XK_braille_dots_34567
 xK_braille_dots_34567             :: KeySym
-xK_braille_dots_34567             = #const XK_braille_dots_34567
+xK_braille_dots_34567             = mkKeySym #{const XK_braille_dots_34567}
 #endif
 #ifdef XK_braille_dots_134567
 xK_braille_dots_134567            :: KeySym
-xK_braille_dots_134567            = #const XK_braille_dots_134567
+xK_braille_dots_134567            = mkKeySym #{const XK_braille_dots_134567}
 #endif
 #ifdef XK_braille_dots_234567
 xK_braille_dots_234567            :: KeySym
-xK_braille_dots_234567            = #const XK_braille_dots_234567
+xK_braille_dots_234567            = mkKeySym #{const XK_braille_dots_234567}
 #endif
 #ifdef XK_braille_dots_1234567
 xK_braille_dots_1234567           :: KeySym
-xK_braille_dots_1234567           = #const XK_braille_dots_1234567
+xK_braille_dots_1234567           = mkKeySym #{const XK_braille_dots_1234567}
 #endif
 #ifdef XK_braille_dots_8
 xK_braille_dots_8                 :: KeySym
-xK_braille_dots_8                 = #const XK_braille_dots_8
+xK_braille_dots_8                 = mkKeySym #{const XK_braille_dots_8}
 #endif
 #ifdef XK_braille_dots_18
 xK_braille_dots_18                :: KeySym
-xK_braille_dots_18                = #const XK_braille_dots_18
+xK_braille_dots_18                = mkKeySym #{const XK_braille_dots_18}
 #endif
 #ifdef XK_braille_dots_28
 xK_braille_dots_28                :: KeySym
-xK_braille_dots_28                = #const XK_braille_dots_28
+xK_braille_dots_28                = mkKeySym #{const XK_braille_dots_28}
 #endif
 #ifdef XK_braille_dots_128
 xK_braille_dots_128               :: KeySym
-xK_braille_dots_128               = #const XK_braille_dots_128
+xK_braille_dots_128               = mkKeySym #{const XK_braille_dots_128}
 #endif
 #ifdef XK_braille_dots_38
 xK_braille_dots_38                :: KeySym
-xK_braille_dots_38                = #const XK_braille_dots_38
+xK_braille_dots_38                = mkKeySym #{const XK_braille_dots_38}
 #endif
 #ifdef XK_braille_dots_138
 xK_braille_dots_138               :: KeySym
-xK_braille_dots_138               = #const XK_braille_dots_138
+xK_braille_dots_138               = mkKeySym #{const XK_braille_dots_138}
 #endif
 #ifdef XK_braille_dots_238
 xK_braille_dots_238               :: KeySym
-xK_braille_dots_238               = #const XK_braille_dots_238
+xK_braille_dots_238               = mkKeySym #{const XK_braille_dots_238}
 #endif
 #ifdef XK_braille_dots_1238
 xK_braille_dots_1238              :: KeySym
-xK_braille_dots_1238              = #const XK_braille_dots_1238
+xK_braille_dots_1238              = mkKeySym #{const XK_braille_dots_1238}
 #endif
 #ifdef XK_braille_dots_48
 xK_braille_dots_48                :: KeySym
-xK_braille_dots_48                = #const XK_braille_dots_48
+xK_braille_dots_48                = mkKeySym #{const XK_braille_dots_48}
 #endif
 #ifdef XK_braille_dots_148
 xK_braille_dots_148               :: KeySym
-xK_braille_dots_148               = #const XK_braille_dots_148
+xK_braille_dots_148               = mkKeySym #{const XK_braille_dots_148}
 #endif
 #ifdef XK_braille_dots_248
 xK_braille_dots_248               :: KeySym
-xK_braille_dots_248               = #const XK_braille_dots_248
+xK_braille_dots_248               = mkKeySym #{const XK_braille_dots_248}
 #endif
 #ifdef XK_braille_dots_1248
 xK_braille_dots_1248              :: KeySym
-xK_braille_dots_1248              = #const XK_braille_dots_1248
+xK_braille_dots_1248              = mkKeySym #{const XK_braille_dots_1248}
 #endif
 #ifdef XK_braille_dots_348
 xK_braille_dots_348               :: KeySym
-xK_braille_dots_348               = #const XK_braille_dots_348
+xK_braille_dots_348               = mkKeySym #{const XK_braille_dots_348}
 #endif
 #ifdef XK_braille_dots_1348
 xK_braille_dots_1348              :: KeySym
-xK_braille_dots_1348              = #const XK_braille_dots_1348
+xK_braille_dots_1348              = mkKeySym #{const XK_braille_dots_1348}
 #endif
 #ifdef XK_braille_dots_2348
 xK_braille_dots_2348              :: KeySym
-xK_braille_dots_2348              = #const XK_braille_dots_2348
+xK_braille_dots_2348              = mkKeySym #{const XK_braille_dots_2348}
 #endif
 #ifdef XK_braille_dots_12348
 xK_braille_dots_12348             :: KeySym
-xK_braille_dots_12348             = #const XK_braille_dots_12348
+xK_braille_dots_12348             = mkKeySym #{const XK_braille_dots_12348}
 #endif
 #ifdef XK_braille_dots_58
 xK_braille_dots_58                :: KeySym
-xK_braille_dots_58                = #const XK_braille_dots_58
+xK_braille_dots_58                = mkKeySym #{const XK_braille_dots_58}
 #endif
 #ifdef XK_braille_dots_158
 xK_braille_dots_158               :: KeySym
-xK_braille_dots_158               = #const XK_braille_dots_158
+xK_braille_dots_158               = mkKeySym #{const XK_braille_dots_158}
 #endif
 #ifdef XK_braille_dots_258
 xK_braille_dots_258               :: KeySym
-xK_braille_dots_258               = #const XK_braille_dots_258
+xK_braille_dots_258               = mkKeySym #{const XK_braille_dots_258}
 #endif
 #ifdef XK_braille_dots_1258
 xK_braille_dots_1258              :: KeySym
-xK_braille_dots_1258              = #const XK_braille_dots_1258
+xK_braille_dots_1258              = mkKeySym #{const XK_braille_dots_1258}
 #endif
 #ifdef XK_braille_dots_358
 xK_braille_dots_358               :: KeySym
-xK_braille_dots_358               = #const XK_braille_dots_358
+xK_braille_dots_358               = mkKeySym #{const XK_braille_dots_358}
 #endif
 #ifdef XK_braille_dots_1358
 xK_braille_dots_1358              :: KeySym
-xK_braille_dots_1358              = #const XK_braille_dots_1358
+xK_braille_dots_1358              = mkKeySym #{const XK_braille_dots_1358}
 #endif
 #ifdef XK_braille_dots_2358
 xK_braille_dots_2358              :: KeySym
-xK_braille_dots_2358              = #const XK_braille_dots_2358
+xK_braille_dots_2358              = mkKeySym #{const XK_braille_dots_2358}
 #endif
 #ifdef XK_braille_dots_12358
 xK_braille_dots_12358             :: KeySym
-xK_braille_dots_12358             = #const XK_braille_dots_12358
+xK_braille_dots_12358             = mkKeySym #{const XK_braille_dots_12358}
 #endif
 #ifdef XK_braille_dots_458
 xK_braille_dots_458               :: KeySym
-xK_braille_dots_458               = #const XK_braille_dots_458
+xK_braille_dots_458               = mkKeySym #{const XK_braille_dots_458}
 #endif
 #ifdef XK_braille_dots_1458
 xK_braille_dots_1458              :: KeySym
-xK_braille_dots_1458              = #const XK_braille_dots_1458
+xK_braille_dots_1458              = mkKeySym #{const XK_braille_dots_1458}
 #endif
 #ifdef XK_braille_dots_2458
 xK_braille_dots_2458              :: KeySym
-xK_braille_dots_2458              = #const XK_braille_dots_2458
+xK_braille_dots_2458              = mkKeySym #{const XK_braille_dots_2458}
 #endif
 #ifdef XK_braille_dots_12458
 xK_braille_dots_12458             :: KeySym
-xK_braille_dots_12458             = #const XK_braille_dots_12458
+xK_braille_dots_12458             = mkKeySym #{const XK_braille_dots_12458}
 #endif
 #ifdef XK_braille_dots_3458
 xK_braille_dots_3458              :: KeySym
-xK_braille_dots_3458              = #const XK_braille_dots_3458
+xK_braille_dots_3458              = mkKeySym #{const XK_braille_dots_3458}
 #endif
 #ifdef XK_braille_dots_13458
 xK_braille_dots_13458             :: KeySym
-xK_braille_dots_13458             = #const XK_braille_dots_13458
+xK_braille_dots_13458             = mkKeySym #{const XK_braille_dots_13458}
 #endif
 #ifdef XK_braille_dots_23458
 xK_braille_dots_23458             :: KeySym
-xK_braille_dots_23458             = #const XK_braille_dots_23458
+xK_braille_dots_23458             = mkKeySym #{const XK_braille_dots_23458}
 #endif
 #ifdef XK_braille_dots_123458
 xK_braille_dots_123458            :: KeySym
-xK_braille_dots_123458            = #const XK_braille_dots_123458
+xK_braille_dots_123458            = mkKeySym #{const XK_braille_dots_123458}
 #endif
 #ifdef XK_braille_dots_68
 xK_braille_dots_68                :: KeySym
-xK_braille_dots_68                = #const XK_braille_dots_68
+xK_braille_dots_68                = mkKeySym #{const XK_braille_dots_68}
 #endif
 #ifdef XK_braille_dots_168
 xK_braille_dots_168               :: KeySym
-xK_braille_dots_168               = #const XK_braille_dots_168
+xK_braille_dots_168               = mkKeySym #{const XK_braille_dots_168}
 #endif
 #ifdef XK_braille_dots_268
 xK_braille_dots_268               :: KeySym
-xK_braille_dots_268               = #const XK_braille_dots_268
+xK_braille_dots_268               = mkKeySym #{const XK_braille_dots_268}
 #endif
 #ifdef XK_braille_dots_1268
 xK_braille_dots_1268              :: KeySym
-xK_braille_dots_1268              = #const XK_braille_dots_1268
+xK_braille_dots_1268              = mkKeySym #{const XK_braille_dots_1268}
 #endif
 #ifdef XK_braille_dots_368
 xK_braille_dots_368               :: KeySym
-xK_braille_dots_368               = #const XK_braille_dots_368
+xK_braille_dots_368               = mkKeySym #{const XK_braille_dots_368}
 #endif
 #ifdef XK_braille_dots_1368
 xK_braille_dots_1368              :: KeySym
-xK_braille_dots_1368              = #const XK_braille_dots_1368
+xK_braille_dots_1368              = mkKeySym #{const XK_braille_dots_1368}
 #endif
 #ifdef XK_braille_dots_2368
 xK_braille_dots_2368              :: KeySym
-xK_braille_dots_2368              = #const XK_braille_dots_2368
+xK_braille_dots_2368              = mkKeySym #{const XK_braille_dots_2368}
 #endif
 #ifdef XK_braille_dots_12368
 xK_braille_dots_12368             :: KeySym
-xK_braille_dots_12368             = #const XK_braille_dots_12368
+xK_braille_dots_12368             = mkKeySym #{const XK_braille_dots_12368}
 #endif
 #ifdef XK_braille_dots_468
 xK_braille_dots_468               :: KeySym
-xK_braille_dots_468               = #const XK_braille_dots_468
+xK_braille_dots_468               = mkKeySym #{const XK_braille_dots_468}
 #endif
 #ifdef XK_braille_dots_1468
 xK_braille_dots_1468              :: KeySym
-xK_braille_dots_1468              = #const XK_braille_dots_1468
+xK_braille_dots_1468              = mkKeySym #{const XK_braille_dots_1468}
 #endif
 #ifdef XK_braille_dots_2468
 xK_braille_dots_2468              :: KeySym
-xK_braille_dots_2468              = #const XK_braille_dots_2468
+xK_braille_dots_2468              = mkKeySym #{const XK_braille_dots_2468}
 #endif
 #ifdef XK_braille_dots_12468
 xK_braille_dots_12468             :: KeySym
-xK_braille_dots_12468             = #const XK_braille_dots_12468
+xK_braille_dots_12468             = mkKeySym #{const XK_braille_dots_12468}
 #endif
 #ifdef XK_braille_dots_3468
 xK_braille_dots_3468              :: KeySym
-xK_braille_dots_3468              = #const XK_braille_dots_3468
+xK_braille_dots_3468              = mkKeySym #{const XK_braille_dots_3468}
 #endif
 #ifdef XK_braille_dots_13468
 xK_braille_dots_13468             :: KeySym
-xK_braille_dots_13468             = #const XK_braille_dots_13468
+xK_braille_dots_13468             = mkKeySym #{const XK_braille_dots_13468}
 #endif
 #ifdef XK_braille_dots_23468
 xK_braille_dots_23468             :: KeySym
-xK_braille_dots_23468             = #const XK_braille_dots_23468
+xK_braille_dots_23468             = mkKeySym #{const XK_braille_dots_23468}
 #endif
 #ifdef XK_braille_dots_123468
 xK_braille_dots_123468            :: KeySym
-xK_braille_dots_123468            = #const XK_braille_dots_123468
+xK_braille_dots_123468            = mkKeySym #{const XK_braille_dots_123468}
 #endif
 #ifdef XK_braille_dots_568
 xK_braille_dots_568               :: KeySym
-xK_braille_dots_568               = #const XK_braille_dots_568
+xK_braille_dots_568               = mkKeySym #{const XK_braille_dots_568}
 #endif
 #ifdef XK_braille_dots_1568
 xK_braille_dots_1568              :: KeySym
-xK_braille_dots_1568              = #const XK_braille_dots_1568
+xK_braille_dots_1568              = mkKeySym #{const XK_braille_dots_1568}
 #endif
 #ifdef XK_braille_dots_2568
 xK_braille_dots_2568              :: KeySym
-xK_braille_dots_2568              = #const XK_braille_dots_2568
+xK_braille_dots_2568              = mkKeySym #{const XK_braille_dots_2568}
 #endif
 #ifdef XK_braille_dots_12568
 xK_braille_dots_12568             :: KeySym
-xK_braille_dots_12568             = #const XK_braille_dots_12568
+xK_braille_dots_12568             = mkKeySym #{const XK_braille_dots_12568}
 #endif
 #ifdef XK_braille_dots_3568
 xK_braille_dots_3568              :: KeySym
-xK_braille_dots_3568              = #const XK_braille_dots_3568
+xK_braille_dots_3568              = mkKeySym #{const XK_braille_dots_3568}
 #endif
 #ifdef XK_braille_dots_13568
 xK_braille_dots_13568             :: KeySym
-xK_braille_dots_13568             = #const XK_braille_dots_13568
+xK_braille_dots_13568             = mkKeySym #{const XK_braille_dots_13568}
 #endif
 #ifdef XK_braille_dots_23568
 xK_braille_dots_23568             :: KeySym
-xK_braille_dots_23568             = #const XK_braille_dots_23568
+xK_braille_dots_23568             = mkKeySym #{const XK_braille_dots_23568}
 #endif
 #ifdef XK_braille_dots_123568
 xK_braille_dots_123568            :: KeySym
-xK_braille_dots_123568            = #const XK_braille_dots_123568
+xK_braille_dots_123568            = mkKeySym #{const XK_braille_dots_123568}
 #endif
 #ifdef XK_braille_dots_4568
 xK_braille_dots_4568              :: KeySym
-xK_braille_dots_4568              = #const XK_braille_dots_4568
+xK_braille_dots_4568              = mkKeySym #{const XK_braille_dots_4568}
 #endif
 #ifdef XK_braille_dots_14568
 xK_braille_dots_14568             :: KeySym
-xK_braille_dots_14568             = #const XK_braille_dots_14568
+xK_braille_dots_14568             = mkKeySym #{const XK_braille_dots_14568}
 #endif
 #ifdef XK_braille_dots_24568
 xK_braille_dots_24568             :: KeySym
-xK_braille_dots_24568             = #const XK_braille_dots_24568
+xK_braille_dots_24568             = mkKeySym #{const XK_braille_dots_24568}
 #endif
 #ifdef XK_braille_dots_124568
 xK_braille_dots_124568            :: KeySym
-xK_braille_dots_124568            = #const XK_braille_dots_124568
+xK_braille_dots_124568            = mkKeySym #{const XK_braille_dots_124568}
 #endif
 #ifdef XK_braille_dots_34568
 xK_braille_dots_34568             :: KeySym
-xK_braille_dots_34568             = #const XK_braille_dots_34568
+xK_braille_dots_34568             = mkKeySym #{const XK_braille_dots_34568}
 #endif
 #ifdef XK_braille_dots_134568
 xK_braille_dots_134568            :: KeySym
-xK_braille_dots_134568            = #const XK_braille_dots_134568
+xK_braille_dots_134568            = mkKeySym #{const XK_braille_dots_134568}
 #endif
 #ifdef XK_braille_dots_234568
 xK_braille_dots_234568            :: KeySym
-xK_braille_dots_234568            = #const XK_braille_dots_234568
+xK_braille_dots_234568            = mkKeySym #{const XK_braille_dots_234568}
 #endif
 #ifdef XK_braille_dots_1234568
 xK_braille_dots_1234568           :: KeySym
-xK_braille_dots_1234568           = #const XK_braille_dots_1234568
+xK_braille_dots_1234568           = mkKeySym #{const XK_braille_dots_1234568}
 #endif
 #ifdef XK_braille_dots_78
 xK_braille_dots_78                :: KeySym
-xK_braille_dots_78                = #const XK_braille_dots_78
+xK_braille_dots_78                = mkKeySym #{const XK_braille_dots_78}
 #endif
 #ifdef XK_braille_dots_178
 xK_braille_dots_178               :: KeySym
-xK_braille_dots_178               = #const XK_braille_dots_178
+xK_braille_dots_178               = mkKeySym #{const XK_braille_dots_178}
 #endif
 #ifdef XK_braille_dots_278
 xK_braille_dots_278               :: KeySym
-xK_braille_dots_278               = #const XK_braille_dots_278
+xK_braille_dots_278               = mkKeySym #{const XK_braille_dots_278}
 #endif
 #ifdef XK_braille_dots_1278
 xK_braille_dots_1278              :: KeySym
-xK_braille_dots_1278              = #const XK_braille_dots_1278
+xK_braille_dots_1278              = mkKeySym #{const XK_braille_dots_1278}
 #endif
 #ifdef XK_braille_dots_378
 xK_braille_dots_378               :: KeySym
-xK_braille_dots_378               = #const XK_braille_dots_378
+xK_braille_dots_378               = mkKeySym #{const XK_braille_dots_378}
 #endif
 #ifdef XK_braille_dots_1378
 xK_braille_dots_1378              :: KeySym
-xK_braille_dots_1378              = #const XK_braille_dots_1378
+xK_braille_dots_1378              = mkKeySym #{const XK_braille_dots_1378}
 #endif
 #ifdef XK_braille_dots_2378
 xK_braille_dots_2378              :: KeySym
-xK_braille_dots_2378              = #const XK_braille_dots_2378
+xK_braille_dots_2378              = mkKeySym #{const XK_braille_dots_2378}
 #endif
 #ifdef XK_braille_dots_12378
 xK_braille_dots_12378             :: KeySym
-xK_braille_dots_12378             = #const XK_braille_dots_12378
+xK_braille_dots_12378             = mkKeySym #{const XK_braille_dots_12378}
 #endif
 #ifdef XK_braille_dots_478
 xK_braille_dots_478               :: KeySym
-xK_braille_dots_478               = #const XK_braille_dots_478
+xK_braille_dots_478               = mkKeySym #{const XK_braille_dots_478}
 #endif
 #ifdef XK_braille_dots_1478
 xK_braille_dots_1478              :: KeySym
-xK_braille_dots_1478              = #const XK_braille_dots_1478
+xK_braille_dots_1478              = mkKeySym #{const XK_braille_dots_1478}
 #endif
 #ifdef XK_braille_dots_2478
 xK_braille_dots_2478              :: KeySym
-xK_braille_dots_2478              = #const XK_braille_dots_2478
+xK_braille_dots_2478              = mkKeySym #{const XK_braille_dots_2478}
 #endif
 #ifdef XK_braille_dots_12478
 xK_braille_dots_12478             :: KeySym
-xK_braille_dots_12478             = #const XK_braille_dots_12478
+xK_braille_dots_12478             = mkKeySym #{const XK_braille_dots_12478}
 #endif
 #ifdef XK_braille_dots_3478
 xK_braille_dots_3478              :: KeySym
-xK_braille_dots_3478              = #const XK_braille_dots_3478
+xK_braille_dots_3478              = mkKeySym #{const XK_braille_dots_3478}
 #endif
 #ifdef XK_braille_dots_13478
 xK_braille_dots_13478             :: KeySym
-xK_braille_dots_13478             = #const XK_braille_dots_13478
+xK_braille_dots_13478             = mkKeySym #{const XK_braille_dots_13478}
 #endif
 #ifdef XK_braille_dots_23478
 xK_braille_dots_23478             :: KeySym
-xK_braille_dots_23478             = #const XK_braille_dots_23478
+xK_braille_dots_23478             = mkKeySym #{const XK_braille_dots_23478}
 #endif
 #ifdef XK_braille_dots_123478
 xK_braille_dots_123478            :: KeySym
-xK_braille_dots_123478            = #const XK_braille_dots_123478
+xK_braille_dots_123478            = mkKeySym #{const XK_braille_dots_123478}
 #endif
 #ifdef XK_braille_dots_578
 xK_braille_dots_578               :: KeySym
-xK_braille_dots_578               = #const XK_braille_dots_578
+xK_braille_dots_578               = mkKeySym #{const XK_braille_dots_578}
 #endif
 #ifdef XK_braille_dots_1578
 xK_braille_dots_1578              :: KeySym
-xK_braille_dots_1578              = #const XK_braille_dots_1578
+xK_braille_dots_1578              = mkKeySym #{const XK_braille_dots_1578}
 #endif
 #ifdef XK_braille_dots_2578
 xK_braille_dots_2578              :: KeySym
-xK_braille_dots_2578              = #const XK_braille_dots_2578
+xK_braille_dots_2578              = mkKeySym #{const XK_braille_dots_2578}
 #endif
 #ifdef XK_braille_dots_12578
 xK_braille_dots_12578             :: KeySym
-xK_braille_dots_12578             = #const XK_braille_dots_12578
+xK_braille_dots_12578             = mkKeySym #{const XK_braille_dots_12578}
 #endif
 #ifdef XK_braille_dots_3578
 xK_braille_dots_3578              :: KeySym
-xK_braille_dots_3578              = #const XK_braille_dots_3578
+xK_braille_dots_3578              = mkKeySym #{const XK_braille_dots_3578}
 #endif
 #ifdef XK_braille_dots_13578
 xK_braille_dots_13578             :: KeySym
-xK_braille_dots_13578             = #const XK_braille_dots_13578
+xK_braille_dots_13578             = mkKeySym #{const XK_braille_dots_13578}
 #endif
 #ifdef XK_braille_dots_23578
 xK_braille_dots_23578             :: KeySym
-xK_braille_dots_23578             = #const XK_braille_dots_23578
+xK_braille_dots_23578             = mkKeySym #{const XK_braille_dots_23578}
 #endif
 #ifdef XK_braille_dots_123578
 xK_braille_dots_123578            :: KeySym
-xK_braille_dots_123578            = #const XK_braille_dots_123578
+xK_braille_dots_123578            = mkKeySym #{const XK_braille_dots_123578}
 #endif
 #ifdef XK_braille_dots_4578
 xK_braille_dots_4578              :: KeySym
-xK_braille_dots_4578              = #const XK_braille_dots_4578
+xK_braille_dots_4578              = mkKeySym #{const XK_braille_dots_4578}
 #endif
 #ifdef XK_braille_dots_14578
 xK_braille_dots_14578             :: KeySym
-xK_braille_dots_14578             = #const XK_braille_dots_14578
+xK_braille_dots_14578             = mkKeySym #{const XK_braille_dots_14578}
 #endif
 #ifdef XK_braille_dots_24578
 xK_braille_dots_24578             :: KeySym
-xK_braille_dots_24578             = #const XK_braille_dots_24578
+xK_braille_dots_24578             = mkKeySym #{const XK_braille_dots_24578}
 #endif
 #ifdef XK_braille_dots_124578
 xK_braille_dots_124578            :: KeySym
-xK_braille_dots_124578            = #const XK_braille_dots_124578
+xK_braille_dots_124578            = mkKeySym #{const XK_braille_dots_124578}
 #endif
 #ifdef XK_braille_dots_34578
 xK_braille_dots_34578             :: KeySym
-xK_braille_dots_34578             = #const XK_braille_dots_34578
+xK_braille_dots_34578             = mkKeySym #{const XK_braille_dots_34578}
 #endif
 #ifdef XK_braille_dots_134578
 xK_braille_dots_134578            :: KeySym
-xK_braille_dots_134578            = #const XK_braille_dots_134578
+xK_braille_dots_134578            = mkKeySym #{const XK_braille_dots_134578}
 #endif
 #ifdef XK_braille_dots_234578
 xK_braille_dots_234578            :: KeySym
-xK_braille_dots_234578            = #const XK_braille_dots_234578
+xK_braille_dots_234578            = mkKeySym #{const XK_braille_dots_234578}
 #endif
 #ifdef XK_braille_dots_1234578
 xK_braille_dots_1234578           :: KeySym
-xK_braille_dots_1234578           = #const XK_braille_dots_1234578
+xK_braille_dots_1234578           = mkKeySym #{const XK_braille_dots_1234578}
 #endif
 #ifdef XK_braille_dots_678
 xK_braille_dots_678               :: KeySym
-xK_braille_dots_678               = #const XK_braille_dots_678
+xK_braille_dots_678               = mkKeySym #{const XK_braille_dots_678}
 #endif
 #ifdef XK_braille_dots_1678
 xK_braille_dots_1678              :: KeySym
-xK_braille_dots_1678              = #const XK_braille_dots_1678
+xK_braille_dots_1678              = mkKeySym #{const XK_braille_dots_1678}
 #endif
 #ifdef XK_braille_dots_2678
 xK_braille_dots_2678              :: KeySym
-xK_braille_dots_2678              = #const XK_braille_dots_2678
+xK_braille_dots_2678              = mkKeySym #{const XK_braille_dots_2678}
 #endif
 #ifdef XK_braille_dots_12678
 xK_braille_dots_12678             :: KeySym
-xK_braille_dots_12678             = #const XK_braille_dots_12678
+xK_braille_dots_12678             = mkKeySym #{const XK_braille_dots_12678}
 #endif
 #ifdef XK_braille_dots_3678
 xK_braille_dots_3678              :: KeySym
-xK_braille_dots_3678              = #const XK_braille_dots_3678
+xK_braille_dots_3678              = mkKeySym #{const XK_braille_dots_3678}
 #endif
 #ifdef XK_braille_dots_13678
 xK_braille_dots_13678             :: KeySym
-xK_braille_dots_13678             = #const XK_braille_dots_13678
+xK_braille_dots_13678             = mkKeySym #{const XK_braille_dots_13678}
 #endif
 #ifdef XK_braille_dots_23678
 xK_braille_dots_23678             :: KeySym
-xK_braille_dots_23678             = #const XK_braille_dots_23678
+xK_braille_dots_23678             = mkKeySym #{const XK_braille_dots_23678}
 #endif
 #ifdef XK_braille_dots_123678
 xK_braille_dots_123678            :: KeySym
-xK_braille_dots_123678            = #const XK_braille_dots_123678
+xK_braille_dots_123678            = mkKeySym #{const XK_braille_dots_123678}
 #endif
 #ifdef XK_braille_dots_4678
 xK_braille_dots_4678              :: KeySym
-xK_braille_dots_4678              = #const XK_braille_dots_4678
+xK_braille_dots_4678              = mkKeySym #{const XK_braille_dots_4678}
 #endif
 #ifdef XK_braille_dots_14678
 xK_braille_dots_14678             :: KeySym
-xK_braille_dots_14678             = #const XK_braille_dots_14678
+xK_braille_dots_14678             = mkKeySym #{const XK_braille_dots_14678}
 #endif
 #ifdef XK_braille_dots_24678
 xK_braille_dots_24678             :: KeySym
-xK_braille_dots_24678             = #const XK_braille_dots_24678
+xK_braille_dots_24678             = mkKeySym #{const XK_braille_dots_24678}
 #endif
 #ifdef XK_braille_dots_124678
 xK_braille_dots_124678            :: KeySym
-xK_braille_dots_124678            = #const XK_braille_dots_124678
+xK_braille_dots_124678            = mkKeySym #{const XK_braille_dots_124678}
 #endif
 #ifdef XK_braille_dots_34678
 xK_braille_dots_34678             :: KeySym
-xK_braille_dots_34678             = #const XK_braille_dots_34678
+xK_braille_dots_34678             = mkKeySym #{const XK_braille_dots_34678}
 #endif
 #ifdef XK_braille_dots_134678
 xK_braille_dots_134678            :: KeySym
-xK_braille_dots_134678            = #const XK_braille_dots_134678
+xK_braille_dots_134678            = mkKeySym #{const XK_braille_dots_134678}
 #endif
 #ifdef XK_braille_dots_234678
 xK_braille_dots_234678            :: KeySym
-xK_braille_dots_234678            = #const XK_braille_dots_234678
+xK_braille_dots_234678            = mkKeySym #{const XK_braille_dots_234678}
 #endif
 #ifdef XK_braille_dots_1234678
 xK_braille_dots_1234678           :: KeySym
-xK_braille_dots_1234678           = #const XK_braille_dots_1234678
+xK_braille_dots_1234678           = mkKeySym #{const XK_braille_dots_1234678}
 #endif
 #ifdef XK_braille_dots_5678
 xK_braille_dots_5678              :: KeySym
-xK_braille_dots_5678              = #const XK_braille_dots_5678
+xK_braille_dots_5678              = mkKeySym #{const XK_braille_dots_5678}
 #endif
 #ifdef XK_braille_dots_15678
 xK_braille_dots_15678             :: KeySym
-xK_braille_dots_15678             = #const XK_braille_dots_15678
+xK_braille_dots_15678             = mkKeySym #{const XK_braille_dots_15678}
 #endif
 #ifdef XK_braille_dots_25678
 xK_braille_dots_25678             :: KeySym
-xK_braille_dots_25678             = #const XK_braille_dots_25678
+xK_braille_dots_25678             = mkKeySym #{const XK_braille_dots_25678}
 #endif
 #ifdef XK_braille_dots_125678
 xK_braille_dots_125678            :: KeySym
-xK_braille_dots_125678            = #const XK_braille_dots_125678
+xK_braille_dots_125678            = mkKeySym #{const XK_braille_dots_125678}
 #endif
 #ifdef XK_braille_dots_35678
 xK_braille_dots_35678             :: KeySym
-xK_braille_dots_35678             = #const XK_braille_dots_35678
+xK_braille_dots_35678             = mkKeySym #{const XK_braille_dots_35678}
 #endif
 #ifdef XK_braille_dots_135678
 xK_braille_dots_135678            :: KeySym
-xK_braille_dots_135678            = #const XK_braille_dots_135678
+xK_braille_dots_135678            = mkKeySym #{const XK_braille_dots_135678}
 #endif
 #ifdef XK_braille_dots_235678
 xK_braille_dots_235678            :: KeySym
-xK_braille_dots_235678            = #const XK_braille_dots_235678
+xK_braille_dots_235678            = mkKeySym #{const XK_braille_dots_235678}
 #endif
 #ifdef XK_braille_dots_1235678
 xK_braille_dots_1235678           :: KeySym
-xK_braille_dots_1235678           = #const XK_braille_dots_1235678
+xK_braille_dots_1235678           = mkKeySym #{const XK_braille_dots_1235678}
 #endif
 #ifdef XK_braille_dots_45678
 xK_braille_dots_45678             :: KeySym
-xK_braille_dots_45678             = #const XK_braille_dots_45678
+xK_braille_dots_45678             = mkKeySym #{const XK_braille_dots_45678}
 #endif
 #ifdef XK_braille_dots_145678
 xK_braille_dots_145678            :: KeySym
-xK_braille_dots_145678            = #const XK_braille_dots_145678
+xK_braille_dots_145678            = mkKeySym #{const XK_braille_dots_145678}
 #endif
 #ifdef XK_braille_dots_245678
 xK_braille_dots_245678            :: KeySym
-xK_braille_dots_245678            = #const XK_braille_dots_245678
+xK_braille_dots_245678            = mkKeySym #{const XK_braille_dots_245678}
 #endif
 #ifdef XK_braille_dots_1245678
 xK_braille_dots_1245678           :: KeySym
-xK_braille_dots_1245678           = #const XK_braille_dots_1245678
+xK_braille_dots_1245678           = mkKeySym #{const XK_braille_dots_1245678}
 #endif
 #ifdef XK_braille_dots_345678
 xK_braille_dots_345678            :: KeySym
-xK_braille_dots_345678            = #const XK_braille_dots_345678
+xK_braille_dots_345678            = mkKeySym #{const XK_braille_dots_345678}
 #endif
 #ifdef XK_braille_dots_1345678
 xK_braille_dots_1345678           :: KeySym
-xK_braille_dots_1345678           = #const XK_braille_dots_1345678
+xK_braille_dots_1345678           = mkKeySym #{const XK_braille_dots_1345678}
 #endif
 #ifdef XK_braille_dots_2345678
 xK_braille_dots_2345678           :: KeySym
-xK_braille_dots_2345678           = #const XK_braille_dots_2345678
+xK_braille_dots_2345678           = mkKeySym #{const XK_braille_dots_2345678}
 #endif
 #ifdef XK_braille_dots_12345678
 xK_braille_dots_12345678          :: KeySym
-xK_braille_dots_12345678          = #const XK_braille_dots_12345678
+xK_braille_dots_12345678          = mkKeySym #{const XK_braille_dots_12345678}
 #endif

@@ -161,99 +161,100 @@ module Graphics.X11.ExtraTypes.AP
 #endif
         ) where
 
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 
 #include "HsAllKeysyms.h"
 
 #ifdef apXK_LineDel
 apXK_LineDel          :: KeySym
-apXK_LineDel          = #const apXK_LineDel
+apXK_LineDel          = mkKeySym #{const apXK_LineDel}
 #endif
 #ifdef apXK_CharDel
 apXK_CharDel          :: KeySym
-apXK_CharDel          = #const apXK_CharDel
+apXK_CharDel          = mkKeySym #{const apXK_CharDel}
 #endif
 #ifdef apXK_Copy
 apXK_Copy             :: KeySym
-apXK_Copy             = #const apXK_Copy
+apXK_Copy             = mkKeySym #{const apXK_Copy}
 #endif
 #ifdef apXK_Cut
 apXK_Cut              :: KeySym
-apXK_Cut              = #const apXK_Cut
+apXK_Cut              = mkKeySym #{const apXK_Cut}
 #endif
 #ifdef apXK_Paste
 apXK_Paste            :: KeySym
-apXK_Paste            = #const apXK_Paste
+apXK_Paste            = mkKeySym #{const apXK_Paste}
 #endif
 #ifdef apXK_Move
 apXK_Move             :: KeySym
-apXK_Move             = #const apXK_Move
+apXK_Move             = mkKeySym #{const apXK_Move}
 #endif
 #ifdef apXK_Grow
 apXK_Grow             :: KeySym
-apXK_Grow             = #const apXK_Grow
+apXK_Grow             = mkKeySym #{const apXK_Grow}
 #endif
 #ifdef apXK_Cmd
 apXK_Cmd              :: KeySym
-apXK_Cmd              = #const apXK_Cmd
+apXK_Cmd              = mkKeySym #{const apXK_Cmd}
 #endif
 #ifdef apXK_Shell
 apXK_Shell            :: KeySym
-apXK_Shell            = #const apXK_Shell
+apXK_Shell            = mkKeySym #{const apXK_Shell}
 #endif
 #ifdef apXK_LeftBar
 apXK_LeftBar          :: KeySym
-apXK_LeftBar          = #const apXK_LeftBar
+apXK_LeftBar          = mkKeySym #{const apXK_LeftBar}
 #endif
 #ifdef apXK_RightBar
 apXK_RightBar         :: KeySym
-apXK_RightBar         = #const apXK_RightBar
+apXK_RightBar         = mkKeySym #{const apXK_RightBar}
 #endif
 #ifdef apXK_LeftBox
 apXK_LeftBox          :: KeySym
-apXK_LeftBox          = #const apXK_LeftBox
+apXK_LeftBox          = mkKeySym #{const apXK_LeftBox}
 #endif
 #ifdef apXK_RightBox
 apXK_RightBox         :: KeySym
-apXK_RightBox         = #const apXK_RightBox
+apXK_RightBox         = mkKeySym #{const apXK_RightBox}
 #endif
 #ifdef apXK_UpBox
 apXK_UpBox            :: KeySym
-apXK_UpBox            = #const apXK_UpBox
+apXK_UpBox            = mkKeySym #{const apXK_UpBox}
 #endif
 #ifdef apXK_DownBox
 apXK_DownBox          :: KeySym
-apXK_DownBox          = #const apXK_DownBox
+apXK_DownBox          = mkKeySym #{const apXK_DownBox}
 #endif
 #ifdef apXK_Pop
 apXK_Pop              :: KeySym
-apXK_Pop              = #const apXK_Pop
+apXK_Pop              = mkKeySym #{const apXK_Pop}
 #endif
 #ifdef apXK_Read
 apXK_Read             :: KeySym
-apXK_Read             = #const apXK_Read
+apXK_Read             = mkKeySym #{const apXK_Read}
 #endif
 #ifdef apXK_Edit
 apXK_Edit             :: KeySym
-apXK_Edit             = #const apXK_Edit
+apXK_Edit             = mkKeySym #{const apXK_Edit}
 #endif
 #ifdef apXK_Save
 apXK_Save             :: KeySym
-apXK_Save             = #const apXK_Save
+apXK_Save             = mkKeySym #{const apXK_Save}
 #endif
 #ifdef apXK_Exit
 apXK_Exit             :: KeySym
-apXK_Exit             = #const apXK_Exit
+apXK_Exit             = mkKeySym #{const apXK_Exit}
 #endif
 #ifdef apXK_Repeat
 apXK_Repeat           :: KeySym
-apXK_Repeat           = #const apXK_Repeat
+apXK_Repeat           = mkKeySym #{const apXK_Repeat}
 #endif
 #ifdef apXK_KP_parenleft
 apXK_KP_parenleft     :: KeySym
-apXK_KP_parenleft     = #const apXK_KP_parenleft
+apXK_KP_parenleft     = mkKeySym #{const apXK_KP_parenleft}
 #endif
 #ifdef apXK_KP_parenright
 apXK_KP_parenright    :: KeySym
-apXK_KP_parenright    = #const apXK_KP_parenright
+apXK_KP_parenright    = mkKeySym #{const apXK_KP_parenright}
 #endif

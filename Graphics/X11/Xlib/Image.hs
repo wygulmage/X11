@@ -22,6 +22,7 @@ module Graphics.X11.Xlib.Image(
         getPixel
         ) where
 
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
 

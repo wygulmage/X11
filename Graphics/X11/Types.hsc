@@ -864,7 +864,7 @@ data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | S
   deriving (Eq, Ord, Enum, Show, Read)
 
 
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_VoidSymbol        = XK_VoidSymbol
  }
 
@@ -872,7 +872,7 @@ data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | S
 -- programming, but could have been arbitrary (at the cost of lookup
 -- tables in client code).
 
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_BackSpace         = XK_BackSpace
  , xK_Tab               = XK_Tab
  , xK_Linefeed          = XK_Linefeed
@@ -886,30 +886,30 @@ data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | S
  }
 
 -- International & multi-key character composition
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_Multi_key         = XK_Multi_key
  }
 
 -- Not defined for SunOS
 #ifdef XK_Codeinput
 xK_Codeinput         :: KeySym
-xK_Codeinput         = KeySym #{const XK_Codeinput}
+xK_Codeinput         = mkKeySym #{const XK_Codeinput}
 #endif
 #ifdef XK_SingleCandidate
 xK_SingleCandidate   :: KeySym
-xK_SingleCandidate   = KeySym #{const XK_SingleCandidate}
+xK_SingleCandidate   = mkKeySym #{const XK_SingleCandidate}
 #endif
 #ifdef XK_MultipleCandidate
 xK_MultipleCandidate :: KeySym
-xK_MultipleCandidate = KeySym #{const XK_MultipleCandidate}
+xK_MultipleCandidate = mkKeySym #{const XK_MultipleCandidate}
 #endif
 #ifdef XK_PreviousCandidate
 xK_PreviousCandidate :: KeySym
-xK_PreviousCandidate = KeySym #{const XK_PreviousCandidate}
+xK_PreviousCandidate = mkKeySym #{const XK_PreviousCandidate}
 #endif
 
 -- Cursor control & motion
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_Home              = XK_Home
  , xK_Left              = XK_Left
  , xK_Up                = XK_Up
@@ -939,7 +939,7 @@ xK_PreviousCandidate = KeySym #{const XK_PreviousCandidate}
  }
 
 -- Keypad Functions, keypad numbers cleverly chosen to map to ascii
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_KP_Space          = XK_KP_Space
  , xK_KP_Tab            = XK_KP_Tab
  , xK_KP_Enter          = XK_KP_Enter
@@ -1041,7 +1041,7 @@ xK_PreviousCandidate = KeySym #{const XK_PreviousCandidate}
  , xK_R15               = XK_R15
  }
 
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_Shift_L           = XK_Shift_L
  , xK_Shift_R           = XK_Shift_R
  , xK_Control_L         = XK_Control_L
@@ -1059,7 +1059,7 @@ xK_PreviousCandidate = KeySym #{const XK_PreviousCandidate}
  , xK_Hyper_R           = XK_Hyper_R
  }
 
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_space             = XK_space
  , xK_exclam            = XK_exclam
  , xK_quotedbl          = XK_quotedbl
@@ -1159,7 +1159,7 @@ xK_PreviousCandidate = KeySym #{const XK_PreviousCandidate}
  , xK_asciitilde        = XK_asciitilde
  }
 
-#{enum KeySym, KeySym
+#{enum KeySym, mkKeySym
  , xK_nobreakspace      = XK_nobreakspace
  , xK_exclamdown        = XK_exclamdown
  , xK_cent              = XK_cent

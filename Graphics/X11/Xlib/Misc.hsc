@@ -916,7 +916,7 @@ foreign import ccall unsafe "HsXlib.h XStringToKeysym"
         xStringToKeysym  :: CString -> IO KeySym
 
 noSymbol :: KeySym
-noSymbol = #{const NoSymbol}
+noSymbol = mkKeySym #{const NoSymbol}
 
 newtype XComposeStatus = XComposeStatus (Ptr XComposeStatus)
 #if __GLASGOW_HASKELL__

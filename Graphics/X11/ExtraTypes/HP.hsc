@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------
--- 
+--
 -- Module      :  Graphics.X11.ExtraTypes.HP
 -- Copyright   :  (c) Open Group 1987,1998, DEC 1987
 -- License     :  X11 (see below) due to X headers
@@ -499,351 +499,352 @@ module Graphics.X11.ExtraTypes.HP
 #endif
         ) where
 
+import Graphics.X11.Internal.Types
 import Graphics.X11.Types
 
 #include "HsAllKeysyms.h"
 
 #ifdef hpXK_ClearLine
 hpXK_ClearLine           :: KeySym
-hpXK_ClearLine           = #const hpXK_ClearLine
+hpXK_ClearLine           = mkKeySym #{const hpXK_ClearLine}
 #endif
 #ifdef hpXK_InsertLine
 hpXK_InsertLine          :: KeySym
-hpXK_InsertLine          = #const hpXK_InsertLine
+hpXK_InsertLine          = mkKeySym #{const hpXK_InsertLine}
 #endif
 #ifdef hpXK_DeleteLine
 hpXK_DeleteLine          :: KeySym
-hpXK_DeleteLine          = #const hpXK_DeleteLine
+hpXK_DeleteLine          = mkKeySym #{const hpXK_DeleteLine}
 #endif
 #ifdef hpXK_InsertChar
 hpXK_InsertChar          :: KeySym
-hpXK_InsertChar          = #const hpXK_InsertChar
+hpXK_InsertChar          = mkKeySym #{const hpXK_InsertChar}
 #endif
 #ifdef hpXK_DeleteChar
 hpXK_DeleteChar          :: KeySym
-hpXK_DeleteChar          = #const hpXK_DeleteChar
+hpXK_DeleteChar          = mkKeySym #{const hpXK_DeleteChar}
 #endif
 #ifdef hpXK_BackTab
 hpXK_BackTab             :: KeySym
-hpXK_BackTab             = #const hpXK_BackTab
+hpXK_BackTab             = mkKeySym #{const hpXK_BackTab}
 #endif
 #ifdef hpXK_KP_BackTab
 hpXK_KP_BackTab          :: KeySym
-hpXK_KP_BackTab          = #const hpXK_KP_BackTab
+hpXK_KP_BackTab          = mkKeySym #{const hpXK_KP_BackTab}
 #endif
 #ifdef hpXK_Modelock1
 hpXK_Modelock1           :: KeySym
-hpXK_Modelock1           = #const hpXK_Modelock1
+hpXK_Modelock1           = mkKeySym #{const hpXK_Modelock1}
 #endif
 #ifdef hpXK_Modelock2
 hpXK_Modelock2           :: KeySym
-hpXK_Modelock2           = #const hpXK_Modelock2
+hpXK_Modelock2           = mkKeySym #{const hpXK_Modelock2}
 #endif
 #ifdef hpXK_Reset
 hpXK_Reset               :: KeySym
-hpXK_Reset               = #const hpXK_Reset
+hpXK_Reset               = mkKeySym #{const hpXK_Reset}
 #endif
 #ifdef hpXK_System
 hpXK_System              :: KeySym
-hpXK_System              = #const hpXK_System
+hpXK_System              = mkKeySym #{const hpXK_System}
 #endif
 #ifdef hpXK_User
 hpXK_User                :: KeySym
-hpXK_User                = #const hpXK_User
+hpXK_User                = mkKeySym #{const hpXK_User}
 #endif
 #ifdef hpXK_mute_acute
 hpXK_mute_acute          :: KeySym
-hpXK_mute_acute          = #const hpXK_mute_acute
+hpXK_mute_acute          = mkKeySym #{const hpXK_mute_acute}
 #endif
 #ifdef hpXK_mute_grave
 hpXK_mute_grave          :: KeySym
-hpXK_mute_grave          = #const hpXK_mute_grave
+hpXK_mute_grave          = mkKeySym #{const hpXK_mute_grave}
 #endif
 #ifdef hpXK_mute_asciicircum
 hpXK_mute_asciicircum    :: KeySym
-hpXK_mute_asciicircum    = #const hpXK_mute_asciicircum
+hpXK_mute_asciicircum    = mkKeySym #{const hpXK_mute_asciicircum}
 #endif
 #ifdef hpXK_mute_diaeresis
 hpXK_mute_diaeresis      :: KeySym
-hpXK_mute_diaeresis      = #const hpXK_mute_diaeresis
+hpXK_mute_diaeresis      = mkKeySym #{const hpXK_mute_diaeresis}
 #endif
 #ifdef hpXK_mute_asciitilde
 hpXK_mute_asciitilde     :: KeySym
-hpXK_mute_asciitilde     = #const hpXK_mute_asciitilde
+hpXK_mute_asciitilde     = mkKeySym #{const hpXK_mute_asciitilde}
 #endif
 #ifdef hpXK_lira
 hpXK_lira                :: KeySym
-hpXK_lira                = #const hpXK_lira
+hpXK_lira                = mkKeySym #{const hpXK_lira}
 #endif
 #ifdef hpXK_guilder
 hpXK_guilder             :: KeySym
-hpXK_guilder             = #const hpXK_guilder
+hpXK_guilder             = mkKeySym #{const hpXK_guilder}
 #endif
 #ifdef hpXK_Ydiaeresis
 hpXK_Ydiaeresis          :: KeySym
-hpXK_Ydiaeresis          = #const hpXK_Ydiaeresis
+hpXK_Ydiaeresis          = mkKeySym #{const hpXK_Ydiaeresis}
 #endif
 #ifdef hpXK_IO
 hpXK_IO                  :: KeySym
-hpXK_IO                  = #const hpXK_IO
+hpXK_IO                  = mkKeySym #{const hpXK_IO}
 #endif
 #ifdef hpXK_longminus
 hpXK_longminus           :: KeySym
-hpXK_longminus           = #const hpXK_longminus
+hpXK_longminus           = mkKeySym #{const hpXK_longminus}
 #endif
 #ifdef hpXK_block
 hpXK_block               :: KeySym
-hpXK_block               = #const hpXK_block
+hpXK_block               = mkKeySym #{const hpXK_block}
 #endif
 #ifdef osfXK_Copy
 osfXK_Copy               :: KeySym
-osfXK_Copy               = #const osfXK_Copy
+osfXK_Copy               = mkKeySym #{const osfXK_Copy}
 #endif
 #ifdef osfXK_Cut
 osfXK_Cut                :: KeySym
-osfXK_Cut                = #const osfXK_Cut
+osfXK_Cut                = mkKeySym #{const osfXK_Cut}
 #endif
 #ifdef osfXK_Paste
 osfXK_Paste              :: KeySym
-osfXK_Paste              = #const osfXK_Paste
+osfXK_Paste              = mkKeySym #{const osfXK_Paste}
 #endif
 #ifdef osfXK_BackTab
 osfXK_BackTab            :: KeySym
-osfXK_BackTab            = #const osfXK_BackTab
+osfXK_BackTab            = mkKeySym #{const osfXK_BackTab}
 #endif
 #ifdef osfXK_BackSpace
 osfXK_BackSpace          :: KeySym
-osfXK_BackSpace          = #const osfXK_BackSpace
+osfXK_BackSpace          = mkKeySym #{const osfXK_BackSpace}
 #endif
 #ifdef osfXK_Clear
 osfXK_Clear              :: KeySym
-osfXK_Clear              = #const osfXK_Clear
+osfXK_Clear              = mkKeySym #{const osfXK_Clear}
 #endif
 #ifdef osfXK_Escape
 osfXK_Escape             :: KeySym
-osfXK_Escape             = #const osfXK_Escape
+osfXK_Escape             = mkKeySym #{const osfXK_Escape}
 #endif
 #ifdef osfXK_AddMode
 osfXK_AddMode            :: KeySym
-osfXK_AddMode            = #const osfXK_AddMode
+osfXK_AddMode            = mkKeySym #{const osfXK_AddMode}
 #endif
 #ifdef osfXK_PrimaryPaste
 osfXK_PrimaryPaste       :: KeySym
-osfXK_PrimaryPaste       = #const osfXK_PrimaryPaste
+osfXK_PrimaryPaste       = mkKeySym #{const osfXK_PrimaryPaste}
 #endif
 #ifdef osfXK_QuickPaste
 osfXK_QuickPaste         :: KeySym
-osfXK_QuickPaste         = #const osfXK_QuickPaste
+osfXK_QuickPaste         = mkKeySym #{const osfXK_QuickPaste}
 #endif
 #ifdef osfXK_PageLeft
 osfXK_PageLeft           :: KeySym
-osfXK_PageLeft           = #const osfXK_PageLeft
+osfXK_PageLeft           = mkKeySym #{const osfXK_PageLeft}
 #endif
 #ifdef osfXK_PageUp
 osfXK_PageUp             :: KeySym
-osfXK_PageUp             = #const osfXK_PageUp
+osfXK_PageUp             = mkKeySym #{const osfXK_PageUp}
 #endif
 #ifdef osfXK_PageDown
 osfXK_PageDown           :: KeySym
-osfXK_PageDown           = #const osfXK_PageDown
+osfXK_PageDown           = mkKeySym #{const osfXK_PageDown}
 #endif
 #ifdef osfXK_PageRight
 osfXK_PageRight          :: KeySym
-osfXK_PageRight          = #const osfXK_PageRight
+osfXK_PageRight          = mkKeySym #{const osfXK_PageRight}
 #endif
 #ifdef osfXK_Activate
 osfXK_Activate           :: KeySym
-osfXK_Activate           = #const osfXK_Activate
+osfXK_Activate           = mkKeySym #{const osfXK_Activate}
 #endif
 #ifdef osfXK_MenuBar
 osfXK_MenuBar            :: KeySym
-osfXK_MenuBar            = #const osfXK_MenuBar
+osfXK_MenuBar            = mkKeySym #{const osfXK_MenuBar}
 #endif
 #ifdef osfXK_Left
 osfXK_Left               :: KeySym
-osfXK_Left               = #const osfXK_Left
+osfXK_Left               = mkKeySym #{const osfXK_Left}
 #endif
 #ifdef osfXK_Up
 osfXK_Up                 :: KeySym
-osfXK_Up                 = #const osfXK_Up
+osfXK_Up                 = mkKeySym #{const osfXK_Up}
 #endif
 #ifdef osfXK_Right
 osfXK_Right              :: KeySym
-osfXK_Right              = #const osfXK_Right
+osfXK_Right              = mkKeySym #{const osfXK_Right}
 #endif
 #ifdef osfXK_Down
 osfXK_Down               :: KeySym
-osfXK_Down               = #const osfXK_Down
+osfXK_Down               = mkKeySym #{const osfXK_Down}
 #endif
 #ifdef osfXK_EndLine
 osfXK_EndLine            :: KeySym
-osfXK_EndLine            = #const osfXK_EndLine
+osfXK_EndLine            = mkKeySym #{const osfXK_EndLine}
 #endif
 #ifdef osfXK_BeginLine
 osfXK_BeginLine          :: KeySym
-osfXK_BeginLine          = #const osfXK_BeginLine
+osfXK_BeginLine          = mkKeySym #{const osfXK_BeginLine}
 #endif
 #ifdef osfXK_EndData
 osfXK_EndData            :: KeySym
-osfXK_EndData            = #const osfXK_EndData
+osfXK_EndData            = mkKeySym #{const osfXK_EndData}
 #endif
 #ifdef osfXK_BeginData
 osfXK_BeginData          :: KeySym
-osfXK_BeginData          = #const osfXK_BeginData
+osfXK_BeginData          = mkKeySym #{const osfXK_BeginData}
 #endif
 #ifdef osfXK_PrevMenu
 osfXK_PrevMenu           :: KeySym
-osfXK_PrevMenu           = #const osfXK_PrevMenu
+osfXK_PrevMenu           = mkKeySym #{const osfXK_PrevMenu}
 #endif
 #ifdef osfXK_NextMenu
 osfXK_NextMenu           :: KeySym
-osfXK_NextMenu           = #const osfXK_NextMenu
+osfXK_NextMenu           = mkKeySym #{const osfXK_NextMenu}
 #endif
 #ifdef osfXK_PrevField
 osfXK_PrevField          :: KeySym
-osfXK_PrevField          = #const osfXK_PrevField
+osfXK_PrevField          = mkKeySym #{const osfXK_PrevField}
 #endif
 #ifdef osfXK_NextField
 osfXK_NextField          :: KeySym
-osfXK_NextField          = #const osfXK_NextField
+osfXK_NextField          = mkKeySym #{const osfXK_NextField}
 #endif
 #ifdef osfXK_Select
 osfXK_Select             :: KeySym
-osfXK_Select             = #const osfXK_Select
+osfXK_Select             = mkKeySym #{const osfXK_Select}
 #endif
 #ifdef osfXK_Insert
 osfXK_Insert             :: KeySym
-osfXK_Insert             = #const osfXK_Insert
+osfXK_Insert             = mkKeySym #{const osfXK_Insert}
 #endif
 #ifdef osfXK_Undo
 osfXK_Undo               :: KeySym
-osfXK_Undo               = #const osfXK_Undo
+osfXK_Undo               = mkKeySym #{const osfXK_Undo}
 #endif
 #ifdef osfXK_Menu
 osfXK_Menu               :: KeySym
-osfXK_Menu               = #const osfXK_Menu
+osfXK_Menu               = mkKeySym #{const osfXK_Menu}
 #endif
 #ifdef osfXK_Cancel
 osfXK_Cancel             :: KeySym
-osfXK_Cancel             = #const osfXK_Cancel
+osfXK_Cancel             = mkKeySym #{const osfXK_Cancel}
 #endif
 #ifdef osfXK_Help
 osfXK_Help               :: KeySym
-osfXK_Help               = #const osfXK_Help
+osfXK_Help               = mkKeySym #{const osfXK_Help}
 #endif
 #ifdef osfXK_SelectAll
 osfXK_SelectAll          :: KeySym
-osfXK_SelectAll          = #const osfXK_SelectAll
+osfXK_SelectAll          = mkKeySym #{const osfXK_SelectAll}
 #endif
 #ifdef osfXK_DeselectAll
 osfXK_DeselectAll        :: KeySym
-osfXK_DeselectAll        = #const osfXK_DeselectAll
+osfXK_DeselectAll        = mkKeySym #{const osfXK_DeselectAll}
 #endif
 #ifdef osfXK_Reselect
 osfXK_Reselect           :: KeySym
-osfXK_Reselect           = #const osfXK_Reselect
+osfXK_Reselect           = mkKeySym #{const osfXK_Reselect}
 #endif
 #ifdef osfXK_Extend
 osfXK_Extend             :: KeySym
-osfXK_Extend             = #const osfXK_Extend
+osfXK_Extend             = mkKeySym #{const osfXK_Extend}
 #endif
 #ifdef osfXK_Restore
 osfXK_Restore            :: KeySym
-osfXK_Restore            = #const osfXK_Restore
+osfXK_Restore            = mkKeySym #{const osfXK_Restore}
 #endif
 #ifdef osfXK_Delete
 osfXK_Delete             :: KeySym
-osfXK_Delete             = #const osfXK_Delete
+osfXK_Delete             = mkKeySym #{const osfXK_Delete}
 #endif
 #ifdef XK_Reset
 xK_Reset                 :: KeySym
-xK_Reset                 = #const XK_Reset
+xK_Reset                 = mkKeySym #{const XK_Reset}
 #endif
 #ifdef XK_System
 xK_System                :: KeySym
-xK_System                = #const XK_System
+xK_System                = mkKeySym #{const XK_System}
 #endif
 #ifdef XK_User
 xK_User                  :: KeySym
-xK_User                  = #const XK_User
+xK_User                  = mkKeySym #{const XK_User}
 #endif
 #ifdef XK_ClearLine
 xK_ClearLine             :: KeySym
-xK_ClearLine             = #const XK_ClearLine
+xK_ClearLine             = mkKeySym #{const XK_ClearLine}
 #endif
 #ifdef XK_InsertLine
 xK_InsertLine            :: KeySym
-xK_InsertLine            = #const XK_InsertLine
+xK_InsertLine            = mkKeySym #{const XK_InsertLine}
 #endif
 #ifdef XK_DeleteLine
 xK_DeleteLine            :: KeySym
-xK_DeleteLine            = #const XK_DeleteLine
+xK_DeleteLine            = mkKeySym #{const XK_DeleteLine}
 #endif
 #ifdef XK_InsertChar
 xK_InsertChar            :: KeySym
-xK_InsertChar            = #const XK_InsertChar
+xK_InsertChar            = mkKeySym #{const XK_InsertChar}
 #endif
 #ifdef XK_DeleteChar
 xK_DeleteChar            :: KeySym
-xK_DeleteChar            = #const XK_DeleteChar
+xK_DeleteChar            = mkKeySym #{const XK_DeleteChar}
 #endif
 #ifdef XK_BackTab
 xK_BackTab               :: KeySym
-xK_BackTab               = #const XK_BackTab
+xK_BackTab               = mkKeySym #{const XK_BackTab}
 #endif
 #ifdef XK_KP_BackTab
 xK_KP_BackTab            :: KeySym
-xK_KP_BackTab            = #const XK_KP_BackTab
+xK_KP_BackTab            = mkKeySym #{const XK_KP_BackTab}
 #endif
 #ifdef XK_Ext16bit_L
 xK_Ext16bit_L            :: KeySym
-xK_Ext16bit_L            = #const XK_Ext16bit_L
+xK_Ext16bit_L            = mkKeySym #{const XK_Ext16bit_L}
 #endif
 #ifdef XK_Ext16bit_R
 xK_Ext16bit_R            :: KeySym
-xK_Ext16bit_R            = #const XK_Ext16bit_R
+xK_Ext16bit_R            = mkKeySym #{const XK_Ext16bit_R}
 #endif
 #ifdef XK_mute_acute
 xK_mute_acute            :: KeySym
-xK_mute_acute            = #const XK_mute_acute
+xK_mute_acute            = mkKeySym #{const XK_mute_acute}
 #endif
 #ifdef XK_mute_grave
 xK_mute_grave            :: KeySym
-xK_mute_grave            = #const XK_mute_grave
+xK_mute_grave            = mkKeySym #{const XK_mute_grave}
 #endif
 #ifdef XK_mute_asciicircum
 xK_mute_asciicircum      :: KeySym
-xK_mute_asciicircum      = #const XK_mute_asciicircum
+xK_mute_asciicircum      = mkKeySym #{const XK_mute_asciicircum}
 #endif
 #ifdef XK_mute_diaeresis
 xK_mute_diaeresis        :: KeySym
-xK_mute_diaeresis        = #const XK_mute_diaeresis
+xK_mute_diaeresis        = mkKeySym #{const XK_mute_diaeresis}
 #endif
 #ifdef XK_mute_asciitilde
 xK_mute_asciitilde       :: KeySym
-xK_mute_asciitilde       = #const XK_mute_asciitilde
+xK_mute_asciitilde       = mkKeySym #{const XK_mute_asciitilde}
 #endif
 #ifdef XK_lira
 xK_lira                  :: KeySym
-xK_lira                  = #const XK_lira
+xK_lira                  = mkKeySym #{const XK_lira}
 #endif
 #ifdef XK_guilder
 xK_guilder               :: KeySym
-xK_guilder               = #const XK_guilder
+xK_guilder               = mkKeySym #{const XK_guilder}
 #endif
 #ifdef XK_Ydiaeresis
 xK_Ydiaeresis            :: KeySym
-xK_Ydiaeresis            = #const XK_Ydiaeresis
+xK_Ydiaeresis            = mkKeySym #{const XK_Ydiaeresis}
 #endif
 #ifdef XK_IO
 xK_IO                    :: KeySym
-xK_IO                    = #const XK_IO
+xK_IO                    = mkKeySym #{const XK_IO}
 #endif
 #ifdef XK_longminus
 xK_longminus             :: KeySym
-xK_longminus             = #const XK_longminus
+xK_longminus             = mkKeySym #{const XK_longminus}
 #endif
 #ifdef XK_block
 xK_block                 :: KeySym
-xK_block                 = #const XK_block
+xK_block                 = mkKeySym #{const XK_block}
 #endif
