@@ -169,7 +169,7 @@ newtype ColormapXID = ColomapXID ColormapXID  -- empty type to tag colormaps
 newtype CursorXID   = CursorXID CursorXID     -- empty type to tag cursors
 newtype FontXID     = FontXID FontXID         -- empty type to tag fonts
 newtype GContextXID = GContextXID GContextXID -- empty type to tag grahpics contexts
-newtype DrawableXID a = Drawable Drawable -- empty polymorphic type to tag drawables
+newtype DrawableXID a = DrawableXID (DrawableXID ()) -- empty polymorphic type to tag drawables
 newtype WindowDrawable = WindowDrawable WindowDrawable -- empty type to tag windows
 newtype PixmapDrawable = PixmapDrawable PixmapDrawable -- empty type to tag pixmaps
 
@@ -179,10 +179,26 @@ type Cursor   = XID CursorXID
 type Font     = XID FontXID
 type GContext = XID GContextXID
 type Drawable a = XID (DrawableXID a)
-type Window = Drawable Window
-type Pixmap = Drawable Pixmap
+type Window = Drawable WindowDrawable
+type Pixmap = Drawable PixmapDrawable
 
 -- The disadvantage here is that you can't do overlapping instances. In general, however, you probably don't need to.
+
+class (Coercible XID a)=> IsXID a where
+    none :: a
+    none = fromXID none
+
+    toXID :: a -> XID
+    toXID = coerce
+
+    fromXID :: XID -> a
+    fromXID = coerce
+
+instance IsXID XID where
+    none = #{const None}
+
+class (IsXID a) => IsDrawable a
+instance IsDrawable (Drawable a) -- ^ Class for the 'Drawable' type. It's only instance is 'Drawable'.
 
 --}
 
