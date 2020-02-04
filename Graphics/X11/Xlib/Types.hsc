@@ -34,7 +34,7 @@ import Foreign.C.Types
 import Foreign.Ptr
 import Foreign.Storable( Storable(..) )
 
-import Data.Coercible (coerce)
+import Data.Coerce (coerce)
 
 #if __GLASGOW_HASKELL__
 import Data.Data
