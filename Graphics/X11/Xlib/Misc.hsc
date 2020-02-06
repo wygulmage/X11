@@ -570,9 +570,10 @@ foreign import ccall unsafe "HsXlib.h XSetErrorHandler"
 ----------------------------------------------------------------
 
 -- | interface to the X11 library function @XGeometry()@.
-geometry :: Display -> CInt -> String -> String ->
-                Width -> Height -> Dimension -> CInt -> CInt ->
-                IO (CInt, XPosition, YPosition, Width, Height)
+geometry ::
+    Display -> CInt -> String -> String ->
+    Dimension -> Width -> Height -> CInt -> CInt ->
+    IO (CInt, XPosition, YPosition, Width, Height)
 geometry display screen position default_position
                 bwidth fwidth fheight xadder yadder =
         withCString position $ \ c_position ->
@@ -584,11 +585,6 @@ geometry display screen position default_position
         res <- xGeometry display screen c_position c_default_position
                 bwidth fwidth fheight xadder yadder
                 x_return y_return width_return height_return
-        -- x <- peek x_return
-        -- y <- peek y_return
-        -- width <- peek width_return
-        -- height <- peek height_return
-        -- return (res, x, y, width, height)
         (,,,,) res <$> peek x_return <*> peek y_return <*> peek width_return <*> peek height_return
 foreign import ccall unsafe "HsXlib.h XGeometry"
         xGeometry :: Display -> CInt -> CString -> CString ->
@@ -598,20 +594,17 @@ foreign import ccall unsafe "HsXlib.h XGeometry"
 
 -- | interface to the X11 library function @XGetGeometry()@.
 getGeometry ::
-        IsDrawable drawable =>
-        Display -> drawable ->
+        Display -> Drawable a ->
         IO (Window, XPosition, YPosition, Width, Height, Dimension, CInt)
-getGeometry display d =
-        outParameters7 (throwIfZero "getGeometry") $
-                xGetGeometry display (toXID d)
+getGeometry display =
+        outParameters7 (throwIfZero "getGeometry") . xGetGeometry display
 foreign import ccall unsafe "HsXlib.h XGetGeometry"
-        xGetGeometry :: Display -> XID ->
+        xGetGeometry :: Display -> Drawable a ->
                 Ptr Window -> Ptr XPosition -> Ptr YPosition -> Ptr Width ->
                 Ptr Height -> Ptr (Dimension) -> Ptr CInt -> IO Status
 
 getGeomentryRect ::
-        IsDrawable drawable =>
-        Display -> drawable ->
+        Display -> Drawable a ->
         IO (Window, Rectangle, Dimension, CInt)
 getGeomentryRect display drawable = do
   (window, x, y, w, h, borderWidth, status) <- getGeometry display drawable
@@ -777,13 +770,8 @@ foreign import ccall unsafe "HsXlib.h XUnlockDisplay"
 ----------------------------------------------------------------
 
 -- | interface to the X11 library function @XCreatePixmap()@.
-createPixmap ::
-    IsDrawable drawable =>
-    Display -> drawable -> Width -> Height -> CInt -> IO Pixmap
-createPixmap display drawable = xCreatePixmap display (toXID drawable)
-
 foreign import ccall unsafe "HsXlib.h XCreatePixmap"
-        xCreatePixmap :: Display -> XID -> Width -> Height -> CInt -> IO Pixmap
+        createPixmap :: Display -> Drawable a -> Width -> Height -> CInt -> IO Pixmap
 
 -- | interface to the X11 library function @XFreePixmap()@.
 foreign import ccall unsafe "HsXlib.h XFreePixmap"
@@ -842,8 +830,7 @@ foreign import ccall unsafe "HsXlib.h XBitmapPad"
 
 -- | interface to the X11 library function @XReadBitmapFile@.
 readBitmapFile ::
-    IsDrawable drawable =>
-    Display -> drawable -> String ->
+    Display -> Drawable a -> String ->
     IO (Either String (Width, Height, Pixmap, Maybe CInt, Maybe CInt))
 readBitmapFile display d filename =
   withCString filename $ \ c_filename ->

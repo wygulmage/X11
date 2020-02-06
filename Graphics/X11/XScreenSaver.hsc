@@ -393,8 +393,8 @@ foreign import ccall "XScreenSaverAllocInfo"
 
 -- The XID is a drawable (window or pixmap)
 foreign import ccall "XScreenSaverQueryInfo"
-    cXScreenSaverQueryInfo :: Display -> XID -> Ptr XScreenSaverInfo
-                           -> IO Status
+    cXScreenSaverQueryInfo :: Display -> XID -> Ptr XScreenSaverInfo ->
+                              IO Status
 
 foreign import ccall "XScreenSaverSelectInput"
     cXScreenSaverSelectInput :: Display -> XID -> EventMask -> IO ()
