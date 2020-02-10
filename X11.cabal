@@ -67,6 +67,7 @@ library
                     Graphics.X11.Xlib.Window
                     Graphics.X11.Xrandr
                     Graphics.X11.Optics
+                    Graphics.X11.Structured
   other-modules:    Graphics.X11.Xlib.Internal
                     Graphics.X11.Internal.Types
   build-depends:    base == 4.*, data-default
