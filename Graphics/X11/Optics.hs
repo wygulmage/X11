@@ -91,6 +91,9 @@ instance HasPoint Segment where
     _x f s = (\ x1 -> s{ seg_x1 = x1 }) <$> f (seg_x1 s)
     _y f s = (\ y1 -> s{ seg_y1 = y1 }) <$> f (seg_y1 s)
 
+instance HasPoint Arc where
+    _x f s = (\ x -> s{ arc_x = x }) <$> f (arc_x s)
+    _y f s = (\ y -> s{ arc_y = y }) <$> f (arc_y s)
 
 -- Dimensions
 
@@ -145,6 +148,9 @@ instance HasDimensions Segment where
             -- | y1 <= y2 = Segment x1 y1 x2 (displace h y1)
             -- | otherwise = Segment x1 (displace h y2) x2 y2
 
+instance HasDimensions Arc where
+    _width f s = (\ w -> s{ arc_width = w }) <$> f (arc_width s)
+    _height f s = (\ h -> s{ arc_height = h }) <$> f (arc_height s)
 
 -- Segment
 
@@ -225,6 +231,10 @@ instance HasRectangle Segment where
    --    (max x1 x2, max y1 y2)
    -- Modify the new segment, and then change it back the original orientation.
 
+instance HasRectangle Arc where
+   _Rectangle f (Arc x y w h angle1 angle2) =
+       (\ (Rectangle x' y' w' h') -> Arc x' y' w' h' angle1 angle2)
+       <$> f (Rectangle x y w h)
 
 --}
 
