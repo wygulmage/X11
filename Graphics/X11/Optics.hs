@@ -128,25 +128,19 @@ instance HasDimensions Rectangle where
 instance HasDimensions Segment where
     -- Changes are relative to the 'origin' (upper left corner).
     -- Not sure where it's better to do the test.
-    -- _width f s@(Segment x1 y1 x2 y2)
     _width f s@(Segment x1 _ x2 _)
         | x1 <= x2 =
-            -- (\ w -> Segment x1 y1 (displace w x1) y2)
             (\ w -> set _x2 (displace w x1) s)
             <$> f (fromIntegral (x2 - x1))
         | otherwise =
-            -- (\ w -> Segment (displace w x2) y1 x2 y2)
             (\ w -> set _x (displace w x2) s)
             <$> f (fromIntegral (x1 - x2))
 
-    -- _height f s@(Segment x1 y1 x2 y2) = stretch <$> f (distance y1 y2)
     _height f s@(Segment _ y1 _ y2) = stretch <$> f (distance y1 y2)
        where
          stretch h
             | y1 <= y2 = set _y2 (displace h y1) s
             | otherwise = set _y (displace h y2) s
-            -- | y1 <= y2 = Segment x1 y1 x2 (displace h y1)
-            -- | otherwise = Segment x1 (displace h y2) x2 y2
 
 instance HasDimensions Arc where
     _width f s = (\ w -> s{ arc_width = w }) <$> f (arc_width s)
