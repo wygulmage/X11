@@ -907,7 +907,7 @@ foreign import ccall unsafe "HsXlib.h XKeycodeToKeysym"
 
 -- | interface to the X11 library function @XKeysymToKeycode()@.
 foreign import ccall unsafe "HsXlib.h XKeysymToKeycode"
-        keysymToKeycode :: Display -> KeySym  -> IO KeyCode
+        keysymToKeycode :: Display -> KeySym -> IO KeyCode
 
 -- | interface to the X11 library function @XKeysymToString()@.
 keysymToString  :: KeySym -> String
@@ -1007,7 +1007,7 @@ foreign import ccall unsafe "HsXlib.h XCreatePixmapCursor"
                 Ptr Color -> Ptr Color -> Width -> Height -> IO Cursor
 
 -- | interface to the X11 library function @XCreateGlyphCursor()@.
-createGlyphCursor  :: Display -> Font   -> Font -> Glyph -> Glyph ->
+createGlyphCursor  :: Display -> Font -> Font -> Glyph -> Glyph ->
         Color -> Color -> IO Cursor
 createGlyphCursor display source_font mask_font source_char mask_char
                 fg_color bg_color =
@@ -1016,16 +1016,16 @@ createGlyphCursor display source_font mask_font source_char mask_char
         xCreateGlyphCursor display source_font mask_font source_char mask_char
                 fg_color_ptr bg_color_ptr
 foreign import ccall unsafe "HsXlib.h XCreateGlyphCursor"
-        xCreateGlyphCursor  :: Display -> Font   -> Font -> Glyph -> Glyph ->
+        xCreateGlyphCursor  :: Display -> Font -> Font -> Glyph -> Glyph ->
                 Ptr Color -> Ptr Color -> IO Cursor
 
 -- | interface to the X11 library function @XCreateFontCursor()@.
 foreign import ccall unsafe "HsXlib.h XCreateFontCursor"
-        createFontCursor   :: Display -> Glyph  -> IO Cursor
+        createFontCursor   :: Display -> Glyph -> IO Cursor
 
 -- | interface to the X11 library function @XFreeCursor()@.
 foreign import ccall unsafe "HsXlib.h XFreeCursor"
-        freeCursor         :: Display -> Font   -> IO ()
+        freeCursor         :: Display -> Font -> IO ()
 
 -- | interface to the X11 library function @XRecolorCursor()@.
 recolorCursor      :: Display -> Cursor -> Color -> Color -> IO ()
@@ -1118,54 +1118,40 @@ set_cursor = #{poke XSetWindowAttributes,cursor}
 ----------------------------------------------------------------
 
 -- | interface to the X11 library function @XDrawPoint()@.
-drawPoint ::
-    IsDrawable drawable =>
-    Display -> drawable -> GC -> XPosition -> YPosition -> IO ()
-drawPoint display drawable = xDrawPoint display (toXID drawable)
-
 foreign import ccall unsafe "HsXlib.h XDrawPoint"
-        xDrawPoint :: Display -> XID -> GC -> XPosition -> YPosition -> IO ()
+        drawPoint :: Display -> Drawable a -> GC -> XPosition -> YPosition -> IO ()
 
 -- | interface to the X11 library function @XDrawPoints()@.
 drawPoints ::
-    IsDrawable drawable =>
-    Display -> drawable -> GC -> [Point] -> CoordinateMode -> IO ()
+    Display -> Drawable a -> GC -> [Point] -> CoordinateMode -> IO ()
 drawPoints display d gc points mode =
         withArrayLen points $ \ npoints point_array ->
-        xDrawPoints display (toXID d) gc point_array (fromIntegral npoints) mode
+        xDrawPoints display d gc point_array (fromIntegral npoints) mode
 foreign import ccall unsafe "HsXlib.h XDrawPoints"
-        xDrawPoints :: Display -> XID -> GC -> Ptr Point -> CInt -> CoordinateMode -> IO ()
+        xDrawPoints :: Display -> Drawable a -> GC -> Ptr Point -> CInt -> CoordinateMode -> IO ()
 
 -- | interface to the X11 library function @XDrawLine()@.
-drawLine ::
-    IsDrawable drawable =>
-    Display -> drawable -> GC -> XPosition -> YPosition -> XPosition -> YPosition ->
-    IO ()
-drawLine display drawable = xDrawLine display (toXID drawable)
 foreign import ccall unsafe "HsXlib.h XDrawLine"
-        xDrawLine       :: Display -> XID -> GC -> XPosition -> YPosition ->
-                                XPosition -> YPosition -> IO ()
+        drawLine       :: Display -> Drawable a -> GC -> XPosition -> YPosition -> XPosition -> YPosition -> IO ()
 
 -- | interface to the X11 library function @XDrawLines()@.
 drawLines ::
-    IsDrawable drawable =>
-    Display -> drawable -> GC -> [Point] -> CoordinateMode -> IO ()
+    Display -> Drawable a -> GC -> [Point] -> CoordinateMode -> IO ()
 drawLines display d gc points mode =
         withArrayLen points $ \ npoints point_array ->
-        xDrawLines display (toXID d) gc point_array (fromIntegral npoints) mode
+        xDrawLines display d gc point_array (fromIntegral npoints) mode
 foreign import ccall unsafe "HsXlib.h XDrawLines"
-        xDrawLines      :: Display -> XID -> GC -> Ptr Point -> CInt ->
+        xDrawLines      :: Display -> Drawable a -> GC -> Ptr Point -> CInt ->
                                 CoordinateMode -> IO ()
 
 -- | interface to the X11 library function @XDrawSegments()@.
 drawSegments ::
-    IsDrawable drawable =>
-    Display -> drawable -> GC -> [Segment] -> IO ()
+    Display -> Drawable a -> GC -> [Segment] -> IO ()
 drawSegments display d gc segments =
         withArrayLen segments $ \ nsegments segment_array ->
-        xDrawSegments display (toXID d) gc segment_array (fromIntegral nsegments)
+        xDrawSegments display d gc segment_array (fromIntegral nsegments)
 foreign import ccall unsafe "HsXlib.h XDrawSegments"
-        xDrawSegments   :: Display -> XID -> GC -> Ptr Segment -> CInt -> IO ()
+        xDrawSegments   :: Display -> Drawable a -> GC -> Ptr Segment -> CInt -> IO ()
 
 -- | interface to the X11 library function @XDrawRectangle()@.
 foreign import ccall unsafe "HsXlib.h XDrawRectangle"
@@ -1193,23 +1179,17 @@ foreign import ccall unsafe "HsXlib.h XDrawArcs"
         xDrawArcs       :: Display -> Drawable a -> GC -> Ptr Arc -> CInt -> IO ()
 
 -- | interface to the X11 library function @XFillRectangle()@.
-fillRectangle ::
-    IsDrawable drawable =>
-    Display -> drawable -> GC -> XPosition -> YPosition -> Width -> Height -> IO ()
-fillRectangle display drawable = xFillRectangle display (toXID drawable)
-
 foreign import ccall unsafe "HsXlib.h XFillRectangle"
-        xFillRectangle  :: Display -> XID -> GC -> XPosition -> YPosition ->
-                                Width -> Height -> IO ()
+        fillRectangle  :: Display -> Drawable a -> GC -> XPosition -> YPosition -> Width -> Height -> IO ()
 
 -- | interface to the X11 library function @XFillRectangles()@.
 fillRectangles ::
-    IsDrawable drawable => Display -> drawable -> GC -> [Rectangle] -> IO ()
+    Display -> Drawable a -> GC -> [Rectangle] -> IO ()
 fillRectangles display d gc rectangles =
         withArrayLen rectangles $ \ nrectangles rectangle_array ->
-        xFillRectangles display (toXID d) gc rectangle_array (fromIntegral nrectangles)
+        xFillRectangles display d gc rectangle_array (fromIntegral nrectangles)
 foreign import ccall unsafe "HsXlib.h XFillRectangles"
-        xFillRectangles :: Display -> XID -> GC -> Ptr Rectangle -> CInt -> IO ()
+        xFillRectangles :: Display -> Drawable a -> GC -> Ptr Rectangle -> CInt -> IO ()
 
 -- | interface to the X11 library function @XFillPolygon()@.
 fillPolygon ::

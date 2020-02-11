@@ -22,6 +22,14 @@ drawArc :: Display -> Drawable a -> GC -> Arc -> IO ()
 drawArc display drawable context =
     withArc (XL.drawArc display drawable context)
 
+drawLine :: Display -> Drawable a -> GC -> Segment -> IO ()
+drawLine display drawable context =
+    withSegment (XL.drawLine display drawable context)
+
+drawPoint :: Display -> Drawable a -> GC -> Point -> IO ()
+drawPoint display drawable context =
+    withPoint (XL.drawPoint display drawable context)
+
 drawRectangle :: Display -> Drawable a -> GC -> Rectangle -> IO ()
 drawRectangle display drawable context =
     withRectangle (XL.drawRectangle display drawable context)
@@ -37,6 +45,10 @@ drawImageString display drawable context =
 fillArc :: Display -> Drawable a -> GC -> Arc -> IO ()
 fillArc display drawable context =
     withArc (XL.fillArc display drawable context)
+
+fillRectangle :: Display -> Drawable a -> GC -> Rectangle -> IO ()
+fillRectangle display drawable context =
+    withRectangle (XL.fillRectangle display drawable context)
 
 geometry ::
     Display -> CInt -> String -> String -> Dimension -> Dimensions -> CInt -> CInt ->
@@ -100,3 +112,8 @@ withRectangle ::
     (XPosition -> YPosition -> Width -> Height -> a) ->
     Rectangle -> a
 withRectangle f (Rectangle x y w h) = f x y w h
+
+withSegment ::
+    (XPosition -> YPosition -> XPosition -> YPosition -> a) ->
+    Segment -> a
+withSegment f (Segment x1 y1 x2 y2) = f x1 y1 x2 y2
