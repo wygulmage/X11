@@ -5,6 +5,7 @@ import Graphics.X11.Internal.Types
 import Graphics.X11.Xlib.Types
 import Graphics.X11.Optics
 import qualified Graphics.X11.Xlib as XL
+import qualified Graphics.X11.Xlib.Extras as XL
 
 copyArea :: Display -> Drawable a -> Drawable b -> GC -> Rectangle -> Point -> IO ()
 copyArea display source target context (Rectangle x y w h) (Point x' y') =
@@ -15,8 +16,8 @@ copyPlane display source target context (Rectangle x y w h) (Point x' y') =
     XL.copyPlane display source target context x y w h x' y'
 
 createPixmap :: Display -> Drawable a -> Dimensions -> CInt -> IO Pixmap
-createPixmap display drawable (Dimensions w h) depth =
-    XL.createPixmap display drawable w h depth
+createPixmap display drawable =
+    withDimensions (XL.createPixmap display drawable)
 
 drawArc :: Display -> Drawable a -> GC -> Arc -> IO ()
 drawArc display drawable context =
@@ -94,6 +95,14 @@ warpPointer :: Display -> Window -> Window -> Rectangle -> Point -> IO ()
 warpPointer display source target (Rectangle source_x source_y source_w source_h) (Point target_x target_y) =
     XL.warpPointer display source target source_x source_y source_w source_h target_x target_y
 
+
+wcDrawString :: Display -> Drawable a -> XL.FontSet -> GC -> Point -> String -> IO ()
+wcDrawString display drawable fontset context =
+    withPoint (XL.wcDrawString display drawable fontset context)
+
+wcDrawImageString :: Display -> Drawable a -> XL.FontSet -> GC -> Point -> String -> IO ()
+wcDrawImageString display drawable fontset context =
+    withPoint (XL.wcDrawImageString display drawable fontset context)
 
 --- Helpers
 

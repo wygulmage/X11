@@ -1278,25 +1278,23 @@ wcTextExtents fs text = unsafePerformIO $
         _ <- xwcTextExtents fs textp (fromIntegral len) inkp logicalp
         (,) `fmap` peek inkp `ap` peek logicalp
 
-foreign import ccall unsafe "XlibExtras.h XwcDrawString"
-    xwcDrawString :: Display -> XID -> FontSet -> GC -> XPosition -> YPosition -> CWString -> CInt -> IO ()
-
 wcDrawString ::
-    IsDrawable drawable =>
-    Display -> drawable -> FontSet -> GC -> XPosition -> YPosition -> String -> IO ()
+    Display -> Drawable a -> FontSet -> GC -> XPosition -> YPosition -> String -> IO ()
 wcDrawString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
-        xwcDrawString d (toXID w) fs gc x y s (fromIntegral len)
+        xwcDrawString d w fs gc x y s (fromIntegral len)
 
-foreign import ccall unsafe "XlibExtras.h XwcDrawImageString"
-    xwcDrawImageString :: Display -> XID -> FontSet -> GC -> XPosition -> YPosition -> CWString -> CInt -> IO ()
+foreign import ccall unsafe "XlibExtras.h XwcDrawString"
+    xwcDrawString :: Display -> Drawable a -> FontSet -> GC -> XPosition -> YPosition -> CWString -> CInt -> IO ()
 
 wcDrawImageString ::
-    IsDrawable drawable =>
-    Display -> drawable -> FontSet -> GC -> XPosition -> YPosition -> String -> IO ()
+    Display -> Drawable a -> FontSet -> GC -> XPosition -> YPosition -> String -> IO ()
 wcDrawImageString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
-        xwcDrawImageString d (toXID w) fs gc x y s (fromIntegral len)
+        xwcDrawImageString d w fs gc x y s (fromIntegral len)
+
+foreign import ccall unsafe "XlibExtras.h XwcDrawImageString"
+    xwcDrawImageString :: Display -> Drawable a -> FontSet -> GC -> XPosition -> YPosition -> CWString -> CInt -> IO ()
 
 foreign import ccall unsafe "XlibExtras.h XwcTextEscapement"
     xwcTextEscapement :: FontSet -> CWString -> CInt -> IO Int32
@@ -1661,7 +1659,6 @@ getWMNormalHints :: Display -> Window -> IO SizeHints
 getWMNormalHints d w
     = alloca $ \sh -> do
         alloca $ \supplied_return -> do
-          -- what's the purpose of supplied_return?
           status <- xGetWMNormalHints d w sh supplied_return
           case status of
             0 -> return (SizeHints Nothing Nothing Nothing Nothing Nothing Nothing)
