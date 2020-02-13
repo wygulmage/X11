@@ -59,7 +59,8 @@ geometry disp screen position_string default_position_string border (Dimensions 
     return (status, Rectangle x y w h)
 
 
-getGeometry :: Display -> Drawable a -> IO (Window, Rectangle, Dimension, CInt)
+getGeometry ::
+    Display -> Drawable a -> IO (Window, Rectangle, Dimension, CInt)
 getGeometry disp draw = do
     (root, x, y, w, h, border, status) <- XL.getGeometry disp draw
     return (root, Rectangle x y w h, border, status)
@@ -92,23 +93,30 @@ readBitmapFile display drawable filename =
          (XL.readBitmapFile display drawable filename)
 
 warpPointer :: Display -> Window -> Window -> Rectangle -> Point -> IO ()
-warpPointer display source target (Rectangle source_x source_y source_w source_h) (Point target_x target_y) =
+warpPointer
+    display
+    source
+    target
+    (Rectangle source_x source_y source_w source_h)
+    (Point target_x target_y) =
     XL.warpPointer display source target source_x source_y source_w source_h target_x target_y
 
 
-wcDrawString :: Display -> Drawable a -> XL.FontSet -> GC -> Point -> String -> IO ()
+wcDrawString ::
+    Display -> Drawable a -> XL.FontSet -> GC -> Point -> String -> IO ()
 wcDrawString display drawable fontset context =
     withPoint (XL.wcDrawString display drawable fontset context)
 
-wcDrawImageString :: Display -> Drawable a -> XL.FontSet -> GC -> Point -> String -> IO ()
+wcDrawImageString ::
+    Display -> Drawable a -> XL.FontSet -> GC -> Point -> String -> IO ()
 wcDrawImageString display drawable fontset context =
     withPoint (XL.wcDrawImageString display drawable fontset context)
 
 --- Helpers
 
 withArc ::
-  (XPosition -> YPosition -> Width -> Height -> Angle -> Angle -> a) ->
-  Arc -> a
+    (XPosition -> YPosition -> Width -> Height -> Angle -> Angle -> a) ->
+    Arc -> a
 withArc f (Arc x y w h angle1 angle2) = f x y w h angle1 angle2
 
 withDimensions :: (Width -> Height -> a) -> Dimensions -> a

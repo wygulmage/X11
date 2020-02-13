@@ -568,9 +568,19 @@ foreign import ccall unsafe "HsXlib.h XSetErrorHandler"
 ----------------------------------------------------------------
 
 -- | interface to the X11 library function @XGeometry()@.
-geometry :: Display -> CInt -> String -> String ->
-                Width -> Height -> Dimension -> CInt -> CInt ->
-                IO (CInt, XPosition, YPosition, Width, Height)
+geometry ::
+    Display ->
+    CInt -> -- Screen
+    String -> -- "geometry specification"
+    String -> -- "default" "geometry specification"
+    Dimension -> -- border width
+    Width -> Height -> -- "font" width and height in pixels
+    CInt -> CInt -> -- interior width and height padding
+    IO
+        ( CInt -- bitmask of default values
+        , XPosition, YPosition -- where the hypothetical window should be put
+        , Width, Height -- what the hypothetical window's directions should be
+        )
 geometry display screen position default_position
                 bwidth fwidth fheight xadder yadder =
         withCString position $ \ c_position ->
@@ -582,30 +592,38 @@ geometry display screen position default_position
         res <- xGeometry display screen c_position c_default_position
                 bwidth fwidth fheight xadder yadder
                 x_return y_return width_return height_return
-        -- x <- peek x_return
-        -- y <- peek y_return
-        -- width <- peek width_return
-        -- height <- peek height_return
-        -- return (res, x, y, width, height)
         (,,,,) res <$> peek x_return <*> peek y_return <*> peek width_return <*> peek height_return
 foreign import ccall unsafe "HsXlib.h XGeometry"
         xGeometry :: Display -> CInt -> CString -> CString ->
-                Width -> Height -> Dimension -> CInt -> CInt ->
+                Dimension -> Width -> Height -> CInt -> CInt ->
                 Ptr XPosition -> Ptr YPosition ->
                 Ptr Width -> Ptr Height -> IO CInt
 
--- | interface to the X11 library function @XGetGeometry()@.
+-- XWMGeometry omitted
+-- foreign import ccall unsafe "HsXlib.h XWMGeometry"
+--         xWMGeometry ::
+--             Display -> CInt -> Ptr CString -> Ptr CString -> Dimension -> Ptr SizeHints -> Ptr XPosition -> Ptr YPosition -> Ptr Width -> Ptr Height -> Ptr CInt -> CInt
+
+-- | interface to the X11 library function @XGetGeometry()@
+-- Get the root Window and current geometry of a Drawable.
 getGeometry ::
         Display -> Drawable a ->
-        IO (Window, XPosition, YPosition, Width, Height, Dimension, CInt)
-getGeometry display =
-        outParameters7 (throwIfZero "getGeometry") .
-                xGetGeometry display
+        IO
+            ( Window -- root Window
+            , XPosition , YPosition -- If the Drawable is a window, the coordinates of the upper-left corner. If it's a Pixmap, they're 0.
+            , Width, Height -- dimensions of the Drawable
+            , Dimension -- border width of the Drawable (0 for a Pixmap)
+            , CInt -- depth of the Drawable (bits per pixel for a Pixmap)
+            )
+getGeometry display drawable =
+    outParameters7
+        (throwIfZero "getGeometry")
+        (xGetGeometry display drawable)
 foreign import ccall unsafe "HsXlib.h XGetGeometry"
-        xGetGeometry :: Display -> Drawable a ->
-                Ptr Window -> Ptr XPosition -> Ptr YPosition -> Ptr Width ->
-                Ptr Height -> Ptr (Dimension) -> Ptr CInt -> IO Status
-
+        xGetGeometry ::
+            Display -> Drawable a ->
+            Ptr Window -> Ptr XPosition -> Ptr YPosition -> Ptr Width ->
+            Ptr Height -> Ptr Dimension -> Ptr CInt -> IO Status
 
 -- XParseGeometry omitted (returned bitset too weird)
 
