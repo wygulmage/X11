@@ -10,7 +10,7 @@ import Graphics.X11.Xlib.Types
 
 import Graphics.X11.Internal.Optics
 
--- Lens types and operators are not exported. --
+-- Lens types are not exported. --
 
 type Mono p a b = p a a b b
 type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb

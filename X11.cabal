@@ -71,6 +71,7 @@ library
   other-modules:    Graphics.X11.Xlib.Internal
                     Graphics.X11.Internal.Optics
                     Graphics.X11.Internal.Types
+                    Graphics.X11.Internal.Util
   build-depends:    base == 4.*, data-default
   extensions:       CPP
                     ForeignFunctionInterface
