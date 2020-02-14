@@ -860,6 +860,9 @@ import Graphics.X11.Internal.Types
 
 #include "HsXlib.h"
 
+newtype Screen = Screen CInt
+-- ^ A Screen ID. As far as I can tell, Screen IDs are not XIDs; in xlib they're given as int.
+
 data Gravity = Forget | NorthWest | North | NorthEast | West | Center | East | SouthWest | South | SouthEast | Static
   deriving (Eq, Ord, Enum, Show, Read)
 
