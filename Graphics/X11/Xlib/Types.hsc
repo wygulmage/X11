@@ -21,7 +21,7 @@ module Graphics.X11.Xlib.Types(
         Image(..), Point(..), Rectangle(..), Arc(..), Segment(..), Color(..),
         Pixel (..), Position (..), Dimension (..), Angle, ScreenNumber, Buffer,
         Height, Width, Thickness,
-        XPosition, YPosition, changeAxis
+        XPosition, YPosition, changeAxis, x2y, y2x
         ) where
 
 import Graphics.X11.Types
@@ -189,6 +189,12 @@ newtype Position xy   = Position #{type int} -- Position tagged with axis
 
 type XPosition = Position X
 type YPosition = Position Y
+
+x2y :: XPosition -> YPosition
+x2y = coerce
+
+y2x :: YPosition -> XPosition
+y2x = coerce
 
 changeAxis :: Position a -> Position b
 changeAxis = coerce
