@@ -1,4 +1,4 @@
-{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE LiberalTypeSynonyms #-}
 
 module Graphics.X11.Optics
   ( HasPoint (..)
@@ -10,16 +10,6 @@ import Graphics.X11.Xlib.Types
 
 import Graphics.X11.Internal.Optics
 
--- Lens types are not exported. --
-
-type Mono p a b = p a a b b
-type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb
--- Lens laws:
--- view o (set o v s) ≡ v
--- set o (view o s) s ≡ s
--- set o v' . set o v ≡ set o v'
-
--- Exported --
 
 data Dimensions = Dimensions !Width !Height
 
