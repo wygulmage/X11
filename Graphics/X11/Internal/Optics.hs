@@ -25,7 +25,6 @@ view o = coerce (o Const)
 
 set :: ((a -> Identity b) -> ta -> Identity tb) -> b -> ta -> tb
 -- set o b = over o (const b)
--- set o b = runIdentity . o (const (Identity b))
 set o b = coerce (o (const (Identity b)))
 infixr 4 `set`
 {-# INLINE set #-}
@@ -33,3 +32,4 @@ infixr 4 `set`
 over :: ((a -> Identity b) -> ta -> Identity tb) -> (a -> b) -> ta -> tb
 -- over o f = runIdentity . o (Identity . f)
 over o f = coerce (o (coerce f))
+infixr 4 `over`
