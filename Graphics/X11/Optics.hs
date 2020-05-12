@@ -1,4 +1,4 @@
-{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE LiberalTypeSynonyms #-}
 
 module Graphics.X11.Optics
   ( HasPoint (..)
@@ -10,33 +10,21 @@ import Graphics.X11.Xlib.Types
 
 import Graphics.X11.Internal.Optics
 
--- Lens types are not exported. --
-
-type Mono p a b = p a a b b
-type Lens ta tb a b = forall m. Functor m => (a -> m b) -> ta -> m tb
--- Lens laws:
--- view o (set o v s) ≡ v
--- set o (view o s) s ≡ s
--- set o v' . set o v ≡ set o v'
-
--- Exported --
 
 data Dimensions = Dimensions !Width !Height
 
 -- Has- classes --
 
-  -- HasRectangle could be a superclass of HasSegment, with the Rectangle as the bounding rectangle of the segment. But this could lead to confusion when, eg., the 'height' of an arc is height of the bounding rectangle of the endpoints of the arc rather than that of the arc.
+  -- HasRectangle could be a superclass of HasSegment, with the Rectangle as the bounding rectangle of the segment. But this could lead to confusion when, eg., the 'height' of an arc is height of the bounding rectangle of the endpoints of the arc rather than that of the arc. (In xlib the 'height' of the arc IS the height of the bounding rectangle, so...)
   -- The Point x y of the bounding box of a segment is not the Point x1 y1 of the segment.
   -- Reflecting the diagonal of a rectangle by changing x2 or y2 also changes x1 or y2, so Rectangle can't be an instance of HasSegment (The points of the segment will change when it is transformed back into a rectangle).
   -- So maybe it makes more sense to have a 'HasBoundingRectangle' class that does not have 'HasPoint' as a superclass. You can still do, e.g., view (_Rectangle . _Point) foo.
-  -- If you extend this to HasSegment, you can make Rectangle an instance of HasSegment. But I'm not sure where the balance sits between utility, brevity, and clarity.
 
   -- _Rectangle._x need not equal _x.
 
   -- Should I include a 'ViewsSegment' class?
 
 -- Here's the 'independent'/'bounding' version:
---{-
 
 
 -- Point
@@ -211,7 +199,6 @@ instance HasRectangle Arc where
        (\ (Rectangle x' y' w' h') -> Arc x' y' w' h' angle1 angle2)
        <$> f (Rectangle x y w h)
 
---}
 
 
 rectangleToDiagonal :: Rectangle -> Segment
