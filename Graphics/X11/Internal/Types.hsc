@@ -185,7 +185,8 @@ type Pixmap = Drawable PixmapDrawable
 -- You can tag newtypes with tagged newtypes:
 --{-
 newtype SomeXID a = XID XResource
-    deriving (Eq, Ord, Read, Show, Storable)
+    deriving (Eq, Ord, Read, Show, Storable, Num, Real, Enum, Integral)
+    -- FIXME: Remove numeric classes.
 
 -- non-exported non-constructive newtypes
 newtype Void = Void Void -- empty type
