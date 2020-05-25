@@ -76,6 +76,7 @@ library
   extensions:       CPP
                     ForeignFunctionInterface
   extra-libraries:  X11, Xrandr, Xext
+  hs-source-dirs:   src
   c-sources:        cbits/fdset.c, cbits/auxiliaries.c, cbits/XUtils.c
   includes:         HsXlib.h, HsAllKeysyms.h
   install-includes: HsXlib.h, XlibExtras.h, HsAllKeysyms.h
