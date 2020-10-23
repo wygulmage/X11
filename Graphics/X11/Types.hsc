@@ -841,30 +841,32 @@ import Data.Word
 import Foreign.Marshal.Error
 import Foreign.C.Types
 
+import Graphics.X11.Internal.Types
+
 #include "HsXlib.h"
 
--- ToDo: use newtype
-type XID      = #{type XID}
-type Mask     = #{type Mask}
-type Atom     = #{type Atom}
-type VisualID = #{type VisualID}
-type Time     = #{type Time}
+-- ToDo: use newtype -- DONE: Imported from Graphics.X11.Internal.Types.
+-- type XID      = #{type XID}
+-- type Mask     = #{type Mask}
+-- type Atom     = #{type Atom}
+-- type VisualID = #{type VisualID}
+-- type Time     = #{type Time}
 
 -- end platform dependency
 
-type Window   = XID
-type Drawable = XID
-type Font     = XID
-type Pixmap   = XID
-type Cursor   = XID
-type Colormap = XID
-type GContext = XID
+-- type Window   = XID
+-- type Drawable = XID
+-- type Font     = XID
+-- type Pixmap   = XID
+-- type Cursor   = XID
+-- type Colormap = XID
+-- type GContext = XID
 
-type KeyCode  = #{type KeyCode}
+-- type KeyCode  = #{type KeyCode}
 
-type KeySym   = XID
+-- type KeySym   = XID
 
-#{enum KeySym,
+#{enum KeySym, XID
  , xK_VoidSymbol        = XK_VoidSymbol
  }
 
@@ -872,7 +874,7 @@ type KeySym   = XID
 -- programming, but could have been arbitrary (at the cost of lookup
 -- tables in client code.
 
-#{enum KeySym,
+#{enum KeySym, XID
  , xK_BackSpace         = XK_BackSpace
  , xK_Tab               = XK_Tab
  , xK_Linefeed          = XK_Linefeed
@@ -886,7 +888,7 @@ type KeySym   = XID
  }
 
 -- International & multi-key character composition
-#{enum KeySym,
+#{enum KeySym, XID
  , xK_Multi_key         = XK_Multi_key
  }
 

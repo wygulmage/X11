@@ -92,6 +92,7 @@ module Graphics.X11.Xlib.Atom(
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Internal
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 
 import Foreign hiding ( void )
 import Foreign.C.Types

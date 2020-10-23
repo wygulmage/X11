@@ -34,6 +34,7 @@ module Graphics.X11.Xlib.Font(
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 
 import Foreign (Ptr, Int32, alloca, allocaBytes, peekByteOff, Word16, #{type unsigned long}, peek, throwIfNull)
 import Foreign.C

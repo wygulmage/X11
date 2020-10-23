@@ -71,6 +71,7 @@ import Graphics.X11.Xlib.Event
 import Graphics.X11.Xlib.Internal
 import Graphics.X11.Xlib.Types
 import Graphics.X11.Types
+import Graphics.X11.Internal.Types
 
 #if __GLASGOW_HASKELL__
 import Data.Data
@@ -366,29 +367,29 @@ xrrQueryVersion dpy = wrapPtr2 (cXRRQueryVersion dpy) go
 foreign import ccall "XRRQueryVersion"
   cXRRQueryVersion :: Display -> Ptr CInt -> Ptr CInt -> IO Bool
 
-xrrGetScreenInfo :: Display -> Drawable -> IO (Maybe XRRScreenConfiguration)
+xrrGetScreenInfo :: Display -> Drawable a -> IO (Maybe XRRScreenConfiguration)
 xrrGetScreenInfo dpy draw = do
   p <- cXRRGetScreenInfo dpy draw
   if p == nullPtr
      then return Nothing
      else return (Just (XRRScreenConfiguration p))
 foreign import ccall "XRRGetScreenInfo"
-  cXRRGetScreenInfo :: Display -> Drawable -> IO (Ptr XRRScreenConfiguration)
+  cXRRGetScreenInfo :: Display -> Drawable a -> IO (Ptr XRRScreenConfiguration)
 
 xrrFreeScreenConfigInfo :: XRRScreenConfiguration -> IO ()
 xrrFreeScreenConfigInfo = cXRRFreeScreenConfigInfo
 foreign import ccall "XRRFreeScreenConfigInfo"
   cXRRFreeScreenConfigInfo :: XRRScreenConfiguration -> IO ()
 
-xrrSetScreenConfig :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> Time -> IO Status
+xrrSetScreenConfig :: Display -> XRRScreenConfiguration -> Drawable a -> CInt -> Rotation -> Time -> IO Status
 xrrSetScreenConfig = cXRRSetScreenConfig
 foreign import ccall "XRRSetScreenConfig"
-  cXRRSetScreenConfig :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> Time -> IO Status
+  cXRRSetScreenConfig :: Display -> XRRScreenConfiguration -> Drawable a -> CInt -> Rotation -> Time -> IO Status
 
-xrrSetScreenConfigAndRate :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> CShort -> Time -> IO Status
+xrrSetScreenConfigAndRate :: Display -> XRRScreenConfiguration -> Drawable a -> CInt -> Rotation -> CShort -> Time -> IO Status
 xrrSetScreenConfigAndRate = cXRRSetScreenConfigAndRate
 foreign import ccall "XRRSetScreenConfigAndRate"
-  cXRRSetScreenConfigAndRate :: Display -> XRRScreenConfiguration -> Drawable -> CInt -> Rotation -> CShort -> Time -> IO Status
+  cXRRSetScreenConfigAndRate :: Display -> XRRScreenConfiguration -> Drawable a -> CInt -> Rotation -> CShort -> Time -> IO Status
 
 xrrConfigRotations :: XRRScreenConfiguration -> IO (Rotation, Rotation)
 xrrConfigRotations config =

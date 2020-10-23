@@ -67,6 +67,7 @@ library
                       Graphics.X11.Xlib.Window
                       Graphics.X11.Xrandr
   other-modules:      Graphics.X11.Xlib.Internal
+                      Graphics.X11.Internal.Types
   build-depends:      base == 4.*, data-default
   default-language:   Haskell98
   default-extensions: CPP

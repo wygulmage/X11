@@ -61,6 +61,7 @@ module Graphics.X11.Xlib.Event(
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 import Graphics.X11.Xlib.Display( connectionNumber )
 
 import Foreign

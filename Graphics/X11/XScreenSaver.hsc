@@ -37,6 +37,7 @@ module Graphics.X11.XScreenSaver (
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 
 import Foreign
 import Foreign.C.Types
@@ -391,14 +392,14 @@ foreign import ccall "XScreenSaverAllocInfo"
     cXScreenSaverAllocInfo :: IO (Ptr XScreenSaverInfo)
 
 foreign import ccall "XScreenSaverQueryInfo"
-    cXScreenSaverQueryInfo :: Display -> Drawable -> Ptr XScreenSaverInfo
+    cXScreenSaverQueryInfo :: Display -> Drawable a -> Ptr XScreenSaverInfo
                            -> IO Status
 
 foreign import ccall "XScreenSaverSelectInput"
-    cXScreenSaverSelectInput :: Display -> Drawable -> EventMask -> IO ()
+    cXScreenSaverSelectInput :: Display -> Drawable a -> EventMask -> IO ()
 
 foreign import ccall "XScreenSaverSetAttributes"
-    cXScreenSaverSetAttributes :: Display -> Drawable -> Position -> Position
+    cXScreenSaverSetAttributes :: Display -> Drawable a -> Position -> Position
                                -> Dimension -> Dimension -> Dimension
                                -> CInt
                                -> WindowClass
@@ -408,7 +409,7 @@ foreign import ccall "XScreenSaverSetAttributes"
                                -> IO ()
 
 foreign import ccall "XScreenSaverUnsetAttributes"
-    cXScreenSaverUnsetAttributes :: Display -> Drawable -> IO ()
+    cXScreenSaverUnsetAttributes :: Display -> Drawable a -> IO ()
 
 foreign import ccall "XScreenSaverRegister"
     cXScreenSaverSaverRegister :: Display -> ScreenNumber -> XID -> Atom

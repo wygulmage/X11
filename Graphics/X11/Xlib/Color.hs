@@ -32,6 +32,7 @@ module Graphics.X11.Xlib.Color(
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 
 import Foreign
 import Foreign.C

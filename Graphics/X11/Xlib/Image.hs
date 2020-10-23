@@ -24,6 +24,7 @@ module Graphics.X11.Xlib.Image(
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 
 import Foreign (Ptr, throwIfNull)
 import Foreign.C.Types
@@ -45,7 +46,7 @@ foreign import ccall unsafe "HsXlib.h XCreateImage"
 
 -- | interface to the X11 library function @XPutImage()@.
 foreign import ccall unsafe "HsXlib.h XPutImage"
-    putImage :: Display -> Drawable -> GC -> Image ->
+    putImage :: Display -> Drawable a -> GC -> Image ->
         Position -> Position -> Position -> Position  -> Dimension -> Dimension -> IO ()
 
 -- | interface to the X11 library function @XDestroyImage()@.
@@ -53,13 +54,13 @@ foreign import ccall unsafe "HsXlib.h XDestroyImage"
     destroyImage :: Image -> IO ()
 
 -- | interface to the X11 library function @XGetImage()@.
-getImage :: Display -> Drawable -> CInt -> CInt -> CUInt -> CUInt -> CULong -> ImageFormat -> IO Image
+getImage :: Display -> Drawable a -> CInt -> CInt -> CUInt -> CUInt -> CULong -> ImageFormat -> IO Image
 getImage display d x y width height plane_mask format = do
     image <- throwIfNull "getImage" (xGetImage display d x y width height plane_mask format)
     return (Image image)
 
 foreign import ccall unsafe "HsXlib.h XGetImage"
-    xGetImage :: Display -> Drawable -> CInt -> CInt -> CUInt -> CUInt -> CULong -> ImageFormat -> IO (Ptr Image)
+    xGetImage :: Display -> Drawable a -> CInt -> CInt -> CUInt -> CUInt -> CULong -> ImageFormat -> IO (Ptr Image)
 
 foreign import ccall unsafe "HsXlib.h XGetPixel"
     xGetPixel :: Image -> CInt -> CInt -> IO CULong
@@ -73,4 +74,3 @@ members of the XImage structure themselves -}
 -- XInitImage omitted
 
 -- XGetSubImage omitted
-

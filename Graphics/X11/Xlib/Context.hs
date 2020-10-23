@@ -43,6 +43,7 @@ module Graphics.X11.Xlib.Context(
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 
 import Foreign
 import Foreign.C
@@ -136,10 +137,10 @@ foreign import ccall unsafe "HsXlib.h XSetTile"
 
 -- ToDo: create a real interface to this
 -- | partial interface to the X11 library function @XCreateGC()@.
-createGC :: Display -> Drawable -> IO GC
+createGC :: Display -> Drawable a -> IO GC
 createGC display d = xCreateGC display d 0 nullPtr
 foreign import ccall unsafe "HsXlib.h XCreateGC"
-        xCreateGC  :: Display -> Drawable -> ValueMask -> Ptr GCValues -> IO GC
+        xCreateGC  :: Display -> Drawable a -> ValueMask -> Ptr GCValues -> IO GC
 
 type ValueMask = Word32
 

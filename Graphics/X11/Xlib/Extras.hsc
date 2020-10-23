@@ -23,6 +23,7 @@ import Graphics.X11.XScreenSaver
 import Graphics.X11.Xlib
 import Graphics.X11.Xlib.Internal
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 import Foreign (Storable, Ptr, peek, poke, peekElemOff, pokeElemOff, peekByteOff, pokeByteOff, peekArray, throwIfNull, nullPtr, sizeOf, alignment, alloca, with, throwIf, Word8, Word16, #{type unsigned long}, Int32, plusPtr, castPtr, withArrayLen, setBit, testBit, allocaBytes, FunPtr)
 import Foreign.C.Types
 import Foreign.C.String
@@ -1101,17 +1102,17 @@ wcTextExtents fs text = unsafePerformIO $
         (,) `fmap` peek inkp `ap` peek logicalp
 
 foreign import ccall unsafe "XlibExtras.h XwcDrawString"
-    xwcDrawString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
+    xwcDrawString :: Display -> Drawable a -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
 
-wcDrawString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
+wcDrawString :: Display -> Drawable a -> FontSet -> GC -> Position -> Position -> String -> IO ()
 wcDrawString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
         xwcDrawString d w fs gc x y s (fromIntegral len)
 
 foreign import ccall unsafe "XlibExtras.h XwcDrawImageString"
-    xwcDrawImageString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
+    xwcDrawImageString :: Display -> Drawable a -> FontSet -> GC -> Position -> Position -> CWString -> CInt -> IO ()
 
-wcDrawImageString :: Display -> Drawable -> FontSet -> GC -> Position -> Position -> String -> IO ()
+wcDrawImageString :: Display -> Drawable a -> FontSet -> GC -> Position -> Position -> String -> IO ()
 wcDrawImageString d w fs gc x y =
     flip withCWStringLen $ \(s, len) ->
         xwcDrawImageString d w fs gc x y s (fromIntegral len)

@@ -50,6 +50,7 @@ module Graphics.X11.Xlib.Window(
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 
 import Foreign
 import Foreign.C

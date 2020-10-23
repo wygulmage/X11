@@ -39,6 +39,7 @@ module Graphics.X11.Xlib.Screen(
 
 import Graphics.X11.Types
 import Graphics.X11.Xlib.Types
+import Graphics.X11.Internal.Types
 import Foreign.C.Types
 
 ----------------------------------------------------------------
