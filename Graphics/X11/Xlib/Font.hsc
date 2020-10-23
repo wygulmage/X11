@@ -75,7 +75,7 @@ foreign import ccall unsafe "HsXlib.h XQueryFont"
 
 -- Note that this _WILL NOT WORK_ unless you have explicitly set the font.
 -- I'm slowly but surely coming to the conclusion that Xlib is a pile of
--- steaming shit.
+-- steaming shit. 💩
 
 -- | interface to the X11 library function @XGetGCValues()@.
 fontFromGC :: Display -> GC -> IO Font
@@ -87,7 +87,7 @@ fontFromGC display gc =
 foreign import ccall unsafe "HsXlib.h XGetGCValues"
 	xGetGCValues :: Display -> GC -> ValueMask -> Ptr GCValues -> IO CInt
 
-type ValueMask = #{type unsigned long}
+type ValueMask = #{type unsigned long} -- FIXME: If safe, use @type ValueMask = Mask@.
 
 -- | interface to the X11 library function @XLoadQueryFont()@.
 loadQueryFont :: Display -> String -> IO FontStruct
