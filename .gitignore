@@ -11,3 +11,5 @@ include/X11_extras_config.h
 /cabal.project.local
 /dist-newstyle/
 /dist/
+/.stack-work/
+/stack.yaml.lock

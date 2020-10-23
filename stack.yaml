@@ -1,0 +1,13 @@
+resolver: lts-16.19
+
+# User packages to be built.
+packages:
+- .
+
+# System packages for Nix:
+nix:
+   packages:
+   - xorg.libX11
+   - xorg.libXext
+   - xorg.libXrandr
+   - xorg.libXScrnSaver
