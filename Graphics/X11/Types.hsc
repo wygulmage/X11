@@ -833,7 +833,8 @@ module Graphics.X11.Types
         xRR_Reflect_Y,
         xRR_Connected,
         xRR_Disconnected,
-        xRR_UnknownConnection
+        xRR_UnknownConnection,
+        toXID, fromXID, SomeXID (XID)
         ) where
 
 -- import Data.Int
