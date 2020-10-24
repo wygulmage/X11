@@ -909,7 +909,8 @@ instance Storable WindowChanges where
 -- Some extra constants
 --
 
-none :: XID
+-- none :: XID
+none :: SomeXID a
 none = #{const None}
 
 anyButton :: Button

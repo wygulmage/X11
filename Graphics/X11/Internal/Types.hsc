@@ -137,10 +137,7 @@ module Graphics.X11.Internal.Types where
 import Data.Bits (Bits, FiniteBits, (.|.))
 import Data.Semigroup
 import Data.Word
--- import Data.Coerce (Coercible, coerce)
 
-import Foreign.Marshal.Error
--- import Foreign.C.Types
 import Foreign.Storable (Storable)
 
 #include "HsXlib.h"
@@ -251,8 +248,9 @@ type Drawable a = SomeXID (DrawableXID a)
 type Pixmap = SomeXID (DrawableXID PixmapDrawable)
 type Window = SomeXID (DrawableXID WindowDrawable)
 
-none :: SomeXID a
-none = XID 0
+-- none :: forall a. SomeXID a
+-- none = XID 0
+-- none = XID #{const None}
 
 toXID :: SomeXID a -> XID
 toXID (XID x) = XID x
